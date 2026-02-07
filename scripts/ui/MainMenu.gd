@@ -16,4 +16,4 @@ func on_exit_pressed():
 
 func _exit_tree() -> void:
 	start_game_btn.button_up.disconnect(on_start_pressed)
-	exit_game_btn.button_up.connect(on_exit_pressed)
+	exit_game_btn.button_up.disconnect(on_exit_pressed)
