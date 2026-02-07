@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5dkogut1pfxc"
-path="res://.godot/imported/walkSS.png-881697a09af610e3cf312374bc76a49c.ctex"
+uid="uid://bkihfc4r5366n"
+path="res://.godot/imported/damageSS.png-bccc1bc2a78322a39a52ef3f1d37b1e7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/walkSS.png"
-dest_files=["res://.godot/imported/walkSS.png-881697a09af610e3cf312374bc76a49c.ctex"]
+source_file="res://assets/sprites/damageSS.png"
+dest_files=["res://.godot/imported/damageSS.png-bccc1bc2a78322a39a52ef3f1d37b1e7.ctex"]
 
 [params]
 
