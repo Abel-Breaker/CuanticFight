@@ -13,9 +13,10 @@ const JUMP_VELOCITY = -300.0
 # Priority table
 const ANIM_PRIORITY := {
 	"idle": 10,
-	"run": 20,
+	"run": 10,
+	"falling": 20,
 	"jump": 30,
-	"falling": 40,
+	"land": 30,
 	"hit": 60,
 	"light_attack": 60,
 	"ranged_attack": 60,
@@ -49,6 +50,9 @@ func deal_light_attack_damage(area: Area2D):
 	print("the parent is " + str(area.get_parent()))
 
 func _physics_process(delta: float) -> void:
+	
+	evaluate_base_animation()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

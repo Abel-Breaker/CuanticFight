@@ -180,3 +180,7 @@ tile_set = SubResource("TileSet_31ujj")
 
 [node name="CharacterBody2D" parent="." unique_id=292589204 instance=ExtResource("2_3sta2")]
 position = Vector2(-200, -14)
+
+[node name="CharacterBody2D2" parent="." unique_id=708706009 instance=ExtResource("2_3sta2")]
+position = Vector2(-125, -13)
+charID = 2
