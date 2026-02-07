@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cjooovg6fc0m3"]
+
+[ext_resource type="Script" uid="uid://dqtuuk52dlmkf" path="res://scripts/ui/ButtonAnimation.gd" id="1_sjaun"]
+
+[node name="Button" type="Button" unique_id=777942862]
+custom_minimum_size = Vector2(100, 40)
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Node" type="Node" parent="." unique_id=931403460]
+script = ExtResource("1_sjaun")
+from_center = true
+scale_on_press = Vector2(0.75, 0.75)
+scale_on_hover = Vector2(1.25, 1.25)
+anim_time = 0.25
+transition_type = 1

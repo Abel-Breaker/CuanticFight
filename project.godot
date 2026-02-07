@@ -15,6 +15,11 @@ run/main_scene="uid://bkyoruw1ew5d"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SignalContainer="*uid://4qmt6gaimbe7"
+GameManager="*uid://dfbqydovesx5q"
+
 [input]
 
 move_left_1={
