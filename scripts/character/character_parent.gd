@@ -4,7 +4,7 @@ class_name CharacterParent
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
-const MAX_HEALTH = 100
+const MAX_HEALTH = 30
 
 @export var charID : int = 1
 
@@ -31,13 +31,13 @@ const ANIM_PRIORITY := {
 	"light_attack": 60,
 	"ranged_attack": 60,
 	"especial_attack": 60,
-	"death": 100
+	"die": 100
 }
 
 # Animations that must finish once started
 const LOCKING_ANIMS := {
 	"hit": true,
-	"death": true
+	"die": true
 }
 
 var anim_locked := false
@@ -72,14 +72,16 @@ func flip_player1_sprite_on_load():
 
 func received_damage(damage_amount : int):
 	if especialAttack.end_duplication_character():
-		print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
+		#print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
 		current_health -= damage_amount
-		if current_health < 0:
-			current_health = 0 #TODO: Make this player die
+		if current_health <= 0:
+			current_health = 0 
+			request_anim("die")
+		else:
+			request_anim("hit")
 		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
 
 func _physics_process(delta: float) -> void:
-	
 	evaluate_base_animation()
 	
 	# Add the gravity.
@@ -156,16 +158,17 @@ func request_anim(animName: String) -> bool:
 func _on_anim_finished():
 	# Unlock when a locking anim finishes
 	if anim_locked and sprite.animation == locked_anim:
-		anim_locked = false
-		locked_anim = ""
-		current_priority = 0  # allow re-evaluation
+		if current_priority < ANIM_PRIORITY.get("die"): # when dead cannot change animation
+			anim_locked = false
+			locked_anim = ""
+			current_priority = 0  # allow re-evaluation
 		
 	evaluate_base_animation()
 	
 	
 # Locomotion chooser
 func evaluate_base_animation():
-	if anim_locked:
+	if anim_locked or current_health<=0:
 		return
 	if not is_on_floor():
 		request_anim("falling")
@@ -177,7 +180,7 @@ func evaluate_base_animation():
 		
 func flip_character(lookLeft:bool) ->void:
 	isLookingLeft = lookLeft
-	print("DEBUG: Changed looking dir: lookLeft = " + str(lookLeft))
+	#print("DEBUG: Changed looking dir: lookLeft = " + str(lookLeft))
 	if lookLeft:
 		SignalContainer.player_changed_looking_direction.emit(charID, -1)
 		sprite.set_flip_h(true)
