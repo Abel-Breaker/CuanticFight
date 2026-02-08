@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://61mba387fnq7"]
 
-[ext_resource type="Script" path="res://scripts/character/light_attack.gd" id="1_vl30b"]
+[ext_resource type="Script" uid="uid://c1l03hdb5m7oi" path="res://scripts/character/light_attack.gd" id="1_vl30b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p2su"]
 
