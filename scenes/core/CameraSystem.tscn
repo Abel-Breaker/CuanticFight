@@ -1,21 +1,42 @@
 [gd_scene format=3 uid="uid://b71wrsa4yxmn0"]
 
 [ext_resource type="Script" uid="uid://dqbmfypd1nscq" path="res://scripts/system/CameraController.gd" id="1_em6g4"]
-[ext_resource type="Material" uid="uid://dljtkp00opof8" path="res://shaders/SplitScreenMaterial.tres" id="2_ne1ou"]
 
 [node name="CameraSystem" type="Node2D" unique_id=1241625164]
 script = ExtResource("1_em6g4")
 
-[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=892064894]
-material = ExtResource("2_ne1ou")
+[node name="CameraSingle" type="Camera2D" parent="." unique_id=1992955932]
+
+[node name="SplitUI" type="Control" parent="." unique_id=1321135694]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SplitUI" unique_id=696041134]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="ViewportContainer" unique_id=79541966]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SplitUI/HBoxContainer" unique_id=115731225]
 layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
 
-[node name="CameraSingle" type="Camera2D" parent="." unique_id=1992955932]
+[node name="SubViewport" type="SubViewport" parent="SplitUI/HBoxContainer/SubViewportContainer" unique_id=1738484056]
+handle_input_locally = false
+size = Vector2i(2, 512)
+render_target_update_mode = 4
 
-[node name="CameraP1" type="Camera2D" parent="." unique_id=1300825006]
+[node name="CameraP1" type="Camera2D" parent="SplitUI/HBoxContainer/SubViewportContainer/SubViewport" unique_id=2099640963]
 
-[node name="CameraP2" type="Camera2D" parent="." unique_id=1133459745]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="SplitUI/HBoxContainer" unique_id=307116746]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SubViewport" type="SubViewport" parent="SplitUI/HBoxContainer/SubViewportContainer2" unique_id=652036159]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="CameraP2" type="Camera2D" parent="SplitUI/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1938182651]

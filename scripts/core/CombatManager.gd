@@ -16,6 +16,7 @@ func player_received_dmg(player_num: int, remaining_health: int, total_health: i
 		combat_ended = true
 		SignalContainer.game_finish.emit(player_num%2 +1) #Sends the winner player (2 if 1 has 0 health and the other way around)
 
+# TODO: When dividing cuantic player return 3 players
 func get_players() -> Array[CharacterBody2D]:
 	return [player1, player2]
 

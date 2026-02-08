@@ -107,8 +107,9 @@ func change_scene(new_scene_path: String):
 	if curr_scene:
 		curr_scene.queue_free()
 
+
 func get_players() -> Array[CharacterBody2D]:
-	if curr_game_state == GameState.MainMenu:
+	if curr_game_state == GameState.MainMenu: # != PLAYING?
 		return []
 	
 	var combat_manager = get_tree().current_scene
