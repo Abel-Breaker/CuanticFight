@@ -68,12 +68,15 @@ func _ready() -> void:
 func flip_player1_sprite_on_load():
 	flip_character(true)
 
+	
+
 func received_damage(damage_amount : int):
-	print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
-	current_health -= damage_amount
-	if current_health < 0:
-		current_health = 0 #TODO: Make this player die
-	SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
+	if especialAttack.end_duplication_character():
+		print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
+		current_health -= damage_amount
+		if current_health < 0:
+			current_health = 0 #TODO: Make this player die
+		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
 
 func _physics_process(delta: float) -> void:
 	
@@ -108,13 +111,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
-		if lightAttack.try_to_use():
-			request_anim("light_attack")
-		
-		
+		if especialAttack.end_duplication_character():
+			if lightAttack.try_to_use():
+				request_anim("light_attack")
+				
 	if Input.is_action_just_pressed("ranged_attack_"+str(charID)):
-		if request_anim("ranged_attack"):
-			rangedAttack.try_to_use()
+		if especialAttack.end_duplication_character():
+			if request_anim("ranged_attack"):
+				rangedAttack.try_to_use()
 		
 	if Input.is_action_just_pressed("especial_attack_"+str(charID)):
 		if especialAttack.try_to_use():

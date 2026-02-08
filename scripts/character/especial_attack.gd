@@ -3,18 +3,15 @@ extends Area2D
 class_name EspecialAttack
 
 var character : CharacterParent
+var characterClone : CharacterParent
+var isActive : bool = false
 
-@onready var EffectWindow : Timer = $EffectWindow
 @onready var Cooldown : Timer = $Cooldown
-
-@export var damage : int
 
 var canBeUsed : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	area_entered.connect(deal_light_attack_damage)
-	EffectWindow.timeout.connect(updateMonitoring)
 	Cooldown.timeout.connect(updateUsability)
 
 
@@ -30,35 +27,48 @@ func setup(inCharacter : CharacterParent) -> void:
 	else:
 		set_collision_mask(1)
 
-##### AUx funCTiONs
-func updateMonitoring(): 
-		monitoring = false
+##### AUx funCTiON
 func updateUsability():
 		canBeUsed = true
 
 func _exit_tree() -> void:
-	if EffectWindow.timeout.is_connected(updateMonitoring):
-		EffectWindow.timeout.disconnect(updateMonitoring)
 	if Cooldown.timeout.is_connected(updateUsability):
 		Cooldown.timeout.disconnect(updateUsability)
-	if area_entered.is_connected(deal_light_attack_damage):
-		area_entered.disconnect(deal_light_attack_damage)
 
 # Returns true if succesfully used and false if cannot use for any reason
 func try_to_use() -> bool:
-	
 	if canBeUsed:
 		canBeUsed = false
-		monitoring = true
-		Cooldown.start()
-		EffectWindow.start()
-	return true
+		isActive = true
+		duplicate_character()
+		return true
+	return false
 
 
-
+func duplicate_character() -> void:
+	characterClone = character.duplicate()
 	
-func deal_light_attack_damage(area: Area2D):
-	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
-	var enemy = area.get_parent()
-	enemy.received_damage(damage) 
-	print("the parent is " + str(area.get_parent()))
+	character.get_parent().add_child(characterClone)
+	characterClone.position = characterClone.position+ Vector2(-100,0)
+	
+	characterClone.especialAttack.characterClone = character
+	characterClone.especialAttack.isActive = true
+	characterClone.especialAttack.canBeUsed = false
+	
+	characterClone.request_anim("especial_attack")
+	
+
+# Returns true the owner should take the damage and false if not
+func end_duplication_character() -> bool:
+	if isActive:
+		isActive = false
+		Cooldown.start()
+		var im_real = randf() < 0.5
+		if im_real:
+			characterClone.queue_free()
+			return true
+		else:
+			character.queue_free()
+			return false
+	return true
+		
