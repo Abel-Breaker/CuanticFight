@@ -5,7 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s1m2k"]
 
 [node name="EspecialAttack" type="Area2D" unique_id=1413424739]
+monitoring = false
 script = ExtResource("1_eqiue")
+damage = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013429597]
 shape = SubResource("RectangleShape2D_s1m2k")
