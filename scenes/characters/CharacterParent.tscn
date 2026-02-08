@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b5dkogut1pfxc" path="res://assets/sprites/walkSS.png" id="4_hxhik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bv2p"]
-size = Vector2(29.999998, 12.5)
+size = Vector2(21.666666, 8.645834)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6438y"]
 atlas = ExtResource("3_d5onc")
@@ -206,12 +206,12 @@ collision_layer = 2
 script = ExtResource("1_8bv2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1818718889]
-position = Vector2(1.9999999, 1.5000002)
+position = Vector2(-2.000001, 2.1875)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_8bv2p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1924824136]
-position = Vector2(0, -16)
+position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_vcla3")
 animation = &"idle"
@@ -224,15 +224,11 @@ monitoring = false
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="light_attack_area" unique_id=402469824]
-position = Vector2(32, -2)
+position = Vector2(-31, -3)
 shape = SubResource("RectangleShape2D_5kaeq")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1423036104]
-enabled = false
-zoom = Vector2(5, 5)
-position_smoothing_enabled = true
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=548517638]
+position = Vector2(-2.25, -1.625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1731665704]
 position = Vector2(2, 1)

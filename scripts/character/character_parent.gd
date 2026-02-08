@@ -95,9 +95,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
 		request_anim("light_attack")
 		lightAttackArea.monitoring = true
+		lightAttackArea.get_overlapping_areas()
 		lightAttackArea.get_child(0).timeout.connect(func (): #TODO: Change this dirty approach (is just for testing)
-			lightAttackArea.monitoring = false
+			print("aaa")
 		, CONNECT_ONE_SHOT)
+		lightAttackArea.monitoring = false
 		
 		
 	move_and_slide()
