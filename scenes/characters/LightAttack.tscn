@@ -7,6 +7,7 @@
 [node name="lightAttack" type="Area2D" unique_id=77710774]
 monitoring = false
 script = ExtResource("1_vl30b")
+damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1045684203]
 shape = SubResource("RectangleShape2D_1p2su")

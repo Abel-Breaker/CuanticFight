@@ -7,6 +7,8 @@ var character : CharacterParent
 @onready var EffectWindow : Timer = $EffectWindow
 @onready var Cooldown : Timer = $Cooldown
 
+@export var damage : int
+
 var canBeUsed : bool = true
 
 # Called when the node enters the scene tree for the first time.
@@ -29,10 +31,9 @@ func setup(inCharacter : CharacterParent) -> void:
 		set_collision_mask(1)
 
 ##### AUx funCTiONs
-
-func updateMonitoring(): #TODO: Change this dirty approach (is just for testing)
+func updateMonitoring(): 
 		monitoring = false
-func updateUsability(): #TODO: Change this dirty approach (is just for testing)
+func updateUsability():
 		canBeUsed = true
 
 func _exit_tree() -> void:
@@ -59,5 +60,5 @@ func try_to_use() -> bool:
 func deal_light_attack_damage(area: Area2D):
 	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
 	var enemy = area.get_parent()
-	enemy.received_damage(10) #TODO: Change hardcoded damage value
+	enemy.received_damage(damage) 
 	print("the parent is " + str(area.get_parent()))
