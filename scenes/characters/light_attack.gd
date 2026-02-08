@@ -11,7 +11,9 @@ var canBeUsed : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	area_entered.connect(deal_light_attack_damage)
+	EffectWindow.timeout.connect(updateMonitoring)
+	Cooldown.timeout.connect(updateUsability)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -21,11 +23,6 @@ func _process(delta: float) -> void:
 
 func setup(inCharacter : CharacterParent) -> void:
 	character = inCharacter
-	
-	EffectWindow.timeout.connect(updateMonitoring)
-			
-	Cooldown.timeout.connect(updateUsability)
-	
 	if character.charID == 1:
 		set_collision_mask(2)
 	else:
@@ -43,6 +40,8 @@ func _exit_tree() -> void:
 		EffectWindow.timeout.disconnect(updateMonitoring)
 	if Cooldown.timeout.is_connected(updateUsability):
 		Cooldown.timeout.disconnect(updateUsability)
+	if area_entered.is_connected(deal_light_attack_damage):
+		area_entered.disconnect(deal_light_attack_damage)
 
 # Returns true if succesfully used and false if cannot use for any reason
 func try_to_use() -> bool:
@@ -53,3 +52,12 @@ func try_to_use() -> bool:
 		Cooldown.start()
 		EffectWindow.start()
 	return true
+
+
+
+	
+func deal_light_attack_damage(area: Area2D):
+	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
+	var enemy = area.get_parent()
+	enemy.received_damage(10) #TODO: Change hardcoded damage value
+	print("the parent is " + str(area.get_parent()))

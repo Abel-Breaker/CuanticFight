@@ -43,25 +43,18 @@ var current_priority := 0
 var current_health := MAX_HEALTH
 
 
+
+
 func _exit_tree() -> void:
 	if sprite.animation_finished.is_connected(_on_anim_finished):
 		sprite.animation_finished.disconnect(_on_anim_finished)
-	if lightAttack.area_entered.is_connected(deal_light_attack_damage):
-		lightAttack.area_entered.disconnect(deal_light_attack_damage)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_anim_finished)
-	lightAttack.area_entered.connect(deal_light_attack_damage)
 	lightAttack.setup(self)
 	hurtbox.set_collision_layer(charID)
 	isLookingLeft = sprite.flip_h
 
-	
-func deal_light_attack_damage(area: Area2D):
-	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
-	var enemy = area.get_parent()
-	enemy.received_damage(10) #TODO: Change hardcoded damage value
-	print("the parent is " + str(area.get_parent()))
 
 func received_damage(damage_amount : int):
 	print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
