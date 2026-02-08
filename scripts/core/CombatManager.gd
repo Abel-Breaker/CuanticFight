@@ -21,7 +21,7 @@ func player_received_dmg(player_num: int, remaining_health: int, total_health: i
 		SignalContainer.game_finish.emit(player_num%2 +1) #Sends the winner player (2 if 1 has 0 health and the other way around)
 
 func player_changed_looking_direction(player_num: int, new_direction: int):
-	print("DEBUG: Changing looking for index: " + str(player_num -1) + " to value: " + str(new_direction))
+	#print("DEBUG: Changing looking for index: " + str(player_num -1) + " to value: " + str(new_direction))
 	player_look_direction[player_num -1] = new_direction
 	
 
