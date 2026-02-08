@@ -11,7 +11,7 @@ const MAX_HEALTH = 100
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var lightAttack : LightAttack = $LightAttack
-@onready var rangedAttack : RangeAttack = $RangedAttack
+@onready var rangedAttack : RangeAttack = $RangeAttack
 @onready var especialAttack : EspecialAttack = $EspecialAttack
 
 @onready var hurtbox : Area2D = $HurtBox
@@ -102,17 +102,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
-		request_anim("light_attack")
-		lightAttack.try_to_use()
+		if lightAttack.try_to_use():
+			request_anim("light_attack")
 		
 		
 	if Input.is_action_just_pressed("ranged_attack_"+str(charID)):
-		request_anim("ranged_attack")
-		rangedAttack.try_to_use()
+		if request_anim("ranged_attack"):
+			rangedAttack.try_to_use()
 		
 	if Input.is_action_just_pressed("especial_attack_"+str(charID)):
-		request_anim("especial_attack")
-		especialAttack.try_to_use()
+		if especialAttack.try_to_use():
+			request_anim("especial_attack")
 		
 		
 	move_and_slide()

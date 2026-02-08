@@ -52,7 +52,8 @@ func try_to_use() -> bool:
 		monitoring = true
 		Cooldown.start()
 		EffectWindow.start()
-	return true
+		return true
+	return false
 
 
 
