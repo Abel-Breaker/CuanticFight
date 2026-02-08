@@ -3,12 +3,15 @@
 [ext_resource type="Script" uid="uid://drktxj35qkggr" path="res://scripts/ui/PauseMenu.gd" id="1_7ida2"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_vb6pq"]
 
-[node name="PauseMenu" type="Panel" unique_id=2088926800]
-offset_right = 1152.0
-offset_bottom = 646.0
+[node name="PauseMenu" type="CanvasLayer" unique_id=1891136305]
+process_mode = 2
 script = ExtResource("1_7ida2")
 
-[node name="Label" type="Label" parent="." unique_id=1144842061]
+[node name="Panel" type="Panel" parent="." unique_id=2088926800]
+offset_right = 1152.0
+offset_bottom = 646.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1144842061]
 layout_mode = 0
 offset_left = 340.0
 offset_top = 15.0
@@ -19,7 +22,7 @@ text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Resume" parent="." unique_id=777942862 instance=ExtResource("1_vb6pq")]
+[node name="Resume" parent="Panel" unique_id=777942862 instance=ExtResource("1_vb6pq")]
 layout_mode = 0
 offset_left = 503.0
 offset_top = 139.0
@@ -28,7 +31,7 @@ offset_bottom = 179.0
 text = "RESUME GAME
 "
 
-[node name="MainMenu" parent="." unique_id=2058651992 instance=ExtResource("1_vb6pq")]
+[node name="MainMenu" parent="Panel" unique_id=2058651992 instance=ExtResource("1_vb6pq")]
 layout_mode = 0
 offset_left = 511.0
 offset_top = 212.0
@@ -36,15 +39,15 @@ offset_right = 623.0
 offset_bottom = 252.0
 text = "MAIN MENU"
 
-[node name="ExitConfirmation" type="Panel" parent="." unique_id=383186]
+[node name="ExitConfirmation" type="Panel" parent="Panel" unique_id=383186]
 visible = false
 layout_mode = 0
-offset_left = 421.0
-offset_top = 143.0
-offset_right = 715.0
-offset_bottom = 326.0
+offset_left = 424.0
+offset_top = 111.0
+offset_right = 718.0
+offset_bottom = 294.0
 
-[node name="Label" type="Label" parent="ExitConfirmation" unique_id=604906163]
+[node name="Label" type="Label" parent="Panel/ExitConfirmation" unique_id=604906163]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 14.0
@@ -53,7 +56,7 @@ offset_bottom = 89.0
 text = "Are you sure you want to go back to the main menu?"
 autowrap_mode = 2
 
-[node name="Yes" parent="ExitConfirmation" unique_id=1999003642 instance=ExtResource("1_vb6pq")]
+[node name="Yes" parent="Panel/ExitConfirmation" unique_id=1999003642 instance=ExtResource("1_vb6pq")]
 layout_mode = 0
 offset_left = 28.0
 offset_top = 110.0
@@ -61,7 +64,7 @@ offset_right = 128.0
 offset_bottom = 150.0
 text = "YES"
 
-[node name="Cancel" parent="ExitConfirmation" unique_id=2051814361 instance=ExtResource("1_vb6pq")]
+[node name="Cancel" parent="Panel/ExitConfirmation" unique_id=2051814361 instance=ExtResource("1_vb6pq")]
 layout_mode = 0
 offset_left = 167.0
 offset_top = 108.0
@@ -70,14 +73,14 @@ offset_bottom = 148.0
 text = "CANCEL
 "
 
-[node name="Player1" type="Panel" parent="." unique_id=53400044]
+[node name="Player1" type="Panel" parent="Panel" unique_id=53400044]
 layout_mode = 0
 offset_left = 28.0
 offset_top = 200.0
 offset_right = 447.0
 offset_bottom = 614.0
 
-[node name="Label" type="Label" parent="Player1" unique_id=2010315593]
+[node name="Label" type="Label" parent="Panel/Player1" unique_id=2010315593]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 15.0
@@ -87,24 +90,24 @@ text = "PLAYER 1
 CONTROLLS"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player1" unique_id=1566802727]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Player1" unique_id=1566802727]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 76.0
 offset_right = 383.0
 offset_bottom = 386.0
 
-[node name="Up" type="Control" parent="Player1/VBoxContainer" unique_id=1003199544]
+[node name="Up" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1003199544]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/Up" unique_id=1318924396]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Up" unique_id=1318924396]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Up:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/Up" unique_id=1263544676]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Up" unique_id=1263544676]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -112,17 +115,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "W"
 
-[node name="Left" type="Control" parent="Player1/VBoxContainer" unique_id=485865600]
+[node name="Left" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=485865600]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/Left" unique_id=1323824103]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Left" unique_id=1323824103]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Left:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/Left" unique_id=1109716593]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Left" unique_id=1109716593]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -130,17 +133,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "A"
 
-[node name="Right" type="Control" parent="Player1/VBoxContainer" unique_id=1907550751]
+[node name="Right" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1907550751]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/Right" unique_id=1676232205]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Right" unique_id=1676232205]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Right:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/Right" unique_id=1775955331]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Right" unique_id=1775955331]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -148,17 +151,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "D"
 
-[node name="BasicAttack" type="Control" parent="Player1/VBoxContainer" unique_id=455996590]
+[node name="BasicAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=455996590]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/BasicAttack" unique_id=1316882271]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/BasicAttack" unique_id=1316882271]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Basic attack:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/BasicAttack" unique_id=329179475]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/BasicAttack" unique_id=329179475]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -166,17 +169,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "E (placeholder)"
 
-[node name="RangeAttack" type="Control" parent="Player1/VBoxContainer" unique_id=1663685622]
+[node name="RangeAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1663685622]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/RangeAttack" unique_id=2098508538]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/RangeAttack" unique_id=2098508538]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Range attack:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/RangeAttack" unique_id=75338287]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/RangeAttack" unique_id=75338287]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -184,17 +187,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "Q (placeholder)"
 
-[node name="SpecialAttack" type="Control" parent="Player1/VBoxContainer" unique_id=637149401]
+[node name="SpecialAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=637149401]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player1/VBoxContainer/SpecialAttack" unique_id=2055091318]
+[node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/SpecialAttack" unique_id=2055091318]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Special attack:"
 
-[node name="Key" type="Label" parent="Player1/VBoxContainer/SpecialAttack" unique_id=1276698595]
+[node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/SpecialAttack" unique_id=1276698595]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -202,14 +205,14 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "R (placeholder)"
 
-[node name="Player2" type="Panel" parent="." unique_id=933984158]
+[node name="Player2" type="Panel" parent="Panel" unique_id=933984158]
 layout_mode = 0
 offset_left = 683.0
 offset_top = 201.0
 offset_right = 1102.0
 offset_bottom = 615.0
 
-[node name="Label" type="Label" parent="Player2" unique_id=214748770]
+[node name="Label" type="Label" parent="Panel/Player2" unique_id=214748770]
 layout_mode = 0
 offset_left = 67.0
 offset_top = 15.0
@@ -219,24 +222,24 @@ text = "PLAYER 2
 CONTROLLS"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Player2" unique_id=1715980330]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/Player2" unique_id=1715980330]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 76.0
 offset_right = 383.0
 offset_bottom = 386.0
 
-[node name="Up" type="Control" parent="Player2/VBoxContainer" unique_id=241822204]
+[node name="Up" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=241822204]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/Up" unique_id=215101820]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/Up" unique_id=215101820]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Up:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/Up" unique_id=601453027]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Up" unique_id=601453027]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -244,17 +247,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "ARROW_UP"
 
-[node name="Left" type="Control" parent="Player2/VBoxContainer" unique_id=775980057]
+[node name="Left" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=775980057]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/Left" unique_id=1713226888]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/Left" unique_id=1713226888]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Left:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/Left" unique_id=896856748]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Left" unique_id=896856748]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -262,17 +265,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "ARROW_LEFT"
 
-[node name="Right" type="Control" parent="Player2/VBoxContainer" unique_id=1252863093]
+[node name="Right" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=1252863093]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/Right" unique_id=2063839198]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/Right" unique_id=2063839198]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Right:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/Right" unique_id=911819373]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Right" unique_id=911819373]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -280,17 +283,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "ARROW_RIGHT"
 
-[node name="BasicAttack" type="Control" parent="Player2/VBoxContainer" unique_id=1073270538]
+[node name="BasicAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=1073270538]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/BasicAttack" unique_id=551955928]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/BasicAttack" unique_id=551955928]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Basic attack:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/BasicAttack" unique_id=2015135690]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/BasicAttack" unique_id=2015135690]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -298,17 +301,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = ". (placeholder)"
 
-[node name="RangeAttack" type="Control" parent="Player2/VBoxContainer" unique_id=2142808651]
+[node name="RangeAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=2142808651]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/RangeAttack" unique_id=268070183]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/RangeAttack" unique_id=268070183]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Range attack:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/RangeAttack" unique_id=588085680]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/RangeAttack" unique_id=588085680]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0
@@ -316,17 +319,17 @@ offset_right = 377.0
 offset_bottom = 24.0
 text = "- (placeholder)"
 
-[node name="SpecialAttack" type="Control" parent="Player2/VBoxContainer" unique_id=798356783]
+[node name="SpecialAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=798356783]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[node name="Action" type="Label" parent="Player2/VBoxContainer/SpecialAttack" unique_id=1664908493]
+[node name="Action" type="Label" parent="Panel/Player2/VBoxContainer/SpecialAttack" unique_id=1664908493]
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
 text = "Special attack:"
 
-[node name="Key" type="Label" parent="Player2/VBoxContainer/SpecialAttack" unique_id=1347704620]
+[node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/SpecialAttack" unique_id=1347704620]
 layout_mode = 0
 offset_left = 206.0
 offset_top = 1.0

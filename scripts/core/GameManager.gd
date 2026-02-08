@@ -9,7 +9,7 @@ var game_scene_path : String = "res://scenes/stages/TestingMap.tscn" #TODO: Chan
 
 var curr_game_state : GameState = GameState.MainMenu
 
-var pause_overlay : Panel
+var pause_overlay : CanvasLayer
 var game_ended_overlay : CanvasLayer
 
 
@@ -43,6 +43,8 @@ func start_game():
 func exit_game():
 	if curr_game_state != GameState.Paused and curr_game_state != GameState.CombatEnded:
 		return
+	if curr_game_state == GameState.Paused:
+		resume_game()
 	curr_game_state = GameState.MainMenu
 	
 	if game_ended_overlay:
