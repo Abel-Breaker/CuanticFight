@@ -11,7 +11,7 @@ enum CameraMode { SINGLE, SPLIT }
 @onready var cam_p1: Camera2D = $SplitUI/HBoxContainer/SubViewportContainer/SubViewport/CameraP1
 @onready var cam_p2: Camera2D = $SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/CameraP2
 
-var players: Array[CharacterBody2D] = []
+var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
 
 func _ready():
