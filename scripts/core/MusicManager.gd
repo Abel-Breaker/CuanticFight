@@ -10,7 +10,7 @@ var low_health_filter: AudioEffectFilter
 
 func _ready() -> void:
 	var ind = AudioServer.get_bus_index("Music")
-	print("DEBUG: bus_index: " + str(ind))
+	#print("DEBUG: bus_index: " + str(ind))
 	low_health_filter = AudioEffectFilter.new()
 	AudioServer.add_bus_effect(ind, low_health_filter)
 	low_health_filter.cutoff_hz = 20000

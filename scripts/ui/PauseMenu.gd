@@ -29,7 +29,7 @@ func on_cancel_press():
 	confirmation_panel.visible = false
 
 func _exit_tree() -> void:
-	print("DEBUG: Disconnecting pause menu buttons")
+	#print("DEBUG: Disconnecting pause menu buttons")
 	resume_btn.button_up.disconnect(on_resume_press)
 	main_menu_btn.button_up.disconnect(on_main_menu_press)
 	confirmation_yes_btn.button_up.disconnect(on_yes_press)
