@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dghwthbpoa0v4" path="res://assets/sprites/closeAttack.png" id="4_d5onc"]
 [ext_resource type="Texture2D" uid="uid://b5dkogut1pfxc" path="res://assets/sprites/walkSS.png" id="4_hxhik"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_ik0hf"]
-[ext_resource type="PackedScene" path="res://scenes/characters/RangeAttack.tscn" id="8_wqqn3"]
+[ext_resource type="PackedScene" uid="uid://dhfoed6wajj0y" path="res://scenes/characters/RangeAttack.tscn" id="8_wqqn3"]
 [ext_resource type="PackedScene" uid="uid://c0716h4cxg1af" path="res://scenes/characters/EspecialAttack.tscn" id="9_cu3dp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bv2p"]
