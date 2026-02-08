@@ -14,6 +14,8 @@ const MAX_HEALTH = 100
 
 @onready var hurtbox : Area2D = $HurtBox
 
+var desduplicadoFLAG : bool = false 
+
 var isLookingLeft : bool
 
 # Priority table
