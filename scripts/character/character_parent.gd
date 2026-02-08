@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
+const MAX_HEALTH = 100
 
 @export var charID : int = 1
 
@@ -34,8 +35,10 @@ var anim_locked := false
 var locked_anim := ""
 var current_priority := 0
 
+var current_health := MAX_HEALTH
 
-func func_exit_tree() -> void:
+
+func _exit_tree() -> void:
 	if sprite.animation_finished.is_connected(_on_anim_finished):
 		sprite.animation_finished.disconnect(_on_anim_finished)
 	if lightAttackArea.area_entered.is_connected(deal_light_attack_damage):
@@ -47,7 +50,17 @@ func _ready() -> void:
 
 	
 func deal_light_attack_damage(area: Area2D):
+	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
+	var enemy = area.get_parent()
+	enemy.received_damage(10) #TODO: Change hardcoded damage value
 	print("the parent is " + str(area.get_parent()))
+
+func received_damage(damage_amount : int):
+	print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
+	current_health -= damage_amount
+	if current_health < 0:
+		current_health = 0 #TODO: Make this player die
+	SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
 
 func _physics_process(delta: float) -> void:
 	
@@ -82,8 +95,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
 		request_anim("light_attack")
 		lightAttackArea.monitoring = true
+		lightAttackArea.get_child(0).timeout.connect(func (): #TODO: Change this dirty approach (is just for testing)
+			lightAttackArea.monitoring = false
+		, CONNECT_ONE_SHOT)
 		
-		lightAttackArea.monitoring = false
 		
 	move_and_slide()
 	

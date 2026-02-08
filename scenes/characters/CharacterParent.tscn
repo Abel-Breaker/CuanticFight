@@ -220,6 +220,9 @@ autoplay = "idle"
 [node name="light_attack_area" type="Area2D" parent="." unique_id=1001719335]
 monitoring = false
 
+[node name="Timer" type="Timer" parent="light_attack_area" unique_id=773321072]
+one_shot = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="light_attack_area" unique_id=402469824]
 position = Vector2(32, -2)
 shape = SubResource("RectangleShape2D_5kaeq")

@@ -19,7 +19,6 @@ func close_program(exit_code : int):
 	
 func start_game():
 	change_scene(game_scene_path)
-	#TODO: Allow players to pause the game
 	SignalContainer.game_pause.connect(pause_game)
 	SignalContainer.game_finish.connect(finish_game, CONNECT_ONE_SHOT)
 	SignalContainer.game_exit.connect(exit_game, CONNECT_ONE_SHOT)
@@ -38,9 +37,11 @@ func resume_game():
 	pause_overlay.queue_free()
 	get_tree().paused = false
 
-func finish_game():
+func finish_game(winner_player: int):
 	var game_ended_scene = load(game_ended_scene_path)
 	game_ended_overlay = game_ended_scene.instantiate()
+	game_ended_overlay.set_winner_text(winner_player)
+	get_tree().root.add_child(game_ended_overlay)
 	SignalContainer.game_replay.connect(replay_game, CONNECT_ONE_SHOT)
 
 func replay_game():
