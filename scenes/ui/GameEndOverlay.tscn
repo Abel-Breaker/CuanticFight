@@ -3,13 +3,16 @@
 [ext_resource type="Script" uid="uid://bcek6r0l2twmr" path="res://scripts/ui/GameEndOverlay.gd" id="1_x23t3"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_ykn2c"]
 
-[node name="GameEndOverlay" type="Panel" unique_id=2076772113]
-offset_right = 1152.0
-offset_bottom = 646.0
+[node name="GameEndOverlay" type="CanvasLayer" unique_id=1819888529]
 script = ExtResource("1_x23t3")
-drop_time = 1.0
+drop_time = 0.5
+transition_type = 9
 
-[node name="Label" type="Label" parent="." unique_id=1245778666]
+[node name="Panel" type="Panel" parent="." unique_id=2076772113]
+offset_top = -646.0
+offset_right = 1152.0
+
+[node name="Label" type="Label" parent="Panel" unique_id=1245778666]
 layout_mode = 0
 offset_left = 210.0
 offset_top = 82.0
@@ -20,7 +23,7 @@ text = "QUANTUM WINS!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Replay" parent="." unique_id=777942862 instance=ExtResource("1_ykn2c")]
+[node name="Replay" parent="Panel" unique_id=777942862 instance=ExtResource("1_ykn2c")]
 layout_mode = 0
 offset_left = 395.0
 offset_top = 358.0
@@ -29,7 +32,7 @@ offset_bottom = 398.0
 text = "REPLAY
 "
 
-[node name="MainMenu" parent="." unique_id=234849146 instance=ExtResource("1_ykn2c")]
+[node name="MainMenu" parent="Panel" unique_id=234849146 instance=ExtResource("1_ykn2c")]
 layout_mode = 0
 offset_left = 677.0
 offset_top = 355.0

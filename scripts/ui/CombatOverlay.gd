@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var player1_healthbar : ColorRect = $Player1/HealthBar
 @onready var player2_healthbar : ColorRect = $Player2/HealthBar

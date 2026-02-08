@@ -2,16 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dbpkdi6s4ykof" path="res://scripts/ui/CombatOverlay.gd" id="1_4i80j"]
 
-[node name="CombatOverlay" type="Control" unique_id=225480141]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 646.0
+[node name="CombatOverlay" type="CanvasLayer" unique_id=1875706386]
 script = ExtResource("1_4i80j")
-healthbar_tween_time = 0.15
-tween_transition_type = null
 
 [node name="Player1" type="Control" parent="." unique_id=598076297]
+layout_mode = 3
 anchors_preset = 0
 offset_right = 500.0
 offset_bottom = 59.0
@@ -30,6 +25,7 @@ offset_bottom = 51.0
 color = Color(0, 1, 0.29411766, 1)
 
 [node name="Player2" type="Control" parent="." unique_id=2027344772]
+layout_mode = 3
 anchors_preset = 0
 offset_left = 646.0
 offset_top = 2.0

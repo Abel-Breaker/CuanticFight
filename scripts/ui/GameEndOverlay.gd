@@ -1,14 +1,14 @@
-extends Panel
+extends CanvasLayer
 
-@onready var text_label : Label = $Label
-@onready var replay_btn : Button = $Replay
-@onready var main_menu_btn : Button = $MainMenu
+@onready var panel : Panel = $Panel
+@onready var text_label : Label = $Panel/Label
+@onready var replay_btn : Button = $Panel/Replay
+@onready var main_menu_btn : Button = $Panel/MainMenu
 
 @export var drop_time : float
 @export var transition_type : Tween.TransitionType
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
 	replay_btn.button_up.connect(on_replay_pressed)
@@ -23,13 +23,12 @@ func on_main_menu_pressed():
 	SignalContainer.game_exit.emit()
 
 func tween_down() -> void:
-	var target_position = Vector2(position.x, position.y - size.y)
+	var target_position = Vector2(panel.position.x, panel.position.y + panel.size.y)
 	var tween = create_tween()
-	tween.tween_property(self, "position", target_position, drop_time).set_trans(transition_type)
+	tween.tween_property(panel, "position", target_position, drop_time).set_trans(transition_type)
 
 func set_winner_text(winner_player: int):
 	if winner_player == 1:
-		#text_label.se
 		text_label.text = "PLAYER 1 WINS!"
 	else:
 		text_label.text = "PLAYER 2 WINS!"

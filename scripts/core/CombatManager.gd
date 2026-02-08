@@ -1,6 +1,6 @@
 extends Node
 
-@onready var combat_overlay : Control = $CombatOverlay
+@onready var combat_overlay : CanvasLayer = $CombatOverlay
 @onready var player1 : CharacterBody2D = $Player1
 @onready var player2 : CharacterBody2D = $Player2
 
@@ -15,6 +15,9 @@ func player_received_dmg(player_num: int, remaining_health: int, total_health: i
 	if remaining_health == 0:
 		combat_ended = true
 		SignalContainer.game_finish.emit(player_num%2 +1) #Sends the winner player (2 if 1 has 0 health and the other way around)
+
+func get_players() -> Array[CharacterBody2D]:
+	return [player1, player2]
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause"):

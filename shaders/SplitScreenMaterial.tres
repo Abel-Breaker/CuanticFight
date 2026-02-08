@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dljtkp00opof8"]
+
+[ext_resource type="Shader" uid="uid://iyiio27p2r4g" path="res://shaders/SplitScreenMaterial.gdshader" id="1_4uloi"]
+
+[resource]
+shader = ExtResource("1_4uloi")
+shader_parameter/split_amount = 0.0
+shader_parameter/split_position = 0.5
+shader_parameter/split_direction = 0

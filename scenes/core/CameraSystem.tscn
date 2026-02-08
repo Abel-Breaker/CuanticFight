@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b71wrsa4yxmn0"]
+
+[ext_resource type="Script" uid="uid://dqbmfypd1nscq" path="res://scripts/system/CameraController.gd" id="1_em6g4"]
+[ext_resource type="Material" uid="uid://dljtkp00opof8" path="res://shaders/SplitScreenMaterial.tres" id="2_ne1ou"]
+
+[node name="CameraSystem" type="Node2D" unique_id=1241625164]
+script = ExtResource("1_em6g4")
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="." unique_id=892064894]
+material = ExtResource("2_ne1ou")
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="ViewportContainer" unique_id=79541966]
+layout_mode = 2
+
+[node name="CameraSingle" type="Camera2D" parent="." unique_id=1992955932]
+
+[node name="CameraP1" type="Camera2D" parent="." unique_id=1300825006]
+
+[node name="CameraP2" type="Camera2D" parent="." unique_id=1133459745]

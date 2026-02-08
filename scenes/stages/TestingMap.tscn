@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxb00h4wi8wtc" path="res://scenes/characters/CharacterParent.tscn" id="2_3sta2"]
 [ext_resource type="Script" uid="uid://cxxdfjmfqnx3u" path="res://scripts/core/CombatManager.gd" id="2_aybq8"]
 [ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
+[ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="5_upn1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sta2"]
 texture = ExtResource("1_fhbdo")
@@ -193,3 +194,5 @@ offset_left = -741.0
 offset_top = -78.0
 offset_right = 411.0
 offset_bottom = 568.0
+
+[node name="CameraSystem" parent="." unique_id=1241625164 instance=ExtResource("5_upn1x")]
