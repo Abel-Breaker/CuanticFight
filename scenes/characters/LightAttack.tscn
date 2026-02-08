@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://61mba387fnq7"]
+
+[ext_resource type="Script" uid="uid://c1l03hdb5m7oi" path="res://scenes/characters/light_attack.gd" id="1_vl30b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p2su"]
+
+[node name="lightAttack" type="Area2D" unique_id=77710774]
+script = ExtResource("1_vl30b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1045684203]
+shape = SubResource("RectangleShape2D_1p2su")
+
+[node name="EffectWindow" type="Timer" parent="." unique_id=1808761577]
+wait_time = 0.3
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1096915617]
+one_shot = true

@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_hxhik"]
 [ext_resource type="Texture2D" uid="uid://dghwthbpoa0v4" path="res://assets/sprites/closeAttack.png" id="4_d5onc"]
 [ext_resource type="Texture2D" uid="uid://b5dkogut1pfxc" path="res://assets/sprites/walkSS.png" id="4_hxhik"]
+[ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_ik0hf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bv2p"]
 size = Vector2(21.666666, 8.645834)
@@ -195,15 +196,13 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kaeq"]
-size = Vector2(18.5, 12.5)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_domuo"]
 size = Vector2(40, 18)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=292589204]
 collision_layer = 2
 script = ExtResource("1_8bv2p")
+charID = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1818718889]
 position = Vector2(-2.000001, 2.1875)
@@ -217,19 +216,11 @@ sprite_frames = SubResource("SpriteFrames_vcla3")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="light_attack_area" type="Area2D" parent="." unique_id=1001719335]
-monitoring = false
-
-[node name="Timer" type="Timer" parent="light_attack_area" unique_id=773321072]
-one_shot = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="light_attack_area" unique_id=402469824]
-position = Vector2(-31, -3)
-shape = SubResource("RectangleShape2D_5kaeq")
-
 [node name="HurtBox" type="Area2D" parent="." unique_id=548517638]
 position = Vector2(-2.25, -1.625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1731665704]
 position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_domuo")
+
+[node name="lightAttack" parent="." unique_id=77710774 instance=ExtResource("7_ik0hf")]
