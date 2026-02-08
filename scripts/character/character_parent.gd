@@ -56,6 +56,8 @@ func _exit_tree() -> void:
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_anim_finished)
 	lightAttack.setup(self)
+	rangedAttack.setup(self)
+	especialAttack.setup(self)
 	hurtbox.set_collision_layer(charID)
 	isLookingLeft = sprite.flip_h
 
