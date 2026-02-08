@@ -190,9 +190,6 @@ position = Vector2(-125, -13)
 charID = 2
 
 [node name="CombatOverlay" parent="." unique_id=225480141 instance=ExtResource("3_31ujj")]
-offset_left = -741.0
-offset_top = -78.0
-offset_right = 411.0
-offset_bottom = 568.0
 
 [node name="CameraSystem" parent="." unique_id=1241625164 instance=ExtResource("5_upn1x")]
+position = Vector2(-216, 139)
