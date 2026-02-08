@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cpt4jsmfiaugg"]
+
+[ext_resource type="Texture2D" uid="uid://b6vm4eutvtki6" path="res://icon.svg" id="1_gf2iv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
+radius = 16.03122
+
+[node name="Proyectile" type="RigidBody2D" unique_id=682323841]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704027142]
+scale = Vector2(0.203125, 0.171875)
+texture = ExtResource("1_gf2iv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
+shape = SubResource("CircleShape2D_0ioq4")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dhfoed6wajj0y"]
+
+[ext_resource type="Script" uid="uid://desoar3puoxu2" path="res://scripts/character/rangeAttack.gd" id="1_hiow2"]
+
+[node name="RangeAttack" type="Node2D" unique_id=932311773]
+script = ExtResource("1_hiow2")
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1936479964]
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=580279232]
+position = Vector2(10, -10)

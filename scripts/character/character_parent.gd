@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name CharacterParent
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
@@ -9,7 +10,13 @@ const MAX_HEALTH = 100
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-@onready var lightAttackArea :  Area2D = $light_attack_area
+@onready var lightAttack : lightAttackClass = $lightAttack
+
+@onready var hurtbox : Area2D = $HurtBox
+
+var desduplicadoFLAG : bool = false 
+
+var isLookingLeft : bool
 
 # Priority table
 const ANIM_PRIORITY := {
@@ -38,22 +45,18 @@ var current_priority := 0
 var current_health := MAX_HEALTH
 
 
+
+
 func _exit_tree() -> void:
 	if sprite.animation_finished.is_connected(_on_anim_finished):
 		sprite.animation_finished.disconnect(_on_anim_finished)
-	if lightAttackArea.area_entered.is_connected(deal_light_attack_damage):
-		lightAttackArea.area_entered.disconnect(deal_light_attack_damage)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_anim_finished)
-	lightAttackArea.area_entered.connect(deal_light_attack_damage)
+	lightAttack.setup(self)
+	hurtbox.set_collision_layer(charID)
+	isLookingLeft = sprite.flip_h
 
-	
-func deal_light_attack_damage(area: Area2D):
-	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
-	var enemy = area.get_parent()
-	enemy.received_damage(10) #TODO: Change hardcoded damage value
-	print("the parent is " + str(area.get_parent()))
 
 func received_damage(damage_amount : int):
 	print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
@@ -83,21 +86,20 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left_"+str(charID), "move_right_"+str(charID))
 	
 	if direction:
-		print(request_anim("run"))
 		velocity.x = direction * SPEED
 		if direction > 0:
-			sprite.set_flip_h(false)
+			if isLookingLeft:
+				flip_character(false)
 		else:
-			sprite.set_flip_h(true)
+			if not isLookingLeft:
+				flip_character(true)
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+	
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
 		request_anim("light_attack")
-		lightAttackArea.monitoring = true
-		lightAttackArea.get_child(0).timeout.connect(func (): #TODO: Change this dirty approach (is just for testing)
-			lightAttackArea.monitoring = false
-		, CONNECT_ONE_SHOT)
+		lightAttack.try_to_use()
 		
 		
 	move_and_slide()
@@ -148,3 +150,13 @@ func evaluate_base_animation():
 		request_anim("run")
 	else:
 		request_anim("idle")
+		
+		
+func flip_character(lookLeft:bool) ->void:
+	isLookingLeft = lookLeft
+	if lookLeft:
+		sprite.set_flip_h(true)
+		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))
+	else: 
+		sprite.set_flip_h(false)
+		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))

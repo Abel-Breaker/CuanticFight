@@ -167,7 +167,7 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = "E (placeholder)"
+text = "Q"
 
 [node name="RangeAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1663685622]
 custom_minimum_size = Vector2(0, 30)
@@ -185,7 +185,7 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = "Q (placeholder)"
+text = "E"
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=637149401]
 custom_minimum_size = Vector2(0, 30)
@@ -203,7 +203,7 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = "R (placeholder)"
+text = "R"
 
 [node name="Player2" type="Panel" parent="Panel" unique_id=933984158]
 layout_mode = 0
@@ -299,7 +299,7 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = ". (placeholder)"
+text = "RIGHT_SHIFT"
 
 [node name="RangeAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=2142808651]
 custom_minimum_size = Vector2(0, 30)
@@ -317,7 +317,7 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = "- (placeholder)"
+text = "-"
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=798356783]
 custom_minimum_size = Vector2(0, 30)
@@ -335,4 +335,4 @@ offset_left = 206.0
 offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
-text = "< (placeholder)"
+text = "<"
