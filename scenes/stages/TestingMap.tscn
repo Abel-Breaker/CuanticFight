@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://boqr3j03b15l1" path="res://assetsProv/sprites/world_tileset.png" id="1_fhbdo"]
 [ext_resource type="PackedScene" uid="uid://cxb00h4wi8wtc" path="res://scenes/characters/CharacterParent.tscn" id="2_3sta2"]
 [ext_resource type="Script" uid="uid://cxxdfjmfqnx3u" path="res://scripts/core/CombatManager.gd" id="2_aybq8"]
-[ext_resource type="PackedScene" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
+[ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
 [ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="5_upn1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sta2"]

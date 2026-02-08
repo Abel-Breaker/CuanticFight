@@ -8,7 +8,9 @@ var character: CharacterParent
 @onready var shoot_position : Marker2D = $Marker2D
 
 @export var single_bullet_speed: float = 500
+@export var single_bullet_damage: int = 20
 @export var multi_bullet_speed: float = 300
+@export var multi_bullet_damage: int = 5
 
 var canBeUsed : bool = true
 var collision_layer: int
@@ -24,10 +26,10 @@ func setup(inCharacter: CharacterParent) -> void:
 
 	if character.charID == 1: #TODO: Make it collide with the environment only
 		collision_mask = 0
-		collision_layer = 4
+		collision_layer = 8
 	else:
 		collision_mask = 0
-		collision_layer = 8
+		collision_layer = 4
 
 
 func updateUsability():
@@ -48,6 +50,9 @@ func try_to_use() -> bool:
 	
 	var look_dir_modifier: int = -1 if character.isLookingLeft else 1
 	
+	if look_dir_modifier * shoot_position.position.x < 0:
+		shoot_position.position.x *= -1
+	
 	canBeUsed = false
 	cooldown.start()
 	
@@ -57,7 +62,8 @@ func try_to_use() -> bool:
 			Vector2(look_dir_modifier * single_bullet_speed,0),
 			collision_layer,
 			collision_mask,
-			0
+			0,
+			single_bullet_damage
 		)
 		
 	else: #Shooting like a wave
@@ -67,20 +73,23 @@ func try_to_use() -> bool:
 			Vector2(x_axis_speed, -20),
 			collision_layer,
 			collision_mask,
-			0
+			0,
+			multi_bullet_damage
 		)
 		ProyectilesManager.spawn_proyectile(
 			shoot_position.global_position,
 			Vector2(x_axis_speed, 0),
 			collision_layer,
 			collision_mask,
-			0
+			0,
+			multi_bullet_damage
 		)
 		ProyectilesManager.spawn_proyectile(
 			shoot_position.global_position,
 			Vector2(x_axis_speed, 20),
 			collision_layer,
 			collision_mask,
-			0
+			0,
+			multi_bullet_damage
 		)
 	return true

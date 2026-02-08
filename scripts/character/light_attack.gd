@@ -18,10 +18,6 @@ func _ready() -> void:
 	Cooldown.timeout.connect(updateUsability)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func setup(inCharacter : CharacterParent) -> void:
 	character = inCharacter
@@ -59,7 +55,7 @@ func try_to_use() -> bool:
 
 	
 func deal_light_attack_damage(area: Area2D):
-	#TODO: Talk with the enemy that receives the attack and send the SignalContainer event "player_received_damage"
+
 	var enemy = area.get_parent()
 	enemy.received_damage(damage) 
-	print("the parent is " + str(area.get_parent()))
+	#print("the parent is " + str(area.get_parent()))

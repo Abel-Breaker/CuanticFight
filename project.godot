@@ -21,6 +21,10 @@ SignalContainer="*uid://4qmt6gaimbe7"
 GameManager="*uid://dfbqydovesx5q"
 ProyectilesManager="*uid://cvfqg1gneo6tg"
 
+[gui]
+
+theme/custom_font="uid://b2mhlxj8piu7b"
+
 [input]
 
 move_left_1={

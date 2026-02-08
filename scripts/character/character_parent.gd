@@ -4,7 +4,7 @@ class_name CharacterParent
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
-const MAX_HEALTH = 30
+const MAX_HEALTH = 100
 
 @export var charID : int = 1
 
@@ -52,6 +52,8 @@ var current_health := MAX_HEALTH
 func _exit_tree() -> void:
 	if sprite.animation_finished.is_connected(_on_anim_finished):
 		sprite.animation_finished.disconnect(_on_anim_finished)
+	if hurtbox.body_entered.is_connected(on_hurtbox_body_entered):
+		hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 
 func _ready() -> void:
 	sprite.animation_finished.connect(_on_anim_finished)
@@ -59,7 +61,8 @@ func _ready() -> void:
 	rangedAttack.setup(self)
 	especialAttack.setup(self)
 	hurtbox.set_collision_layer(charID)
-	hurtbox.collision_mask = charID >> 2
+	hurtbox.collision_mask = charID << 2 #NOTE: Used for projectiles
+	hurtbox.body_entered.connect(on_hurtbox_body_entered)
 	isLookingLeft = sprite.flip_h
 	
 	if charID == 2:
@@ -68,7 +71,13 @@ func _ready() -> void:
 func flip_player1_sprite_on_load():
 	flip_character(true)
 
-	
+func on_hurtbox_body_entered(body: Node2D):
+	if not body is RigidBody2D: return
+
+	var dmg : int = body.get_meta("DMG")
+
+	received_damage(dmg)
+	body.queue_free()
 
 func received_damage(damage_amount : int):
 	if especialAttack.end_duplication_character():
