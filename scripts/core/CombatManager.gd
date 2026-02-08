@@ -4,6 +4,8 @@ extends Node
 @onready var player1 : CharacterBody2D = $Player1
 @onready var player2 : CharacterBody2D = $Player2
 
+var player_look_direction: Array[int] = [1, -1] #Player1 starts looking right and Player2 left
+#TODO: From players, notify the change of direction
 var combat_ended : bool = false
 
 func _ready() -> void:
@@ -20,11 +22,8 @@ func get_players() -> Array[CharacterBody2D]:
 	return [player1, player2]
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("pause"):
-		if not combat_ended:
-			SignalContainer.game_pause.emit()
-		else:
-			SignalContainer.game_exit.emit() #TODO: Change (only debug because viewport can't be seen right now)
+	if not combat_ended and Input.is_action_just_pressed("pause"):
+		SignalContainer.game_pause.emit()
 
 
 func _exit_tree() -> void:

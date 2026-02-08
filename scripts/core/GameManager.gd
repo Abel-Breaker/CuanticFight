@@ -114,3 +114,8 @@ func get_players() -> Array[CharacterBody2D]:
 	var combat_manager = get_tree().current_scene
 	return combat_manager.get_players()
 	
+func get_combat_manager():
+	if curr_game_state == GameState.MainMenu: return null
+	
+	var combat_manager = get_tree().current_scene
+	return combat_manager

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SignalContainer="*uid://4qmt6gaimbe7"
 GameManager="*uid://dfbqydovesx5q"
+ProyectilesManager="*uid://cvfqg1gneo6tg"
 
 [input]
 
