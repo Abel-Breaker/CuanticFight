@@ -59,8 +59,14 @@ func _ready() -> void:
 	rangedAttack.setup(self)
 	especialAttack.setup(self)
 	hurtbox.set_collision_layer(charID)
+	hurtbox.collision_mask = charID >> 2
 	isLookingLeft = sprite.flip_h
-
+	
+	if charID == 2:
+		call_deferred("flip_player1_sprite_on_load")
+	
+func flip_player1_sprite_on_load():
+	flip_character(true)
 
 func received_damage(damage_amount : int):
 	print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
@@ -167,9 +173,12 @@ func evaluate_base_animation():
 		
 func flip_character(lookLeft:bool) ->void:
 	isLookingLeft = lookLeft
+	print("DEBUG: Changed looking dir: lookLeft = " + str(lookLeft))
 	if lookLeft:
+		SignalContainer.player_changed_looking_direction.emit(charID, -1)
 		sprite.set_flip_h(true)
 		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))
 	else: 
+		SignalContainer.player_changed_looking_direction.emit(charID, 1)
 		sprite.set_flip_h(false)
 		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))
