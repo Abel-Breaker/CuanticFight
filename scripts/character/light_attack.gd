@@ -1,4 +1,4 @@
-extends Area2Dd
+extends Area2D
 
 class_name lightAttackClass
 
