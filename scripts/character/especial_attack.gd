@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name LightAttack
+class_name EspecialAttack
 
 var character : CharacterParent
 

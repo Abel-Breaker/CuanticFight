@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0716h4cxg1af"]
+
+[ext_resource type="Script" uid="uid://cy13l5ikuyf1e" path="res://scripts/character/especial_attack.gd" id="1_eqiue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1m2k"]
+
+[node name="EspecialAttack" type="Area2D" unique_id=1413424739]
+script = ExtResource("1_eqiue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2013429597]
+shape = SubResource("RectangleShape2D_s1m2k")
+
+[node name="EffectWindow" type="Timer" parent="." unique_id=1683268170]
+wait_time = 0.3
+one_shot = true
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1217257160]
+one_shot = true
