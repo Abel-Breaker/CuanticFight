@@ -25,6 +25,11 @@ func setup(inCharacter : CharacterParent) -> void:
 	EffectWindow.timeout.connect(updateMonitoring)
 			
 	Cooldown.timeout.connect(updateUsability)
+	
+	if character.charID == 1:
+		set_collision_mask(2)
+	else:
+		set_collision_mask(1)
 
 ##### AUx funCTiONs
 
@@ -45,4 +50,6 @@ func try_to_use() -> bool:
 	if canBeUsed:
 		canBeUsed = false
 		monitoring = true
+		Cooldown.start()
+		EffectWindow.start()
 	return true

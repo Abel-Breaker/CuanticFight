@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p2su"]
 
 [node name="lightAttack" type="Area2D" unique_id=77710774]
+monitoring = false
 script = ExtResource("1_vl30b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1045684203]

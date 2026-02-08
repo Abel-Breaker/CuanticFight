@@ -12,6 +12,10 @@ const MAX_HEALTH = 100
 
 @onready var lightAttack : lightAttackClass = $lightAttack
 
+@onready var hurtbox : Area2D = $HurtBox
+
+var isLookingLeft : bool
+
 # Priority table
 const ANIM_PRIORITY := {
 	"idle": 10,
@@ -49,6 +53,8 @@ func _ready() -> void:
 	sprite.animation_finished.connect(_on_anim_finished)
 	lightAttack.area_entered.connect(deal_light_attack_damage)
 	lightAttack.setup(self)
+	hurtbox.set_collision_layer(charID)
+	isLookingLeft = sprite.flip_h
 
 	
 func deal_light_attack_damage(area: Area2D):
@@ -87,9 +93,12 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		if direction > 0:
-			sprite.set_flip_h(false)
+			if isLookingLeft:
+				flip_character(false)
 		else:
-			sprite.set_flip_h(true)
+			if not isLookingLeft:
+				flip_character(true)
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -146,3 +155,13 @@ func evaluate_base_animation():
 		request_anim("run")
 	else:
 		request_anim("idle")
+		
+		
+func flip_character(lookLeft:bool) ->void:
+	isLookingLeft = lookLeft
+	if lookLeft:
+		sprite.set_flip_h(true)
+		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))
+	else: 
+		sprite.set_flip_h(false)
+		lightAttack.set_position(Vector2(-lightAttack.position.x, lightAttack.position.y))
