@@ -105,23 +105,23 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 # Should call this instead of play(...)
-func request_anim(name: String) -> bool:
-	var new_pri : int = ANIM_PRIORITY.get(name, 0)
+func request_anim(animName: String) -> bool:
+	var new_pri : int = ANIM_PRIORITY.get(animName, 0)
 
 	# If we're locked, only allow the same anim to keep playing
-	if anim_locked and name != locked_anim:
+	if anim_locked and animName != locked_anim:
 		return false
 
 	# If current animation has higher priority, deny
-	if sprite.is_playing() and new_pri < current_priority and name != sprite.animation:
+	if sprite.is_playing() and new_pri < current_priority and animName != sprite.animation:
 		return false
 
 	# Avoid restarting the same animation
-	if sprite.animation == name and sprite.is_playing():
+	if sprite.animation == animName and sprite.is_playing():
 		return true
 
 	# Play and update state
-	sprite.play(name)
+	sprite.play(animName)
 	current_priority = new_pri
 
 	# Lock if needed
