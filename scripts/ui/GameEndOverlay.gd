@@ -29,6 +29,7 @@ func tween_down() -> void:
 
 func set_winner_text(winner_player: int):
 	if winner_player == 1:
+		#text_label.se
 		text_label.text = "PLAYER 1 WINS!"
 	else:
 		text_label.text = "PLAYER 2 WINS!"

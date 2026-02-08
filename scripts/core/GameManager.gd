@@ -1,7 +1,7 @@
 extends Node
 
 @onready var pause_scene : Resource = preload("res://scenes/ui/PauseMenu.tscn")
-var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay"
+var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay.tscn"
 var main_menu_scene_path : String = "res://scenes/ui/MainMenu.tscn"
 var game_scene_path : String = "res://scenes/stages/TestingMap.tscn" #TODO: Change for the final game scene
 
@@ -40,8 +40,8 @@ func resume_game():
 func finish_game(winner_player: int):
 	var game_ended_scene = load(game_ended_scene_path)
 	game_ended_overlay = game_ended_scene.instantiate()
-	game_ended_overlay.set_winner_text(winner_player)
 	get_tree().root.add_child(game_ended_overlay)
+	game_ended_overlay.set_winner_text(winner_player)
 	SignalContainer.game_replay.connect(replay_game, CONNECT_ONE_SHOT)
 
 func replay_game():
