@@ -16,6 +16,7 @@ func _ready() -> void:
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
 	combat_overlay.update_player_healthbar(player_num, remaining_health_percentage)
+	AudioManager.on_player_low_health(player_num, remaining_health_percentage)
 	if remaining_health == 0:
 		combat_ended = true
 		SignalContainer.game_finish.emit(player_num%2 +1) #Sends the winner player (2 if 1 has 0 health and the other way around)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://drktxj35qkggr" path="res://scripts/ui/PauseMenu.gd" id="1_7ida2"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_vb6pq"]
+[ext_resource type="PackedScene" uid="uid://d0ppbto5mcdfk" path="res://scenes/ui/VolumeSlider.tscn" id="3_n5dsq"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1891136305]
 process_mode = 2
@@ -336,3 +337,34 @@ offset_top = 1.0
 offset_right = 377.0
 offset_bottom = 24.0
 text = "<"
+
+[node name="Master" parent="Panel" unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_n5dsq")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 448.0
+offset_right = 693.0
+offset_bottom = 464.0
+display_label = NodePath("../MasterLabel")
+
+[node name="Music" parent="Panel" unique_id=1003062768 node_paths=PackedStringArray("display_label") instance=ExtResource("3_n5dsq")]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 549.0
+offset_right = 696.0
+offset_bottom = 565.0
+bus_name = "Music"
+display_label = NodePath("../MusicLabel")
+
+[node name="MasterLabel" type="Label" parent="Panel" unique_id=127827865]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 383.0
+offset_right = 681.0
+offset_bottom = 441.0
+
+[node name="MusicLabel" type="Label" parent="Panel" unique_id=1704374907]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 484.0
+offset_right = 678.0
+offset_bottom = 542.0

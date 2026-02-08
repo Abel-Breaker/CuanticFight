@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kgysiydrdg07" path="res://scripts/ui/MainMenu.gd" id="1_6jbdy"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_vjtqc"]
+[ext_resource type="PackedScene" uid="uid://d0ppbto5mcdfk" path="res://scenes/ui/VolumeSlider.tscn" id="3_iwbf0"]
 
 [node name="MainMenu" type="Panel" unique_id=466316292]
 offset_right = 1152.0
@@ -15,10 +16,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -141.5
-offset_top = -136.5
-offset_right = 141.5
-offset_bottom = 136.5
+offset_left = -139.0
+offset_top = -217.0
+offset_right = 144.0
+offset_bottom = 56.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
@@ -63,3 +64,34 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "EXIT GAME"
+
+[node name="Master" parent="." unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 448.0
+offset_right = 693.0
+offset_bottom = 464.0
+display_label = NodePath("../MasterLabel")
+
+[node name="Music" parent="." unique_id=676781648 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 549.0
+offset_right = 696.0
+offset_bottom = 565.0
+bus_name = "Music"
+display_label = NodePath("../MusicLabel")
+
+[node name="MasterLabel" type="Label" parent="." unique_id=3592673]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 383.0
+offset_right = 681.0
+offset_bottom = 441.0
+
+[node name="MusicLabel" type="Label" parent="." unique_id=2077631522]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 484.0
+offset_right = 678.0
+offset_bottom = 542.0

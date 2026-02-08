@@ -24,6 +24,11 @@ func _ready() -> void:
 	SignalContainer.game_exit.connect(exit_game)
 	SignalContainer.game_replay.connect(replay_game)
 	
+	call_deferred("start_music")
+
+func start_music():
+	AudioManager.setup()
+	AudioManager.play_menu_music()
 
 
 func close_program(exit_code : int):
@@ -36,7 +41,7 @@ func start_game():
 	if curr_game_state != GameState.MainMenu:
 		return
 	curr_game_state = GameState.Playing
-
+	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)	
 
 
@@ -46,7 +51,9 @@ func exit_game():
 	if curr_game_state == GameState.Paused:
 		resume_game()
 	curr_game_state = GameState.MainMenu
-	
+	AudioManager.reset_low_health_effects()
+	AudioManager.play_menu_music()
+
 	if game_ended_overlay:
 		game_ended_overlay.queue_free()
 		game_ended_overlay = null
@@ -90,6 +97,7 @@ func replay_game():
 	if curr_game_state != GameState.CombatEnded:
 		return
 	curr_game_state = GameState.Playing
+	AudioManager.reset_low_health_effects()
 	
 	game_ended_overlay.queue_free()
 	game_ended_overlay = null

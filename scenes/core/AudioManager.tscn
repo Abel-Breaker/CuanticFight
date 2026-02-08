@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bn34qvy51dgdr"]
+
+[ext_resource type="Script" uid="uid://c257u2dc6xdin" path="res://scripts/core/MusicManager.gd" id="1_82yfp"]
+[ext_resource type="AudioStream" uid="uid://dg0gwbd14vfr6" path="res://assets/sounds/heartbeat.ogg" id="2_7jo6l"]
+
+[node name="AudioManager" type="Node" unique_id=1388870525]
+script = ExtResource("1_82yfp")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1274240514]
+bus = &"Music"
+
+[node name="StageMusic" type="AudioStreamPlayer" parent="." unique_id=1274144166]
+bus = &"Music"
+
+[node name="HeartbeatTimer" type="Timer" parent="." unique_id=806451212]
+
+[node name="HeartbeatSound" type="AudioStreamPlayer" parent="." unique_id=1300106173]
+stream = ExtResource("2_7jo6l")
+bus = &"Music"
