@@ -16,21 +16,21 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -217.0
-offset_right = 144.0
-offset_bottom = 56.0
+offset_left = -138.0
+offset_top = -214.0
+offset_right = 145.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="Start" type="Control" parent="VBoxContainer" unique_id=1436202156]
+[node name="PlaySolo" type="Control" parent="VBoxContainer" unique_id=1436202156]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Button" parent="VBoxContainer/Start" unique_id=777942862 instance=ExtResource("1_vjtqc")]
+[node name="Button" parent="VBoxContainer/PlaySolo" unique_id=777942862 instance=ExtResource("1_vjtqc")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,6 +44,26 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PLAY"
+
+[node name="2Player" type="Control" parent="VBoxContainer" unique_id=1163897824]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Button" parent="VBoxContainer/2Player" unique_id=139751572 instance=ExtResource("1_vjtqc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2 PLAYERS"
 
 [node name="Exit" type="Control" parent="VBoxContainer" unique_id=1071790194]
 layout_mode = 2
@@ -67,47 +87,47 @@ text = "EXIT GAME"
 
 [node name="Master" parent="." unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 221.0
-offset_top = 195.0
-offset_right = 446.0
-offset_bottom = 211.0
+offset_left = 222.0
+offset_top = 214.0
+offset_right = 447.0
+offset_bottom = 230.0
 display_label = NodePath("../MasterLabel")
 
 [node name="Music" parent="." unique_id=676781648 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 221.0
-offset_top = 251.0
-offset_right = 446.0
-offset_bottom = 267.0
+offset_left = 222.0
+offset_top = 270.0
+offset_right = 447.0
+offset_bottom = 286.0
 bus_name = "Music"
 display_label = NodePath("../MusicLabel")
 
 [node name="MasterLabel" type="Label" parent="." unique_id=3592673]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 157.0
-offset_right = 434.0
-offset_bottom = 195.0
+offset_left = 175.0
+offset_top = 176.0
+offset_right = 435.0
+offset_bottom = 214.0
 
 [node name="MusicLabel" type="Label" parent="." unique_id=2077631522]
 layout_mode = 0
-offset_left = 173.0
-offset_top = 213.0
-offset_right = 433.0
-offset_bottom = 251.0
+offset_left = 174.0
+offset_top = 232.0
+offset_right = 434.0
+offset_bottom = 270.0
 
 [node name="SFX" parent="." unique_id=668009631 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 222.0
-offset_top = 306.0
-offset_right = 447.0
-offset_bottom = 322.0
+offset_left = 223.0
+offset_top = 325.0
+offset_right = 448.0
+offset_bottom = 341.0
 bus_name = "SFX"
 display_label = NodePath("../SFXLabel")
 
 [node name="SFXLabel" type="Label" parent="." unique_id=146550054]
 layout_mode = 0
-offset_left = 174.0
-offset_top = 268.0
-offset_right = 434.0
-offset_bottom = 306.0
+offset_left = 175.0
+offset_top = 287.0
+offset_right = 435.0
+offset_bottom = 325.0

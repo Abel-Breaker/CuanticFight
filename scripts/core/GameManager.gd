@@ -13,6 +13,7 @@ var curr_game_state : GameState = GameState.MainMenu
 var pause_overlay : CanvasLayer
 var game_ended_overlay : CanvasLayer
 var last_winner_id: int
+var last_combat_init_data #Has P1Type, P2Type, SoloGame
 
 func _ready() -> void:
 	SignalContainer.program_close.connect(close_program)
@@ -46,13 +47,14 @@ func close_program(exit_code : int):
 	
 	get_tree().quit(exit_code)
 	
-func start_game():
+func start_game(solo: bool):
 	if curr_game_state != GameState.MainMenu:
 		return
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
-	call_deferred("init_combat", ProyectilesManager.ProyectileType.QUANTIC, ProyectilesManager.ProyectileType.CLASSIC, false)
+	last_combat_init_data = {"P1Type": ProyectilesManager.ProyectileType.QUANTIC, "P2Type": ProyectilesManager.ProyectileType.CLASSIC, "SoloGame": solo}
+	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
 
 func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
 	var combat_manager = get_combat_manager()
@@ -115,7 +117,7 @@ func replay_game():
 	game_ended_overlay.queue_free()
 	game_ended_overlay = null
 	change_scene(game_scene_path)
-	call_deferred("init_combat", ProyectilesManager.ProyectileType.QUANTIC, ProyectilesManager.ProyectileType.CLASSIC, true)
+	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
 
 
 

@@ -51,7 +51,7 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 	if ai_game:
 		ai_system = ai_scene.instantiate()
 		get_tree().root.add_child(ai_system)
-		ai_system.setup(player1_characters[0], player2_characters[0])
+		ai_system.setup(char1, char2)
 	camera_system.enable_camera_updates(true)
 	
 	#player1_characters.append($Player1)
@@ -90,7 +90,7 @@ func update_my_characters(player_num: int):
 		player1_characters = updated_characters
 	else:
 		player2_characters = updated_characters
-	print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
+	#print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
 
 func is_enemy_looking_at_me(my_id: int) -> bool:
 	var caller_player: CharacterParent
@@ -160,6 +160,7 @@ func _exit_tree() -> void:
 	
 	if ai_system:
 		ai_system.queue_free()
+		ai_system = null
 	for i in range(player1_characters.size()):
 		player1_characters[i].queue_free()
 	for i in range(player2_characters.size()):

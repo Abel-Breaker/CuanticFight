@@ -2,7 +2,7 @@ extends Node
 
 signal program_close(exit_code : int)
 
-signal game_start
+signal game_start(solo: bool)
 signal game_finish(winner_player: int)
 signal game_pause
 signal game_resume

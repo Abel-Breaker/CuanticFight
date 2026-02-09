@@ -2,6 +2,8 @@ extends Node
 
 enum E_Mood {ESCAPING, HUNTING, TESTING}
 
+@onready var starting_timer: Timer = $StartingTime
+
 var enemy : CharacterParent
 var controlledCharacter : CharacterParent
 
@@ -10,20 +12,17 @@ var time_since_last_jump : float = 0
 
 var isSetUp = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	starting_timer.timeout.connect(func():
+		isSetUp = true
+	, CONNECT_ONE_SHOT)
 
-
-
-# Called in order to set up most of the initial variables of this script
 func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -> void:
 	enemy = inEnemy
 	controlledCharacter = inControlledCharacter
-	isSetUp = true
+	starting_timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if not isSetUp:
 		return
