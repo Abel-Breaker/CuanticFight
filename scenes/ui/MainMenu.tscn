@@ -67,31 +67,47 @@ text = "EXIT GAME"
 
 [node name="Master" parent="." unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 222.0
-offset_top = 224.0
-offset_right = 447.0
-offset_bottom = 240.0
+offset_left = 221.0
+offset_top = 195.0
+offset_right = 446.0
+offset_bottom = 211.0
 display_label = NodePath("../MasterLabel")
 
 [node name="Music" parent="." unique_id=676781648 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 225.0
-offset_top = 325.0
-offset_right = 450.0
-offset_bottom = 341.0
+offset_left = 221.0
+offset_top = 251.0
+offset_right = 446.0
+offset_bottom = 267.0
 bus_name = "Music"
 display_label = NodePath("../MusicLabel")
 
 [node name="MasterLabel" type="Label" parent="." unique_id=3592673]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 159.0
-offset_right = 435.0
-offset_bottom = 217.0
+offset_left = 174.0
+offset_top = 157.0
+offset_right = 434.0
+offset_bottom = 195.0
 
 [node name="MusicLabel" type="Label" parent="." unique_id=2077631522]
 layout_mode = 0
-offset_left = 172.0
-offset_top = 260.0
-offset_right = 432.0
-offset_bottom = 318.0
+offset_left = 173.0
+offset_top = 213.0
+offset_right = 433.0
+offset_bottom = 251.0
+
+[node name="VFX" parent="." unique_id=668009631 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 306.0
+offset_right = 447.0
+offset_bottom = 322.0
+bus_name = "VFX"
+display_label = NodePath("../VFXLabel")
+
+[node name="VFXLabel" type="Label" parent="." unique_id=146550054]
+layout_mode = 0
+offset_left = 174.0
+offset_top = 268.0
+offset_right = 434.0
+offset_bottom = 306.0
