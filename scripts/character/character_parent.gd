@@ -4,7 +4,7 @@ class_name CharacterParent
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -450.0
-const MAX_HEALTH = 100
+const MAX_HEALTH = 200
 
 @export var charID : int = 1
 @export var player_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC

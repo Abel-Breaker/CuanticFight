@@ -6,7 +6,7 @@
 script = ExtResource("1_r00vp")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1686921152]
-wait_time = 2.0
+wait_time = 4.0
 one_shot = true
 
 [node name="EffectTimer" type="Timer" parent="." unique_id=1934980092]

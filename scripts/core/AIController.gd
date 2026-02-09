@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		#mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
 		mood = E_Mood.HUNTING
-	if randf() < time_since_last_jump:
+	if randf() < time_since_last_jump*2:
 		jump()
 		time_since_last_jump = 0
 	else:
@@ -72,11 +72,9 @@ func im_on_the_right() -> bool:
 
 func look_away_from_enemy() -> void:
 	if im_on_the_right():
-		Input.action_press("move_right_2")
-		Input.action_release("move_right_2")
+		safe_random_yielding_input_pressing("move_right_2", 1)
 	else:
-		Input.action_press("move_left_2")
-		Input.action_release("move_left_2")
+		safe_random_yielding_input_pressing("move_left_2", 1)
 
 func look_towards_enemy() -> void:
 	if im_on_the_right():

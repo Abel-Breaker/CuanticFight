@@ -30,8 +30,26 @@ position = Vector2(-272, 355)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034486664]
 show_behind_parent = true
-position = Vector2(284, -655)
-scale = Vector2(1.2998937, 1.2998942)
+position = Vector2(1297.2156, -290.47702)
+scale = Vector2(0.68508065, 0.68508095)
+texture = ExtResource("5_e8gxf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=65438050]
+show_behind_parent = true
+position = Vector2(-797.99976, -283)
+scale = Vector2(0.68508065, 0.68508095)
+texture = ExtResource("5_e8gxf")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1359709574]
+show_behind_parent = true
+position = Vector2(-805, -1650)
+scale = Vector2(0.68508065, 0.68508095)
+texture = ExtResource("5_e8gxf")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=1669628266]
+show_behind_parent = true
+position = Vector2(1289.9998, -1676.0001)
+scale = Vector2(0.68508065, 0.68508095)
 texture = ExtResource("5_e8gxf")
 
 [node name="Spawn1" type="Marker2D" parent="." unique_id=1732612166]
