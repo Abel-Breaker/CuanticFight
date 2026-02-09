@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kgysiydrdg07" path="res://scripts/ui/MainMenu.gd" id="1_6jbdy"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_vjtqc"]
 [ext_resource type="PackedScene" uid="uid://d0ppbto5mcdfk" path="res://scenes/ui/VolumeSlider.tscn" id="3_iwbf0"]
+[ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="4_2ysvc"]
 
 [node name="MainMenu" type="Panel" unique_id=466316292]
 offset_right = 640.0
@@ -131,3 +132,9 @@ offset_left = 175.0
 offset_top = 287.0
 offset_right = 435.0
 offset_bottom = 325.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1194258692]
+show_behind_parent = true
+position = Vector2(319.8125, 194.125)
+scale = Vector2(0.21040852, 0.21105957)
+texture = ExtResource("4_2ysvc")
