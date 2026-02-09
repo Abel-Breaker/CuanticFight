@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dchwu01i2y5cl" path="res://scripts/character/character_parent.gd" id="1_5t02b"]
 [ext_resource type="Texture2D" uid="uid://dh8781rjalya" path="res://assets/sprites/jump.png" id="2_vo6ib"]
-[ext_resource type="Texture2D" uid="uid://bkihfc4r5366n" path="res://assets/sprites/damageSS.png" id="3_plctd"]
+[ext_resource type="Texture2D" uid="uid://bletirc4mcuek" path="res://assets/sprites/hit_classic.png" id="3_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="5_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
@@ -18,13 +18,13 @@ size = Vector2(15.833332, 26.666668)
 atlas = ExtResource("2_vo6ib")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_47tsi"]
-atlas = ExtResource("3_plctd")
-region = Rect2(0, 0, 256, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q11a7"]
+atlas = ExtResource("3_vo6ib")
+region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jngwu"]
-atlas = ExtResource("3_plctd")
-region = Rect2(256, 0, 256, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_48w32"]
+atlas = ExtResource("3_vo6ib")
+region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_plctd"]
 atlas = ExtResource("4_vo6ib")
@@ -112,10 +112,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_47tsi")
+"texture": SubResource("AtlasTexture_q11a7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jngwu")
+"texture": SubResource("AtlasTexture_48w32")
 }],
 "loop": false,
 "name": &"hit",
@@ -217,10 +217,8 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"light_attack"
+animation = &"hit"
 autoplay = "idle"
-frame = 1
-frame_progress = 1.0
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
 position = Vector2(-2.25, -1.625)
