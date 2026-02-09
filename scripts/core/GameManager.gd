@@ -78,6 +78,7 @@ func exit_game():
 		pause_overlay.queue_free()
 		pause_overlay = null
 	change_scene(main_menu_scene_path)
+	last_combat_init_data = null
 
 
 func pause_game():

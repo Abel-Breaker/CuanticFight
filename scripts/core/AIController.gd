@@ -23,11 +23,12 @@ func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -
 	starting_timer.start()
 
 
+
 func _physics_process(delta: float) -> void:
 	if not isSetUp:
 		return
 	if not controlledCharacter or not is_instance_valid(controlledCharacter): return
-	
+
 	if controlledCharacter.current_health < controlledCharacter.MAX_HEALTH*0.3:
 		mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
@@ -89,23 +90,21 @@ func look_towards_enemy() -> void:
 
 func move_away_from_enemy() -> void:
 	if im_on_the_right():
-		Input.action_press("move_right_2")
-		await get_tree().create_timer(randf()).timeout
-		Input.action_release("move_right_2")
+		safe_random_yielding_input_pressing("move_right_2")
 	else:
-		Input.action_press("move_left_2")
-		await get_tree().create_timer(randf()).timeout
-		Input.action_release("move_left_2")
+		safe_random_yielding_input_pressing("move_left_2")
 
 func move_towards_enemy() -> void:
 	if im_on_the_right():
-		Input.action_press("move_left_2")
-		await get_tree().create_timer(randf()).timeout
-		Input.action_release("move_left_2")
+		safe_random_yielding_input_pressing("move_left_2")
 	else:
-		Input.action_press("move_right_2")
-		await get_tree().create_timer(randf()).timeout
-		Input.action_release("move_right_2")
+		safe_random_yielding_input_pressing("move_right_2")
+
+
+func safe_random_yielding_input_pressing(input_name: String):
+	var timer = get_tree().create_timer(randf())
+	timer.timeout.connect(func(): Input.action_release(input_name))
+	Input.action_press(input_name)
 
 func use_light_attack() -> void:
 	Input.action_press("light_attack_2")
@@ -122,3 +121,7 @@ func use_especial_attack() -> void:
 func jump() -> void:
 	Input.action_press("jump_2")
 	Input.action_release("jump_2")
+
+func _exit_tree() -> void:
+	enemy = null
+	controlledCharacter = null

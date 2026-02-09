@@ -157,8 +157,9 @@ func _exit_tree() -> void:
 	SignalContainer.player_changed_looking_direction.disconnect(player_changed_looking_direction)
 	SignalContainer.player_duplicated_himself.disconnect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
-	
+	print("DEBUG: Exiting CombatManager")
 	if ai_system:
+		print("DEBUG: Freeing AI")
 		ai_system.queue_free()
 		ai_system = null
 	for i in range(player1_characters.size()):
