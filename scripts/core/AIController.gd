@@ -38,8 +38,8 @@ func _physics_process(delta: float) -> void:
 		return
 	if not controlledCharacter or not is_instance_valid(controlledCharacter): return
 
-	if controlledCharacter.current_health < controlledCharacter.MAX_HEALTH*0.3:
-		mood = E_Mood.ESCAPING
+	#if controlledCharacter.current_health < controlledCharacter.MAX_HEALTH*0.3:
+		#mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
 		mood = E_Mood.HUNTING
 	if randf() < time_since_last_jump:
@@ -49,14 +49,16 @@ func _physics_process(delta: float) -> void:
 		time_since_last_jump += delta
 	match mood:
 		# Prioritizes surviving
-		E_Mood.ESCAPING:
-			move_away_from_enemy()
-			if randf() < 0.1:
-				use_ranged_attack()
+		#E_Mood.ESCAPING:
+			#move_away_from_enemy()
+			#if randf() < 0.1:
+				#use_ranged_attack()
 		# Prioritizes dealing damage
 		E_Mood.HUNTING:
-			if randf() < 0.2:
+			if randf() < 0.5:
 				use_ranged_attack()
+			if randf() < 0.2:
+				use_especial_attack()
 			if im_in_melee_range():
 				use_light_attack()
 			move_towards_enemy()
@@ -116,7 +118,7 @@ func use_ranged_attack() -> void:
 func use_especial_attack() -> void:
 	Input.action_press("especial_attack_2")
 	Input.action_release("especial_attack_2")
-	look_towards_enemy()
+	look_away_from_enemy()
 
 func jump() -> void:
 	Input.action_press("jump_2")
