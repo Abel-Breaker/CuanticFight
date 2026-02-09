@@ -1,7 +1,7 @@
 extends Node
 class_name CombatManager
 
-@onready var ai_scene = preload("res://scenes/core/AIController.tscn")
+@onready var ai_scene = preload("res://scenes/core/AIController_2.tscn")
 @onready var quant_player_scene = preload("res://scenes/characters/CharacterParent.tscn")
 @onready var classic_player_scene = preload("res://scenes/characters/ClassicCharacter.tscn")
 
