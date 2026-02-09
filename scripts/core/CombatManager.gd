@@ -84,8 +84,8 @@ func get_enemy_player(my_id: int) -> Array[CharacterParent]:
 
 
 # TODO: When dividing cuantic player return 3 players
-func get_players(): #Array[Array[CharacterParent]]:
-	return [player1_characters, player2_characters]
+func get_players() -> Array[CharacterParent]: #Array[Array[CharacterParent]]:
+	return [player1_characters[0], player1_characters[1], player2_characters[0], player2_characters[1]]
 
 func _process(delta: float) -> void:
 	if not combat_ended and Input.is_action_just_pressed("pause"):
