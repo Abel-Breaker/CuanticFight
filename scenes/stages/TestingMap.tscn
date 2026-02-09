@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cxxdfjmfqnx3u" path="res://scripts/core/CombatManager.gd" id="2_aybq8"]
 [ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
 [ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="5_upn1x"]
+[ext_resource type="PackedScene" uid="uid://dwpi86kevrhos" path="res://scenes/characters/ClassicCharacter.tscn" id="6_e8gxf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3sta2"]
 texture = ExtResource("1_fhbdo")
@@ -185,11 +186,12 @@ script = ExtResource("2_aybq8")
 [node name="Player1" parent="." unique_id=292589204 instance=ExtResource("2_3sta2")]
 position = Vector2(-200, -14)
 
-[node name="Player2" parent="." unique_id=708706009 instance=ExtResource("2_3sta2")]
-position = Vector2(-125, -13)
-charID = 2
-
 [node name="CombatOverlay" parent="." unique_id=225480141 instance=ExtResource("3_31ujj")]
 
 [node name="CameraSystem" parent="." unique_id=1241625164 instance=ExtResource("5_upn1x")]
 position = Vector2(-216, 139)
+
+[node name="Player2" parent="." unique_id=255533587 instance=ExtResource("6_e8gxf")]
+position = Vector2(-30, -37)
+collision_layer = 2
+charID = 2

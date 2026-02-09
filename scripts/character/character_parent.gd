@@ -60,6 +60,7 @@ func _ready() -> void:
 	lightAttack.setup(self)
 	rangedAttack.setup(self)
 	especialAttack.setup(self)
+	set_collision_layer(2)
 	hurtbox.set_collision_layer(charID)
 	hurtbox.collision_mask = charID << 2 #NOTE: Used for projectiles
 	hurtbox.body_entered.connect(on_hurtbox_body_entered)
