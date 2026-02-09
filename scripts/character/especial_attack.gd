@@ -10,14 +10,17 @@ var isActive : bool = false
 
 var canBeUsed : bool = true
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	Cooldown.timeout.connect(updateUsability)
+	SignalContainer.player_determined_himself.connect(player_determined_himself)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
+func player_determined_himself(player_id: int):
+	if player_id != character.charID: return
+	
+	if not self.is_queued_for_deletion():
+		characterClone = null
+		isActive = false
 
 
 func setup(inCharacter : CharacterParent) -> void:
@@ -34,6 +37,7 @@ func updateUsability():
 func _exit_tree() -> void:
 	if Cooldown.timeout.is_connected(updateUsability):
 		Cooldown.timeout.disconnect(updateUsability)
+	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
 
 # Returns true if succesfully used and false if cannot use for any reason
 func try_to_use() -> bool:
