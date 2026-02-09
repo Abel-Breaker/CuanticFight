@@ -8,6 +8,8 @@ var controlledCharacter : CharacterParent
 var mood : E_Mood = E_Mood.TESTING
 var time_since_last_jump : float = 0
 
+var isSetUp = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,12 +17,16 @@ func _ready() -> void:
 
 
 # Called in order to set up most of the initial variables of this script
-func setup(inEnemy : CharacterParent) -> void:
+func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -> void:
 	enemy = inEnemy
+	controlledCharacter = inControlledCharacter
+	isSetUp = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if not isSetUp:
+		return
 	if controlledCharacter.current_health < controlledCharacter.MAX_HEALTH*0.3:
 		mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
