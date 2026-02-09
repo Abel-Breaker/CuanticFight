@@ -11,7 +11,7 @@ multi_bullet_speed = 1000.0
 multi_bullet_damage = 10
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1936479964]
-wait_time = 0.3
+wait_time = 0.1
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=580279232]
