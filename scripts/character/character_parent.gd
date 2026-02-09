@@ -91,6 +91,8 @@ func received_damage(damage_amount : int):
 		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
 
 func _physics_process(delta: float) -> void:
+	if current_health <= 0: return
+	
 	evaluate_base_animation()
 	
 	# Add the gravity.
@@ -177,7 +179,7 @@ func _on_anim_finished():
 	
 # Locomotion chooser
 func evaluate_base_animation():
-	if anim_locked or current_health<=0:
+	if anim_locked or current_health <= 0:
 		return
 	if not is_on_floor():
 		request_anim("falling")

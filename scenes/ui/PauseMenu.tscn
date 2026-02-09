@@ -9,50 +9,65 @@ process_mode = 2
 script = ExtResource("1_7ida2")
 
 [node name="Panel" type="Panel" parent="." unique_id=2088926800]
-offset_right = 1152.0
-offset_bottom = 646.0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="ColorRect2" type="ColorRect" parent="Panel" unique_id=938654274]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.54901963)
 
 [node name="Label" type="Label" parent="Panel" unique_id=1144842061]
 layout_mode = 0
-offset_left = 340.0
-offset_top = 15.0
-offset_right = 798.0
-offset_bottom = 142.0
-theme_override_font_sizes/font_size = 40
+offset_left = 186.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 24
 text = "PAUSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Resume" parent="Panel" unique_id=777942862 instance=ExtResource("1_vb6pq")]
+z_index = 1
 layout_mode = 0
-offset_left = 503.0
-offset_top = 139.0
-offset_right = 633.0
-offset_bottom = 179.0
+offset_left = 228.0
+offset_top = 66.0
+offset_right = 408.0
+offset_bottom = 106.0
 text = "RESUME GAME
 "
 
 [node name="MainMenu" parent="Panel" unique_id=2058651992 instance=ExtResource("1_vb6pq")]
+z_index = 1
 layout_mode = 0
-offset_left = 511.0
-offset_top = 212.0
-offset_right = 623.0
-offset_bottom = 252.0
+offset_left = 246.0
+offset_top = 112.0
+offset_right = 390.0
+offset_bottom = 152.0
 text = "MAIN MENU"
 
 [node name="ExitConfirmation" type="Panel" parent="Panel" unique_id=383186]
 visible = false
+z_index = 3
 layout_mode = 0
-offset_left = 424.0
-offset_top = 111.0
-offset_right = 718.0
-offset_bottom = 294.0
+offset_left = 175.0
+offset_top = 70.0
+offset_right = 469.0
+offset_bottom = 253.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/ExitConfirmation" unique_id=1053000080]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 183.0
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.92156863)
 
 [node name="Label" type="Label" parent="Panel/ExitConfirmation" unique_id=604906163]
 layout_mode = 0
-offset_left = 39.0
+offset_left = 23.0
 offset_top = 14.0
-offset_right = 258.0
+offset_right = 275.0
 offset_bottom = 89.0
 text = "Are you sure you want to go back to the main menu?"
 autowrap_mode = 2
@@ -76,27 +91,28 @@ text = "CANCEL
 
 [node name="Player1" type="Panel" parent="Panel" unique_id=53400044]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 200.0
-offset_right = 447.0
-offset_bottom = 614.0
+offset_left = 12.0
+offset_top = 97.0
+offset_right = 207.0
+offset_bottom = 353.0
 
 [node name="Label" type="Label" parent="Panel/Player1" unique_id=2010315593]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 15.0
-offset_right = 337.0
-offset_bottom = 77.0
+offset_left = 23.0
+offset_top = 8.0
+offset_right = 164.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 8
 text = "PLAYER 1
 CONTROLLS"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Player1" unique_id=1566802727]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 76.0
-offset_right = 383.0
-offset_bottom = 386.0
+offset_left = 28.0
+offset_top = 52.0
+offset_right = 175.0
+offset_bottom = 252.0
 
 [node name="Up" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1003199544]
 custom_minimum_size = Vector2(0, 30)
@@ -104,17 +120,22 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Up" unique_id=1318924396]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Up:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Up" unique_id=1263544676]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 90.0
+offset_top = 2.0
+offset_right = 156.0
+offset_bottom = 25.0
+theme_override_font_sizes/font_size = 8
 text = "W"
+horizontal_alignment = 2
 
 [node name="Left" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=485865600]
 custom_minimum_size = Vector2(0, 30)
@@ -122,17 +143,22 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Left" unique_id=1323824103]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Left:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Left" unique_id=1109716593]
 layout_mode = 0
-offset_left = 206.0
+offset_left = 76.0
 offset_top = 1.0
-offset_right = 377.0
+offset_right = 155.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "A"
+horizontal_alignment = 2
 
 [node name="Right" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1907550751]
 custom_minimum_size = Vector2(0, 30)
@@ -140,17 +166,21 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/Right" unique_id=1676232205]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Right:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/Right" unique_id=1775955331]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 77.0
+offset_right = 155.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "D"
+horizontal_alignment = 2
 
 [node name="BasicAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=455996590]
 custom_minimum_size = Vector2(0, 30)
@@ -158,17 +188,22 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/BasicAttack" unique_id=1316882271]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Basic attack:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/BasicAttack" unique_id=329179475]
 layout_mode = 0
-offset_left = 206.0
+offset_left = 69.0
 offset_top = 1.0
-offset_right = 377.0
+offset_right = 154.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Q"
+horizontal_alignment = 2
 
 [node name="RangeAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1663685622]
 custom_minimum_size = Vector2(0, 30)
@@ -176,17 +211,21 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/RangeAttack" unique_id=2098508538]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Range attack:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/RangeAttack" unique_id=75338287]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 70.0
+offset_right = 155.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "E"
+horizontal_alignment = 2
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=637149401]
 custom_minimum_size = Vector2(0, 30)
@@ -194,41 +233,47 @@ layout_mode = 2
 
 [node name="Action" type="Label" parent="Panel/Player1/VBoxContainer/SpecialAttack" unique_id=2055091318]
 layout_mode = 0
-offset_right = 171.0
-offset_bottom = 23.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = 157.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "Special attack:"
 
 [node name="Key" type="Label" parent="Panel/Player1/VBoxContainer/SpecialAttack" unique_id=1276698595]
 layout_mode = 0
-offset_left = 206.0
+offset_left = 72.0
 offset_top = 1.0
-offset_right = 377.0
+offset_right = 155.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "R"
+horizontal_alignment = 2
 
 [node name="Player2" type="Panel" parent="Panel" unique_id=933984158]
 layout_mode = 0
-offset_left = 683.0
-offset_top = 201.0
-offset_right = 1102.0
-offset_bottom = 615.0
+offset_left = 433.0
+offset_top = 97.0
+offset_right = 628.0
+offset_bottom = 353.0
 
 [node name="Label" type="Label" parent="Panel/Player2" unique_id=214748770]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 15.0
-offset_right = 337.0
-offset_bottom = 77.0
+offset_left = 37.0
+offset_top = 10.0
+offset_right = 156.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 8
 text = "PLAYER 2
 CONTROLLS"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/Player2" unique_id=1715980330]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 76.0
-offset_right = 383.0
-offset_bottom = 386.0
+offset_left = 10.0
+offset_top = 46.0
+offset_right = 193.0
+offset_bottom = 246.0
 
 [node name="Up" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=241822204]
 custom_minimum_size = Vector2(0, 30)
@@ -238,15 +283,18 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Up:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Up" unique_id=601453027]
 layout_mode = 0
-offset_left = 206.0
+offset_left = 7.0
 offset_top = 1.0
-offset_right = 377.0
+offset_right = 178.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "ARROW_UP"
+horizontal_alignment = 2
 
 [node name="Left" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=775980057]
 custom_minimum_size = Vector2(0, 30)
@@ -256,15 +304,17 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Left:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Left" unique_id=896856748]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 10.0
+offset_right = 181.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "ARROW_LEFT"
+horizontal_alignment = 2
 
 [node name="Right" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=1252863093]
 custom_minimum_size = Vector2(0, 30)
@@ -274,15 +324,17 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Right:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/Right" unique_id=911819373]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 10.0
+offset_right = 181.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "ARROW_RIGHT"
+horizontal_alignment = 2
 
 [node name="BasicAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=1073270538]
 custom_minimum_size = Vector2(0, 30)
@@ -292,15 +344,18 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Basic attack:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/BasicAttack" unique_id=2015135690]
 layout_mode = 0
-offset_left = 206.0
+offset_left = 10.0
 offset_top = 1.0
-offset_right = 377.0
+offset_right = 181.0
 offset_bottom = 24.0
+theme_override_font_sizes/font_size = 8
 text = "RIGHT_SHIFT"
+horizontal_alignment = 2
 
 [node name="RangeAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=2142808651]
 custom_minimum_size = Vector2(0, 30)
@@ -310,15 +365,17 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Range attack:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/RangeAttack" unique_id=588085680]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 8.0
+offset_right = 179.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "-"
+horizontal_alignment = 2
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=798356783]
 custom_minimum_size = Vector2(0, 30)
@@ -328,43 +385,45 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 171.0
 offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "Special attack:"
 
 [node name="Key" type="Label" parent="Panel/Player2/VBoxContainer/SpecialAttack" unique_id=1347704620]
 layout_mode = 0
-offset_left = 206.0
-offset_top = 1.0
-offset_right = 377.0
-offset_bottom = 24.0
+offset_left = 8.0
+offset_right = 179.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
 text = "<"
+horizontal_alignment = 2
 
 [node name="Master" parent="Panel" unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_n5dsq")]
 layout_mode = 0
-offset_left = 468.0
-offset_top = 448.0
-offset_right = 693.0
-offset_bottom = 464.0
+offset_left = 235.0
+offset_top = 215.0
+offset_right = 405.0
+offset_bottom = 231.0
 display_label = NodePath("../MasterLabel")
 
 [node name="Music" parent="Panel" unique_id=1003062768 node_paths=PackedStringArray("display_label") instance=ExtResource("3_n5dsq")]
 layout_mode = 0
-offset_left = 471.0
-offset_top = 549.0
-offset_right = 696.0
-offset_bottom = 565.0
+offset_left = 235.0
+offset_top = 270.0
+offset_right = 405.0
+offset_bottom = 286.0
 bus_name = "Music"
 display_label = NodePath("../MusicLabel")
 
 [node name="MasterLabel" type="Label" parent="Panel" unique_id=127827865]
 layout_mode = 0
-offset_left = 421.0
-offset_top = 383.0
-offset_right = 681.0
-offset_bottom = 441.0
+offset_left = 215.0
+offset_top = 183.0
+offset_right = 431.0
+offset_bottom = 214.0
 
 [node name="MusicLabel" type="Label" parent="Panel" unique_id=1704374907]
 layout_mode = 0
-offset_left = 418.0
-offset_top = 484.0
-offset_right = 678.0
-offset_bottom = 542.0
+offset_left = 215.0
+offset_top = 239.0
+offset_right = 431.0
+offset_bottom = 270.0

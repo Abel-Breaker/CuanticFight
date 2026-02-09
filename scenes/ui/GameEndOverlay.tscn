@@ -9,15 +9,15 @@ drop_time = 0.5
 transition_type = 9
 
 [node name="Panel" type="Panel" parent="." unique_id=2076772113]
-offset_top = -646.0
-offset_right = 1152.0
+offset_top = -360.0
+offset_right = 640.0
 
 [node name="Label" type="Label" parent="Panel" unique_id=1245778666]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 82.0
-offset_right = 965.0
-offset_bottom = 237.0
+offset_left = 84.0
+offset_top = 37.0
+offset_right = 545.0
+offset_bottom = 135.0
 pivot_offset_ratio = Vector2(0.5, 1)
 text = "QUANTUM WINS!"
 horizontal_alignment = 1
@@ -25,18 +25,18 @@ vertical_alignment = 1
 
 [node name="Replay" parent="Panel" unique_id=777942862 instance=ExtResource("1_ykn2c")]
 layout_mode = 0
-offset_left = 395.0
-offset_top = 358.0
-offset_right = 495.0
-offset_bottom = 398.0
+offset_left = 122.0
+offset_top = 170.0
+offset_right = 226.0
+offset_bottom = 210.0
 text = "REPLAY
 "
 
 [node name="MainMenu" parent="Panel" unique_id=234849146 instance=ExtResource("1_ykn2c")]
 layout_mode = 0
-offset_left = 677.0
-offset_top = 355.0
-offset_right = 777.0
-offset_bottom = 395.0
+offset_left = 404.0
+offset_top = 167.0
+offset_right = 548.0
+offset_bottom = 207.0
 text = "MAIN MENU
 "
