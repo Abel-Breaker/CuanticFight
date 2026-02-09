@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b44khaunf7y4a"]
 
 [ext_resource type="Texture2D" uid="uid://be4qmt63fvm37" path="res://assets/sprites/bala.png" id="1_dtmxm"]
-[ext_resource type="AudioStream" uid="uid://8v7ogdffbqhk" path="res://assets/sounds/lasershot.mp3" id="2_m2all"]
+[ext_resource type="AudioStream" uid="uid://bt2t24adjhcek" path="res://assets/sounds/chakong-laser-gun-shot-sound.mp3" id="2_m2all"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
 radius = 16.03122
@@ -37,6 +37,5 @@ frame_progress = 0.949864
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=296123189]
 stream = ExtResource("2_m2all")
-volume_db = 24.0
 autoplay = true
 bus = &"VFX"

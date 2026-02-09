@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpt4jsmfiaugg"]
 
 [ext_resource type="Texture2D" uid="uid://dyrqo74rgqkol" path="res://assets/sprites/proyectilSS.png" id="1_gf2iv"]
+[ext_resource type="AudioStream" uid="uid://1r62ircjsh47" path="res://assets/sounds/dragon-studio-zap-hit-474055.mp3" id="2_0ioq4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
 radius = 16.03122
@@ -38,4 +39,9 @@ shape = SubResource("CircleShape2D_0ioq4")
 scale = Vector2(0.44, 0.44)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
-frame_progress = 0.8790291
+frame_progress = 0.8914848
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167479024]
+stream = ExtResource("2_0ioq4")
+autoplay = true
+bus = &"VFX"
