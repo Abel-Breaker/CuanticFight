@@ -54,7 +54,6 @@ func try_to_use() -> bool:
 
 
 
-	
 func deal_light_attack_damage(area: Area2D):
 
 	if area.is_in_group("Hurtbox"):

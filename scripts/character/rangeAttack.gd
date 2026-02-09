@@ -4,9 +4,11 @@ class_name RangeAttack
 
 var character: CharacterParent
 
+
 @onready var cooldown : Timer = $Cooldown
 @onready var shoot_position : Marker2D = $Marker2D
 
+@export var multiBulletsAmount: int = 5
 @export var single_bullet_speed: float = 500
 @export var single_bullet_damage: int = 20
 @export var multi_bullet_speed: float = 300
@@ -68,28 +70,13 @@ func try_to_use() -> bool:
 		
 	else: #Shooting like a wave
 		var x_axis_speed: float = look_dir_modifier * multi_bullet_speed
-		ProyectilesManager.spawn_proyectile(
+		for i in range(multiBulletsAmount):
+			ProyectilesManager.spawn_proyectile(
 			shoot_position.global_position,
-			Vector2(x_axis_speed, -20),
+			Vector2(x_axis_speed, (i - multiBulletsAmount/2)*20),
 			collision_layer,
 			collision_mask,
 			0,
 			multi_bullet_damage
-		)
-		ProyectilesManager.spawn_proyectile(
-			shoot_position.global_position,
-			Vector2(x_axis_speed, 0),
-			collision_layer,
-			collision_mask,
-			0,
-			multi_bullet_damage
-		)
-		ProyectilesManager.spawn_proyectile(
-			shoot_position.global_position,
-			Vector2(x_axis_speed, 20),
-			collision_layer,
-			collision_mask,
-			0,
-			multi_bullet_damage
-		)
+			)
 	return true
