@@ -51,7 +51,7 @@ func start_game():
 		return
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
-	change_scene(game_scene_path)	
+	change_scene(game_scene_path)
 
 
 func exit_game():

@@ -18,6 +18,8 @@ enum CameraMode { SINGLE, SPLIT }
 var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
 
+var camera_updates_are_enabled: bool = false
+
 func _ready():
 	subviewport_p1.world_2d = get_viewport().world_2d
 	subviewport_p2.world_2d = get_viewport().world_2d
@@ -26,9 +28,13 @@ func _ready():
 	set_mode(CameraMode.SPLIT)
 	set_mode(CameraMode.SINGLE)
 
+func enable_camera_updates(b: bool):
+	camera_updates_are_enabled = b
 
 # Check distance between players and set camera mode
-func _process(delta):
+func _physics_process(delta):
+	if not camera_updates_are_enabled: return
+	
 	players = GameManager.get_players()
 	
 	if players.size() < 2:
@@ -48,7 +54,6 @@ func _process(delta):
 func get_pair_center(p1: CharacterParent, p2: CharacterParent) -> Vector2:
 	var has_p1 := GameManager.player_exists(p1)
 	var has_p2 := GameManager.player_exists(p2)
-	#print(has_p2)
 	if has_p2: # Superposition
 		return (p1.global_position + p2.global_position) * 0.5
 	else:

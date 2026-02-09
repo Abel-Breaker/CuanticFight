@@ -24,14 +24,16 @@ func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not isSetUp:
 		return
+	if not controlledCharacter or not is_instance_valid(controlledCharacter): return
+	
 	if controlledCharacter.current_health < controlledCharacter.MAX_HEALTH*0.3:
 		mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
 		mood = E_Mood.HUNTING
-	if randf() < time_since_last_jump: # TODO
+	if randf() < time_since_last_jump:
 		jump()
 	match mood:
 		# Prioritizes surviving

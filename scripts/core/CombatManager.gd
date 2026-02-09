@@ -1,7 +1,9 @@
 extends Node
 class_name CombatManager
 
+@onready var ai_scene = preload("res://scenes/core/AIController.tscn")
 @onready var combat_overlay : CanvasLayer = $CombatOverlay
+@onready var camera_system = $CameraSystem
 #@onready var player1 : CharacterParent = $Player1
 #@onready var player2 : CharacterParent = $Player2
 
@@ -22,8 +24,10 @@ func _ready() -> void:
 func setup():
 	player1_characters.append($Player1)
 	player2_characters.append($Player2)
-	#print("DEBUG: STARTING 1: "+str(player1_characters))
-	#print("DEBUG: STARTING 2: "+str(player2_characters))
+	camera_system.enable_camera_updates(true)
+	var ai = ai_scene.instantiate()
+	get_tree().root.add_child(ai)
+	ai.setup(player1_characters[0], player2_characters[0])
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
@@ -48,17 +52,19 @@ func update_my_characters(player_num: int):
 	var updated_characters: Array[CharacterParent] = []
 	for i in range(all_player_characters.size()):
 		var character: CharacterParent = all_player_characters[i]
-		if character.charID == player_num:
+		if character.charID == player_num and not character.is_queued_for_deletion():
 			updated_characters.append(character)
 	if player_num == 1:
 		player1_characters = updated_characters
 	else:
 		player2_characters = updated_characters
-	#print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
+	print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
 
 func is_enemy_looking_at_me(my_id: int) -> bool:
 	var caller_player: CharacterParent
 	var enemy_player: CharacterParent
+	if player1_characters.size() == 0 or player2_characters.size() == 0: return true
+	
 	if my_id == 1:
 		caller_player = player1_characters[0] #player1
 		enemy_player = player2_characters[0] #player2
@@ -88,17 +94,19 @@ func get_enemy_player(my_id: int) -> Array[CharacterParent]:
 func get_players() -> Array[CharacterParent]:
 	var retArray : Array[CharacterParent] = []
 	#print("DEBUG: SIZE1: "+str(player1_characters.size()))
-	if player1_characters.size() == 1:
+	var p1_size = player1_characters.size()
+	if p1_size == 1:
 		retArray.append(player1_characters[0])
 		retArray.append(null)
-	else:
+	elif p1_size == 2:
 		retArray.append(player1_characters[0])
 		retArray.append(player1_characters[1])
 		
-	if player2_characters.size() == 1:
+	var p2_size = player2_characters.size()
+	if p2_size == 1:
 		retArray.append(player2_characters[0])
 		retArray.append(null)
-	else:
+	elif p2_size == 2:
 		retArray.append(player2_characters[0])
 		retArray.append(player2_characters[1])
 	#print("CHARACTERS: " +str(retArray))
