@@ -5,6 +5,7 @@ extends Node
 @onready var heartbeat_timer: Timer = $HeartbeatTimer
 @onready var heartbeat_sound: AudioStreamPlayer = $HeartbeatSound
 
+
 var current_track: AudioStreamPlayer
 var low_health_filter: AudioEffectFilter
 
