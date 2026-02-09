@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b44khaunf7y4a"]
 
 [ext_resource type="Texture2D" uid="uid://be4qmt63fvm37" path="res://assets/sprites/bala.png" id="1_dtmxm"]
+[ext_resource type="AudioStream" uid="uid://8v7ogdffbqhk" path="res://assets/sounds/lasershot.mp3" id="2_m2all"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
 radius = 16.03122
@@ -21,16 +22,21 @@ animations = [{
 }]
 
 [node name="Proyectile" type="RigidBody2D" unique_id=682323841]
-scale = Vector2(2, 2)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
-scale = Vector2(0.35, 0.35)
+scale = Vector2(0.395, 0.395)
 shape = SubResource("CircleShape2D_0ioq4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1262891347]
-position = Vector2(-3, 0)
-scale = Vector2(2.155, 2.155)
+position = Vector2(-4, 0)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
 frame_progress = 0.949864
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=296123189]
+stream = ExtResource("2_m2all")
+volume_db = 24.0
+autoplay = true
+bus = &"VFX"
