@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dh8781rjalya" path="res://assets/sprites/jump.png" id="2_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bkihfc4r5366n" path="res://assets/sprites/damageSS.png" id="3_plctd"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
-[ext_resource type="Texture2D" uid="uid://dghwthbpoa0v4" path="res://assets/sprites/closeAttack.png" id="5_xg54r"]
+[ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="5_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c2p3msrsrxs7" path="res://assets/sprites/walk.png" id="7_plctd"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_vqasi"]
@@ -62,21 +62,13 @@ region = Rect2(512, 0, 256, 256)
 atlas = ExtResource("2_vo6ib")
 region = Rect2(768, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iybqd"]
-atlas = ExtResource("5_xg54r")
-region = Rect2(0, 0, 256, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_swluu"]
+atlas = ExtResource("5_vo6ib")
+region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrjeb"]
-atlas = ExtResource("5_xg54r")
-region = Rect2(256, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6g2ri"]
-atlas = ExtResource("5_xg54r")
-region = Rect2(512, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nxdm"]
-atlas = ExtResource("5_xg54r")
-region = Rect2(768, 0, 256, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mt2rx"]
+atlas = ExtResource("5_vo6ib")
+region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vqasi"]
 atlas = ExtResource("6_vo6ib")
@@ -173,16 +165,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iybqd")
+"texture": SubResource("AtlasTexture_swluu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vrjeb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6g2ri")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0nxdm")
+"texture": SubResource("AtlasTexture_mt2rx")
 }],
 "loop": false,
 "name": &"light_attack",
@@ -231,8 +217,10 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"ranged_attack"
+animation = &"light_attack"
 autoplay = "idle"
+frame = 1
+frame_progress = 1.0
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
 position = Vector2(-2.25, -1.625)
@@ -242,8 +230,8 @@ position = Vector2(1.25, 16.125)
 shape = SubResource("RectangleShape2D_plctd")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
-position = Vector2(29, 21)
-scale = Vector2(1.7022398, -1.2195544)
+position = Vector2(20.000002, 27)
+scale = Vector2(0.822, -0.589)
 
 [node name="EspecialAttack" parent="." unique_id=1413424739 instance=ExtResource("9_6gyxg")]
 position = Vector2(0, 24)

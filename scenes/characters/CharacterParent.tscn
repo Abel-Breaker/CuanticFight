@@ -350,8 +350,8 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_domuo")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_ik0hf")]
-position = Vector2(20.999996, 0)
-scale = Vector2(1.7022398, -1.2195544)
+position = Vector2(20.5, 1)
+scale = Vector2(0.857, -0.615)
 
 [node name="RangeAttack" parent="." unique_id=932311773 instance=ExtResource("8_wqqn3")]
 position = Vector2(0, 9)
