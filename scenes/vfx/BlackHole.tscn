@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bhtybwog8imew"]
+
+[ext_resource type="Texture2D" uid="uid://ug1s8ulmpdpk" path="res://assets/sprites/blackHoleFrames.png" id="1_8g5r0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_523ya"]
+atlas = ExtResource("1_8g5r0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juls2"]
+atlas = ExtResource("1_8g5r0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvip5"]
+atlas = ExtResource("1_8g5r0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p8i2x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_523ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juls2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvip5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=201474747]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=693901479]
+sprite_frames = SubResource("SpriteFrames_p8i2x")
+autoplay = "default"
+frame_progress = 0.7034722

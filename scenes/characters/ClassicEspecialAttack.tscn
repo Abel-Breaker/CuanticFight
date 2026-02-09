@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ecfxbudw5a0b"]
+
+[ext_resource type="Script" uid="uid://b66js44mmw6y4" path="res://scripts/character/ClassicEspecialAttack.gd" id="1_r00vp"]
+
+[node name="ClassicEspecialAttack" type="Node2D" unique_id=1162244593]
+script = ExtResource("1_r00vp")
+
+[node name="Timer" type="Timer" parent="." unique_id=1686921152]
+one_shot = true
