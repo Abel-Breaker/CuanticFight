@@ -6,6 +6,7 @@
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1891136305]
 process_mode = 2
+layer = 3
 script = ExtResource("1_7ida2")
 
 [node name="Panel" type="Panel" parent="." unique_id=2088926800]

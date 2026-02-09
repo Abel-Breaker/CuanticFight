@@ -6,12 +6,13 @@ enum GameState {MainMenu, Playing, CombatEnded, Paused}
 var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay.tscn"
 var main_menu_scene_path : String = "res://scenes/ui/MainMenu.tscn"
 var game_scene_path : String = "res://scenes/stages/TestingMap.tscn" #TODO: Change for the final game scene
+@onready var game_end_delay: Timer = $GameEndDelay
 
 var curr_game_state : GameState = GameState.MainMenu
 
 var pause_overlay : CanvasLayer
 var game_ended_overlay : CanvasLayer
-
+var last_winner_id: int
 
 func _ready() -> void:
 	SignalContainer.program_close.connect(close_program)
@@ -24,12 +25,20 @@ func _ready() -> void:
 	SignalContainer.game_exit.connect(exit_game)
 	SignalContainer.game_replay.connect(replay_game)
 	
-	call_deferred("start_music")
+	call_deferred("setup")
 
-func start_music():
+func setup():
+	game_end_delay.timeout.connect(on_game_end_delay_timer_timeout)
 	AudioManager.setup()
 	AudioManager.play_menu_music()
+	
 
+func on_game_end_delay_timer_timeout():
+	var game_ended_scene = load(game_ended_scene_path)
+	game_ended_overlay = game_ended_scene.instantiate()
+	get_tree().root.add_child(game_ended_overlay)
+	game_ended_overlay.set_winner_text(last_winner_id)
+	last_winner_id = 0
 
 func close_program(exit_code : int):
 	if curr_game_state != GameState.MainMenu:
@@ -87,10 +96,8 @@ func finish_game(winner_player: int):
 		return
 	curr_game_state = GameState.CombatEnded
 	
-	var game_ended_scene = load(game_ended_scene_path)
-	game_ended_overlay = game_ended_scene.instantiate()
-	get_tree().root.add_child(game_ended_overlay)
-	game_ended_overlay.set_winner_text(winner_player)
+	last_winner_id = winner_player
+	game_end_delay.start()
 
 
 func replay_game():

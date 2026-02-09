@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d1kgwy3vhwq31"]
+
+[ext_resource type="Script" uid="uid://dfbqydovesx5q" path="res://scripts/core/GameManager.gd" id="1_vqif8"]
+
+[node name="GameManager" type="Node" unique_id=1618224772]
+script = ExtResource("1_vqif8")
+
+[node name="GameEndDelay" type="Timer" parent="." unique_id=1444684668]
+wait_time = 1.5
+one_shot = true

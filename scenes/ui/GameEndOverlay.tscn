@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_ykn2c"]
 
 [node name="GameEndOverlay" type="CanvasLayer" unique_id=1819888529]
+layer = 3
 script = ExtResource("1_x23t3")
 drop_time = 0.5
 transition_type = 9
