@@ -130,6 +130,9 @@ func get_players() -> Array[CharacterParent]:
 	var combat_manager = get_tree().current_scene
 	return combat_manager.get_players()
 	
+func player_exists(p: CharacterParent) -> bool:
+	return p != null and is_instance_valid(p)
+	
 func get_combat_manager() -> CombatManager:
 	if curr_game_state == GameState.MainMenu: return null
 	

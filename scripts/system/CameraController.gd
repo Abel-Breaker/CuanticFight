@@ -34,8 +34,8 @@ func _process(delta):
 	if players.size() < 2:
 		return
 
-	var p1 := players[0].global_position
-	var p2 := players[1].global_position
+	var p1 := get_pair_center(players[0], players[1])
+	var p2 := get_pair_center(players[2], players[3])
 
 	if (p1.distance_to(p2)) > split_distance:
 		set_mode(CameraMode.SPLIT)
@@ -44,6 +44,15 @@ func _process(delta):
 		set_mode(CameraMode.SINGLE)
 		update_single_camera(delta)
 		
+
+func get_pair_center(p1: CharacterParent, p2: CharacterParent) -> Vector2:
+	var has_p1 := GameManager.player_exists(p1)
+	var has_p2 := GameManager.player_exists(p2)
+
+	if has_p2: # Superposition
+		return (p1.global_position + p2.global_position) * 0.5
+	else:
+		return p1.global_position
 
 
 func set_mode(new_mode: CameraMode):
@@ -72,28 +81,51 @@ func set_mode(new_mode: CameraMode):
 # --------------------------------------------------
 
 func update_single_camera(delta):
-	var p1: Vector2 = players[0].global_position
-	var p2: Vector2 = players[1].global_position
+	var count := players.size()
+	if count == 0:
+		return
 
-	var center: Vector2 = (p1 + p2) * 0.5
+	# Inicializar límites con el primer jugador
+	var min_pos: Vector2 = players[0].global_position
+	var max_pos: Vector2 = players[0].global_position
 
-	var dx: float = abs(p1.x - p2.x)
-	var dy: float = abs(p1.y - p2.y)
+	# Calcular bounding box de todos los jugadores
+	for i in range(1, count):
+		if(GameManager.player_exists(players[i])):
+			var p: Vector2 = players[i].global_position
+			min_pos.x = min(min_pos.x, p.x)
+			min_pos.y = min(min_pos.y, p.y)
+			max_pos.x = max(max_pos.x, p.x)
+			max_pos.y = max(max_pos.y, p.y)
+
+	# Centro de la cámara
+	var center: Vector2 = (min_pos + max_pos) * 0.5
+
+	# Distancia máxima entre jugadores
+	var dx: float = max_pos.x - min_pos.x
+	var dy: float = max_pos.y - min_pos.y
 	var max_dist: float = max(dx, dy)
 
+	# Zoom objetivo
 	var t: float = clamp(max_dist / split_distance, 0.0, 1.0)
 	var target_zoom: float = lerp(1.5, 0.5, t)
 
-	# Aplicar suavizado a la cámara
-	cam_single.global_position = cam_single.global_position.lerp(center, transition_speed * delta)
-	cam_single.zoom = cam_single.zoom.lerp(Vector2.ONE * target_zoom, transition_speed * delta)
+	# Suavizado de cámara
+	cam_single.global_position = cam_single.global_position.lerp(
+		center,
+		transition_speed * delta
+	)
+	cam_single.zoom = cam_single.zoom.lerp(
+		Vector2.ONE * target_zoom,
+		transition_speed * delta
+	)
 
 
 # --------------------------------------------------
 
 func update_split_cameras(delta):
-	var p1_pos = players[0].global_position
-	var p2_pos = players[1].global_position
+	var p1_pos := get_pair_center(players[0], players[1])
+	var p2_pos := get_pair_center(players[2], players[3])
 
 	cam_p1.global_position = cam_p1.global_position.lerp(p1_pos, transition_speed * delta)
 	cam_p2.global_position = cam_p2.global_position.lerp(p2_pos, transition_speed * delta)
