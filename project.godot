@@ -36,6 +36,7 @@ window/stretch/scale_mode="integer"
 [global_group]
 
 Hurtbox="Is a HURTBOX!!!!"
+Players=""
 
 [gui]
 

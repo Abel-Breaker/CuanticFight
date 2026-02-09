@@ -37,12 +37,12 @@ func _exit_tree() -> void:
 
 # Returns true if succesfully used and false if cannot use for any reason
 func try_to_use() -> bool:
-	if canBeUsed:
-		canBeUsed = false
-		isActive = true
-		duplicate_character()
-		return true
-	return false
+	if not canBeUsed: return false
+	
+	canBeUsed = false
+	isActive = true
+	duplicate_character()
+	return true
 
 
 func duplicate_character() -> void:
@@ -56,7 +56,7 @@ func duplicate_character() -> void:
 	characterClone.especialAttack.canBeUsed = false
 	
 	characterClone.request_anim("especial_attack")
-	
+	SignalContainer.player_duplicated_himself.emit(character.charID)
 
 # Returns true the owner should take the damage and false if not
 func end_duplication_character() -> bool:
@@ -65,6 +65,7 @@ func end_duplication_character() -> bool:
 		Cooldown.start()
 		var im_real = randf() < 0.5
 		if im_real:
+			SignalContainer.player_determined_himself.emit(character.charID)
 			characterClone.queue_free()
 			return true
 		else:

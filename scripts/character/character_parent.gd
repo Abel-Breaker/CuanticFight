@@ -7,6 +7,7 @@ const JUMP_VELOCITY = -450.0
 const MAX_HEALTH = 100
 
 @export var charID : int = 1
+@export var player_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC
 
 @onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
 

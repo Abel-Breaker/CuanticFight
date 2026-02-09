@@ -11,3 +11,5 @@ signal game_replay
 
 signal player_received_damage(receiver_player: int, remaining_health: int, max_health: int)
 signal player_changed_looking_direction(player: int, new_direction: int)
+signal player_duplicated_himself(player: int)
+signal player_determined_himself(player: int)

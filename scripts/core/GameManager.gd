@@ -123,7 +123,7 @@ func change_scene(new_scene_path: String):
 		curr_scene.queue_free()
 
 
-func get_players() -> Array[CharacterParent]:
+func get_players(): #-> Array[CharacterParent]:
 	if curr_game_state == GameState.MainMenu: # != PLAYING?
 		return []
 	
