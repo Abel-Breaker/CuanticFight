@@ -16,4 +16,3 @@ bus = &"Music"
 
 [node name="HeartbeatSound" type="AudioStreamPlayer" parent="." unique_id=1300106173]
 stream = ExtResource("2_7jo6l")
-bus = &"Music"

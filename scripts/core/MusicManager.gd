@@ -33,7 +33,7 @@ func play_menu_music():
 func play_stage_music(stage_name: String):
 	var stream = load("res://assets/music/%s.ogg" % stage_name)
 	stage_music.stream = stream
-	crossfade_to(stage_music, 0.5)
+	crossfade_to(stage_music, 1.5)
 
 func crossfade_to(new_track: AudioStreamPlayer, fade_time: float):
 	if current_track == new_track: return
@@ -55,9 +55,9 @@ func on_player_low_health(player_id: int, health_percent: float):
 	var cutoff = lerp(2000.0, 20000.0, health_percent)
 	low_health_filter.cutoff_hz = cutoff
 	if health_percent < 0.3:
-		heartbeat_timer.start()
-	#else:
-	#	heartbeat_timer.stop()
+		if heartbeat_timer.is_stopped():
+			heartbeat_timer.start()
+
 
 func reset_low_health_effects():
 	low_health_filter.cutoff_hz = 20000.0
