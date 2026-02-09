@@ -134,8 +134,8 @@ func _physics_process(delta: float) -> void:
 				
 	if Input.is_action_just_pressed("ranged_attack_"+str(charID)):
 		if especialAttack.end_duplication_character():
-			if request_anim("ranged_attack"):
-				rangedAttack.try_to_use()
+			if rangedAttack.try_to_use():
+				request_anim("ranged_attack")
 		
 	if Input.is_action_just_pressed("especial_attack_"+str(charID)):
 		if especialAttack.try_to_use():

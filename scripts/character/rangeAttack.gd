@@ -13,6 +13,7 @@ var character: CharacterParent
 @export var single_bullet_damage: int = 20
 @export var multi_bullet_speed: float = 300
 @export var multi_bullet_damage: int = 5
+@export var proyectile_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC
 
 var canBeUsed : bool = true
 var collision_layer: int
@@ -60,6 +61,7 @@ func try_to_use() -> bool:
 	
 	if enemy_is_looking_at_me: #Shooting like a physical particle
 		ProyectilesManager.spawn_proyectile(
+			proyectile_type,
 			shoot_position.global_position, 
 			Vector2(look_dir_modifier * single_bullet_speed,0),
 			collision_layer,
@@ -72,6 +74,7 @@ func try_to_use() -> bool:
 		var x_axis_speed: float = look_dir_modifier * multi_bullet_speed
 		for i in range(multiBulletsAmount):
 			ProyectilesManager.spawn_proyectile(
+			proyectile_type,
 			shoot_position.global_position,
 			Vector2(x_axis_speed, (i - multiBulletsAmount/2)*20),
 			collision_layer,

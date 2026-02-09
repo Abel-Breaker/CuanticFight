@@ -1,26 +1,19 @@
-[gd_scene format=3 uid="uid://cpt4jsmfiaugg"]
+[gd_scene format=3 uid="uid://b44khaunf7y4a"]
 
-[ext_resource type="Texture2D" uid="uid://dyrqo74rgqkol" path="res://assets/sprites/proyectilSS.png" id="1_gf2iv"]
+[ext_resource type="Texture2D" uid="uid://be4qmt63fvm37" path="res://assets/sprites/bala.png" id="1_dtmxm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
 radius = 16.03122
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0ioq4"]
-atlas = ExtResource("1_gf2iv")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0ubx"]
-atlas = ExtResource("1_gf2iv")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2all"]
+atlas = ExtResource("1_dtmxm")
+region = Rect2(152, 225, 19, 15)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4ih6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0ioq4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u0ubx")
+"texture": SubResource("AtlasTexture_m2all")
 }],
 "loop": true,
 "name": &"default",
@@ -32,10 +25,12 @@ scale = Vector2(2, 2)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
+scale = Vector2(0.35, 0.35)
 shape = SubResource("CircleShape2D_0ioq4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1262891347]
-scale = Vector2(0.44, 0.44)
+position = Vector2(-3, 0)
+scale = Vector2(2.155, 2.155)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
-frame_progress = 0.8790291
+frame_progress = 0.949864

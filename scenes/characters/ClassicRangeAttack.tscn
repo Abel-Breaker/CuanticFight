@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cl33ttjn70m0i"]
+
+[ext_resource type="Script" uid="uid://desoar3puoxu2" path="res://scripts/character/rangeAttack.gd" id="1_loe7l"]
+
+[node name="RangeAttack" type="Node2D" unique_id=932311773]
+script = ExtResource("1_loe7l")
+multiBulletsAmount = 1
+single_bullet_speed = 1000.0
+single_bullet_damage = 10
+multi_bullet_speed = 1000.0
+multi_bullet_damage = 10
+
+[node name="Cooldown" type="Timer" parent="." unique_id=1936479964]
+wait_time = 0.3
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=580279232]
+position = Vector2(25, -10)

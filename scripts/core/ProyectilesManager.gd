@@ -1,6 +1,9 @@
 extends Node
 
-@onready var proyectile_scene = preload("res://scenes/characters/Proyectile.tscn")
+@onready var quantic_proyectile_scene = preload("res://scenes/characters/Proyectile.tscn")
+@onready var classic_proyectile_scene = preload("res://scenes/characters/ClassicProyectile.tscn")
+
+enum ProyectileType {QUANTIC, CLASSIC}
 
 const CLEAN_PROYECTILE_TIME = 3
 
@@ -9,8 +12,12 @@ func free_proyectile_and_timer(proyectile, timer):
 		proyectile.queue_free()
 	timer.queue_free()
 
-func spawn_proyectile(global_position: Vector2, velocity : Vector2, layer: int, mask: int, gravity_scale: float, dealing_dmg: int):
-	var proyectile : RigidBody2D = proyectile_scene.instantiate()
+func spawn_proyectile(type : ProyectileType, global_position: Vector2, velocity : Vector2, layer: int, mask: int, gravity_scale: float, dealing_dmg: int):
+	var proyectile : RigidBody2D
+	if type == ProyectileType.QUANTIC:
+		proyectile = quantic_proyectile_scene.instantiate()
+	else:
+		proyectile = classic_proyectile_scene.instantiate()
 	proyectile.collision_layer = layer
 	proyectile.collision_mask = mask
 	proyectile.gravity_scale = gravity_scale
