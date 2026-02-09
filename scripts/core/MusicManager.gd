@@ -18,7 +18,7 @@ func _ready() -> void:
 	heartbeat_timer.timeout.connect(on_heartbeat)
 	
 	set_bus_volume("Master", 50)
-	set_bus_volume("Music", 0)
+	set_bus_volume("Music", 20)
 	set_bus_volume("VFX", 100)
 
 func setup():
