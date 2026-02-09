@@ -7,18 +7,24 @@ enum CameraMode { SINGLE, SPLIT }
 
 @onready var cam_single: Camera2D = $CameraSingle
 
-@onready var split_ui: Control = $SplitUI
-@onready var cam_p1: Camera2D = $SplitUI/HBoxContainer/SubViewportContainer/SubViewport/CameraP1
-@onready var cam_p2: Camera2D = $SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/CameraP2
+@onready var split_ui: Control = $CanvasLayer/SplitUI
+@onready var cam_p1: Camera2D = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport/CameraP1
+@onready var cam_p2: Camera2D = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/CameraP2
+@onready var subviewport_p1: SubViewport = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport
+@onready var subviewport_p2: SubViewport = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport
+@onready var viewport_container_p1: SubViewportContainer = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer
+@onready var viewport_container_p2: SubViewportContainer = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2
 
 var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
 
 func _ready():
+	subviewport_p1.world_2d = get_viewport().world_2d
+	subviewport_p2.world_2d = get_viewport().world_2d
+
+	# Diabolic, if you don´t call SPLIT first It doesnt work
+	set_mode(CameraMode.SPLIT)
 	set_mode(CameraMode.SINGLE)
-	var screen_size = get_viewport_rect().size
-	$SplitUI/HBoxContainer/SubViewportContainer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	$SplitUI/HBoxContainer/SubViewportContainer2.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 
 
 # Check distance between players and set camera mode
@@ -47,12 +53,20 @@ func set_mode(new_mode: CameraMode):
 	mode = new_mode
 
 	if mode == CameraMode.SINGLE:
-		cam_single.enabled = true  # activamos la cámara principal
-		split_ui.visible = false    # ocultamos la pantalla dividida
-	else:
-		cam_single.enabled = false # desactivamos la cámara principal
-		split_ui.visible = true    # activamos la pantalla dividida
+		cam_single.enabled = true
+		split_ui.visible = false
+		viewport_container_p1.visible = false
+		viewport_container_p2.visible = false
+		cam_p1.enabled = false
+		cam_p2.enabled = false
 
+	else:
+		cam_single.enabled = false
+		split_ui.visible = true
+		viewport_container_p1.visible = true
+		viewport_container_p2.visible = true
+		cam_p1.enabled = true
+		cam_p2.enabled = true
 
 
 # --------------------------------------------------
