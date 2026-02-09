@@ -17,6 +17,7 @@ const MAX_HEALTH = 100
 @onready var hurtbox : Area2D = $HurtBox
 
 var desduplicadoFLAG : bool = false 
+var can_move_freely: bool = true
 
 var isLookingLeft : bool
 
@@ -116,7 +117,15 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("move_left_"+str(charID), "move_right_"+str(charID))
 	
 	if direction:
-		velocity.x = direction * SPEED
+		if can_move_freely:
+			velocity.x = direction * SPEED
+			#print("NOT_FREE_MOVING")
+		else:
+			velocity.x += direction * SPEED / 10 * delta
+			
+			#print("FREE_MOVING")
+		
+		
 		if direction > 0:
 			if isLookingLeft:
 				flip_character(false)
@@ -125,7 +134,8 @@ func _physics_process(delta: float) -> void:
 				flip_character(true)
 			
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if can_move_freely:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	if Input.is_action_just_pressed("light_attack_"+str(charID)):
 		if especialAttack.end_duplication_character():
@@ -144,7 +154,14 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 	
-# Should call this instead of play(...)
+
+func allow_others_to_apply_force_to_me():
+	if especialAttack.end_duplication_character():
+		can_move_freely = false
+
+func deactivate_others_forces():
+	can_move_freely = true
+
 func request_anim(animName: String) -> bool:
 	var new_pri : int = ANIM_PRIORITY.get(animName, 0)
 
