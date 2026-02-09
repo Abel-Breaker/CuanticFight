@@ -2,11 +2,11 @@ extends Node
 class_name CombatManager
 
 @onready var combat_overlay : CanvasLayer = $CombatOverlay
-@onready var player1 : CharacterParent = $Player1
-@onready var player2 : CharacterParent = $Player2
+#@onready var player1 : CharacterParent = $Player1
+#@onready var player2 : CharacterParent = $Player2
 
-var player1_characters: Array[CharacterParent]
-var player2_characters: Array[CharacterParent]
+var player1_characters: Array[CharacterParent] = []
+var player2_characters: Array[CharacterParent] = []
 
 var player_look_direction: Array[int] = [1, -1] #Player1 starts looking right and Player2 left
 
@@ -20,8 +20,10 @@ func _ready() -> void:
 	call_deferred("setup")
 
 func setup():
-	player1_characters[0] = $Player1
-	player2_characters[0] = $Player2
+	player1_characters.append($Player1)
+	player2_characters.append($Player2)
+	#print("DEBUG: STARTING 1: "+str(player1_characters))
+	#print("DEBUG: STARTING 2: "+str(player2_characters))
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
@@ -43,17 +45,16 @@ func player_determined_himself(player_num: int):
 
 func update_my_characters(player_num: int):
 	var all_player_characters = get_tree().get_nodes_in_group("Players")
-	var this_player_characters: Array[CharacterParent] = player1_characters
-	if player_num == 2:
-		this_player_characters = player2_characters
-	
 	var updated_characters: Array[CharacterParent] = []
 	for i in range(all_player_characters.size()):
 		var character: CharacterParent = all_player_characters[i]
 		if character.charID == player_num:
-			updated_characters[updated_characters.size()] = character
-	
-	this_player_characters = updated_characters
+			updated_characters.append(character)
+	if player_num == 1:
+		player1_characters = updated_characters
+	else:
+		player2_characters = updated_characters
+	#print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
 
 func is_enemy_looking_at_me(my_id: int) -> bool:
 	var caller_player: CharacterParent
@@ -83,9 +84,28 @@ func get_enemy_player(my_id: int) -> Array[CharacterParent]:
 	return player1_characters
 
 
-# TODO: When dividing cuantic player return 3 players
-func get_players() -> Array[CharacterParent]: #Array[Array[CharacterParent]]:
-	return [player1_characters[0], player1_characters[1], player2_characters[0], player2_characters[1]]
+
+func get_players() -> Array[CharacterParent]:
+	var retArray : Array[CharacterParent] = []
+	#print("DEBUG: SIZE1: "+str(player1_characters.size()))
+	if player1_characters.size() == 1:
+		retArray.append(player1_characters[0])
+		retArray.append(null)
+	else:
+		retArray.append(player1_characters[0])
+		retArray.append(player1_characters[1])
+		
+	if player2_characters.size() == 1:
+		retArray.append(player2_characters[0])
+		retArray.append(null)
+	else:
+		retArray.append(player2_characters[0])
+		retArray.append(player2_characters[1])
+	#print("CHARACTERS: " +str(retArray))
+	return retArray
+
+func player_exists(p: CharacterParent) -> bool:
+	return p != null and is_instance_valid(p)
 
 func _process(delta: float) -> void:
 	if not combat_ended and Input.is_action_just_pressed("pause"):

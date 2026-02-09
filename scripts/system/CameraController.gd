@@ -48,7 +48,7 @@ func _process(delta):
 func get_pair_center(p1: CharacterParent, p2: CharacterParent) -> Vector2:
 	var has_p1 := GameManager.player_exists(p1)
 	var has_p2 := GameManager.player_exists(p2)
-
+	#print(has_p2)
 	if has_p2: # Superposition
 		return (p1.global_position + p2.global_position) * 0.5
 	else:

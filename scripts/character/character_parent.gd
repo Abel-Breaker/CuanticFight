@@ -58,6 +58,7 @@ func _exit_tree() -> void:
 		hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 
 func _ready() -> void:
+	#print("PLAYER" + str(charID)+" is in group: " + str(self.get_groups()))
 	sprite.animation_finished.connect(_on_anim_finished)
 	lightAttack.setup(self)
 	rangedAttack.setup(self)
@@ -152,13 +153,14 @@ func _physics_process(delta: float) -> void:
 		if especialAttack.try_to_use():
 			request_anim("especial_attack")
 		
-		
 	move_and_slide()
 	
 
-func allow_others_to_apply_force_to_me():
+func allow_others_to_apply_force_to_me() -> bool:
 	if especialAttack.end_duplication_character():
 		can_move_freely = false
+		return true
+	return false
 
 func deactivate_others_forces():
 	can_move_freely = true

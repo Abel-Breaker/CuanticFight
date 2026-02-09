@@ -65,11 +65,14 @@ func end_duplication_character() -> bool:
 		Cooldown.start()
 		var im_real = randf() < 0.5
 		if im_real:
-			SignalContainer.player_determined_himself.emit(character.charID)
 			characterClone.queue_free()
+			call_deferred("on_duplication_determined")
 			return true
 		else:
 			character.queue_free()
+			call_deferred("on_duplication_determined")
 			return false
 	return true
-		
+
+func on_duplication_determined():
+	SignalContainer.player_determined_himself.emit(character.charID)

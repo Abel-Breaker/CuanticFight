@@ -28,8 +28,8 @@ func on_effect_ended():
 	var combat_manager = GameManager.get_combat_manager()
 	if not combat_manager: return
 	
-	var enemy_character: CharacterParent = combat_manager.get_enemy_player(character.charID)
-	enemy_character.deactivate_others_forces()
+	var enemy_characters: Array[CharacterParent] = combat_manager.get_enemy_player(character.charID)
+	enemy_characters[0].deactivate_others_forces()
 
 func setup(inCharacter: CharacterParent) -> void:
 	character = inCharacter
@@ -45,7 +45,14 @@ func try_to_use() -> bool:
 	cooldown.start()
 	effect_timer.start()
 	
-	var enemy_character: CharacterParent = combat_manager.get_enemy_player(character.charID)
+	var enemy_characters: Array[CharacterParent] = combat_manager.get_enemy_player(character.charID)
+	var enemy_character: CharacterParent
+	if enemy_characters[0].allow_others_to_apply_force_to_me():
+		enemy_character = enemy_characters[0]
+	else:
+		enemy_character = enemy_characters[1]
+	
+	
 	var enemy_pos: Vector2 = enemy_character.global_position
 	var moving_dir: Vector2 = character.velocity.normalized()
 	
@@ -64,7 +71,7 @@ func try_to_use() -> bool:
 		curr_black_hole.global_position = vfx_spawn_point + enemy_pos
 
 	curr_black_hole.visible = true
-	enemy_character.allow_others_to_apply_force_to_me()
+	
 	get_tree().root.add_child(curr_black_hole)
 	
 	"""
@@ -89,16 +96,18 @@ func _physics_process(delta: float) -> void:
 	var combat_manager = GameManager.get_combat_manager()
 	if not combat_manager: return
 	
-	var enemy_character: CharacterParent = combat_manager.get_enemy_player(character.charID)
-	var enemy_pos: Vector2 = enemy_character.global_position
-	
-	var diff_vector = curr_black_hole.global_position - enemy_pos
-	var distance = (diff_vector).length()
-	var force_direction = (diff_vector).normalized()
-	
-	var force_modifier: float = ease(clamp((attracting_radius - distance) / attracting_radius, 0, 1), 0.2)
-	var total_force: Vector2 = lerpf(0.0, max_attracting_force, force_modifier) * force_direction
-	enemy_character.velocity += Vector2(total_force.x, 1.5*total_force.y) * delta
+	var enemy_characters: Array[CharacterParent] = combat_manager.get_enemy_player(character.charID)
+	for i in range(enemy_characters.size()):
+		var enemy_character = enemy_characters[i]
+		var enemy_pos: Vector2 = enemy_character.global_position
+		
+		var diff_vector = curr_black_hole.global_position - enemy_pos
+		var distance = (diff_vector).length()
+		var force_direction = (diff_vector).normalized()
+		
+		var force_modifier: float = ease(clamp((attracting_radius - distance) / attracting_radius, 0, 1), 0.2)
+		var total_force: Vector2 = lerpf(0.0, max_attracting_force, force_modifier) * force_direction
+		enemy_character.velocity += Vector2(total_force.x, 1.5*total_force.y) * delta
 	#print(total_force)
 
 func _exit_tree() -> void:
