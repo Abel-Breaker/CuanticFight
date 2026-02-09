@@ -52,7 +52,13 @@ func start_game():
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
+	call_deferred("init_combat", ProyectilesManager.ProyectileType.QUANTIC, ProyectilesManager.ProyectileType.CLASSIC, false)
 
+func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
+	var combat_manager = get_combat_manager()
+	if not combat_manager: push_error("Not combat_manager loaded to start combat")
+	
+	combat_manager.setup(char_type_player1, char_type_player2, ai_game)
 
 func exit_game():
 	if curr_game_state != GameState.Paused and curr_game_state != GameState.CombatEnded:
@@ -109,6 +115,8 @@ func replay_game():
 	game_ended_overlay.queue_free()
 	game_ended_overlay = null
 	change_scene(game_scene_path)
+	call_deferred("init_combat", ProyectilesManager.ProyectileType.QUANTIC, ProyectilesManager.ProyectileType.CLASSIC, true)
+
 
 
 func change_scene(new_scene_path: String):

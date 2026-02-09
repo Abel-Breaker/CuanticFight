@@ -2,10 +2,15 @@ extends Node
 class_name CombatManager
 
 @onready var ai_scene = preload("res://scenes/core/AIController.tscn")
+@onready var quant_player_scene = preload("res://scenes/characters/CharacterParent.tscn")
+@onready var classic_player_scene = preload("res://scenes/characters/ClassicCharacter.tscn")
+
 @onready var combat_overlay : CanvasLayer = $CombatOverlay
 @onready var camera_system = $CameraSystem
-#@onready var player1 : CharacterParent = $Player1
-#@onready var player2 : CharacterParent = $Player2
+@onready var spawn1 = $Spawn1
+@onready var spawn2 = $Spawn2
+
+var ai_system: Node
 
 var player1_characters: Array[CharacterParent] = []
 var player2_characters: Array[CharacterParent] = []
@@ -19,15 +24,42 @@ func _ready() -> void:
 	SignalContainer.player_changed_looking_direction.connect(player_changed_looking_direction)
 	SignalContainer.player_duplicated_himself.connect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.connect(player_determined_himself)
-	call_deferred("setup")
+	#call_deferred("setup")
 
-func setup():
-	player1_characters.append($Player1)
-	player2_characters.append($Player2)
+func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
+	var char1: CharacterParent
+	var char2: CharacterParent
+	if char_type_player1 == ProyectilesManager.ProyectileType.QUANTIC:
+		char1 = quant_player_scene.instantiate()
+	else:
+		char1 = classic_player_scene.instantiate()
+	if char_type_player2 == ProyectilesManager.ProyectileType.QUANTIC:
+		char2 = quant_player_scene.instantiate()
+	else:
+		char2 = classic_player_scene.instantiate()
+	
+	char1.global_position = spawn1.global_position
+	char2.global_position = spawn2.global_position
+	char1.charID = 1
+	char1.player_type = char_type_player1
+	char2.player_type = char_type_player2
+	char2.charID = 2
+	get_tree().root.add_child(char1)
+	get_tree().root.add_child(char2)
+	player1_characters.append(char1)
+	player2_characters.append(char2)
+	if ai_game:
+		ai_system = ai_scene.instantiate()
+		get_tree().root.add_child(ai_system)
+		ai_system.setup(player1_characters[0], player2_characters[0])
 	camera_system.enable_camera_updates(true)
-	var ai = ai_scene.instantiate()
-	get_tree().root.add_child(ai)
-	ai.setup(player1_characters[0], player2_characters[0])
+	
+	#player1_characters.append($Player1)
+	#player2_characters.append($Player2)
+	#camera_system.enable_camera_updates(true)
+	#var ai = ai_scene.instantiate()
+	#get_tree().root.add_child(ai)
+	#ai.setup(player1_characters[0], player2_characters[0])
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
@@ -125,3 +157,10 @@ func _exit_tree() -> void:
 	SignalContainer.player_changed_looking_direction.disconnect(player_changed_looking_direction)
 	SignalContainer.player_duplicated_himself.disconnect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
+	
+	if ai_system:
+		ai_system.queue_free()
+	for i in range(player1_characters.size()):
+		player1_characters[i].queue_free()
+	for i in range(player2_characters.size()):
+		player2_characters[i].queue_free()

@@ -24,7 +24,6 @@ func spawn_proyectile(type : ProyectileType, global_position: Vector2, velocity 
 	proyectile.global_position = global_position
 	proyectile.linear_velocity = velocity
 	proyectile.set_meta("DMG", dealing_dmg)
-	#TODO: Set the animation of the proyectile
 
 	
 	var timer = Timer.new()

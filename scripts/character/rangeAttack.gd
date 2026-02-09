@@ -58,7 +58,7 @@ func try_to_use() -> bool:
 	
 	canBeUsed = false
 	cooldown.start()
-	
+	#print("DEBUG: SHOOTING: " + character.name)
 	if enemy_is_looking_at_me: #Shooting like a physical particle
 		ProyectilesManager.spawn_proyectile(
 			proyectile_type,
