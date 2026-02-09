@@ -175,7 +175,7 @@ texture = ExtResource("1_fhbdo")
 3:15/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_31ujj"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2147483649
 sources/0 = SubResource("TileSetAtlasSource_3sta2")
 
 [node name="TestingMap" type="TileMapLayer" unique_id=740957638]
