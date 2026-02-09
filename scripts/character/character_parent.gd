@@ -80,12 +80,15 @@ func on_hurtbox_body_entered(body: Node2D):
 	body.queue_free()
 
 func received_damage(damage_amount : int):
+	if current_health <= 0:
+		return
 	if especialAttack.end_duplication_character():
 		#print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
 		current_health -= damage_amount
 		if current_health <= 0:
 			current_health = 0 
 			request_anim("die")
+			hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 		else:
 			request_anim("hit")
 		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
