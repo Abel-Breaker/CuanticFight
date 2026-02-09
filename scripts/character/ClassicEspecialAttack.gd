@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var black_hole: AnimatedSprite2D = $BlackHole
+@onready var black_hole_scene: Resource = preload("res://scenes/vfx/BlackHole.tscn")
 @onready var cooldown: Timer = $Cooldown
 @onready var effect_timer: Timer = $EffectTimer
 @onready var ray_cast: RayCast2D = $RayCast
@@ -10,6 +10,7 @@ extends Node2D
 
 var character : CharacterParent
 var canBeUsed : bool = true
+var curr_black_hole : AnimatedSprite2D = null
 
 func _ready() -> void:
 	cooldown.timeout.connect(on_cooldown_ended)
@@ -19,7 +20,8 @@ func on_cooldown_ended():
 	canBeUsed = true
 
 func on_effect_ended():
-	black_hole.visible = false
+	if curr_black_hole:
+		curr_black_hole.queue_free()
 
 func setup(inCharacter: CharacterParent) -> void:
 	character = inCharacter
@@ -51,9 +53,10 @@ func try_to_use() -> bool:
 	if ray_cast.is_colliding():
 		var collision_point = ray_cast.get_collision_point()
 		vfx_spawn_point = collision_point
-	
-	black_hole.global_position = vfx_spawn_point
-	black_hole.visible = true
+	curr_black_hole = black_hole_scene.instantiate()
+	curr_black_hole.global_position = vfx_spawn_point
+	curr_black_hole.visible = true
+	get_tree().root.add_child(curr_black_hole)
 	enemy_character.velocity += moving_dir * attracting_force 
 	
 	return true
@@ -61,3 +64,6 @@ func try_to_use() -> bool:
 func _exit_tree() -> void:
 	cooldown.timeout.disconnect(on_cooldown_ended)
 	effect_timer.timeout.disconnect(on_effect_ended)
+
+func end_duplication_character() -> bool:
+	return true

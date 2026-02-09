@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c2p3msrsrxs7" path="res://assets/sprites/walk.png" id="7_plctd"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_vqasi"]
-[ext_resource type="PackedScene" uid="uid://c0716h4cxg1af" path="res://scenes/characters/EspecialAttack.tscn" id="9_6gyxg"]
 [ext_resource type="PackedScene" uid="uid://cl33ttjn70m0i" path="res://scenes/characters/ClassicRangeAttack.tscn" id="10_plctd"]
+[ext_resource type="PackedScene" uid="uid://ecfxbudw5a0b" path="res://scenes/characters/ClassicEspecialAttack.tscn" id="10_vo6ib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t02b"]
 size = Vector2(15.833332, 26.666668)
@@ -231,9 +231,8 @@ shape = SubResource("RectangleShape2D_plctd")
 position = Vector2(20.000002, 27)
 scale = Vector2(0.822, -0.589)
 
-[node name="EspecialAttack" parent="." unique_id=1413424739 instance=ExtResource("9_6gyxg")]
-position = Vector2(0, 24)
-
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
 position = Vector2(0, 31)
 proyectile_type = 1
+
+[node name="EspecialAttack" parent="." unique_id=1162244593 instance=ExtResource("10_vo6ib")]
