@@ -6,8 +6,14 @@ var character : CharacterParent
 
 @onready var EffectWindow : Timer = $EffectWindow
 @onready var Cooldown : Timer = $Cooldown
+@onready var streamPlayer : AudioStreamPlayer = $AudioStreamPlayer
+
 
 @export var damage : int
+
+@export var soundEffect : AudioStream
+
+
 
 var canBeUsed : bool = true
 
@@ -16,6 +22,7 @@ func _ready() -> void:
 	area_entered.connect(deal_light_attack_damage)
 	EffectWindow.timeout.connect(updateMonitoring)
 	Cooldown.timeout.connect(updateUsability)
+	streamPlayer.stream = soundEffect
 
 
 
@@ -49,6 +56,7 @@ func try_to_use() -> bool:
 		monitoring = true
 		Cooldown.start()
 		EffectWindow.start()
+		streamPlayer.play()
 		return true
 	return false
 

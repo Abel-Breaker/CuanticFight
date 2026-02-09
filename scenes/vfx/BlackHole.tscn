@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bhtybwog8imew"]
 
 [ext_resource type="Texture2D" uid="uid://dx7jk3cobxs6l" path="res://assets/sprites/blackHole.png" id="1_8g5r0"]
-[ext_resource type="AudioStream" uid="uid://dufivqvq2a1qc" path="res://assets/sounds/black_hole.mp3" id="2_523ya"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8g5r0"]
 atlas = ExtResource("1_8g5r0")
@@ -82,6 +81,4 @@ autoplay = "default"
 frame_progress = 0.7541033
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1953585782]
-stream = ExtResource("2_523ya")
 autoplay = true
-parameters/looping = true

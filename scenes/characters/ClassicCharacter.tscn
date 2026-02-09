@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c2p3msrsrxs7" path="res://assets/sprites/walk.png" id="7_plctd"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_vqasi"]
+[ext_resource type="AudioStream" uid="uid://reotccc0g840" path="res://assets/sounds/kick.mp3" id="10_334lg"]
 [ext_resource type="PackedScene" uid="uid://cl33ttjn70m0i" path="res://scenes/characters/ClassicRangeAttack.tscn" id="10_plctd"]
 [ext_resource type="PackedScene" uid="uid://ecfxbudw5a0b" path="res://scenes/characters/ClassicEspecialAttack.tscn" id="10_vo6ib"]
 
@@ -655,6 +656,7 @@ shape = SubResource("RectangleShape2D_plctd")
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
 position = Vector2(20.500002, 7.875)
 scale = Vector2(0.822, -0.589)
+soundEffect = ExtResource("10_334lg")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
 position = Vector2(0.5, 11.875)

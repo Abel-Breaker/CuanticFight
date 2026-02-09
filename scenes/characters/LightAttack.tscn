@@ -19,3 +19,5 @@ one_shot = true
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1096915617]
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316479893]
