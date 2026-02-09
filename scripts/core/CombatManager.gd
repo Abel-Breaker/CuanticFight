@@ -48,7 +48,10 @@ func is_enemy_looking_at_me(my_id: int) -> bool:
 
 	return looking_at_me
 
-
+func get_enemy_player(my_id: int) -> CharacterParent:
+	if my_id == 1:
+		return player2
+	return player1
 
 
 # TODO: When dividing cuantic player return 3 players

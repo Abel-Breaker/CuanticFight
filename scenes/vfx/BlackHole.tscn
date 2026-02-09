@@ -31,9 +31,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=201474747]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=693901479]
+[node name="BlackHole" type="AnimatedSprite2D" unique_id=693901479]
 sprite_frames = SubResource("SpriteFrames_p8i2x")
 autoplay = "default"
-frame_progress = 0.7034722
+frame_progress = 0.7541033
