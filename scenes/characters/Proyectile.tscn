@@ -28,6 +28,7 @@ animations = [{
 }]
 
 [node name="Proyectile" type="RigidBody2D" unique_id=682323841]
+scale = Vector2(2, 2)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
@@ -37,4 +38,4 @@ shape = SubResource("CircleShape2D_0ioq4")
 scale = Vector2(0.44, 0.44)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
-frame_progress = 0.38149142
+frame_progress = 0.949864

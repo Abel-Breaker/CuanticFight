@@ -232,6 +232,7 @@ animations = [{
 size = Vector2(24, 39)
 
 [node name="ClassicCharacter" type="CharacterBody2D" unique_id=255533587]
+scale = Vector2(2, 2)
 script = ExtResource("1_5t02b")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
 
@@ -249,7 +250,7 @@ autoplay = "idle"
 frame = 3
 frame_progress = 1.0
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=100319884]
+[node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
 position = Vector2(-2.25, -1.625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1328048789]
@@ -257,9 +258,11 @@ position = Vector2(1.25, 16.125)
 shape = SubResource("RectangleShape2D_plctd")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
-position = Vector2(20.999996, 0)
+position = Vector2(29, 21)
 scale = Vector2(1.7022398, -1.2195544)
 
 [node name="RangeAttack" parent="." unique_id=932311773 instance=ExtResource("8_swluu")]
+position = Vector2(0, 31)
 
 [node name="EspecialAttack" parent="." unique_id=1413424739 instance=ExtResource("9_6gyxg")]
+position = Vector2(0, 24)
