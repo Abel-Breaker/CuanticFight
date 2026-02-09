@@ -41,12 +41,12 @@ func try_to_use() -> bool:
 	var enemy_pos: Vector2 = enemy_character.global_position
 	var moving_dir: Vector2 = character.velocity.normalized()
 	
-	var vfx_spawn_point = enemy_pos + moving_dir * attracting_force
+	var vfx_spawn_point = enemy_pos + moving_dir * attracting_radius
 	#var force_to_apply #TODO: Scale force with distance to target point
 	
 	ray_cast.global_position = enemy_pos
 	ray_cast.target_position = vfx_spawn_point
-	
+	print("DEBUG: char_dir: "+str(moving_dir) + ", enemy_position: "+str(enemy_pos)+", target_position: "+ str(vfx_spawn_point))
 	ray_cast.collide_with_bodies = true
 	ray_cast.force_raycast_update()
 	
@@ -55,9 +55,21 @@ func try_to_use() -> bool:
 		vfx_spawn_point = collision_point
 	curr_black_hole = black_hole_scene.instantiate()
 	curr_black_hole.global_position = vfx_spawn_point
+	print("DEBUG: spawned_at: " + str(vfx_spawn_point))
 	curr_black_hole.visible = true
+	#-----------
+	var line = Line2D.new()
+	line.add_point(ray_cast.global_position)
+	line.add_point(ray_cast.global_position + ray_cast.target_position)
+	line.width = 2
+	line.default_color = Color.YELLOW
+	get_tree().root.add_child(line)
+	#await get_tree().process_frame
+	#line.queue_free()
+	#-----------
+	
 	get_tree().root.add_child(curr_black_hole)
-	enemy_character.velocity += moving_dir * attracting_force 
+	enemy_character.velocity += Vector2(moving_dir.x * attracting_force, moving_dir.y * 2*attracting_force)# moving_dir * attracting_force 
 	
 	return true
 

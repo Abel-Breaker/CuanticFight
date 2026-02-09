@@ -29,7 +29,6 @@ z_index = 2
 position = Vector2(-555, -28)
 
 [node name="CombatOverlay" parent="." unique_id=225480141 instance=ExtResource("3_31ujj")]
-visible = false
 
 [node name="CameraSystem" parent="." unique_id=1241625164 instance=ExtResource("5_upn1x")]
 visible = false

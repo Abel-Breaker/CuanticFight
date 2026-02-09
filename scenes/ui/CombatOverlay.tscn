@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dbpkdi6s4ykof" path="res://scripts/ui/CombatOverlay.gd" id="1_4i80j"]
 
 [node name="CombatOverlay" type="CanvasLayer" unique_id=1875706386]
+layer = 2
 script = ExtResource("1_4i80j")
 healthbar_tween_time = 0.1
 tween_transition_type = 1
