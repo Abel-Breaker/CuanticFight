@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name CharacterParent
 
 const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -450.0
 const MAX_HEALTH = 100
 
 @export var charID : int = 1
@@ -12,7 +12,7 @@ const MAX_HEALTH = 100
 
 @onready var lightAttack : LightAttack = $LightAttack
 @onready var rangedAttack : RangeAttack = $RangeAttack
-@onready var especialAttack : EspecialAttack = $EspecialAttack
+@onready var especialAttack = $EspecialAttack
 
 @onready var hurtbox : Area2D = $HurtBox
 

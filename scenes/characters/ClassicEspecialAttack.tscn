@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ecfxbudw5a0b"]
 
 [ext_resource type="Script" uid="uid://b66js44mmw6y4" path="res://scripts/character/ClassicEspecialAttack.gd" id="1_r00vp"]
-[ext_resource type="PackedScene" uid="uid://bhtybwog8imew" path="res://scenes/vfx/BlackHole.tscn" id="2_86afx"]
 
 [node name="ClassicEspecialAttack" type="Node2D" unique_id=1162244593]
 script = ExtResource("1_r00vp")
+attracting_radius = 100.0
+attracting_force = 600.0
 
 [node name="Cooldown" type="Timer" parent="." unique_id=1686921152]
 one_shot = true
@@ -12,9 +13,6 @@ one_shot = true
 [node name="EffectTimer" type="Timer" parent="." unique_id=1934980092]
 wait_time = 0.5
 one_shot = true
-
-[node name="BlackHole" parent="." unique_id=693901479 instance=ExtResource("2_86afx")]
-visible = false
 
 [node name="RayCast" type="RayCast2D" parent="." unique_id=1189566902]
 collision_mask = 2147483648
