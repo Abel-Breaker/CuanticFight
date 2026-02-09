@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
 [ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="5_upn1x"]
 [ext_resource type="PackedScene" uid="uid://dwpi86kevrhos" path="res://scenes/characters/ClassicCharacter.tscn" id="6_e8gxf"]
+[ext_resource type="Texture2D" uid="uid://uux6o6ai4e6o" path="res://assetsProv/sprites/360_F_704861433_mQKvkfcIJ8xVClZvQZIvuKuatKjTDdiW.jpg" id="7_hd1y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd1y5"]
 texture = ExtResource("1_e8gxf")
@@ -24,7 +25,7 @@ tile_set = SubResource("TileSet_5e2nw")
 script = ExtResource("2_aybq8")
 
 [node name="Player1" parent="." unique_id=292589204 instance=ExtResource("2_3sta2")]
-position = Vector2(-402, -26)
+position = Vector2(-555, -28)
 
 [node name="CombatOverlay" parent="." unique_id=225480141 instance=ExtResource("3_31ujj")]
 visible = false
@@ -34,6 +35,14 @@ visible = false
 position = Vector2(-272, 355)
 
 [node name="Player2" parent="." unique_id=255533587 instance=ExtResource("6_e8gxf")]
-position = Vector2(-253, -82)
+position = Vector2(-308, -71)
 collision_layer = 2
 charID = 2
+
+[node name="Node2D" type="Node2D" parent="." unique_id=822425078]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034486664]
+show_behind_parent = true
+position = Vector2(-438.99997, -924)
+scale = Vector2(6.3083315, 6.308333)
+texture = ExtResource("7_hd1y5")
