@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1p2su"]
 
 [node name="lightAttack" type="Area2D" unique_id=77710774]
+collision_layer = 0
 monitoring = false
 script = ExtResource("1_vl30b")
 damage = 10

@@ -6,6 +6,7 @@
 radius = 16.03122
 
 [node name="Proyectile" type="RigidBody2D" unique_id=682323841]
+collision_layer = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=704027142]
 scale = Vector2(0.203125, 0.171875)
