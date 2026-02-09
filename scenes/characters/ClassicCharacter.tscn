@@ -634,30 +634,31 @@ script = ExtResource("1_5t02b")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=41412197]
-position = Vector2(-1.4999998, 17)
+position = Vector2(-0.99999976, -2.125)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_5t02b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622430835]
-position = Vector2(-2.25, -17.625)
+position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
 animation = &"ranged_attack"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
-position = Vector2(-2.25, -1.625)
+position = Vector2(-1.75, -20.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1328048789]
 position = Vector2(1.25, 16.125)
 shape = SubResource("RectangleShape2D_plctd")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
-position = Vector2(20.000002, 27)
+position = Vector2(20.500002, 7.875)
 scale = Vector2(0.822, -0.589)
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
-position = Vector2(0, 31)
+position = Vector2(0.5, 11.875)
 proyectile_type = 1
 
 [node name="EspecialAttack" parent="." unique_id=1162244593 instance=ExtResource("10_vo6ib")]
+position = Vector2(0.5, -19.125)
