@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dvudj2eu3busr"]
+
+[ext_resource type="Script" uid="uid://ibxg6w1k3o0l" path="res://scripts/core/AIController_2.gd" id="1_h8dcl"]
+
+[node name="AIController2" type="Node" unique_id=581048184]
+script = ExtResource("1_h8dcl")
+
+[node name="DecisionTimer" type="Timer" parent="." unique_id=1323288523]
+wait_time = 0.25
+
+[node name="StartingTime" type="Timer" parent="." unique_id=1084288085]
+one_shot = true
+
+[node name="CanDoActionTimer" type="Timer" parent="." unique_id=1377401228]
+wait_time = 0.325
+one_shot = true
+
+[node name="MoveTimer" type="Timer" parent="." unique_id=1293156933]
+one_shot = true
+
+[node name="CollideInFront" type="RayCast2D" parent="." unique_id=854637018]
