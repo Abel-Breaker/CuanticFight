@@ -346,7 +346,7 @@ sprite_frames = SubResource("SpriteFrames_vcla3")
 animation = &"die"
 autoplay = "idle"
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=548517638]
+[node name="HurtBox" type="Area2D" parent="." unique_id=548517638 groups=["Hurtbox"]]
 position = Vector2(-2.25, -1.625)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1731665704]

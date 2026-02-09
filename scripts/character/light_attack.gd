@@ -57,6 +57,6 @@ func try_to_use() -> bool:
 	
 func deal_light_attack_damage(area: Area2D):
 
-	var enemy = area.get_parent()
-	enemy.received_damage(damage) 
-	#print("the parent is " + str(area.get_parent()))
+	if area.is_in_group("Hurtbox"):
+		var enemy = area.get_parent()
+		enemy.received_damage(damage) 
