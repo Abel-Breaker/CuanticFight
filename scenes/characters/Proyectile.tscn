@@ -44,4 +44,4 @@ frame_progress = 0.8914848
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167479024]
 stream = ExtResource("2_0ioq4")
 autoplay = true
-bus = &"VFX"
+bus = &"SFX"

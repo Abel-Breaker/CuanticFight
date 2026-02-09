@@ -19,7 +19,7 @@ func _ready() -> void:
 	
 	set_bus_volume("Master", 50)
 	set_bus_volume("Music", 20)
-	set_bus_volume("VFX", 40)
+	set_bus_volume("SFX", 20)
 
 func setup():
 	menu_music.stream = load("res://assets/music/menu_theme.ogg")

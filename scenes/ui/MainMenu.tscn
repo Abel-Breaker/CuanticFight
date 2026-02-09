@@ -96,16 +96,16 @@ offset_top = 213.0
 offset_right = 433.0
 offset_bottom = 251.0
 
-[node name="VFX" parent="." unique_id=668009631 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
+[node name="SFX" parent="." unique_id=668009631 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
 offset_left = 222.0
 offset_top = 306.0
 offset_right = 447.0
 offset_bottom = 322.0
-bus_name = "VFX"
-display_label = NodePath("../VFXLabel")
+bus_name = "SFX"
+display_label = NodePath("../SFXLabel")
 
-[node name="VFXLabel" type="Label" parent="." unique_id=146550054]
+[node name="SFXLabel" type="Label" parent="." unique_id=146550054]
 layout_mode = 0
 offset_left = 174.0
 offset_top = 268.0
