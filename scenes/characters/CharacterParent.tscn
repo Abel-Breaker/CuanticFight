@@ -324,6 +324,7 @@ animations = [{
 size = Vector2(40, 18)
 
 [node name="CharacterParent" type="CharacterBody2D" unique_id=292589204 groups=["Players"]]
+z_index = 2
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_8bv2p")

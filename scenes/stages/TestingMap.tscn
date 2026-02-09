@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://csspsdn3jol7y" path="res://assets/sprites/tile.png" id="1_e8gxf"]
 [ext_resource type="Script" uid="uid://cxxdfjmfqnx3u" path="res://scripts/core/CombatManager.gd" id="2_aybq8"]
 [ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="3_31ujj"]
+[ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="5_e8gxf"]
 [ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="5_upn1x"]
-[ext_resource type="Texture2D" uid="uid://uux6o6ai4e6o" path="res://assetsProv/sprites/360_F_704861433_mQKvkfcIJ8xVClZvQZIvuKuatKjTDdiW.jpg" id="7_hd1y5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hd1y5"]
 texture = ExtResource("1_e8gxf")
@@ -30,9 +30,9 @@ position = Vector2(-272, 355)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2034486664]
 show_behind_parent = true
-position = Vector2(288.00003, -763)
-scale = Vector2(6.3083315, 6.308333)
-texture = ExtResource("7_hd1y5")
+position = Vector2(284, -655)
+scale = Vector2(1.2998937, 1.2998942)
+texture = ExtResource("5_e8gxf")
 
 [node name="Spawn1" type="Marker2D" parent="." unique_id=1732612166]
 position = Vector2(161, 86)

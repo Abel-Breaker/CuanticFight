@@ -628,6 +628,7 @@ animations = [{
 size = Vector2(24, 39)
 
 [node name="ClassicCharacter" type="CharacterBody2D" unique_id=255533587 groups=["Players"]]
+z_index = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_5t02b")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
