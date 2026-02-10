@@ -53,7 +53,7 @@ func crossfade_to(new_track: AudioStreamPlayer, fade_time: float):
 	
 	current_track = new_track
 
-func on_player_low_health(player_id: int, health_percent: float):
+func on_player_low_health(_player_id: int, health_percent: float):
 	var cutoff = lerp(2000.0, 20000.0, health_percent)
 	low_health_filter.cutoff_hz = cutoff
 	if health_percent < 0.3:

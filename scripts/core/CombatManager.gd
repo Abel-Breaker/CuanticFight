@@ -155,7 +155,7 @@ func get_players() -> Array[CharacterParent]:
 func player_exists(p: CharacterParent) -> bool:
 	return p != null and is_instance_valid(p)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not combat_ended and Input.is_action_just_pressed("pause"):
 		SignalContainer.game_pause.emit()
 
