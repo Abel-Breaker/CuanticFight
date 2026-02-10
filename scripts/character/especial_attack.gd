@@ -109,6 +109,7 @@ func duplicate_character() -> void:
 	
 	characterClone.current_health = character.current_health
 	characterClone.especialAttack.characterClone = character
+	characterClone.start_acting()
 	characterClone.especialAttack.isActive = true
 	characterClone.especialAttack.canBeUsed = false
 	
