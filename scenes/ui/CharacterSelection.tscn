@@ -50,7 +50,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_4ehwj")
 }],
 "loop": true,
-"name": &"iddleC",
+"name": &"idle0",
 "speed": 5.0
 }, {
 "frames": [{
@@ -64,7 +64,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_636p1")
 }],
 "loop": true,
-"name": &"iddleQ",
+"name": &"idle1",
 "speed": 5.0
 }]
 
@@ -108,13 +108,12 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Control" unique_id=606425235]
+[node name="P1Sprite" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Control" unique_id=606425235]
 position = Vector2(145.52, 94.319984)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
-animation = &"iddleC"
-autoplay = "iddleC"
-frame_progress = 0.121570036
+animation = &"idle1"
+autoplay = "idle0"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=621895460]
 layout_mode = 2
@@ -131,13 +130,12 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
+[node name="P2Sprite" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
 position = Vector2(145.52, 94.319984)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
-animation = &"iddleQ"
-autoplay = "iddleC"
-frame_progress = 0.47404927
+animation = &"idle1"
+autoplay = "idle0"
 
 [node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
 offset_left = 273.0
