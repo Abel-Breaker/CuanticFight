@@ -7,3 +7,5 @@ script = ExtResource("1_xx71b")
 
 [node name="StartingTime" type="Timer" parent="." unique_id=833815163]
 one_shot = true
+
+[node name="FrontViewRaycast" type="RayCast2D" parent="." unique_id=1394286795]

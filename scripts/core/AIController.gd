@@ -3,6 +3,9 @@ extends Node
 enum E_Mood {ESCAPING, HUNTING}
 
 @onready var starting_timer: Timer = $StartingTime
+@onready var front_view_raycast: RayCast2D = $FrontViewRaycast
+
+@export var view_distance: float = 60.
 
 var enemy : CharacterParent
 var controlledCharacter : CharacterParent
@@ -16,16 +19,14 @@ var time_since_last_action : float = 0
 var isSetUp = false
 
 func _ready() -> void:
-	pass
+	starting_timer.timeout.connect(func():
+		isSetUp = true
+	, CONNECT_ONE_SHOT)
 
 func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -> void:
 	enemy = inEnemy
 	controlledCharacter = inControlledCharacter
-	starting_timer.timeout.connect(func():
-		isSetUp = true
-	, CONNECT_ONE_SHOT)
 	starting_timer.start()
-	
 
 
 
@@ -44,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		#mood = E_Mood.ESCAPING
 	elif mood != E_Mood.ESCAPING and enemy.current_health < enemy.MAX_HEALTH*0.5:
 		mood = E_Mood.HUNTING
-	if randf() < time_since_last_jump*2:
+	if randf() < time_since_last_jump:#*2:
 		jump()
 		time_since_last_jump = 0
 	else:
@@ -64,7 +65,34 @@ func _physics_process(delta: float) -> void:
 			if im_in_melee_range():
 				use_light_attack()
 			move_towards_enemy()
-
+	var move_dir: float = 0
+	if Input.is_action_pressed("move_left_2") and not Input.is_action_pressed("move_right_2"):
+		move_dir = -1
+	elif Input.is_action_pressed("move_right_2") and not Input.is_action_pressed("move_left_2"):
+		move_dir = 1
+	if move_dir != 0:
+		front_view_raycast.global_position = controlledCharacter.global_position
+		front_view_raycast.target_position = Vector2(move_dir * view_distance, 0)
+		front_view_raycast.collide_with_bodies = true
+		front_view_raycast.force_raycast_update()
+		if front_view_raycast.is_colliding():
+			jump()
+		#-----
+		"""
+		var line = Line2D.new()
+		line.add_point(front_view_raycast.global_position)
+		line.add_point(front_view_raycast.global_position + front_view_raycast.target_position)
+		line.width = 2
+		line.default_color = Color.YELLOW
+		get_tree().root.add_child(line)
+		var line2 = Line2D.new()
+		line2.add_point(front_view_raycast.global_position)
+		line2.add_point(front_view_raycast.global_position + Vector2(4,0))
+		line2.width = 2
+		line2.default_color = Color.RED
+		get_tree().root.add_child(line2)
+		"""
+		#-----
 
 func im_in_melee_range() -> bool:
 	return true if abs(controlledCharacter.get_position().x - enemy.get_position().x) <= 21 else false
@@ -118,7 +146,7 @@ func use_ranged_attack() -> void:
 func use_especial_attack() -> void:
 	Input.action_press("especial_attack_2")
 	Input.action_release("especial_attack_2")
-	look_away_from_enemy()
+	look_towards_enemy() #look_away_from_enemy()
 
 func jump() -> void:
 	Input.action_press("jump_2")

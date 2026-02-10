@@ -133,44 +133,44 @@ func im_on_the_right() -> bool:
 
 func look_away_from_enemy() -> void:
 	if im_on_the_right():
-		Input.action_press("move_right_2")
-		Input.action_release("move_right_2")
+		Input.action_press("move_right_1")
+		Input.action_release("move_right_1")
 	else:
-		Input.action_press("move_left_2")
-		Input.action_release("move_left_2")
+		Input.action_press("move_left_1")
+		Input.action_release("move_left_1")
 
 func look_towards_enemy() -> void:
 	if im_on_the_right():
-		var running_right = Input.is_action_pressed("move_right_2")
+		var running_right = Input.is_action_pressed("move_right_1")
 		if running_right:
-			Input.action_release("move_right_2")
-		Input.action_press("move_left_2")
-		Input.action_release("move_left_2")
+			Input.action_release("move_right_1")
+		Input.action_press("move_left_1")
+		Input.action_release("move_left_1")
 		if running_right:
-			Input.action_press("move_right_2")
+			Input.action_press("move_right_1")
 	else:
-		var running_left = Input.is_action_pressed("move_left_2")
+		var running_left = Input.is_action_pressed("move_left_1")
 		if running_left:
-			Input.action_release("move_left_2")
-		Input.action_press("move_right_2")
-		Input.action_release("move_right_2")
+			Input.action_release("move_left_1")
+		Input.action_press("move_right_1")
+		Input.action_release("move_right_1")
 		if running_left:
-			Input.action_press("move_left_2")
+			Input.action_press("move_left_1")
 
 func move_away_from_enemy(min: float, max: float) -> int:
 	if im_on_the_right():
-		safe_random_yielding_input_pressing("move_right_2", min, max)
+		safe_random_yielding_input_pressing("move_right_1", min, max)
 		return 1
 	else:
-		safe_random_yielding_input_pressing("move_left_2", min, max)
+		safe_random_yielding_input_pressing("move_left_1", min, max)
 		return -1
 
 func move_towards_enemy(min: float, max: float) -> int:
 	if im_on_the_right():
-		safe_random_yielding_input_pressing("move_left_2", min, max)
+		safe_random_yielding_input_pressing("move_left_1", min, max)
 		return -1
 	else:
-		safe_random_yielding_input_pressing("move_right_2", min, max)
+		safe_random_yielding_input_pressing("move_right_1", min, max)
 		return 1
 
 func on_move_timer_end(input_name: String):
@@ -186,20 +186,20 @@ func safe_random_yielding_input_pressing(input_name: String, min: float, max: fl
 	Input.action_press(input_name)
 
 func use_light_attack() -> void:
-	Input.action_press("light_attack_2")
-	Input.action_release("light_attack_2")
+	Input.action_press("light_attack_1")
+	Input.action_release("light_attack_1")
 
 func use_ranged_attack() -> void:
-	Input.action_press("ranged_attack_2")
-	Input.action_release("ranged_attack_2")
+	Input.action_press("ranged_attack_1")
+	Input.action_release("ranged_attack_1")
 
 func use_especial_attack() -> void:
-	Input.action_press("especial_attack_2")
-	Input.action_release("especial_attack_2")
+	Input.action_press("especial_attack_1")
+	Input.action_release("especial_attack_1")
 
 func jump() -> void:
-	Input.action_press("jump_2")
-	Input.action_release("jump_2")
+	Input.action_press("jump_1")
+	Input.action_release("jump_1")
 
 func _exit_tree() -> void:
 	decision_timer.timeout.disconnect(think_next_decision_state)

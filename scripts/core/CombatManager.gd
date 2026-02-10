@@ -1,7 +1,9 @@
 extends Node
 class_name CombatManager
 
-@onready var ai_scene = preload("res://scenes/core/AIController_2.tscn")
+@onready var ai_scene1 = preload("res://scenes/core/AIController.tscn")
+#@onready var ai_scene2 = preload("res://scenes/core/AIController_2.tscn")
+
 @onready var quant_player_scene = preload("res://scenes/characters/CharacterParent.tscn")
 @onready var classic_player_scene = preload("res://scenes/characters/ClassicCharacter.tscn")
 
@@ -10,7 +12,8 @@ class_name CombatManager
 @onready var spawn1 = $Spawn1
 @onready var spawn2 = $Spawn2
 
-var ai_system: Node
+var ai_system1: Node
+#var ai_system2: Node
 
 var player1_characters: Array[CharacterParent] = []
 var player2_characters: Array[CharacterParent] = []
@@ -49,9 +52,12 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 	player1_characters.append(char1)
 	player2_characters.append(char2)
 	if ai_game:
-		ai_system = ai_scene.instantiate()
-		get_tree().root.add_child(ai_system)
-		ai_system.setup(char1, char2)
+		ai_system1 = ai_scene1.instantiate()
+		get_tree().root.add_child(ai_system1)
+		ai_system1.setup(char1, char2)
+		#ai_system2 = ai_scene1.instantiate()
+		#get_tree().root.add_child(ai_system2)
+		#ai_system2.setup(char1, char2)
 	camera_system.enable_camera_updates(true)
 	
 	#player1_characters.append($Player1)
@@ -158,10 +164,14 @@ func _exit_tree() -> void:
 	SignalContainer.player_duplicated_himself.disconnect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
 	print("DEBUG: Exiting CombatManager")
-	if ai_system:
+	if ai_system1:
 		print("DEBUG: Freeing AI")
-		ai_system.queue_free()
-		ai_system = null
+		ai_system1.queue_free()
+		ai_system1 = null
+	#if ai_system2:
+	#	print("DEBUG: Freeing AI")
+	#	ai_system2.queue_free()
+	#	ai_system2 = null
 	for i in range(player1_characters.size()):
 		player1_characters[i].queue_free()
 	for i in range(player2_characters.size()):

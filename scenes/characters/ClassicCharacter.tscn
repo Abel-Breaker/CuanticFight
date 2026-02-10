@@ -590,9 +590,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_swluu")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_swluu")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mt2rx")
 }],
-"loop": false,
+"loop": true,
 "name": &"light_attack",
 "speed": 8.0
 }, {
@@ -643,8 +646,10 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"ranged_attack"
+animation = &"light_attack"
 autoplay = "idle"
+frame = 1
+frame_progress = 0.020012787
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
 position = Vector2(-1.75, -20.75)
@@ -654,8 +659,8 @@ position = Vector2(1.25, 16.125)
 shape = SubResource("RectangleShape2D_plctd")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
-position = Vector2(20.500002, 7.875)
-scale = Vector2(0.822, -0.589)
+position = Vector2(6.5, 7.4999995)
+scale = Vector2(1.1419997, -0.7689995)
 soundEffect = ExtResource("10_334lg")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
