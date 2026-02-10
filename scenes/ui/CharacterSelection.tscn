@@ -1,41 +1,45 @@
 [gd_scene format=3 uid="uid://clr86rg4yrvt4"]
 
+[ext_resource type="Script" uid="uid://l0wvtwovitky" path="res://scripts/ui/character_selection.gd" id="1_mynl5"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
-[ext_resource type="PackedScene" uid="uid://cgs3817mxc151" path="res://scenes/ui/ArrowButton.tscn" id="4_dshq4"]
+[ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
+atlas = ExtResource("2_yde1c")
+region = Rect2(0, 160, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mynl5"]
 atlas = ExtResource("2_yde1c")
-region = Rect2(0, 0, 256, 256)
+region = Rect2(256, 160, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4j6u6"]
 atlas = ExtResource("2_yde1c")
-region = Rect2(256, 0, 256, 256)
+region = Rect2(512, 160, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ehwj"]
 atlas = ExtResource("2_yde1c")
-region = Rect2(512, 0, 256, 256)
+region = Rect2(768, 160, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jd0c"]
-atlas = ExtResource("2_yde1c")
-region = Rect2(768, 0, 256, 256)
+atlas = ExtResource("3_dshq4")
+region = Rect2(0, 32, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyghb"]
 atlas = ExtResource("3_dshq4")
-region = Rect2(0, 0, 256, 128)
+region = Rect2(256, 32, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_636p1"]
 atlas = ExtResource("3_dshq4")
-region = Rect2(256, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqxdx"]
-atlas = ExtResource("3_dshq4")
-region = Rect2(512, 0, 256, 128)
+region = Rect2(512, 32, 256, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4aop3"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dshq4")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mynl5")
 }, {
@@ -44,9 +48,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4ehwj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8jd0c")
 }],
 "loop": true,
 "name": &"iddleC",
@@ -54,13 +55,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_8jd0c")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gyghb")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_636p1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eqxdx")
 }],
 "loop": true,
 "name": &"iddleQ",
@@ -68,6 +69,7 @@ animations = [{
 }]
 
 [node name="CharacterSelection" type="CanvasLayer" unique_id=28851735]
+script = ExtResource("1_mynl5")
 
 [node name="Panel" type="Panel" parent="." unique_id=288793383]
 anchors_preset = 15
@@ -107,12 +109,12 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Control" unique_id=606425235]
-position = Vector2(158.52, -58.47999)
+position = Vector2(145.52, 94.319984)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
 animation = &"iddleC"
 autoplay = "iddleC"
-frame_progress = 0.8986093
+frame_progress = 0.121570036
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=621895460]
 layout_mode = 2
@@ -130,33 +132,48 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
-position = Vector2(158.52, -58.47999)
+position = Vector2(145.52, 94.319984)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
-animation = &"iddleC"
+animation = &"iddleQ"
 autoplay = "iddleC"
-frame_progress = 0.30987632
+frame_progress = 0.47404927
 
-[node name="Button" parent="." unique_id=777942862 instance=ExtResource("4_dshq4")]
-offset_left = 243.0
-offset_top = 183.00002
-offset_right = 1729.0
-offset_bottom = 928.0
+[node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
+offset_left = 273.0
+offset_top = 305.0
+offset_right = 373.0
+offset_bottom = 345.0
+text = "PLAY"
 
-[node name="Button2" parent="." unique_id=1199203855 instance=ExtResource("4_dshq4")]
-offset_left = 567.0
-offset_top = 183.0
-offset_right = 2053.0
-offset_bottom = 928.0
+[node name="ButtonR1" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
+offset_left = 216.0
+offset_top = 172.0
+offset_right = 316.0
+offset_bottom = 212.0
+scale = Vector2(0.6, 0.945)
+text = "->"
 
-[node name="Button3" parent="." unique_id=1512543200 instance=ExtResource("4_dshq4")]
-offset_left = 375.0
-offset_top = 183.0
-offset_right = 1861.0
-offset_bottom = 928.0
+[node name="ButtonR2" parent="." unique_id=1067484105 instance=ExtResource("5_mynl5")]
+offset_left = 547.0
+offset_top = 172.0
+offset_right = 647.0
+offset_bottom = 212.0
+scale = Vector2(0.6, 0.945)
+text = "->"
 
-[node name="Button4" parent="." unique_id=259277499 instance=ExtResource("4_dshq4")]
-offset_left = 42.00003
-offset_top = 183.0
-offset_right = 1528.0
-offset_bottom = 928.0
+[node name="ButtonL1" parent="." unique_id=125746183 instance=ExtResource("5_mynl5")]
+offset_left = 22.0
+offset_top = 172.0
+offset_right = 122.0
+offset_bottom = 212.0
+scale = Vector2(0.6, 0.945)
+text = "<-"
+
+[node name="ButtonL2" parent="." unique_id=1396888468 instance=ExtResource("5_mynl5")]
+offset_left = 349.0
+offset_top = 172.0
+offset_right = 449.0
+offset_bottom = 212.0
+scale = Vector2(0.6, 0.945)
+text = "<-"
