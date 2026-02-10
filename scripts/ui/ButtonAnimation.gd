@@ -33,8 +33,9 @@ func _ready() -> void:
 		play_scale_tween(scale_on_press)
 	)
 	parent.button_up.connect(func ():
-		sound_release.play()
-		play_scale_tween(scale_on_hover)
+		if self.is_inside_tree():
+			sound_release.play()
+			play_scale_tween(scale_on_hover)
 	)
 	
 	call_deferred("init")

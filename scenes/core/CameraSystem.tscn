@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b71wrsa4yxmn0"]
 
 [ext_resource type="Script" uid="uid://dqbmfypd1nscq" path="res://scripts/system/CameraController.gd" id="1_em6g4"]
+[ext_resource type="Texture2D" uid="uid://c2ki7okvgwtec" path="res://assets/sprites/arrow.png" id="2_ne1ou"]
 
 [node name="CameraSystem" type="Node2D" unique_id=1241625164]
 script = ExtResource("1_em6g4")
@@ -34,11 +35,19 @@ size_flags_horizontal = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer" unique_id=265450559]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(320, 360)
 render_target_update_mode = 4
 
 [node name="CameraP1" type="Camera2D" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport" unique_id=550677663]
+
+[node name="EnemyArrow" type="TextureRect" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1380494379]
+z_index = 10
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_ne1ou")
+expand_mode = 1
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/SplitUI/HBoxContainer" unique_id=797741513]
 layout_mode = 2
@@ -46,8 +55,16 @@ size_flags_horizontal = 3
 stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2" unique_id=343095750]
+transparent_bg = true
 handle_input_locally = false
 size = Vector2i(320, 360)
 render_target_update_mode = 4
 
 [node name="CameraP2" type="Camera2D" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=637719236]
+
+[node name="EnemyArrow" type="TextureRect" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1616910679]
+z_index = 10
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_ne1ou")
+expand_mode = 1

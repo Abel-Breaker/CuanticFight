@@ -4,6 +4,7 @@ enum CameraMode { SINGLE, SPLIT }
 
 @export var split_distance: float = 400.0
 @export var transition_speed: float = 5.0
+@export var arrow_snap_speed: float = 15.0
 
 @onready var cam_single: Camera2D = $CameraSingle
 
@@ -14,6 +15,11 @@ enum CameraMode { SINGLE, SPLIT }
 @onready var subviewport_p2: SubViewport = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport
 @onready var viewport_container_p1: SubViewportContainer = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer
 @onready var viewport_container_p2: SubViewportContainer = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2
+
+@onready var enemy_arrow_p1: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport/EnemyArrow
+@onready var enemy_arrow_p2: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/EnemyArrow
+
+const ARROW_OFFSET_FROM_CENTER = 160 - (64 / 2) #NOTE: Width of the viewport minus half the arrow's width
 
 var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
@@ -85,6 +91,8 @@ func set_mode(new_mode: CameraMode):
 		viewport_container_p2.visible = false
 		cam_p1.enabled = false
 		cam_p2.enabled = false
+		enemy_arrow_p1.visible = false
+		enemy_arrow_p2.visible = false
 
 	else:
 		cam_single.enabled = false
@@ -93,6 +101,8 @@ func set_mode(new_mode: CameraMode):
 		viewport_container_p2.visible = true
 		cam_p1.enabled = true
 		cam_p2.enabled = true
+		enemy_arrow_p1.visible = true
+		enemy_arrow_p2.visible = true
 
 
 # --------------------------------------------------
@@ -157,6 +167,26 @@ func update_split_cameras(delta: float) -> void:
 
 	cam_p1.zoom = cam_p1.zoom.lerp(Vector2.ONE * zoom_p1, transition_speed * delta)
 	cam_p2.zoom = cam_p2.zoom.lerp(Vector2.ONE * zoom_p2, transition_speed * delta)
+	
+	# --- FLECHA OTRO JUGADOR ---
+	if mode == CameraMode.SPLIT:
+		set_enemy_arrow_position(delta, enemy_arrow_p1, cam_p1.global_position, p1_pos, p2_pos)
+		set_enemy_arrow_position(delta, enemy_arrow_p2, cam_p2.global_position, p2_pos, p1_pos)
+	
+
+func set_enemy_arrow_position(delta:float, enemy_arrow: TextureRect, cam_pos: Vector2, my_position: Vector2, enemy_position: Vector2):
+	var diff = enemy_position - my_position
+	enemy_arrow.z_index = 20
+
+	var x_offset: float
+	if diff.x < 0:
+		enemy_arrow.flip_h = false
+		x_offset = -1*ARROW_OFFSET_FROM_CENTER
+	else:
+		enemy_arrow.flip_h = true
+		x_offset = ARROW_OFFSET_FROM_CENTER
+	
+	enemy_arrow.global_position = Vector2(cam_pos.x + x_offset -32, lerpf(enemy_arrow.global_position.y, cam_pos.y + diff.y, arrow_snap_speed * delta))
 
 
 # Calcula el zoom basado en la distancia entre los jugadores de un par
