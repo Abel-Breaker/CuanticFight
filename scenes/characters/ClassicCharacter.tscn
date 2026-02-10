@@ -595,7 +595,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mt2rx")
 }],
-"loop": true,
+"loop": false,
 "name": &"light_attack",
 "speed": 8.0
 }, {

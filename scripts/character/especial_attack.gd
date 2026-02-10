@@ -41,8 +41,9 @@ func _exit_tree() -> void:
 
 # Returns true if succesfully used and false if cannot use for any reason
 func try_to_use() -> bool:
+	#print("Trying")
 	if not canBeUsed: return false
-	
+	#print("USED")
 	canBeUsed = false
 	isActive = true
 	duplicate_character()
@@ -55,6 +56,7 @@ func duplicate_character() -> void:
 	character.get_parent().add_child(characterClone)
 	characterClone.position = characterClone.position+ Vector2(-100,0)
 	
+	characterClone.current_health = character.current_health
 	characterClone.especialAttack.characterClone = character
 	characterClone.especialAttack.isActive = true
 	characterClone.especialAttack.canBeUsed = false
@@ -66,14 +68,18 @@ func duplicate_character() -> void:
 func end_duplication_character() -> bool:
 	if isActive:
 		isActive = false
-		Cooldown.start()
+		
 		var im_real = randf() < 0.5
 		if im_real:
+			#print("I_AM_REAL")
 			characterClone.queue_free()
+			Cooldown.start()
 			call_deferred("on_duplication_determined")
 			return true
 		else:
+			#print("I_AM_FAKE")
 			character.queue_free()
+			characterClone.especialAttack.Cooldown.start()
 			call_deferred("on_duplication_determined")
 			return false
 	return true

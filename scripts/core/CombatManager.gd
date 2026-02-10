@@ -96,6 +96,8 @@ func update_my_characters(player_num: int):
 		player1_characters = updated_characters
 	else:
 		player2_characters = updated_characters
+	if player1_characters.size() > 0 and player2_characters.size() > 0:
+		ai_system1.setup(player1_characters[0], player2_characters[0])
 	#print("PLAYER"+str(player_num)+" characters: "+str(updated_characters))
 
 func is_enemy_looking_at_me(my_id: int) -> bool:

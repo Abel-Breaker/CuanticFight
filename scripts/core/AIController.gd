@@ -26,7 +26,8 @@ func _ready() -> void:
 func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -> void:
 	enemy = inEnemy
 	controlledCharacter = inControlledCharacter
-	starting_timer.start()
+	if starting_timer.is_stopped():
+		starting_timer.start()
 
 
 
