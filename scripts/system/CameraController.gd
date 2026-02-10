@@ -55,10 +55,12 @@ func _physics_process(delta):
 
 	if (p1.distance_to(p2)) > split_distance:
 		set_mode(CameraMode.SPLIT)
-		update_split_cameras(delta)
 	else:
 		set_mode(CameraMode.SINGLE)
-		update_single_camera(delta)
+	
+	# For smoother transition update all
+	update_single_camera(delta)
+	update_split_cameras(delta)
 		
 
 func get_pair_center(p1: CharacterParent, p2: CharacterParent) -> Vector2:
