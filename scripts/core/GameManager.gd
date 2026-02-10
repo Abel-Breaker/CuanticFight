@@ -53,7 +53,7 @@ func start_game(solo: bool):
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
-	last_combat_init_data = {"P1Type": ProyectilesManager.ProyectileType.QUANTIC, "P2Type": ProyectilesManager.ProyectileType.CLASSIC, "SoloGame": solo}
+	last_combat_init_data = {"P1Type": ProyectilesManager.ProyectileType.CLASSIC, "P2Type": ProyectilesManager.ProyectileType.QUANTIC, "SoloGame": solo}
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
 
 func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
