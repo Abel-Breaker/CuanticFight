@@ -23,7 +23,7 @@ var recolor2 : bool = false
 var characters1 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var characters2 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var char1selection : int = 0
-var char2selection : int = 0
+var char2selection : int = 1
 var solo_play_game: bool = false
 
 func _exit_tree() -> void:
@@ -79,7 +79,7 @@ func return_to_menu() -> void:
 
 func play_game() -> void:
 	# Show contdown
-	SignalContainer.game_start.emit(characters1[char1selection], characters2[char2selection], solo_play_game)
+	SignalContainer.game_start.emit(characters1[char1selection], characters2[char2selection], solo_play_game, recolor1, recolor2)
 
 func swap_right1() -> void:
 	char1selection += 1

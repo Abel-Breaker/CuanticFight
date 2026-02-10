@@ -29,7 +29,7 @@ func _ready() -> void:
 	SignalContainer.player_determined_himself.connect(player_determined_himself)
 	#call_deferred("setup")
 
-func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
+func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool, recolorP1:bool, recolorP2:bool):
 	var char1: CharacterParent
 	var char2: CharacterParent
 	if char_type_player1 == ProyectilesManager.ProyectileType.QUANTIC:
@@ -60,7 +60,17 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 		#ai_system2.setup(char1, char2)
 	camera_system.enable_camera_updates(true)
 	combat_overlay.setup(ai_game)
+	
+	char1.setColor(recolorP1)
+	char2.setColor(recolorP2)
+	
+	await get_tree().create_timer(3).timeout.connect(enableCharacters.bind(char1, char2))
+	
 
+func enableCharacters(char1 : CharacterParent, char2 : CharacterParent) -> void:
+	char1.start_acting()
+	char2.start_acting()
+	
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)

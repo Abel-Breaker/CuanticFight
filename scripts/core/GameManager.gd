@@ -61,23 +61,24 @@ func go_to_character_selection(solo: bool):
 	var char_sel = change_scene(character_selection_menu_scene_path)
 	char_sel.setup(solo)
 
-func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool):
+func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1:bool, recolorP2:bool):
 	if curr_game_state != GameState.CharacterSelection:
 		return
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
 	
-	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo}
-	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
+	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo, "RecolorP1": recolorP1, "RecolorP2":recolorP2}
+	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame, last_combat_init_data.RecolorP1, last_combat_init_data.RecolorP2)
 	# Add Contdown scene
 	await show_countdown()
 
-func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
+func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool, recolorP1:bool, recolorP2:bool):
 	var combat_manager = get_combat_manager()
 	if not combat_manager: push_error("Not combat_manager loaded to start combat")
 	
-	combat_manager.setup(char_type_player1, char_type_player2, ai_game)
+	combat_manager.setup(char_type_player1, char_type_player2, ai_game, recolorP1, recolorP2)
+	
 
 func exit_game():
 	if curr_game_state != GameState.Paused and curr_game_state != GameState.CombatEnded:
@@ -135,7 +136,7 @@ func replay_game():
 	game_ended_overlay.queue_free()
 	game_ended_overlay = null
 	change_scene(game_scene_path)
-	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
+	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame, last_combat_init_data.RecolorP1, last_combat_init_data.RecolorP2)
 
 
 

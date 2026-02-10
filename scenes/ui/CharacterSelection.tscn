@@ -197,8 +197,8 @@ size_flags_stretch_ratio = 3.0
 position = Vector2(145.52, 94.319984)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
-animation = &"idle0"
-autoplay = "idle0"
+animation = &"idle1"
+autoplay = "idle1"
 
 [node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
 offset_left = 273.0
