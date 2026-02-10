@@ -36,13 +36,12 @@ func setup():
 	game_end_delay.timeout.connect(on_game_end_delay_timer_timeout)
 	AudioManager.setup()
 	AudioManager.play_menu_music()
-	
 
 func on_game_end_delay_timer_timeout():
 	var game_ended_scene = load(game_ended_scene_path)
 	game_ended_overlay = game_ended_scene.instantiate()
 	get_tree().root.add_child(game_ended_overlay)
-	game_ended_overlay.set_winner_text(last_winner_id)
+	game_ended_overlay.set_winner_text(last_winner_id, last_combat_init_data.SoloGame)
 	last_winner_id = 0
 
 func close_program(exit_code : int):

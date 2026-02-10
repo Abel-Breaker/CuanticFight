@@ -161,9 +161,9 @@ func _exit_tree() -> void:
 	SignalContainer.player_changed_looking_direction.disconnect(player_changed_looking_direction)
 	SignalContainer.player_duplicated_himself.disconnect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
-	print("DEBUG: Exiting CombatManager")
+	#print("DEBUG: Exiting CombatManager")
 	if ai_system1:
-		print("DEBUG: Freeing AI")
+		#print("DEBUG: Freeing AI")
 		ai_system1.queue_free()
 		ai_system1 = null
 	#if ai_system2:
