@@ -10,6 +10,15 @@ offset_right = 640.0
 offset_bottom = 360.0
 script = ExtResource("1_6jbdy")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1732511455]
+z_index = -1
+layout_mode = 0
+offset_top = -34.0
+offset_right = 3072.0
+offset_bottom = 2014.0
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("4_2ysvc")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1145340081]
 layout_mode = 1
 anchors_preset = 8
@@ -132,9 +141,3 @@ offset_left = 175.0
 offset_top = 287.0
 offset_right = 435.0
 offset_bottom = 325.0
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1194258692]
-show_behind_parent = true
-position = Vector2(319.8125, 194.125)
-scale = Vector2(0.21040852, 0.21105957)
-texture = ExtResource("4_2ysvc")
