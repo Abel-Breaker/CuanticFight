@@ -7,7 +7,9 @@ var characterClone : CharacterParent
 var isActive : bool = false
 
 @onready var Cooldown : Timer = $Cooldown
+@onready var front_view_raycast: RayCast2D = $FrontViewRaycast
 
+var spawnPoint : Vector2 
 var canBeUsed : bool = true
 
 
@@ -53,8 +55,57 @@ func try_to_use() -> bool:
 func duplicate_character() -> void:
 	characterClone = character.duplicate()
 	
+	
+	for i in range(4):
+		if get_parent().isLookingLeft:
+			spawnPoint = Vector2(-100, 0)
+		else:
+			spawnPoint = Vector2(100, 0)
+		spawnPoint = (3-i) * spawnPoint
+		if i==3: 
+			spawnPoint += Vector2(0,-100)
+		# ----- RAYCAST
+		front_view_raycast.global_position = get_parent().global_position + spawnPoint
+		front_view_raycast.target_position = Vector2(1,0)
+		front_view_raycast.collide_with_bodies = true
+		front_view_raycast.force_raycast_update()
+		if front_view_raycast.is_colliding():
+			'''
+			#-----
+			var line = Line2D.new()
+			line.add_point(front_view_raycast.global_position)
+			line.add_point(front_view_raycast.global_position + front_view_raycast.target_position)
+			line.width = 2
+			line.default_color = Color.YELLOW
+			get_tree().root.add_child(line)
+			var line2 = Line2D.new()
+			line2.add_point(front_view_raycast.global_position)
+			line2.add_point(front_view_raycast.global_position + Vector2(4,0))
+			line2.width = 2
+			line2.default_color = Color.RED
+			get_tree().root.add_child(line2)
+			
+			#-----
+			'''
+			spawnPoint += Vector2(0,-100)
+			
+			print("COLLIDING")
+			front_view_raycast.global_position = get_parent().global_position + spawnPoint
+			front_view_raycast.target_position = Vector2(1,0)
+			front_view_raycast.collide_with_bodies = true
+			front_view_raycast.force_raycast_update()
+			if not front_view_raycast.is_colliding():
+				#print("NOTCOLLIDING2")
+				break
+			#else: 
+				#print("COLLIDING2")
+		else:
+			#print("NOTCOLLIDING")
+			break
+		
+	
 	character.get_parent().add_child(characterClone)
-	characterClone.position = characterClone.position+ Vector2(-100,0)
+	characterClone.position = characterClone.position+ spawnPoint
 	
 	characterClone.current_health = character.current_health
 	characterClone.especialAttack.characterClone = character
