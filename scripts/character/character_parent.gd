@@ -52,7 +52,10 @@ var current_health := MAX_HEALTH
 
 func setColor(isRecolor : bool = false) -> void:
 	if isRecolor:
+		sprite.visible = false
 		sprite = $RECOLOR
+		sprite.visible = true
+		
 
 func start_acting() -> void:
 	canAct = true

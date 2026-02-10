@@ -783,8 +783,9 @@ animation = &"especial_attack"
 autoplay = "idle"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=863561660]
-position = Vector2(-3.1420898, -24.613037)
-scale = Vector2(0.15719986, 0.15719986)
+visible = false
+position = Vector2(-2.25, -17.625)
+scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_px65p")
 animation = &"run"
 autoplay = "idle"
