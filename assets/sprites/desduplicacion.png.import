@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c52hqlx4mi3xx"
-path="res://.godot/imported/portraitQ.png-8e78a01cfa4d03cebfa0059efe85c110.ctex"
+uid="uid://0su0clswcpb5"
+path="res://.godot/imported/desduplicacion.png-a69883d9ef51725383e5ea1aa2b3216d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/portraitQ.png"
-dest_files=["res://.godot/imported/portraitQ.png-8e78a01cfa4d03cebfa0059efe85c110.ctex"]
+source_file="res://assets/sprites/desduplicacion.png"
+dest_files=["res://.godot/imported/desduplicacion.png-a69883d9ef51725383e5ea1aa2b3216d.ctex"]
 
 [params]
 
