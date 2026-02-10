@@ -23,6 +23,16 @@ var camera_updates_are_enabled: bool = false
 func _ready():
 	subviewport_p1.world_2d = get_viewport().world_2d
 	subviewport_p2.world_2d = get_viewport().world_2d
+	
+	# Inicializamos cámaras con posición y zoom inicial
+	var start_offset: Vector2 = Vector2(750, 750)  # Ajusta según el efecto que quieras
+	var start_zoom: float = 4.0  # Zoom inicial muy alejado
+
+	# Posición inicial: muy abajo a la derecha desde el centro de los jugadores
+	cam_single.global_position = start_offset
+
+	# Zoom inicial grande
+	cam_single.zoom = Vector2.ONE * start_zoom
 
 	# Diabolic, if you don´t call SPLIT first It doesnt work
 	set_mode(CameraMode.SPLIT)
