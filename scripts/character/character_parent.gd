@@ -50,7 +50,7 @@ var current_priority := 0
 var current_health := MAX_HEALTH
 
 
-func setup(isRecolor : bool = false) -> void:
+func setColor(isRecolor : bool = false) -> void:
 	if isRecolor:
 		sprite = $RECOLOR
 
