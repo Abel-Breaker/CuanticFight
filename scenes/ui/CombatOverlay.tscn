@@ -41,6 +41,16 @@ offset_right = 262.0
 offset_bottom = 23.0
 texture = ExtResource("3_vwnrl")
 
+[node name="Name" type="Label" parent="Player1" unique_id=1768482678]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 26.0
+offset_right = 174.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.5020322, 0.7505669, 0.7505669, 1)
+theme_override_constants/outline_size = 6
+text = "PLAYER 1"
+
 [node name="Player2" type="Control" parent="." unique_id=2027344772]
 layout_mode = 3
 anchors_preset = 0
@@ -73,3 +83,14 @@ offset_top = 5.0
 offset_right = 293.0
 offset_bottom = 23.0
 texture = ExtResource("3_vwnrl")
+
+[node name="Name" type="Label" parent="Player2" unique_id=153058557]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 26.0
+offset_right = 289.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.5020322, 0.7505669, 0.7505669, 1)
+theme_override_constants/outline_size = 6
+text = "PLAYER 2"
+horizontal_alignment = 2

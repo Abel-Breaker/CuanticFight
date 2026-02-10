@@ -27,11 +27,14 @@ func tween_down() -> void:
 	var tween = create_tween()
 	tween.tween_property(panel, "position", target_position, drop_time).set_trans(transition_type)
 
-func set_winner_text(winner_player: int):
+func set_winner_text(winner_player: int, solo_game: bool):
 	if winner_player == 1:
 		text_label.text = "PLAYER 1 WINS!"
 	else:
-		text_label.text = "PLAYER 2 WINS!"
+		if solo_game:
+			text_label.text = "AI PLAYER WINS!"
+		else:
+			text_label.text = "PLAYER 2 WINS!"
 
 func _exit_tree() -> void:
 	replay_btn.button_up.disconnect(on_replay_pressed)
