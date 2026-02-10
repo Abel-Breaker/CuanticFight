@@ -27,11 +27,11 @@ func _ready() -> void:
 func setup(inCharacter: CharacterParent) -> void:
 	character = inCharacter
 
-	if character.charID == 1: #TODO: Make it collide with the environment only
-		collision_mask = 0
+	if character.charID == 1:
+		collision_mask = 1
 		collision_layer = 8
 	else:
-		collision_mask = 0
+		collision_mask = 1
 		collision_layer = 4
 
 
@@ -61,6 +61,7 @@ func try_to_use() -> bool:
 	#print("DEBUG: SHOOTING: " + character.name)
 	if enemy_is_looking_at_me: #Shooting like a physical particle
 		ProyectilesManager.spawn_proyectile(
+			character.charID,
 			proyectile_type,
 			shoot_position.global_position, 
 			Vector2(look_dir_modifier * single_bullet_speed,0),
@@ -74,6 +75,7 @@ func try_to_use() -> bool:
 		var x_axis_speed: float = look_dir_modifier * multi_bullet_speed
 		for i in range(multiBulletsAmount):
 			ProyectilesManager.spawn_proyectile(
+			character.charID,
 			proyectile_type,
 			shoot_position.global_position,
 			Vector2(x_axis_speed, (i - multiBulletsAmount/2)*20),

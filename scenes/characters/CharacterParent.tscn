@@ -357,7 +357,7 @@ scale = Vector2(0.857, -0.615)
 soundEffect = ExtResource("10_7l2nl")
 
 [node name="RangeAttack" parent="." unique_id=932311773 instance=ExtResource("8_wqqn3")]
-position = Vector2(0, 9)
+position = Vector2(0, 6.0000005)
 scale = Vector2(0.695, 0.695)
 
 [node name="EspecialAttack" parent="." unique_id=1413424739 instance=ExtResource("9_cu3dp")]

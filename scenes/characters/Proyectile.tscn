@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://cpt4jsmfiaugg"]
 
 [ext_resource type="Texture2D" uid="uid://dyrqo74rgqkol" path="res://assets/sprites/proyectilSS.png" id="1_gf2iv"]
+[ext_resource type="Script" uid="uid://riakwvgmjmlx" path="res://scripts/character/Proyectile.gd" id="1_w66oa"]
 [ext_resource type="AudioStream" uid="uid://1r62ircjsh47" path="res://assets/sounds/dragon-studio-zap-hit-474055.mp3" id="2_0ioq4"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
-radius = 16.03122
+[ext_resource type="Texture2D" uid="uid://dqxmsmltogmpa" path="res://assets/sprites/balaImpactoElectron.png" id="3_w66oa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ioq4"]
 atlas = ExtResource("1_gf2iv")
@@ -28,20 +27,39 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Proyectile" type="RigidBody2D" unique_id=682323841]
-scale = Vector2(2, 2)
-collision_layer = 0
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
+radius = 9.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
-shape = SubResource("CircleShape2D_0ioq4")
+[node name="Proyectile" type="RigidBody2D" unique_id=682323841]
+collision_layer = 0
+collision_priority = 5.0
+gravity_scale = 0.0
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_w66oa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1262891347]
-scale = Vector2(0.44, 0.44)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
 frame_progress = 0.8914848
+
+[node name="Impact" type="Sprite2D" parent="." unique_id=553203266]
+visible = false
+scale = Vector2(1.4375, 1.4375)
+texture = ExtResource("3_w66oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
+shape = SubResource("CircleShape2D_0ioq4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167479024]
 stream = ExtResource("2_0ioq4")
 autoplay = true
 bus = &"SFX"
+
+[node name="AliveTime" type="Timer" parent="." unique_id=1917379754]
+one_shot = true
+
+[node name="DestroyAnimTime" type="Timer" parent="." unique_id=259423907]
+wait_time = 0.12
+one_shot = true

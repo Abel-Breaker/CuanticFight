@@ -76,16 +76,15 @@ func flip_player1_sprite_on_load():
 	flip_character(true)
 
 func on_hurtbox_body_entered(body: Node2D):
-	if not body is RigidBody2D: return
+	if not body is Proyectile: return
+	#print("HURTBOX")
+	var dmg: int = body.dealing_damage
+	if received_damage(dmg):
+		body.proyectile_impacted(hurtbox)
 
-	var dmg : int = body.get_meta("DMG")
-
-	received_damage(dmg)
-	body.queue_free()
-
-func received_damage(damage_amount : int):
+func received_damage(damage_amount : int) -> bool:
 	if current_health <= 0:
-		return
+		return false
 	if especialAttack.end_duplication_character():
 		#print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
 		current_health -= damage_amount
@@ -96,6 +95,8 @@ func received_damage(damage_amount : int):
 		else:
 			request_anim("hit")
 		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
+		return true
+	return false
 
 func _physics_process(delta: float) -> void:
 	if current_health <= 0: return

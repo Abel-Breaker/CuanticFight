@@ -9,4 +9,4 @@ script = ExtResource("1_hiow2")
 one_shot = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=580279232]
-position = Vector2(25, -10)
+position = Vector2(15, -10)

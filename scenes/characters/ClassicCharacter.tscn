@@ -646,10 +646,8 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"light_attack"
+animation = &"ranged_attack"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.020012787
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
 position = Vector2(-1.75, -20.75)
@@ -664,7 +662,7 @@ scale = Vector2(1.1419997, -0.7689995)
 soundEffect = ExtResource("10_334lg")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
-position = Vector2(0.5, 11.875)
+position = Vector2(0, 13)
 single_bullet_damage = 5
 multi_bullet_damage = 5
 proyectile_type = 1

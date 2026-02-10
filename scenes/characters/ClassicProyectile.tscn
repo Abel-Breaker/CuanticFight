@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b44khaunf7y4a"]
 
+[ext_resource type="Script" uid="uid://riakwvgmjmlx" path="res://scripts/character/Proyectile.gd" id="1_5c2go"]
 [ext_resource type="Texture2D" uid="uid://be4qmt63fvm37" path="res://assets/sprites/bala.png" id="1_dtmxm"]
 [ext_resource type="AudioStream" uid="uid://bt2t24adjhcek" path="res://assets/sounds/chakong-laser-gun-shot-sound.mp3" id="2_m2all"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
-radius = 16.03122
+[ext_resource type="Texture2D" uid="uid://dvlg3axj735rj" path="res://assets/sprites/BalaAstronautaImpacto.png" id="3_5c2go"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m2all"]
 atlas = ExtResource("1_dtmxm")
@@ -21,22 +20,42 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwoi0"]
+size = Vector2(30.379745, 10.126582)
+
 [node name="Proyectile" type="RigidBody2D" unique_id=682323841]
 collision_layer = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
-scale = Vector2(0.395, 0.395)
-shape = SubResource("CircleShape2D_0ioq4")
+collision_priority = 5.0
+gravity_scale = 0.0
+continuous_cd = 2
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5c2go")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1262891347]
-position = Vector2(-4, 0)
+position = Vector2(-4.5, 0)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
 frame_progress = 0.949864
+
+[node name="Impact" type="Sprite2D" parent="." unique_id=592308519]
+visible = false
+position = Vector2(0, 0.75)
+scale = Vector2(1.7500001, 1.5)
+texture = ExtResource("3_5c2go")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
+scale = Vector2(0.395, 0.395)
+shape = SubResource("RectangleShape2D_pwoi0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=296123189]
 stream = ExtResource("2_m2all")
 volume_db = -12.0
 autoplay = true
 bus = &"SFX"
+
+[node name="AliveTime" type="Timer" parent="." unique_id=1708622069]
+
+[node name="DestroyAnimTime" type="Timer" parent="." unique_id=1187095263]
+wait_time = 0.12
