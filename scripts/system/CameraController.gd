@@ -117,6 +117,9 @@ func update_single_camera(delta):
 
 	# Centro de la cámara
 	var center: Vector2 = (min_pos + max_pos) * 0.5
+	
+	# Ofsset to not see too much floor
+	center.y -= 75.0;
 
 	# Distancia máxima entre jugadores
 	var dx: float = max_pos.x - min_pos.x

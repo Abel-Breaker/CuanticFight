@@ -68,8 +68,11 @@ func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: Proyectiles
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
+	
 	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo}
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
+	# Add Contdown scene
+	await show_countdown()
 
 func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
 	var combat_manager = get_combat_manager()
@@ -165,3 +168,18 @@ func get_combat_manager() -> CombatManager:
 	
 	var combat_manager = get_tree().current_scene
 	return combat_manager
+
+
+func show_countdown() -> void:
+	# Esperar un frame para que la escena nueva se dibuje
+	await get_tree().process_frame
+
+	var CountdownScene = load("res://scenes/ui/Countdown.tscn")
+	var countdown_instance = CountdownScene.instantiate()
+
+	# Añadir a la escena actual
+	get_tree().current_scene.add_child(countdown_instance)
+
+	await countdown_instance.start_countdown()
+
+	countdown_instance.queue_free()

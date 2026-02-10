@@ -46,6 +46,7 @@ func return_to_menu() -> void:
 	SignalContainer.game_go_back_to_main_menu.emit()
 
 func play_game() -> void:
+	# Show contdown
 	SignalContainer.game_start.emit(characters1[char1selection], characters2[char2selection], solo_play_game)
 
 func swap_right1() -> void:
