@@ -1,3 +1,162 @@
 [gd_scene format=3 uid="uid://clr86rg4yrvt4"]
 
-[node name="CharacterSelection" type="Panel" unique_id=44864970]
+[ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
+[ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
+[ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
+[ext_resource type="PackedScene" uid="uid://cgs3817mxc151" path="res://scenes/ui/ArrowButton.tscn" id="4_dshq4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mynl5"]
+atlas = ExtResource("2_yde1c")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j6u6"]
+atlas = ExtResource("2_yde1c")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ehwj"]
+atlas = ExtResource("2_yde1c")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jd0c"]
+atlas = ExtResource("2_yde1c")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyghb"]
+atlas = ExtResource("3_dshq4")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_636p1"]
+atlas = ExtResource("3_dshq4")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqxdx"]
+atlas = ExtResource("3_dshq4")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4aop3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mynl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j6u6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ehwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jd0c")
+}],
+"loop": true,
+"name": &"iddleC",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyghb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_636p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqxdx")
+}],
+"loop": true,
+"name": &"iddleQ",
+"speed": 5.0
+}]
+
+[node name="CharacterSelection" type="CanvasLayer" unique_id=28851735]
+
+[node name="Panel" type="Panel" parent="." unique_id=288793383]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=828520534]
+z_index = -1
+offset_top = -34.0
+offset_right = 3072.0
+offset_bottom = 2014.0
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("1_x2kmj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1430265092]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1428774232]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXLabel" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1204590619]
+layout_mode = 2
+size_flags_vertical = 6
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer" unique_id=161480458]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Control" unique_id=606425235]
+position = Vector2(158.52, -58.47999)
+scale = Vector2(1.965, 1.965)
+sprite_frames = SubResource("SpriteFrames_4aop3")
+animation = &"iddleC"
+autoplay = "iddleC"
+frame_progress = 0.8986093
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=621895460]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFXLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=755300060]
+layout_mode = 2
+size_flags_vertical = 6
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="HBoxContainer/VBoxContainer2" unique_id=2004612065]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
+position = Vector2(158.52, -58.47999)
+scale = Vector2(1.965, 1.965)
+sprite_frames = SubResource("SpriteFrames_4aop3")
+animation = &"iddleC"
+autoplay = "iddleC"
+frame_progress = 0.30987632
+
+[node name="Button" parent="." unique_id=777942862 instance=ExtResource("4_dshq4")]
+offset_left = 243.0
+offset_top = 183.00002
+offset_right = 1729.0
+offset_bottom = 928.0
+
+[node name="Button2" parent="." unique_id=1199203855 instance=ExtResource("4_dshq4")]
+offset_left = 567.0
+offset_top = 183.0
+offset_right = 2053.0
+offset_bottom = 928.0
+
+[node name="Button3" parent="." unique_id=1512543200 instance=ExtResource("4_dshq4")]
+offset_left = 375.0
+offset_top = 183.0
+offset_right = 1861.0
+offset_bottom = 928.0
+
+[node name="Button4" parent="." unique_id=259277499 instance=ExtResource("4_dshq4")]
+offset_left = 42.00003
+offset_top = 183.0
+offset_right = 1528.0
+offset_bottom = 928.0
