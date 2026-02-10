@@ -9,6 +9,8 @@ var isActive : bool = false
 @onready var Cooldown : Timer = $Cooldown
 @onready var front_view_raycast: RayCast2D = $FrontViewRaycast
 
+@onready var duplication_effect: AnimatedSprite2D
+
 var spawnPoint : Vector2 
 var canBeUsed : bool = true
 
@@ -48,6 +50,13 @@ func try_to_use() -> bool:
 	#print("USED")
 	canBeUsed = false
 	isActive = true
+	if not duplication_effect:
+		if character.i_am_recolor:
+			duplication_effect = $RECOLOR
+		else:
+			duplication_effect = $ORIGINAL
+	duplication_effect.visible = true
+	duplication_effect.play("default")
 	duplicate_character()
 	return true
 
@@ -110,11 +119,20 @@ func duplicate_character() -> void:
 	characterClone.current_health = character.current_health
 	characterClone.especialAttack.characterClone = character
 	characterClone.start_acting()
+	characterClone.especialAttack.set_duplication_effect_anim_sprite(character.i_am_recolor)
+	characterClone.especialAttack.duplication_effect.visible = true
+	characterClone.especialAttack.duplication_effect.play("default")
 	characterClone.especialAttack.isActive = true
 	characterClone.especialAttack.canBeUsed = false
 	
 	characterClone.request_anim("especial_attack")
 	SignalContainer.player_duplicated_himself.emit(character.charID)
+
+func set_duplication_effect_anim_sprite(i_am_recolor: bool):
+	if i_am_recolor:
+		duplication_effect = $RECOLOR
+	else:
+		duplication_effect = $ORIGINAL
 
 # Returns true the owner should take the damage and false if not
 func end_duplication_character() -> bool:
@@ -125,8 +143,10 @@ func end_duplication_character() -> bool:
 		elif characterClone.is_queued_for_deletion():
 			#print("I AM ALREADY REAL")
 			return true
-		isActive = false
 		
+		isActive = false
+		duplication_effect.stop()
+		duplication_effect.visible = false
 		var im_real = randf() < 0.5
 		if im_real:
 			#print("I_AM_REAL")

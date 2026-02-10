@@ -49,8 +49,10 @@ var current_priority := 0
 
 var current_health := MAX_HEALTH
 
+var i_am_recolor: bool
 
 func setColor(isRecolor : bool = false) -> void:
+	i_am_recolor = isRecolor
 	if isRecolor:
 		sprite.visible = false
 		sprite = $RECOLOR
