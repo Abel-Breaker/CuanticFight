@@ -127,10 +127,49 @@ func update_single_camera(delta):
 
 
 # --------------------------------------------------
+func update_split_cameras(delta: float) -> void:
+	# --- PARES DE JUGADORES ---
+	var p1_pos: Vector2 = get_pair_center(players[0], players[1])
+	var p2_pos: Vector2 = get_pair_center(players[2], players[3])
 
-func update_split_cameras(delta):
-	var p1_pos := get_pair_center(players[0], players[1])
-	var p2_pos := get_pair_center(players[2], players[3])
-
+	# --- ACTUALIZAR POSICIÓN SUAVIZADA ---
 	cam_p1.global_position = cam_p1.global_position.lerp(p1_pos, transition_speed * delta)
 	cam_p2.global_position = cam_p2.global_position.lerp(p2_pos, transition_speed * delta)
+
+	# --- ZOOM PARA CADA PAREJA ---
+	var zoom_p1: float = calculate_pair_zoom(players[0], players[1])
+	var zoom_p2: float = calculate_pair_zoom(players[2], players[3])
+
+	cam_p1.zoom = cam_p1.zoom.lerp(Vector2.ONE * zoom_p1, transition_speed * delta)
+	cam_p2.zoom = cam_p2.zoom.lerp(Vector2.ONE * zoom_p2, transition_speed * delta)
+
+
+# Calcula el zoom basado en la distancia entre los jugadores de un par
+func calculate_pair_zoom(player_a: CharacterParent, player_b: CharacterParent) -> float:
+	var has_a := GameManager.player_exists(player_a)
+	var has_b := GameManager.player_exists(player_b)
+
+	if not has_a and not has_b:
+		return 1.0 # Zoom por defecto si no hay jugadores
+	elif has_a and not has_b:
+		return 1.0 # Solo un jugador: zoom neutro
+	elif not has_a and has_b:
+		return 1.0 # Solo un jugador: zoom neutro
+
+	# Ambos jugadores existen: calculamos la bounding box
+	var min_pos: Vector2 = player_a.global_position
+	var max_pos: Vector2 = player_a.global_position
+
+	var positions := [player_a.global_position, player_b.global_position]
+	for p in positions:
+		min_pos.x = min(min_pos.x, p.x)
+		min_pos.y = min(min_pos.y, p.y)
+		max_pos.x = max(max_pos.x, p.x)
+		max_pos.y = max(max_pos.y, p.y)
+
+	var dx: float = max_pos.x - min_pos.x
+	var dy: float = max_pos.y - min_pos.y
+	var max_dist: float = max(dx, dy)
+
+	var t: float = clamp(max_dist / split_distance, 0.0, 1.0)
+	return lerp(1.5, 0.5, t)
