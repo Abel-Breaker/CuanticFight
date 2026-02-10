@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dv3rlwcaxx5bc"]
 
 [ext_resource type="Script" uid="uid://dbpkdi6s4ykof" path="res://scripts/ui/CombatOverlay.gd" id="1_4i80j"]
+[ext_resource type="Texture2D" uid="uid://b1443vy7yjcmk" path="res://assets/sprites/vidaHealthBar.png" id="2_i3bma"]
+[ext_resource type="Texture2D" uid="uid://dj0pkxnfib4jc" path="res://assets/sprites/marcoHealthBar.png" id="3_vwnrl"]
 
 [node name="CombatOverlay" type="CanvasLayer" unique_id=1875706386]
 layer = 2
@@ -14,18 +16,30 @@ anchors_preset = 0
 offset_right = 300.0
 offset_bottom = 59.0
 
-[node name="Panel" type="Panel" parent="Player1" unique_id=1286678965]
+[node name="HealthBar" type="TextureRect" parent="Player1" unique_id=1740956544]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 58.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 262.0
+offset_bottom = 23.0
+texture = ExtResource("2_i3bma")
 
-[node name="HealthBar" type="ColorRect" parent="Player1" unique_id=1373819557]
+[node name="Covering" type="ColorRect" parent="Player1" unique_id=1146064197]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 292.0
-offset_bottom = 51.0
-color = Color(0, 1, 0.29411766, 1)
+offset_left = 258.0
+offset_top = 21.0
+offset_right = 506.0
+offset_bottom = 35.0
+rotation = 3.1415927
+color = Color(0.015686275, 0.11372549, 0.22745098, 1)
+
+[node name="Border" type="TextureRect" parent="Player1" unique_id=2127682388]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 262.0
+offset_bottom = 23.0
+texture = ExtResource("3_vwnrl")
 
 [node name="Player2" type="Control" parent="." unique_id=2027344772]
 layout_mode = 3
@@ -35,17 +49,27 @@ offset_top = 2.0
 offset_right = 640.0
 offset_bottom = 61.0
 
-[node name="Panel" type="Panel" parent="Player2" unique_id=195740201]
+[node name="HealthBar" type="TextureRect" parent="Player2" unique_id=1353315791]
 layout_mode = 0
-offset_top = -2.0
-offset_right = 300.0
-offset_bottom = 56.0
+offset_left = 37.0
+offset_top = 5.0
+offset_right = 293.0
+offset_bottom = 23.0
+texture = ExtResource("2_i3bma")
+flip_h = true
 
-[node name="HealthBar" type="ColorRect" parent="Player2" unique_id=232848659]
+[node name="Covering" type="ColorRect" parent="Player2" unique_id=210249218]
 layout_mode = 0
-offset_left = 293.0
-offset_top = 49.0
-offset_right = 578.0
-offset_bottom = 94.0
-rotation = 3.1415927
-color = Color(0, 1, 0.29411766, 1)
+offset_left = 41.0
+offset_top = 5.0
+offset_right = 289.0
+offset_bottom = 19.0
+color = Color(0.015686275, 0.11372549, 0.22745098, 1)
+
+[node name="Border" type="TextureRect" parent="Player2" unique_id=2123037269]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 5.0
+offset_right = 293.0
+offset_bottom = 23.0
+texture = ExtResource("3_vwnrl")

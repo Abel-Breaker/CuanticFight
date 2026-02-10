@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var player1_healthbar : ColorRect = $Player1/HealthBar
-@onready var player2_healthbar : ColorRect = $Player2/HealthBar
+@onready var player1_healthbar_cover : ColorRect = $Player1/Covering
+@onready var player2_healthbar_cover: ColorRect = $Player2/Covering
 
 #signal update_player_health(player_num : int, remaining_health_percentage_0to1 : float)
 @export var healthbar_tween_time : float
@@ -16,24 +16,24 @@ func _ready() -> void:
 	call_deferred("init_healthbars")
 
 func init_healthbars():
-	player1_healthbar.scale = Vector2(1,1)
-	player2_healthbar.scale = Vector2(1,1)
+	player1_healthbar_cover.scale = Vector2(0,1)
+	player2_healthbar_cover.scale = Vector2(0,1)
 
 func update_player_healthbar(player_num: int, remaining_health_percetange_0to1: float):
 	var healthbar : ColorRect
 	var tween : Tween
 	if player_num == 1:
-		healthbar = player1_healthbar
+		healthbar = player1_healthbar_cover
 		tween = player1_tween
 	else:
-		healthbar = player2_healthbar
+		healthbar = player2_healthbar_cover
 		tween = player2_tween
 
 	if tween:
 		tween.kill()
 	
 	tween = create_tween()
-	tween.tween_property(healthbar, "scale:x", remaining_health_percetange_0to1, healthbar_tween_time).set_trans(tween_transition_type)
+	tween.tween_property(healthbar, "scale:x", 1 - remaining_health_percetange_0to1, healthbar_tween_time).set_trans(tween_transition_type)
 
 
 #func _exit_tree() -> void:
