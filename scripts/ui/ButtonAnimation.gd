@@ -6,6 +6,10 @@ extends Node
 @export var anim_time: float
 @export var transition_type: Tween.TransitionType
 
+@onready var sound_entered: AudioStreamPlayer = $Entered
+@onready var sound_press: AudioStreamPlayer = $PressDown
+@onready var sound_release: AudioStreamPlayer = $Release
+
 var parent: Button
 var default_scale: Vector2
 var tween : Tween
@@ -18,15 +22,18 @@ func _ready() -> void:
 		parent.pivot_offset_ratio = Vector2(0.5, 0.5)
 		
 	parent.mouse_entered.connect(func ():
+		sound_entered.play()
 		play_scale_tween(scale_on_hover)
 	)
 	parent.mouse_exited.connect(func ():
 		play_scale_tween(default_scale)
 	)
 	parent.button_down.connect(func ():
+		sound_press.play()
 		play_scale_tween(scale_on_press)
 	)
 	parent.button_up.connect(func ():
+		sound_release.play()
 		play_scale_tween(scale_on_hover)
 	)
 	
