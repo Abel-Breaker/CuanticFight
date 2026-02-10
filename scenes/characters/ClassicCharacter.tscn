@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dchwu01i2y5cl" path="res://scripts/character/character_parent.gd" id="1_5t02b"]
 [ext_resource type="Texture2D" uid="uid://dnddi4blsf7re" path="res://assets/sprites/death.png" id="2_plctd"]
-[ext_resource type="Texture2D" uid="uid://dh8781rjalya" path="res://assets/sprites/jump.png" id="2_vo6ib"]
+[ext_resource type="Texture2D" uid="uid://cnqnl2c4k8a2w" path="res://assets/sprites/jump.png" id="2_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bletirc4mcuek" path="res://assets/sprites/hit_classic.png" id="3_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="5_vo6ib"]
@@ -256,7 +256,7 @@ region = Rect2(512, 3584, 256, 256)
 atlas = ExtResource("2_plctd")
 region = Rect2(768, 3584, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vo6ib"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8lmnd"]
 atlas = ExtResource("2_vo6ib")
 region = Rect2(512, 0, 256, 256)
 
@@ -288,20 +288,15 @@ region = Rect2(768, 0, 256, 256)
 atlas = ExtResource("2_vo6ib")
 region = Rect2(0, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x5vu2"]
-atlas = ExtResource("2_vo6ib")
-region = Rect2(256, 0, 256, 256)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ey8v0"]
 atlas = ExtResource("2_vo6ib")
 region = Rect2(512, 0, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6p6pe"]
-atlas = ExtResource("2_vo6ib")
-region = Rect2(512, 0, 256, 256)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_334lg"]
+load_path = "res://.godot/imported/jump.png-3dbc7999c6ae3445588bd4e2733ed604.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fn37r"]
-atlas = ExtResource("2_vo6ib")
+atlas = SubResource("CompressedTexture2D_334lg")
 region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_swluu"]
@@ -526,7 +521,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vo6ib")
+"texture": SubResource("AtlasTexture_8lmnd")
 }],
 "loop": false,
 "name": &"falling",
@@ -565,9 +560,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_6gyxg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x5vu2")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ey8v0")
 }],
 "loop": false,
@@ -575,9 +567,6 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6p6pe")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fn37r")
 }],
@@ -646,7 +635,7 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"ranged_attack"
+animation = &"land"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
