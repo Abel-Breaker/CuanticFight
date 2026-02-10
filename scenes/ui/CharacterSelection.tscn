@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
+[ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
+[ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
 atlas = ExtResource("2_yde1c")
@@ -22,6 +24,22 @@ region = Rect2(512, 160, 256, 96)
 atlas = ExtResource("2_yde1c")
 region = Rect2(768, 160, 256, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqxdx"]
+atlas = ExtResource("4_4ehwj")
+region = Rect2(0, 160, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4aop3"]
+atlas = ExtResource("4_4ehwj")
+region = Rect2(256, 160, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt5mm"]
+atlas = ExtResource("4_4ehwj")
+region = Rect2(512, 160, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8t0m"]
+atlas = ExtResource("4_4ehwj")
+region = Rect2(768, 160, 256, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8jd0c"]
 atlas = ExtResource("3_dshq4")
 region = Rect2(0, 32, 256, 96)
@@ -32,6 +50,18 @@ region = Rect2(256, 32, 256, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_636p1"]
 atlas = ExtResource("3_dshq4")
+region = Rect2(512, 32, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2nqv"]
+atlas = ExtResource("6_8jd0c")
+region = Rect2(0, 32, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpj5d"]
+atlas = ExtResource("6_8jd0c")
+region = Rect2(256, 32, 256, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyaey"]
+atlas = ExtResource("6_8jd0c")
 region = Rect2(512, 32, 256, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4aop3"]
@@ -55,6 +85,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eqxdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4aop3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt5mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8t0m")
+}],
+"loop": true,
+"name": &"idle0R",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8jd0c")
 }, {
 "duration": 1.0,
@@ -66,7 +113,23 @@ animations = [{
 "loop": true,
 "name": &"idle1",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2nqv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpj5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyaey")
+}],
+"loop": true,
+"name": &"idle1R",
+"speed": 5.0
 }]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mynl5"]
 
 [node name="CharacterSelection" type="CanvasLayer" unique_id=28851735]
 script = ExtResource("1_mynl5")
@@ -145,10 +208,10 @@ offset_bottom = 345.0
 text = "PLAY"
 
 [node name="BackMenu" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
-offset_left = 444.0
-offset_top = 306.0
-offset_right = 628.0
-offset_bottom = 346.0
+offset_left = 22.0
+offset_top = 305.0
+offset_right = 206.0
+offset_bottom = 345.0
 text = "Back to Menu"
 
 [node name="ButtonR1" parent="." unique_id=1976198853 instance=ExtResource("5_mynl5")]
@@ -193,10 +256,21 @@ offset_bottom = 345.0
 
 [node name="ButonOriginal" parent="ColorButtons1" unique_id=517608523 instance=ExtResource("5_mynl5")]
 layout_mode = 0
-offset_left = -226.0
+offset_left = -244.0
 offset_top = -240.0
-offset_right = -126.0
+offset_right = -123.0
 offset_bottom = -200.0
+text = "CLASSIC"
+icon = SubResource("PlaceholderTexture2D_mynl5")
+
+[node name="ButonRecolor" parent="ColorButtons1" unique_id=115925891 instance=ExtResource("5_mynl5")]
+layout_mode = 0
+offset_left = -108.0
+offset_top = -240.0
+offset_right = 13.0
+offset_bottom = -200.0
+text = "RECOLOR"
+icon = SubResource("PlaceholderTexture2D_mynl5")
 
 [node name="ColorButtons2" type="Control" parent="." unique_id=713796034]
 layout_mode = 3
@@ -205,3 +279,21 @@ offset_left = 273.0
 offset_top = 305.0
 offset_right = 313.0
 offset_bottom = 345.0
+
+[node name="ButonOriginal" parent="ColorButtons2" unique_id=1172709540 instance=ExtResource("5_mynl5")]
+layout_mode = 0
+offset_left = 76.0
+offset_top = -240.0
+offset_right = 197.0
+offset_bottom = -200.0
+text = "CLASSIC"
+icon = SubResource("PlaceholderTexture2D_mynl5")
+
+[node name="ButonRecolor" parent="ColorButtons2" unique_id=1973549573 instance=ExtResource("5_mynl5")]
+layout_mode = 0
+offset_left = 212.0
+offset_top = -240.0
+offset_right = 337.0
+offset_bottom = -200.0
+text = "RECOLOR"
+icon = SubResource("PlaceholderTexture2D_mynl5")

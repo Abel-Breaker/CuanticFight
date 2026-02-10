@@ -7,6 +7,14 @@ extends CanvasLayer
 @onready var playButton : Button = $ButtonPlay
 @onready var backToMenuButton: Button = $BackMenu
 
+@onready var swapOriginal1 : Button = $ColorButtons1/ButonOriginal
+@onready var swapRecolor1: Button = $ColorButtons1/ButonRecolor
+@onready var swapOriginal2 : Button = $ColorButtons2/ButonOriginal
+@onready var swapRecolor2: Button = $ColorButtons2/ButonRecolor
+
+var recolor1 : bool = false
+var recolor2 : bool = false
+
 @onready var p2_name_text: Label = $HBoxContainer/VBoxContainer2/P2Label
 
 @onready var P1Sprite : AnimatedSprite2D = $HBoxContainer/VBoxContainer/Control/P1Sprite
@@ -34,6 +42,30 @@ func _ready() -> void:
 	swapLeft2.button_up.connect(swap_left2)
 	playButton.button_up.connect(play_game)
 	backToMenuButton.button_up.connect(return_to_menu)
+	
+	swapOriginal1.button_up.connect(setOriginal1)
+	swapRecolor1.button_up.connect(setRecolor1)
+	swapOriginal2.button_up.connect(setOriginal2)
+	swapRecolor2.button_up.connect(setRecolor2)
+
+
+
+func setOriginal1() -> void:
+	recolor1 = false
+	P1Sprite.play(str("idle",char1selection, "R" if recolor1 else ""))
+
+func setRecolor1() -> void:
+	recolor1 = true
+	P1Sprite.play(str("idle",char1selection, "R" if recolor1 else ""))
+
+func setOriginal2() -> void:
+	recolor2 = false
+	P2Sprite.play(str("idle",char2selection,  "R" if recolor2 else ""))
+
+func setRecolor2() -> void:
+	recolor2 = true
+	P2Sprite.play(str("idle",char2selection,  "R" if recolor2 else ""))
+
 
 func setup(solo: bool):
 	solo_play_game = solo
@@ -54,7 +86,7 @@ func swap_right1() -> void:
 	if char1selection < 0:
 		char1selection = characters1.size() - 1
 	char1selection = char1selection % characters1.size()
-	P1Sprite.play(str("idle",char1selection))
+	P1Sprite.play(str("idle",char1selection, "R" if recolor1 else ""))
 	#print("idle",char1selection)
 
 func swap_left1() -> void:
@@ -62,7 +94,7 @@ func swap_left1() -> void:
 	if char1selection < 0:
 		char1selection = characters1.size() - 1
 	char1selection = char1selection % characters1.size()
-	P1Sprite.play(str("idle",char1selection))
+	P1Sprite.play(str("idle",char1selection,  "R" if recolor1 else ""))
 	#print("idle",char1selection)
 
 func swap_right2() -> void:
@@ -70,7 +102,7 @@ func swap_right2() -> void:
 	if char2selection < 0:
 		char2selection = characters2.size() - 1
 	char2selection = char2selection % characters2.size()
-	P2Sprite.play(str("idle",char2selection))
+	P2Sprite.play(str("idle",char2selection,  "R" if recolor2 else ""))
 	#print("idle",char2selection)
 
 func swap_left2() -> void:
@@ -78,5 +110,5 @@ func swap_left2() -> void:
 	if char2selection < 0:
 		char2selection = characters2.size() - 1
 	char2selection = char2selection % characters2.size()
-	P2Sprite.play(str("idle",char2selection))
+	P2Sprite.play(str("idle",char2selection, "R" if recolor2 else ""))
 	#print("idle",char2selection)
