@@ -16,14 +16,16 @@ var time_since_last_action : float = 0
 var isSetUp = false
 
 func _ready() -> void:
-	starting_timer.timeout.connect(func():
-		isSetUp = true
-	, CONNECT_ONE_SHOT)
+	pass
 
 func setup(inEnemy : CharacterParent, inControlledCharacter : CharacterParent) -> void:
 	enemy = inEnemy
 	controlledCharacter = inControlledCharacter
+	starting_timer.timeout.connect(func():
+		isSetUp = true
+	, CONNECT_ONE_SHOT)
 	starting_timer.start()
+	
 
 
 
