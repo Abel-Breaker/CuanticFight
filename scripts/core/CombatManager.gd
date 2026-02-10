@@ -59,13 +59,8 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 		#get_tree().root.add_child(ai_system2)
 		#ai_system2.setup(char1, char2)
 	camera_system.enable_camera_updates(true)
-	
-	#player1_characters.append($Player1)
-	#player2_characters.append($Player2)
-	#camera_system.enable_camera_updates(true)
-	#var ai = ai_scene.instantiate()
-	#get_tree().root.add_child(ai)
-	#ai.setup(player1_characters[0], player2_characters[0])
+	combat_overlay.setup(ai_game)
+
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
