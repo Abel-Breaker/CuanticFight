@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-@onready var swapRight1 : Button = $ButtonR1
-@onready var swapRight2: Button = $ButtonR2
-@onready var swapLeft1 : Button = $ButtonL1
-@onready var swapLeft2: Button = $ButtonL2
+@onready var swapRight1 = $ButtonR1
+@onready var swapRight2 = $ButtonR2
+@onready var swapLeft1  = $ButtonL1
+@onready var swapLeft2 = $ButtonL2
 @onready var playButton : Button = $ButtonPlay
 @onready var backToMenuButton: Button = $BackMenu
 

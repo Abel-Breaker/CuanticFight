@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
 [ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
+[ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonArrow.tscn" id="8_8jd0c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
 atlas = ExtResource("2_yde1c")
@@ -214,7 +215,8 @@ offset_right = 206.0
 offset_bottom = 345.0
 text = "Back to Menu"
 
-[node name="ButtonR1" parent="." unique_id=1976198853 instance=ExtResource("5_mynl5")]
+[node name="OLDButtonR1" parent="." unique_id=1976198853 instance=ExtResource("5_mynl5")]
+visible = false
 offset_left = 216.0
 offset_top = 172.0
 offset_right = 316.0
@@ -222,7 +224,8 @@ offset_bottom = 212.0
 scale = Vector2(0.6, 0.945)
 text = "->"
 
-[node name="ButtonR2" parent="." unique_id=1067484105 instance=ExtResource("5_mynl5")]
+[node name="OLDButtonR2" parent="." unique_id=1067484105 instance=ExtResource("5_mynl5")]
+visible = false
 offset_left = 547.0
 offset_top = 172.0
 offset_right = 647.0
@@ -230,7 +233,8 @@ offset_bottom = 212.0
 scale = Vector2(0.6, 0.945)
 text = "->"
 
-[node name="ButtonL1" parent="." unique_id=125746183 instance=ExtResource("5_mynl5")]
+[node name="OLDButtonL1" parent="." unique_id=125746183 instance=ExtResource("5_mynl5")]
+visible = false
 offset_left = 22.0
 offset_top = 172.0
 offset_right = 122.0
@@ -238,7 +242,8 @@ offset_bottom = 212.0
 scale = Vector2(0.6, 0.945)
 text = "<-"
 
-[node name="ButtonL2" parent="." unique_id=1396888468 instance=ExtResource("5_mynl5")]
+[node name="OLDButtonL2" parent="." unique_id=1396888468 instance=ExtResource("5_mynl5")]
+visible = false
 offset_left = 349.0
 offset_top = 172.0
 offset_right = 449.0
@@ -297,3 +302,29 @@ offset_right = 337.0
 offset_bottom = -200.0
 text = "RECOLOR"
 icon = SubResource("PlaceholderTexture2D_mynl5")
+
+[node name="ButtonL1" parent="." unique_id=646361148 instance=ExtResource("8_8jd0c")]
+offset_left = 32.0
+offset_top = 160.0
+offset_right = 96.0
+offset_bottom = 224.0
+
+[node name="ButtonL2" parent="." unique_id=1089131369 instance=ExtResource("8_8jd0c")]
+offset_left = 360.0
+offset_top = 160.0
+offset_right = 424.0
+offset_bottom = 224.0
+
+[node name="ButtonR1" parent="." unique_id=974874284 instance=ExtResource("8_8jd0c")]
+offset_left = 202.0
+offset_top = 160.0
+offset_right = 266.0
+offset_bottom = 224.0
+flip_h = true
+
+[node name="ButtonR2" parent="." unique_id=543785781 instance=ExtResource("8_8jd0c")]
+offset_left = 530.0
+offset_top = 160.0
+offset_right = 594.0
+offset_bottom = 224.0
+flip_h = true

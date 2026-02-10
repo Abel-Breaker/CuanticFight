@@ -10,7 +10,7 @@ extends Node
 @onready var sound_press: AudioStreamPlayer = $PressDown
 @onready var sound_release: AudioStreamPlayer = $Release
 
-var parent: Button
+var parent#: Button
 var default_scale: Vector2
 var tween : Tween
 

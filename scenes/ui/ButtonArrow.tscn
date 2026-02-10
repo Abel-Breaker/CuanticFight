@@ -1,3 +1,33 @@
 [gd_scene format=3 uid="uid://blblhdtpyotkh"]
 
-[node name="ButtonArrow" type="Button" unique_id=1900481422]
+[ext_resource type="Texture2D" uid="uid://c2ki7okvgwtec" path="res://assets/sprites/arrow.png" id="1_ojrey"]
+[ext_resource type="Script" uid="uid://dqtuuk52dlmkf" path="res://scripts/ui/ButtonAnimation.gd" id="2_ntix6"]
+[ext_resource type="AudioStream" uid="uid://b7ymnft66xbl6" path="res://assets/sounds/btn_entered_2.mp3" id="3_27v2j"]
+[ext_resource type="AudioStream" uid="uid://cjan43xbfk2rb" path="res://assets/sounds/btn_press.mp3" id="4_2tdo4"]
+[ext_resource type="AudioStream" uid="uid://r4j1xgm3ft1f" path="res://assets/sounds/btn_release.mp3" id="5_gmf2l"]
+
+[node name="TextureButton" type="TextureButton" unique_id=646361148]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_ojrey")
+
+[node name="Node" type="Node" parent="." unique_id=85601085]
+script = ExtResource("2_ntix6")
+from_center = true
+scale_on_press = Vector2(1, 1)
+scale_on_hover = Vector2(2, 2)
+anim_time = 0.25
+transition_type = 1
+
+[node name="Entered" type="AudioStreamPlayer" parent="Node" unique_id=1036572432]
+stream = ExtResource("3_27v2j")
+
+[node name="PressDown" type="AudioStreamPlayer" parent="Node" unique_id=642396356]
+stream = ExtResource("4_2tdo4")
+volume_db = -8.0
+pitch_scale = 0.84
+
+[node name="Release" type="AudioStreamPlayer" parent="Node" unique_id=1188668825]
+stream = ExtResource("5_gmf2l")
+volume_db = -8.0
+pitch_scale = 0.84
