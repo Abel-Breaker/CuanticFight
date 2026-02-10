@@ -67,6 +67,12 @@ func duplicate_character() -> void:
 # Returns true the owner should take the damage and false if not
 func end_duplication_character() -> bool:
 	if isActive:
+		if character.is_queued_for_deletion():
+			#print("I AM ALREADY A FAKE")
+			return false
+		elif characterClone.is_queued_for_deletion():
+			#print("I AM ALREADY REAL")
+			return true
 		isActive = false
 		
 		var im_real = randf() < 0.5

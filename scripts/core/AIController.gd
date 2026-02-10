@@ -135,9 +135,7 @@ func use_light_attack() -> void:
 	Input.action_press("light_attack_2")
 	Input.action_release("light_attack_2")
 	look_towards_enemy()
-	
-	
-	
+
 
 func use_ranged_attack() -> void:
 	Input.action_press("ranged_attack_2")

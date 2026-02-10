@@ -40,6 +40,10 @@ func _physics_process(delta):
 	if players.size() < 2:
 		return
 
+	if players.size() < 4:
+		print("NOT_UPDATING_CAUSE_BAD_PLAYERS")
+		return
+	
 	var p1 := get_pair_center(players[0], players[1])
 	var p2 := get_pair_center(players[2], players[3])
 
