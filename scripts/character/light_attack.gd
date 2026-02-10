@@ -32,7 +32,7 @@ func setup(inCharacter : CharacterParent) -> void:
 		set_collision_mask(2)
 	else:
 		set_collision_mask(1)
-		print(character.charID)
+		#print(character.charID)
 
 ##### AUx funCTiONs
 func updateMonitoring(): 
