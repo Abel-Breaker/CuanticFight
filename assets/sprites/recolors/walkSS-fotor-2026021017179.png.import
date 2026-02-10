@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c52hqlx4mi3xx"
-path="res://.godot/imported/portraitQ.png-8e78a01cfa4d03cebfa0059efe85c110.ctex"
+uid="uid://dhtag7e5ls7b7"
+path="res://.godot/imported/walkSS-fotor-2026021017179.png-bbef6451e99f41534d51eab1f0eb6210.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/portraitQ.png"
-dest_files=["res://.godot/imported/portraitQ.png-8e78a01cfa4d03cebfa0059efe85c110.ctex"]
+source_file="res://assets/sprites/recolors/walkSS-fotor-2026021017179.png"
+dest_files=["res://.godot/imported/walkSS-fotor-2026021017179.png-bbef6451e99f41534d51eab1f0eb6210.ctex"]
 
 [params]
 

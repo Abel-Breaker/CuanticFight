@@ -59,13 +59,8 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 		#get_tree().root.add_child(ai_system2)
 		#ai_system2.setup(char1, char2)
 	camera_system.enable_camera_updates(true)
-	
-	#player1_characters.append($Player1)
-	#player2_characters.append($Player2)
-	#camera_system.enable_camera_updates(true)
-	#var ai = ai_scene.instantiate()
-	#get_tree().root.add_child(ai)
-	#ai.setup(player1_characters[0], player2_characters[0])
+	combat_overlay.setup(ai_game)
+
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
 	var remaining_health_percentage: float = float(remaining_health) / float(total_health)
@@ -166,9 +161,9 @@ func _exit_tree() -> void:
 	SignalContainer.player_changed_looking_direction.disconnect(player_changed_looking_direction)
 	SignalContainer.player_duplicated_himself.disconnect(player_duplicated_himself)
 	SignalContainer.player_determined_himself.disconnect(player_determined_himself)
-	print("DEBUG: Exiting CombatManager")
+	#print("DEBUG: Exiting CombatManager")
 	if ai_system1:
-		print("DEBUG: Freeing AI")
+		#print("DEBUG: Freeing AI")
 		ai_system1.queue_free()
 		ai_system1 = null
 	#if ai_system2:
