@@ -97,7 +97,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SFXLabel" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1204590619]
+[node name="P1Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1204590619]
 layout_mode = 2
 size_flags_vertical = 6
 text = "PLAYER 1"
@@ -119,7 +119,7 @@ autoplay = "idle0"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SFXLabel" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=755300060]
+[node name="P2Label" type="Label" parent="HBoxContainer/VBoxContainer2" unique_id=755300060]
 layout_mode = 2
 size_flags_vertical = 6
 text = "PLAYER 2"
@@ -144,7 +144,14 @@ offset_right = 373.0
 offset_bottom = 345.0
 text = "PLAY"
 
-[node name="ButtonR1" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
+[node name="BackMenu" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
+offset_left = 444.0
+offset_top = 306.0
+offset_right = 628.0
+offset_bottom = 346.0
+text = "Back to Menu"
+
+[node name="ButtonR1" parent="." unique_id=1976198853 instance=ExtResource("5_mynl5")]
 offset_left = 216.0
 offset_top = 172.0
 offset_right = 316.0

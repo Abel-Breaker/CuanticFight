@@ -1,10 +1,11 @@
 extends Node
 
-enum GameState {MainMenu, Playing, CombatEnded, Paused}
+enum GameState {MainMenu, CharacterSelection, Playing, CombatEnded, Paused}
 
 @onready var pause_scene : Resource = preload("res://scenes/ui/PauseMenu.tscn")
 var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay.tscn"
 var main_menu_scene_path : String = "res://scenes/ui/MainMenu.tscn"
+var character_selection_menu_scene_path: String = "res://scenes/ui/CharacterSelection.tscn"
 var game_scene_path : String = "res://scenes/stages/TestingMap.tscn" #TODO: Change for the final game scene
 @onready var game_end_delay: Timer = $GameEndDelay
 
@@ -17,6 +18,9 @@ var last_combat_init_data #Has P1Type, P2Type, SoloGame
 
 func _ready() -> void:
 	SignalContainer.program_close.connect(close_program)
+	
+	SignalContainer.game_character_selection.connect(go_to_character_selection)
+	SignalContainer.game_go_back_to_main_menu.connect(go_back_to_main_menu)
 	SignalContainer.game_start.connect(start_game)
 	
 	SignalContainer.game_pause.connect(pause_game)
@@ -46,14 +50,25 @@ func close_program(exit_code : int):
 		return
 	
 	get_tree().quit(exit_code)
-	
-func start_game(solo: bool):
-	if curr_game_state != GameState.MainMenu:
+
+func go_back_to_main_menu():
+	if curr_game_state != GameState.CharacterSelection: return
+	curr_game_state = GameState.MainMenu
+	change_scene(main_menu_scene_path)
+
+func go_to_character_selection(solo: bool):
+	if curr_game_state != GameState.MainMenu: return
+	curr_game_state = GameState.CharacterSelection
+	var char_sel = change_scene(character_selection_menu_scene_path)
+	char_sel.setup(solo)
+
+func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool):
+	if curr_game_state != GameState.CharacterSelection:
 		return
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
 	change_scene(game_scene_path)
-	last_combat_init_data = {"P1Type": ProyectilesManager.ProyectileType.CLASSIC, "P2Type": ProyectilesManager.ProyectileType.QUANTIC, "SoloGame": solo}
+	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo}
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame)
 
 func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool):
@@ -132,10 +147,11 @@ func change_scene(new_scene_path: String):
 	
 	if curr_scene:
 		curr_scene.queue_free()
+	return new_scene
 
 
 func get_players() -> Array[CharacterParent]:
-	if curr_game_state == GameState.MainMenu: # != PLAYING?
+	if curr_game_state == GameState.MainMenu or curr_game_state == GameState.CharacterSelection: # != PLAYING?
 		return []
 	
 	var combat_manager = get_tree().current_scene
@@ -145,7 +161,7 @@ func player_exists(p: CharacterParent) -> bool:
 	return p != null and is_instance_valid(p)
 	
 func get_combat_manager() -> CombatManager:
-	if curr_game_state == GameState.MainMenu: return null
+	if curr_game_state == GameState.MainMenu or curr_game_state == GameState.CharacterSelection: return null
 	
 	var combat_manager = get_tree().current_scene
 	return combat_manager

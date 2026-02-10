@@ -10,10 +10,10 @@ func _ready() -> void:
 	exit_game_btn.button_up.connect(on_exit_pressed)
 
 func on_solo_start_pressed():
-	SignalContainer.game_start.emit(true)
+	SignalContainer.game_character_selection.emit(true)
 
 func on_2p_start_pressed():
-	SignalContainer.game_start.emit(false)
+	SignalContainer.game_character_selection.emit(false)
 
 func on_exit_pressed():
 	SignalContainer.program_close.emit(0)
