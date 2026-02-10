@@ -9,7 +9,7 @@ const MAX_HEALTH = 200
 @export var charID : int = 1
 @export var player_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC
 
-@onready var sprite : AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite : AnimatedSprite2D = $ORIGINAL
 
 @onready var lightAttack : LightAttack = $LightAttack
 @onready var rangedAttack : RangeAttack = $RangeAttack
@@ -19,6 +19,7 @@ const MAX_HEALTH = 200
 
 var desduplicadoFLAG : bool = false 
 var can_move_freely: bool = true
+var canAct : bool = false
 
 var isLookingLeft : bool
 
@@ -49,7 +50,12 @@ var current_priority := 0
 var current_health := MAX_HEALTH
 
 
+func setup(isRecolor : bool = false) -> void:
+	if isRecolor:
+		sprite = $RECOLOR
 
+func start_acting() -> void:
+	canAct = true
 
 func _exit_tree() -> void:
 	if sprite.animation_finished.is_connected(_on_anim_finished):
@@ -99,7 +105,7 @@ func received_damage(damage_amount : int) -> bool:
 	return false
 
 func _physics_process(delta: float) -> void:
-	if current_health <= 0: return
+	if current_health <= 0 or not canAct: return
 	
 	evaluate_base_animation()
 	
