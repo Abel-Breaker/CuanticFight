@@ -45,6 +45,7 @@ func crossfade_to(new_track: AudioStreamPlayer, fade_time: float):
 		tween.tween_property(current_track, "volume_db", -80.0, fade_time)
 		tween.tween_callback(current_track.stop)
 	
+	new_track.stream.set("loop", true)
 	new_track.volume_db = -80.0
 	new_track.play()
 	
