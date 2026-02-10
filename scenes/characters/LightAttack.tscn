@@ -21,3 +21,4 @@ one_shot = true
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1316479893]
+bus = &"SFX"

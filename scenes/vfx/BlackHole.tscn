@@ -82,3 +82,4 @@ frame_progress = 0.7541033
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1953585782]
 autoplay = true
+bus = &"SFX"
