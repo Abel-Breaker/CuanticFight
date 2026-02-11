@@ -29,7 +29,7 @@ func _ready() -> void:
 		play_scale_tween(default_scale)
 	)
 	parent.button_down.connect(func ():
-		sound_press.play()
+		AudioManager.play_sound_safe(sound_press)
 		play_scale_tween(scale_on_press)
 	)
 	parent.button_up.connect(func ():
@@ -50,4 +50,3 @@ func play_scale_tween(target_scale: Vector2) -> void:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(parent, "scale", target_scale, anim_time).set_trans(transition_type)
-	

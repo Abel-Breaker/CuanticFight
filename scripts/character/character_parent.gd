@@ -8,6 +8,8 @@ const MAX_HEALTH = 200
 
 @export var charID : int = 1
 @export var player_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC
+@export var death_sound: AudioStream
+@export var on_hit_sound: AudioStream
 
 @onready var sprite : AnimatedSprite2D = $ORIGINAL
 
@@ -16,6 +18,8 @@ const MAX_HEALTH = 200
 @onready var especialAttack = $EspecialAttack
 
 @onready var hurtbox : Area2D = $HurtBox
+
+@onready var audio_stream_player: AudioStreamPlayer2D = $SFX
 
 var desduplicadoFLAG : bool = false 
 var can_move_freely: bool = true
@@ -98,12 +102,17 @@ func received_damage(damage_amount : int) -> bool:
 		return false
 	if especialAttack.end_duplication_character():
 		#print("PLAYER" +str(charID)+ ": received "+str(damage_amount)+" damage")
+
 		current_health -= damage_amount
 		if current_health <= 0:
 			current_health = 0 
+			audio_stream_player.stream = death_sound
+			audio_stream_player.play()
 			request_anim("die")
 			hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 		else:
+			audio_stream_player.stream = on_hit_sound
+			audio_stream_player.play()
 			request_anim("hit")
 		SignalContainer.player_received_damage.emit(charID, current_health, MAX_HEALTH)
 		return true

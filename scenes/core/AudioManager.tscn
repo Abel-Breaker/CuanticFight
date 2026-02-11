@@ -16,3 +16,5 @@ bus = &"Music"
 
 [node name="HeartbeatSound" type="AudioStreamPlayer" parent="." unique_id=1300106173]
 stream = ExtResource("2_7jo6l")
+
+[node name="SFX" type="Node" parent="." unique_id=755316640]
