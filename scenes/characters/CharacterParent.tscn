@@ -814,7 +814,3 @@ scale = Vector2(0.695, 0.695)
 volume_db = 4.0
 max_polyphony = 2
 bus = &"SFX"
-
-[node name="OLDSFX" type="AudioStreamPlayer" parent="." unique_id=1112128556]
-max_polyphony = 2
-bus = &"SFX"

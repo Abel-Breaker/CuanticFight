@@ -1027,7 +1027,3 @@ position = Vector2(0.5, -19.125)
 [node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=119566044]
 max_polyphony = 2
 bus = &"SFX"
-
-[node name="SFX2" type="AudioStreamPlayer" parent="." unique_id=8015430]
-max_polyphony = 2
-bus = &"SFX"
