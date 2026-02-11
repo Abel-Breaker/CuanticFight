@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cfdo2p3qgwcyj"]
+
+[ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_sv5hm"]
+[ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_o1ofn"]
+[ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="3_1wqpf"]
+[ext_resource type="Texture2D" uid="uid://ctk4pp1a1ve8h" path="res://assets/sprites/Maps/map1.png" id="4_oatdh"]
+
+[node name="MapSelector" type="CanvasLayer" unique_id=499275695]
+
+[node name="Panel" type="Panel" parent="." unique_id=1003292130]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1498369864]
+z_index = -1
+offset_top = -34.0
+offset_right = 3072.0
+offset_bottom = 2014.0
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("1_sv5hm")
+
+[node name="ButtonPlay" parent="." unique_id=777942862 instance=ExtResource("2_o1ofn")]
+offset_left = 349.0
+offset_top = 305.0
+offset_right = 449.0
+offset_bottom = 345.0
+text = "PLAY"
+
+[node name="BackMenu" parent="." unique_id=1964153242 instance=ExtResource("2_o1ofn")]
+offset_left = 216.0
+offset_top = 305.0
+offset_right = 316.0
+offset_bottom = 345.0
+text = "Back
+"
+
+[node name="ButtonL" parent="." unique_id=646361148 instance=ExtResource("3_1wqpf")]
+offset_left = 17.0
+offset_top = 112.0
+offset_right = 81.0
+offset_bottom = 176.0
+
+[node name="ButtonR" parent="." unique_id=1699661449 instance=ExtResource("3_1wqpf")]
+offset_left = 549.0
+offset_top = 112.0
+offset_right = 613.0
+offset_bottom = 176.0
+flip_h = true
+
+[node name="Label" type="Label" parent="." unique_id=1266951080]
+offset_top = 36.0
+offset_right = 640.0
+offset_bottom = 52.0
+size_flags_vertical = 6
+text = "MAP SELECTOR"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="." unique_id=593422050]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 488.0
+offset_top = 146.0
+offset_right = 528.0
+offset_bottom = 186.0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1125026315]
+layout_mode = 0
+offset_left = -386.0
+offset_top = -81.0
+offset_right = 671.0
+offset_bottom = 310.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_oatdh")
+
+[node name="Label" type="Label" parent="Control" unique_id=1707159596]
+layout_mode = 0
+offset_left = -488.0
+offset_top = 83.0
+offset_right = 152.0
+offset_bottom = 99.0
+size_flags_vertical = 6
+text = "MAP 1"
+horizontal_alignment = 1
