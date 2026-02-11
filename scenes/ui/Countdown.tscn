@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://b2j6rgtexf837"]
 
-[ext_resource type="Script" path="res://scripts/ui/Contdown.gd" id="1_1uxx4"]
+[ext_resource type="Script" uid="uid://yq5l5v4802y5" path="res://scripts/ui/Contdown.gd" id="1_1uxx4"]
+[ext_resource type="AudioStream" uid="uid://clx13d1ea1y0n" path="res://assets/sounds/starting_beep_full.mp3" id="2_4trdn"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1980982592]
 script = ExtResource("1_1uxx4")
+
+[node name="Panel" type="Panel" parent="." unique_id=1815139708]
+custom_minimum_size = Vector2(640, 360)
+offset_right = 640.0
+offset_bottom = 360.0
 
 [node name="Label" type="Label" parent="." unique_id=112573513]
 anchors_preset = 8
@@ -18,3 +24,7 @@ offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 69
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=440350601]
+stream = ExtResource("2_4trdn")
+bus = &"SFX"
