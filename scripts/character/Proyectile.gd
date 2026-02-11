@@ -8,6 +8,8 @@ class_name Proyectile
 @onready var alive_timer: Timer = $AliveTime
 @onready var destroy_anim_timer: Timer = $DestroyAnimTime
 
+@onready var sfx_player: AudioStreamPlayer = $AudioStreamPlayer
+
 @export var alive_bullet_time: float = 3
 
 var dealing_damage: int = 0
@@ -18,7 +20,7 @@ func _ready() -> void:
 	alive_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	destroy_anim_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	alive_timer.start()
-	
+	AudioManager.play_sound_safe(sfx_player)
 	body_entered.connect(proyectile_impacted)
 
 func setup(owner_id: int, dmg: int, layer: int, mask: int):

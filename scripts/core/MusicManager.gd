@@ -101,7 +101,7 @@ func play_sound_safe(audio_stream_player: AudioStreamPlayer):
 	var new_player = audio_stream_player.duplicate()
 	get_tree().root.add_child(new_player)
 	new_player.finished.connect(func():
-		print("FREEING_SOUND")
+		#print("FREEING_SOUND")
 		new_player.queue_free()
 	, CONNECT_ONE_SHOT)
 	new_player.play()

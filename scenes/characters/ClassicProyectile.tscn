@@ -52,7 +52,6 @@ shape = SubResource("RectangleShape2D_pwoi0")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=296123189]
 stream = ExtResource("2_m2all")
 volume_db = -12.0
-autoplay = true
 bus = &"SFX"
 
 [node name="AliveTime" type="Timer" parent="." unique_id=1708622069]
