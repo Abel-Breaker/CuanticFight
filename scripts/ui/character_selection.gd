@@ -79,7 +79,7 @@ func return_to_menu() -> void:
 
 func play_game() -> void:
 	# Show contdown
-	SignalContainer.game_start.emit(characters1[char1selection], characters2[char2selection], solo_play_game, recolor1, recolor2)
+	SignalContainer.game_map_selection.emit(characters1[char1selection], characters2[char2selection], solo_play_game, recolor1, recolor2)
 
 func swap_right1() -> void:
 	char1selection += 1

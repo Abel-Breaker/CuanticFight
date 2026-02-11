@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://cfdo2p3qgwcyj"]
 
+[ext_resource type="Script" uid="uid://bqck4lcjku7ax" path="res://scenes/ui/map_selector.gd" id="1_mn10r"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_sv5hm"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_o1ofn"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="3_1wqpf"]
 [ext_resource type="Texture2D" uid="uid://ctk4pp1a1ve8h" path="res://assets/sprites/Maps/map1.png" id="4_oatdh"]
 
 [node name="MapSelector" type="CanvasLayer" unique_id=499275695]
+script = ExtResource("1_mn10r")
 
 [node name="Panel" type="Panel" parent="." unique_id=1003292130]
 anchors_preset = 15
@@ -29,7 +31,7 @@ offset_right = 449.0
 offset_bottom = 345.0
 text = "PLAY"
 
-[node name="BackMenu" parent="." unique_id=1964153242 instance=ExtResource("2_o1ofn")]
+[node name="ButtonBack" parent="." unique_id=1964153242 instance=ExtResource("2_o1ofn")]
 offset_left = 216.0
 offset_top = 305.0
 offset_right = 316.0
@@ -66,7 +68,7 @@ offset_top = 146.0
 offset_right = 528.0
 offset_bottom = 186.0
 
-[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1125026315]
+[node name="MapPeek" type="TextureRect" parent="Control" unique_id=1125026315]
 layout_mode = 0
 offset_left = -386.0
 offset_top = -81.0
@@ -75,7 +77,7 @@ offset_bottom = 310.0
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("4_oatdh")
 
-[node name="Label" type="Label" parent="Control" unique_id=1707159596]
+[node name="MapName" type="Label" parent="Control" unique_id=1707159596]
 layout_mode = 0
 offset_left = -488.0
 offset_top = 83.0

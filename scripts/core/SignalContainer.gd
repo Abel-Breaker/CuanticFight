@@ -5,7 +5,9 @@ signal program_close(exit_code : int)
 @warning_ignore("unused_signal")
 signal game_character_selection(solo: bool)
 @warning_ignore("unused_signal")
-signal game_start(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1 : bool, recolorP2 : bool)
+signal game_map_selection(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1 : bool, recolorP2 : bool)
+@warning_ignore("unused_signal")
+signal game_start(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1 : bool, recolorP2 : bool, map:int)
 @warning_ignore("unused_signal")
 signal game_finish(winner_player: int)
 @warning_ignore("unused_signal")
@@ -18,6 +20,8 @@ signal game_exit
 signal game_replay
 @warning_ignore("unused_signal")
 signal game_go_back_to_main_menu
+@warning_ignore("unused_signal")
+signal game_go_back_to_character_selection(solo: bool)
 
 @warning_ignore("unused_signal")
 signal player_received_damage(receiver_player: int, remaining_health: int, max_health: int)

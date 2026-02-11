@@ -1,12 +1,15 @@
 extends Node
 
-enum GameState {MainMenu, CharacterSelection, Playing, CombatEnded, Paused}
+enum GameState {MainMenu, CharacterSelection, MapSelection, Playing, CombatEnded, Paused}
 
 @onready var pause_scene : Resource = preload("res://scenes/ui/PauseMenu.tscn")
 var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay.tscn"
 var main_menu_scene_path : String = "res://scenes/ui/MainMenu.tscn"
 var character_selection_menu_scene_path: String = "res://scenes/ui/CharacterSelection.tscn"
-var game_scene_path : String = "res://scenes/stages/TestingMap.tscn" #TODO: Change for the final game scene
+var map_selection_menu_scene_path: String = "res://scenes/ui/MapSelector.tscn"
+#TODO: Change for the final game scene
+var game_scene_path : Array[String] = \
+["res://scenes/stages/TestingMap.tscn"]
 @onready var game_end_delay: Timer = $GameEndDelay
 
 var curr_game_state : GameState = GameState.MainMenu
@@ -15,12 +18,15 @@ var pause_overlay : CanvasLayer
 var game_ended_overlay : CanvasLayer
 var last_winner_id: int
 var last_combat_init_data #Has P1Type, P2Type, SoloGame
+var selectedMap : int = 0
 
 func _ready() -> void:
 	SignalContainer.program_close.connect(close_program)
 	
 	SignalContainer.game_character_selection.connect(go_to_character_selection)
+	SignalContainer.game_map_selection.connect(go_to_map_selection)
 	SignalContainer.game_go_back_to_main_menu.connect(go_back_to_main_menu)
+	SignalContainer.game_go_back_to_character_selection.connect(go_back_to_character_selection)
 	SignalContainer.game_start.connect(start_game)
 	
 	SignalContainer.game_pause.connect(pause_game)
@@ -55,18 +61,32 @@ func go_back_to_main_menu():
 	curr_game_state = GameState.MainMenu
 	change_scene(main_menu_scene_path)
 
+func go_back_to_character_selection(solo: bool):
+	if curr_game_state != GameState.MapSelection: return
+	curr_game_state = GameState.CharacterSelection
+	var char_sel = change_scene(character_selection_menu_scene_path)
+	char_sel.setup(solo)
+
 func go_to_character_selection(solo: bool):
 	if curr_game_state != GameState.MainMenu: return
 	curr_game_state = GameState.CharacterSelection
 	var char_sel = change_scene(character_selection_menu_scene_path)
 	char_sel.setup(solo)
 
-func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1:bool, recolorP2:bool):
-	if curr_game_state != GameState.CharacterSelection:
+func go_to_map_selection(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesManager.ProyectileType, INsolo: bool, INrecolorP1 : bool, INrecolorP2 : bool):
+	if curr_game_state != GameState.CharacterSelection: return
+	curr_game_state = GameState.MapSelection
+	var map_sel = change_scene(map_selection_menu_scene_path)
+	map_sel.setup(INp1_type, INp2_type, INsolo, INrecolorP1, INrecolorP2)
+
+
+func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1:bool, recolorP2:bool, map:int):
+	if curr_game_state != GameState.MapSelection:
 		return
 	curr_game_state = GameState.Playing
 	AudioManager.play_stage_music("main_stage")
-	change_scene(game_scene_path)
+	selectedMap = map
+	change_scene(game_scene_path[selectedMap])
 	
 	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo, "RecolorP1": recolorP1, "RecolorP2":recolorP2}
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame, last_combat_init_data.RecolorP1, last_combat_init_data.RecolorP2)
@@ -134,7 +154,7 @@ func replay_game():
 	
 	game_ended_overlay.queue_free()
 	game_ended_overlay = null
-	change_scene(game_scene_path)
+	change_scene(game_scene_path[selectedMap])
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame, last_combat_init_data.RecolorP1, last_combat_init_data.RecolorP2)
 
 
