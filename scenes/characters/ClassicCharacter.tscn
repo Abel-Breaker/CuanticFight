@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://mcmin42ts1qh" path="res://assets/sprites/recolors/RC_closeAttack.png" id="11_ey8v0"]
 [ext_resource type="Texture2D" uid="uid://dbmsikjc4d0mr" path="res://assets/sprites/recolors/RC_disparo.png" id="12_6p6pe"]
 [ext_resource type="Texture2D" uid="uid://bh4isf83j0tnf" path="res://assets/sprites/recolors/walk-fotor-20260210171343.png" id="13_fn37r"]
+[ext_resource type="Texture2D" uid="uid://bc85npck44eso" path="res://assets/sprites/recolors/RC_astronautaBlackHole.png" id="13_jqiwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t02b"]
 size = Vector2(15.833332, 26.666668)
@@ -654,6 +655,22 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp14t"]
+atlas = ExtResource("13_jqiwc")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxd6d"]
+atlas = ExtResource("13_jqiwc")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcaot"]
+atlas = ExtResource("13_jqiwc")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fuu"]
+atlas = ExtResource("13_jqiwc")
+region = Rect2(768, 0, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_po68s"]
 atlas = ExtResource("9_6gyxg")
 region = Rect2(512, 0, 256, 256)
@@ -901,7 +918,19 @@ animations = [{
 "name": &"die",
 "speed": 20.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp14t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxd6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcaot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0fuu")
+}],
 "loop": false,
 "name": &"especial_attack",
 "speed": 5.0
@@ -1033,7 +1062,7 @@ visible = false
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_a1evt")
-animation = &"run"
+animation = &"especial_attack"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=100319884 groups=["Hurtbox"]]
