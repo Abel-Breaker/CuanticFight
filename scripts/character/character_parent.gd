@@ -20,7 +20,7 @@ const MAX_HEALTH = 200
 
 @onready var hurtbox : Area2D = $HurtBox
 
-@onready var audio_stream_player: AudioStreamPlayer2D = $SFX
+@onready var audio_stream_player: AudioStreamPlayer = $SFX
 var desduplicadoFLAG : bool = false 
 var can_move_freely: bool = true
 var canAct : bool = false

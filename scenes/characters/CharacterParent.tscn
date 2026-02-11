@@ -598,6 +598,6 @@ scale = Vector2(0.695, 0.695)
 duplicationSound = ExtResource("21_lhw6f")
 endDuplicationSound = ExtResource("22_cd684")
 
-[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=36795033]
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=297625494]
 volume_db = 6.0
 bus = &"SFX"
