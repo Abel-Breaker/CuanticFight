@@ -148,6 +148,8 @@ func end_duplication_character() -> bool:
 		isActive = false
 		duplication_effect.stop()
 		duplication_effect.visible = false
+		characterClone.especialAttack.duplication_effect.stop()
+		characterClone.especialAttack.duplication_effect.visible = false
 		var im_real = randf() < 0.5
 		if im_real:
 			#print("I_AM_REAL")
