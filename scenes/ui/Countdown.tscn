@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b2j6rgtexf837"]
 
-[ext_resource type="Script" uid="uid://yq5l5v4802y5" path="res://scripts/ui/Contdown.gd" id="1_1uxx4"]
+[ext_resource type="Script" path="res://scripts/ui/Contdown.gd" id="1_1uxx4"]
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1980982592]
 script = ExtResource("1_1uxx4")

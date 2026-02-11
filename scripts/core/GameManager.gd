@@ -70,15 +70,14 @@ func start_game(p1_type: ProyectilesManager.ProyectileType, p2_type: Proyectiles
 	
 	last_combat_init_data = {"P1Type": p1_type, "P2Type": p2_type, "SoloGame": solo, "RecolorP1": recolorP1, "RecolorP2":recolorP2}
 	call_deferred("init_combat", last_combat_init_data.P1Type, last_combat_init_data.P2Type, last_combat_init_data.SoloGame, last_combat_init_data.RecolorP1, last_combat_init_data.RecolorP2)
-	# Add Contdown scene
-	await show_countdown()
 
 func init_combat(char_type_player1: ProyectilesManager.ProyectileType, char_type_player2: ProyectilesManager.ProyectileType, ai_game: bool, recolorP1:bool, recolorP2:bool):
 	var combat_manager = get_combat_manager()
 	if not combat_manager: push_error("Not combat_manager loaded to start combat")
 	
 	combat_manager.setup(char_type_player1, char_type_player2, ai_game, recolorP1, recolorP2)
-	
+	# Add Contdown scene
+	await show_countdown()
 
 func exit_game():
 	if curr_game_state != GameState.Paused and curr_game_state != GameState.CombatEnded:
