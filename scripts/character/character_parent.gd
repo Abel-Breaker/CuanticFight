@@ -21,7 +21,6 @@ const MAX_HEALTH = 200
 @onready var hurtbox : Area2D = $HurtBox
 
 @onready var audio_stream_player: AudioStreamPlayer2D = $SFX
-
 var desduplicadoFLAG : bool = false 
 var can_move_freely: bool = true
 var canAct : bool = false
@@ -129,6 +128,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		if sprite.animation == "falling":
+			audio_stream_player.stream = on_landing_sound
+			audio_stream_player.play()
 			request_anim("land")
 	
 	# Handle jump.

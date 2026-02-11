@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://d37ctsg84jekg" path="res://assets/sounds/astronaut_death.mp3" id="2_x5vu2"]
 [ext_resource type="AudioStream" uid="uid://dyhf0btkfiq8i" path="res://assets/sounds/astronaut_hit.mp3" id="3_ey8v0"]
 [ext_resource type="Texture2D" uid="uid://bletirc4mcuek" path="res://assets/sprites/hit_classic.png" id="3_vo6ib"]
+[ext_resource type="AudioStream" uid="uid://ymr1ljjcsc64" path="res://assets/sounds/landing_astronaut.mp3" id="4_6p6pe"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="5_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
@@ -983,6 +984,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_5t02b")
 death_sound = ExtResource("2_x5vu2")
 on_hit_sound = ExtResource("3_ey8v0")
+on_landing_sound = ExtResource("4_6p6pe")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=41412197]

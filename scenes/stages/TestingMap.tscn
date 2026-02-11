@@ -98,10 +98,10 @@ texture = ExtResource("5_e8gxf")
 flip_h = true
 
 [node name="Spawn1" type="Marker2D" parent="." unique_id=1732612166]
-position = Vector2(-12, -485)
+position = Vector2(-11, -472)
 
 [node name="Spawn2" type="Marker2D" parent="." unique_id=1352975761]
-position = Vector2(292, -480)
+position = Vector2(293, -467)
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1838612122]
 z_as_relative = false
