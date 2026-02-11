@@ -160,3 +160,7 @@ visible = false
 position = Vector2(-3, -16)
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_lkiec")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=1723083980]
+volume_db = 6.0
+bus = &"SFX"

@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://c0716h4cxg1af" path="res://scenes/characters/EspecialAttack.tscn" id="9_cu3dp"]
 [ext_resource type="Texture2D" uid="uid://dhtag7e5ls7b7" path="res://assets/sprites/recolors/walkSS-fotor-2026021017179.png" id="9_r83k3"]
 [ext_resource type="AudioStream" uid="uid://dfl14syp4jto0" path="res://assets/sounds/quantic_hit_OR_NOT2.mp3" id="19_lhw6f"]
+[ext_resource type="AudioStream" uid="uid://dxwpjrneg1mqf" path="res://assets/sounds/duplication_OR_NOT.mp3" id="21_lhw6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8bv2p"]
 size = Vector2(21.666666, 8.645834)
@@ -593,6 +594,7 @@ position = Vector2(0, 6.0000005)
 scale = Vector2(0.695, 0.695)
 
 [node name="EspecialAttack" parent="." unique_id=1413424739 instance=ExtResource("9_cu3dp")]
+duplicationSound = ExtResource("21_lhw6f")
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=36795033]
 volume_db = 6.0

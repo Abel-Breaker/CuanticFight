@@ -11,6 +11,10 @@ var isActive : bool = false
 
 @onready var duplication_effect: AnimatedSprite2D
 
+@export var duplicationSound: AudioStream
+
+@onready var audio_stream_player: AudioStreamPlayer2D = $SFX
+
 var spawnPoint : Vector2 
 var canBeUsed : bool = true
 
@@ -63,6 +67,10 @@ func try_to_use() -> bool:
 
 func duplicate_character() -> void:
 	characterClone = character.duplicate()
+	
+	
+	audio_stream_player.stream = duplicationSound
+	audio_stream_player.play()
 	
 	
 	for i in range(4):
@@ -150,6 +158,9 @@ func end_duplication_character() -> bool:
 		duplication_effect.visible = false
 		characterClone.especialAttack.duplication_effect.stop()
 		characterClone.especialAttack.duplication_effect.visible = false
+		
+		audio_stream_player.stream = duplicationSound
+		audio_stream_player.play()
 		var im_real = randf() < 0.5
 		if im_real:
 			#print("I_AM_REAL")
