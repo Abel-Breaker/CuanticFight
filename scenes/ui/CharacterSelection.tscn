@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
 [ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
-[ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonArrow.tscn" id="8_8jd0c"]
+[ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="8_8jd0c"]
+[ext_resource type="Material" uid="uid://b7rpqhu0qirfg" path="res://shaders/color_select_btn_radius.tres" id="9_gyghb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
 atlas = ExtResource("2_yde1c")
@@ -132,6 +133,15 @@ animations = [{
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mynl5"]
 
+[sub_resource type="Gradient" id="Gradient_8jd0c"]
+offsets = PackedFloat32Array(0, 0.19140625, 0.41015625, 0.6640625, 1)
+colors = PackedColorArray(0.6313726, 0, 0.6431373, 1, 0.55929184, 3.6236675e-06, 0.5691757, 1, 0.48825672, 7.1947698e-06, 0.49628705, 1, 0.35306084, 1.3991384e-05, 0.3575635, 1, 0.18043712, 2.2669583e-05, 0.18043548, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyghb"]
+gradient = SubResource("Gradient_8jd0c")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="CharacterSelection" type="CanvasLayer" unique_id=28851735]
 script = ExtResource("1_mynl5")
 
@@ -215,42 +225,6 @@ offset_right = 206.0
 offset_bottom = 345.0
 text = "Back to Menu"
 
-[node name="OLDButtonR1" parent="." unique_id=1976198853 instance=ExtResource("5_mynl5")]
-visible = false
-offset_left = 216.0
-offset_top = 172.0
-offset_right = 316.0
-offset_bottom = 212.0
-scale = Vector2(0.6, 0.945)
-text = "->"
-
-[node name="OLDButtonR2" parent="." unique_id=1067484105 instance=ExtResource("5_mynl5")]
-visible = false
-offset_left = 547.0
-offset_top = 172.0
-offset_right = 647.0
-offset_bottom = 212.0
-scale = Vector2(0.6, 0.945)
-text = "->"
-
-[node name="OLDButtonL1" parent="." unique_id=125746183 instance=ExtResource("5_mynl5")]
-visible = false
-offset_left = 22.0
-offset_top = 172.0
-offset_right = 122.0
-offset_bottom = 212.0
-scale = Vector2(0.6, 0.945)
-text = "<-"
-
-[node name="OLDButtonL2" parent="." unique_id=1396888468 instance=ExtResource("5_mynl5")]
-visible = false
-offset_left = 349.0
-offset_top = 172.0
-offset_right = 449.0
-offset_bottom = 212.0
-scale = Vector2(0.6, 0.945)
-text = "<-"
-
 [node name="ColorButtons1" type="Control" parent="." unique_id=135440090]
 layout_mode = 3
 anchors_preset = 0
@@ -259,7 +233,7 @@ offset_top = 305.0
 offset_right = 313.0
 offset_bottom = 345.0
 
-[node name="ButonOriginal" parent="ColorButtons1" unique_id=517608523 instance=ExtResource("5_mynl5")]
+[node name="OLDButonOriginal" parent="ColorButtons1" unique_id=517608523 instance=ExtResource("5_mynl5")]
 layout_mode = 0
 offset_left = -244.0
 offset_top = -240.0
@@ -276,6 +250,15 @@ offset_right = 13.0
 offset_bottom = -200.0
 text = "RECOLOR"
 icon = SubResource("PlaceholderTexture2D_mynl5")
+
+[node name="ButtonOriginal" parent="ColorButtons1" unique_id=646361148 instance=ExtResource("8_8jd0c")]
+material = ExtResource("9_gyghb")
+layout_mode = 0
+offset_left = -215.0
+offset_top = -248.0
+offset_right = -151.0
+offset_bottom = -184.0
+texture_normal = SubResource("GradientTexture2D_gyghb")
 
 [node name="ColorButtons2" type="Control" parent="." unique_id=713796034]
 layout_mode = 3
@@ -303,7 +286,7 @@ offset_bottom = -200.0
 text = "RECOLOR"
 icon = SubResource("PlaceholderTexture2D_mynl5")
 
-[node name="ButtonL1" parent="." unique_id=646361148 instance=ExtResource("8_8jd0c")]
+[node name="ButtonL1" parent="." unique_id=1863651219 instance=ExtResource("8_8jd0c")]
 offset_left = 32.0
 offset_top = 160.0
 offset_right = 96.0
