@@ -1027,5 +1027,6 @@ proyectile_type = 1
 position = Vector2(0.5, -19.125)
 
 [node name="SFX" type="AudioStreamPlayer2D" parent="." unique_id=119566044]
+volume_db = 2.0
 max_polyphony = 2
 bus = &"SFX"

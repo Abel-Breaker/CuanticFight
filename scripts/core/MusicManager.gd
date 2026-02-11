@@ -20,8 +20,8 @@ func _ready() -> void:
 	heartbeat_timer.timeout.connect(on_heartbeat)
 	
 	set_bus_volume("Master", 50)
-	set_bus_volume("Music", 20)
-	set_bus_volume("SFX", 20)
+	set_bus_volume("Music", 10)
+	set_bus_volume("SFX", 70)
 
 func setup():
 	menu_music.stream = load("res://assets/music/menu_theme.ogg")
