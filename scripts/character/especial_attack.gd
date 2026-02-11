@@ -12,6 +12,7 @@ var isActive : bool = false
 @onready var duplication_effect: AnimatedSprite2D
 
 @export var duplicationSound: AudioStream
+@export var endDuplicationSound: AudioStream
 
 @onready var audio_stream_player: AudioStreamPlayer2D = $SFX
 
@@ -159,7 +160,7 @@ func end_duplication_character() -> bool:
 		characterClone.especialAttack.duplication_effect.stop()
 		characterClone.especialAttack.duplication_effect.visible = false
 		
-		audio_stream_player.stream = duplicationSound
+		audio_stream_player.stream = endDuplicationSound
 		audio_stream_player.play()
 		var im_real = randf() < 0.5
 		if im_real:
