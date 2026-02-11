@@ -10,6 +10,7 @@ const MAX_HEALTH = 200
 @export var player_type : ProyectilesManager.ProyectileType = ProyectilesManager.ProyectileType.QUANTIC
 @export var death_sound: AudioStream
 @export var on_hit_sound: AudioStream
+@export var on_landing_sound: AudioStream
 
 @onready var sprite : AnimatedSprite2D = $ORIGINAL
 

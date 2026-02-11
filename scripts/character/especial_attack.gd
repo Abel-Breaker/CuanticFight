@@ -98,7 +98,7 @@ func duplicate_character() -> void:
 			'''
 			spawnPoint += Vector2(0,-100)
 			
-			print("COLLIDING")
+			#print("COLLIDING")
 			front_view_raycast.global_position = get_parent().global_position + spawnPoint
 			front_view_raycast.target_position = Vector2(1,0)
 			front_view_raycast.collide_with_bodies = true
@@ -124,6 +124,7 @@ func duplicate_character() -> void:
 	characterClone.especialAttack.duplication_effect.play("default")
 	characterClone.especialAttack.isActive = true
 	characterClone.especialAttack.canBeUsed = false
+	characterClone.flip_character(character.isLookingLeft)
 	
 	characterClone.request_anim("especial_attack")
 	SignalContainer.player_duplicated_himself.emit(character.charID)
