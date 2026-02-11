@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://ymr1ljjcsc64" path="res://assets/sounds/landing_astronaut.mp3" id="4_6p6pe"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="5_vo6ib"]
+[ext_resource type="Texture2D" uid="uid://c3hjppv1r6hfv" path="res://assets/sprites/astronautaBlackHole.png" id="6_fn37r"]
 [ext_resource type="Texture2D" uid="uid://cs7t6ec4d57j3" path="res://assets/sprites/disparo.png" id="6_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://c2p3msrsrxs7" path="res://assets/sprites/walk.png" id="7_plctd"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_vqasi"]
@@ -263,6 +264,22 @@ region = Rect2(512, 3584, 256, 256)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3xkv"]
 atlas = ExtResource("2_plctd")
 region = Rect2(768, 3584, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1evt"]
+atlas = ExtResource("6_fn37r")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c0y4"]
+atlas = ExtResource("6_fn37r")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06321"]
+atlas = ExtResource("6_fn37r")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjovn"]
+atlas = ExtResource("6_fn37r")
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8lmnd"]
 atlas = ExtResource("2_vo6ib")
@@ -522,7 +539,19 @@ animations = [{
 "name": &"die",
 "speed": 20.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1evt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c0y4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06321")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjovn")
+}],
 "loop": false,
 "name": &"especial_attack",
 "speed": 5.0
@@ -996,7 +1025,7 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"falling"
+animation = &"especial_attack"
 autoplay = "idle"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=1490279233]

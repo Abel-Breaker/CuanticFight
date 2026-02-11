@@ -25,6 +25,8 @@ var desduplicadoFLAG : bool = false
 var can_move_freely: bool = true
 var canAct : bool = false
 
+var runningDustRef = "res://scenes/characters/RunningDustParticles.tscn"
+
 var isLookingLeft : bool
 
 # Priority table
@@ -231,6 +233,15 @@ func evaluate_base_animation():
 	if not is_on_floor():
 		request_anim("falling")
 	elif abs(velocity.x) > 5:
+		if sprite.animation != "run":
+			var dust = load(runningDustRef).instantiate()
+			get_parent().add_child(dust)
+			dust.position =position
+			if isLookingLeft:
+				dust.get_child(0).flip_h = true
+			dust.get_child(0).animation_finished.connect(func() -> void: 
+				dust.queue_free()
+			)
 		request_anim("run")
 	else:
 		request_anim("idle")

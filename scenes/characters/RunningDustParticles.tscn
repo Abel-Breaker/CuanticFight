@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cwmnqehdixwuu"]
+
+[ext_resource type="Texture2D" uid="uid://dvaihqnjvdxh3" path="res://assets/sprites/particulasCorrer.png" id="1_l838h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l838h"]
+atlas = ExtResource("1_l838h")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmlgf"]
+atlas = ExtResource("1_l838h")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od73k"]
+atlas = ExtResource("1_l838h")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pikr8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l838h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmlgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od73k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1285075959]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1970285892]
+position = Vector2(9.536743e-07, -69.00001)
+scale = Vector2(0.75683594, 0.7789011)
+sprite_frames = SubResource("SpriteFrames_pikr8")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0
