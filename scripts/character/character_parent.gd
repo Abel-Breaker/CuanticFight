@@ -134,6 +134,20 @@ func _physics_process(delta: float) -> void:
 			audio_stream_player.stream = on_landing_sound
 			audio_stream_player.play()
 			request_anim("land")
+			if player_type == ProyectilesManager.ProyectileType.CLASSIC:
+				var dust1 = load(runningDustRef).instantiate()
+				var dust2 = load(runningDustRef).instantiate()
+				get_parent().add_child(dust1)
+				get_parent().add_child(dust2)
+				dust1.position = position# - Vector2(3,0)
+				dust2.position = position - Vector2(5,0)
+				dust1.get_child(0).flip_h = true
+				dust1.get_child(0).animation_finished.connect(func() -> void: 
+					dust1.queue_free()
+				)
+				dust2.get_child(0).animation_finished.connect(func() -> void: 
+					dust2.queue_free()
+				)
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump_"+str(charID)) and is_on_floor():
