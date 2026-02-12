@@ -19,7 +19,7 @@ var recolorP2 : bool
 var selected : int = 0
 
 var MapsTextures : Array[String] = ["res://assets/sprites/Maps/map1.png", "res://assets/sprites/Maps/nonexistentMap.png"]
-var MapsNames : Array[String] = ["Map1", "Procedural Map"]
+var MapsNames : Array[String] = ["Qrater, Qave and Mountain", "Procedural Map"]
 
 
 func _exit_tree() -> void:
@@ -36,6 +36,9 @@ func _ready() -> void:
 	swapLeft.button_up.connect(swap_left)
 	playButton.button_up.connect(play_game)
 	backButton.button_up.connect(return_to_character_selection)
+	
+	MapPeek.texture = load(MapsTextures[selected])
+	MapName.text = MapsNames[selected]
 
 func setup(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesManager.ProyectileType, INsolo: bool, INrecolorP1 : bool, INrecolorP2 : bool) -> void:
 	p1_type = INp1_type
