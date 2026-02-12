@@ -50,7 +50,7 @@ func _ready() -> void:
 		}
 	}
 	descriptions[ProyectilesManager.ProyectileType.QUANTIC] = {\
-		"WINDOW_TITLE": "Q",
+		"WINDOW_TITLE": "QUARK",
 		"Melee": {
 			"TEXT": melee_q,
 			"SHOWCASE": melee_q_showcase

@@ -28,7 +28,7 @@ var recolor2 : bool = false
 @onready var habilities_open2: TextureButton = $Habilities2/InfoButton
 @onready var habilities_panel2: Panel = $Habilities2/HabilitiesPanel
 
-var character_names = {ProyectilesManager.ProyectileType.CLASSIC: "ASTRONAUT", ProyectilesManager.ProyectileType.QUANTIC: "Q"}
+var character_names = {ProyectilesManager.ProyectileType.CLASSIC: "ASTRONAUT", ProyectilesManager.ProyectileType.QUANTIC: "QUARK"}
 
 var characters1 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var characters2 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
