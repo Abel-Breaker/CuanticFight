@@ -68,10 +68,12 @@ func try_to_use() -> bool:
 			collision_layer,
 			collision_mask,
 			0,
-			single_bullet_damage
+			single_bullet_damage,
+			true
 		)
 		
 	else: #Shooting like a wave
+		var play_sound_bool = true
 		var x_axis_speed: float = look_dir_modifier * multi_bullet_speed
 		for i in range(multiBulletsAmount):
 			ProyectilesManager.spawn_proyectile(
@@ -82,6 +84,8 @@ func try_to_use() -> bool:
 			collision_layer,
 			collision_mask,
 			0,
-			multi_bullet_damage
+			multi_bullet_damage,
+			play_sound_bool
 			)
+			play_sound_bool = false
 	return true

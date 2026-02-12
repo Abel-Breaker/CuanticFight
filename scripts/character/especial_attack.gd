@@ -14,7 +14,7 @@ var isActive : bool = false
 @export var duplicationSound: AudioStream
 @export var endDuplicationSound: AudioStream
 
-@onready var audio_stream_player: AudioStreamPlayer2D = $SFX
+@onready var audio_stream_player: AudioStreamPlayer = $SFX
 
 var spawnPoint : Vector2 
 var canBeUsed : bool = true

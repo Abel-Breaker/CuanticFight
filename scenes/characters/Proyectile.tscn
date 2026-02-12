@@ -54,7 +54,7 @@ shape = SubResource("CircleShape2D_0ioq4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=167479024]
 stream = ExtResource("2_0ioq4")
-volume_db = -11.753
+volume_db = -4.0
 bus = &"SFX"
 
 [node name="AliveTime" type="Timer" parent="." unique_id=1917379754]

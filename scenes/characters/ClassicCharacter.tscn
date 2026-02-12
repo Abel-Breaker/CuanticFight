@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dwpi86kevrhos"]
 
 [ext_resource type="Script" uid="uid://dchwu01i2y5cl" path="res://scripts/character/character_parent.gd" id="1_5t02b"]
+[ext_resource type="AudioStream" uid="uid://ddg2o1mhjii4a" path="res://assets/sounds/astronaut_death_final.mp3" id="2_jqiwc"]
 [ext_resource type="Texture2D" uid="uid://dnddi4blsf7re" path="res://assets/sprites/death.png" id="2_plctd"]
 [ext_resource type="Texture2D" uid="uid://cnqnl2c4k8a2w" path="res://assets/sprites/jump.png" id="2_vo6ib"]
-[ext_resource type="AudioStream" uid="uid://d37ctsg84jekg" path="res://assets/sounds/astronaut_death.mp3" id="2_x5vu2"]
-[ext_resource type="AudioStream" uid="uid://dyhf0btkfiq8i" path="res://assets/sounds/astronaut_hit.mp3" id="3_ey8v0"]
+[ext_resource type="AudioStream" uid="uid://dhpo0h0jqofwg" path="res://assets/sounds/astronaut_got_hit_final.mp3" id="3_jqiwc"]
 [ext_resource type="Texture2D" uid="uid://bletirc4mcuek" path="res://assets/sprites/hit_classic.png" id="3_vo6ib"]
 [ext_resource type="AudioStream" uid="uid://ymr1ljjcsc64" path="res://assets/sounds/landing_astronaut.mp3" id="4_6p6pe"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="4_vo6ib"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://c2p3msrsrxs7" path="res://assets/sprites/walk.png" id="7_plctd"]
 [ext_resource type="PackedScene" uid="uid://61mba387fnq7" path="res://scenes/characters/LightAttack.tscn" id="7_vqasi"]
 [ext_resource type="Texture2D" uid="uid://vmslxup83bbb" path="res://assets/sprites/recolors/RC_jump.png" id="9_6gyxg"]
-[ext_resource type="AudioStream" uid="uid://reotccc0g840" path="res://assets/sounds/kick.mp3" id="10_334lg"]
 [ext_resource type="PackedScene" uid="uid://cl33ttjn70m0i" path="res://scenes/characters/ClassicRangeAttack.tscn" id="10_plctd"]
 [ext_resource type="PackedScene" uid="uid://ecfxbudw5a0b" path="res://scenes/characters/ClassicEspecialAttack.tscn" id="10_vo6ib"]
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="10_x5vu2"]
@@ -22,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://dbmsikjc4d0mr" path="res://assets/sprites/recolors/RC_disparo.png" id="12_6p6pe"]
 [ext_resource type="Texture2D" uid="uid://bh4isf83j0tnf" path="res://assets/sprites/recolors/walk-fotor-20260210171343.png" id="13_fn37r"]
 [ext_resource type="Texture2D" uid="uid://bc85npck44eso" path="res://assets/sprites/recolors/RC_astronautaBlackHole.png" id="13_jqiwc"]
+[ext_resource type="AudioStream" uid="uid://bvxq8numr1qsy" path="res://assets/sounds/astronaut_hit_final.mp3" id="20_jqiwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t02b"]
 size = Vector2(15.833332, 26.666668)
@@ -1040,8 +1040,8 @@ size = Vector2(24, 39)
 z_index = 2
 scale = Vector2(2, 2)
 script = ExtResource("1_5t02b")
-death_sound = ExtResource("2_x5vu2")
-on_hit_sound = ExtResource("3_ey8v0")
+death_sound = ExtResource("2_jqiwc")
+on_hit_sound = ExtResource("3_jqiwc")
 on_landing_sound = ExtResource("4_6p6pe")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
 
@@ -1075,7 +1075,7 @@ shape = SubResource("RectangleShape2D_plctd")
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
 position = Vector2(6.5, 7.4999995)
 scale = Vector2(1.1419997, -0.7689995)
-soundEffect = ExtResource("10_334lg")
+soundEffect = ExtResource("20_jqiwc")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
 position = Vector2(0, 13)

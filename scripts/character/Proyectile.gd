@@ -15,19 +15,24 @@ class_name Proyectile
 var dealing_damage: int = 0
 var owner_player_num: int = 0
 
+var should_play_sound: bool = true
+
 func _ready() -> void:
 	alive_timer.wait_time = alive_bullet_time
 	alive_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	destroy_anim_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	alive_timer.start()
-	AudioManager.play_sound_safe(sfx_player)
+	if should_play_sound:
+		AudioManager.play_sound_safe(sfx_player)
 	body_entered.connect(proyectile_impacted)
 
-func setup(owner_id: int, dmg: int, layer: int, mask: int):
+func setup(owner_id: int, dmg: int, layer: int, mask: int, play_sound: bool):
 	owner_player_num = owner_id
 	self.collision_layer = layer
 	self.collision_mask = mask
 	dealing_damage = dmg
+	should_play_sound = play_sound
+
 
 func proyectile_impacted(body: Node):
 	if self.is_queued_for_deletion():
