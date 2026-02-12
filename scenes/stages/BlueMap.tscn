@@ -59,20 +59,20 @@ texture = ExtResource("6_ewfxm")
 z_index = -1
 z_as_relative = false
 position = Vector2(-1390.867, -692.719)
-scale = Vector2(4.889845, 4.8898454)
+scale = Vector2(5, 5)
 texture = ExtResource("7_eevg1")
 
 [node name="Sprite2DMOUNTAIN2" type="Sprite2D" parent="." unique_id=1473546337]
 z_index = -2
 z_as_relative = false
 position = Vector2(-1167, -720)
-scale = Vector2(3.5887842, 3.588785)
+scale = Vector2(4, 4)
 texture = ExtResource("8_go378")
 
 [node name="Sprite2DMOUNTAIN3" type="Sprite2D" parent="." unique_id=1461183897]
 z_index = -2
 z_as_relative = false
-position = Vector2(-923.0002, -652.00006)
-scale = Vector2(4.2568874, 4.256888)
+position = Vector2(-927, -670)
+scale = Vector2(4, 4)
 texture = ExtResource("9_54uv0")
 flip_h = true
