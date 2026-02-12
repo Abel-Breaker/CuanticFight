@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cxjhc8vgtstsi" path="res://scripts/ui/HabilitiesPanel.gd" id="1_qbv5h"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_kky0n"]
 [ext_resource type="Texture2D" uid="uid://bkl3341r6bkbe" path="res://assets/sprites/deathSS.png" id="3_lchxy"]
+[ext_resource type="Texture2D" uid="uid://chnwutsigj0yk" path="res://assets/sprites/simpletile.png" id="3_qses7"]
 [ext_resource type="Texture2D" uid="uid://ctq812k201yji" path="res://assets/sprites/jumpSS.png" id="4_02c1w"]
 [ext_resource type="Texture2D" uid="uid://bkihfc4r5366n" path="res://assets/sprites/damageSS.png" id="5_jo2me"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="6_le3p7"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://vmslxup83bbb" path="res://assets/sprites/recolors/RC_jump.png" id="12_yw020"]
 [ext_resource type="Texture2D" uid="uid://bletirc4mcuek" path="res://assets/sprites/hit_classic.png" id="13_n2jm4"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="14_esdll"]
+[ext_resource type="Texture2D" uid="uid://dx7jk3cobxs6l" path="res://assets/sprites/blackHole.png" id="14_pufap"]
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="14_qses7"]
 [ext_resource type="Texture2D" uid="uid://mcmin42ts1qh" path="res://assets/sprites/recolors/RC_closeAttack.png" id="15_pufap"]
 [ext_resource type="Texture2D" uid="uid://bs7hay7fqr01h" path="res://assets/sprites/closeAttack_classic.png" id="15_ypnl0"]
@@ -26,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://bh4isf83j0tnf" path="res://assets/sprites/recolors/walk-fotor-20260210171343.png" id="17_secr7"]
 [ext_resource type="Texture2D" uid="uid://be4qmt63fvm37" path="res://assets/sprites/bala.png" id="18_c2ktl"]
 [ext_resource type="Texture2D" uid="uid://dyrqo74rgqkol" path="res://assets/sprites/proyectilSS.png" id="18_d87pm"]
-[ext_resource type="PackedScene" uid="uid://bhtybwog8imew" path="res://scenes/vfx/BlackHole.tscn" id="19_secr7"]
 [ext_resource type="Texture2D" uid="uid://bftgught73u5h" path="res://assets/sprites/desduplicacion_NEW.png" id="31_2byo8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jngwu"]
@@ -208,6 +209,49 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m2all")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el40d"]
+atlas = ExtResource("14_pufap")
+region = Rect2(512, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_secr7"]
+atlas = ExtResource("14_pufap")
+region = Rect2(768, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d87pm"]
+atlas = ExtResource("14_pufap")
+region = Rect2(1024, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyc1v"]
+atlas = ExtResource("14_pufap")
+region = Rect2(1280, 128, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwyg4"]
+atlas = ExtResource("14_pufap")
+region = Rect2(1536, 128, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cp6x1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_el40d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_secr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d87pm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyc1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwyg4")
 }],
 "loop": true,
 "name": &"default",
@@ -1088,10 +1132,10 @@ offset_bottom = 324.0
 script = ExtResource("1_qbv5h")
 melee_astronaut = "Fast kick"
 melee_q = "Fast stab"
-range_astronaut = "Laser gun"
+range_astronaut = "Laser gun with high fire rate"
 range_q = "Q-projectile, 1 or 5 depending on if the shooter is being observed when firing"
-special_astronaut = "Black hole that attracts enemy. Spawns depending on your movement direction and the enemy's position"
-special_q = "Electron behaviour, can be in 2 places and only gets determined when acted upon or acts himself"
+special_astronaut = "Black hole that attracts the enemy. Spawns depending on your movement direction and the enemy's position"
+special_q = "Electron behaviour. It can be in 2 places and only gets determined when acted upon or acts itself"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1340455719]
 layout_mode = 0
@@ -1219,6 +1263,14 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect" type="TextureRect" parent="InfoPanel/Showcase/Classic_Melee" unique_id=1122008794]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 69.0
+offset_right = 126.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="RECOLOR" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Melee" unique_id=1154801914]
 position = Vector2(97, 44)
 scale = Vector2(0.39648438, 0.39648438)
@@ -1240,8 +1292,32 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect2" type="TextureRect" parent="InfoPanel/Showcase/Classic_Range" unique_id=583883923]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 69.0
+offset_right = 98.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect3" type="TextureRect" parent="InfoPanel/Showcase/Classic_Range" unique_id=855216971]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 69.0
+offset_right = 162.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect4" type="TextureRect" parent="InfoPanel/Showcase/Classic_Range" unique_id=1588672874]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 69.0
+offset_right = 226.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="RECOLOR2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Range" unique_id=343637435]
-position = Vector2(185, 42)
+position = Vector2(185, 44)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_825u3")
 animation = &"idle"
@@ -1316,18 +1392,49 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect5" type="TextureRect" parent="InfoPanel/Showcase/Classic_Special" unique_id=283307422]
+layout_mode = 0
+offset_top = 69.0
+offset_right = 64.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect6" type="TextureRect" parent="InfoPanel/Showcase/Classic_Special" unique_id=1145362208]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 69.0
+offset_right = 128.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect7" type="TextureRect" parent="InfoPanel/Showcase/Classic_Special" unique_id=1474059393]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 69.0
+offset_right = 192.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect8" type="TextureRect" parent="InfoPanel/Showcase/Classic_Special" unique_id=404628462]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 69.0
+offset_right = 256.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="RECOLOR" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=888767229]
-position = Vector2(67, 43)
+position = Vector2(67, 44)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_825u3")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="BlackHole" parent="InfoPanel/Showcase/Classic_Special" unique_id=693901479 instance=ExtResource("19_secr7")]
-position = Vector2(107, 57)
+[node name="SimpleBlackHole2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=631814635]
+position = Vector2(107, 58)
 scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_cp6x1")
 frame = 3
-frame_progress = 0.0
 
 [node name="ORIGINAL" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=1082811142]
 position = Vector2(23, 19)
@@ -1364,12 +1471,12 @@ offset_bottom = 95.32022
 z_index = 2
 layout_mode = 0
 offset_left = 127.0
-offset_top = 32.0
+offset_top = 30.0
 offset_right = 129.0
-offset_bottom = 72.0
+offset_bottom = 90.0
 
 [node name="ORIGINAL2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=1691161688]
-position = Vector2(151.75, 20.75)
+position = Vector2(152, 19)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_25m83")
 animation = &"especial_attack"
@@ -1401,17 +1508,17 @@ offset_right = 41.940887
 offset_bottom = 95.32022
 
 [node name="RECOLOR2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=326949180]
-position = Vector2(239, 45)
+position = Vector2(235, 44)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_825u3")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="BlackHole2" parent="InfoPanel/Showcase/Classic_Special" unique_id=1961778435 instance=ExtResource("19_secr7")]
-position = Vector2(198, 59)
+[node name="SimpleBlackHole" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Classic_Special" unique_id=1897283468]
+position = Vector2(195, 58)
 scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_cp6x1")
 frame = 3
-frame_progress = 0.0
 
 [node name="Quantic_Melee" type="Control" parent="InfoPanel/Showcase" unique_id=654874403]
 visible = false
@@ -1420,16 +1527,24 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect2" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Melee" unique_id=858711566]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 69.0
+offset_right = 126.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="ORIGINAL" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Melee" unique_id=1080733354]
 z_index = 1
-position = Vector2(64, 40)
+position = Vector2(80, 44)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_xyc1v")
 animation = &"light_attack"
 autoplay = "light_attack"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Melee" unique_id=197278635]
-position = Vector2(94, 16)
+position = Vector2(114, 19)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_mwyg4")
 animation = &"hit"
@@ -1443,15 +1558,46 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect3" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1833196200]
+layout_mode = 0
+offset_top = 69.0
+offset_right = 64.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect4" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1111961093]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 69.0
+offset_right = 128.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect5" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1508738331]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 69.0
+offset_right = 192.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect6" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=830116856]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 69.0
+offset_right = 256.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="ORIGINAL" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1946471494]
-position = Vector2(31, 37)
+position = Vector2(30.75, 44.375)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_xyc1v")
 animation = &"ranged_attack"
 autoplay = "ranged_attack"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1833997519]
-position = Vector2(110, 16)
+position = Vector2(110, 19)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_mwyg4")
 animation = &"idle"
@@ -1460,7 +1606,7 @@ flip_h = true
 
 [node name="Projectile" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1083853806]
 z_index = 1
-position = Vector2(76, 54.99999)
+position = Vector2(75.75, 62.37499)
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
 autoplay = "default"
@@ -1486,22 +1632,23 @@ offset_right = -8.373133
 offset_bottom = 8.384618
 color = Color(0.6313726, 0.93333334, 0.9098039, 1)
 
-[node name="ColorRect" type="ColorRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1512966241]
+[node name="ColorRect2" type="ColorRect" parent="InfoPanel/Showcase/Quantic_Range" unique_id=114443221]
+z_index = 2
 layout_mode = 0
 offset_left = 127.0
-offset_top = 32.0
+offset_top = 30.0
 offset_right = 129.0
-offset_bottom = 72.0
+offset_bottom = 90.0
 
 [node name="ORIGINAL2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1505238179]
-position = Vector2(151.75, 37.75)
+position = Vector2(151.75, 44.375)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_xyc1v")
 animation = &"ranged_attack"
 autoplay = "ranged_attack"
 
 [node name="RECOLOR2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1539290759]
-position = Vector2(230.75, 16.75)
+position = Vector2(231, 19)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_mwyg4")
 animation = &"idle"
@@ -1509,7 +1656,7 @@ autoplay = "idle"
 
 [node name="Projectile2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=2008427531]
 z_index = 1
-position = Vector2(196.75, 55.74999)
+position = Vector2(196.75, 62.37499)
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
 autoplay = "default"
@@ -1537,7 +1684,7 @@ color = Color(0.6313726, 0.93333334, 0.9098039, 1)
 
 [node name="Projectile3" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1203327457]
 z_index = 1
-position = Vector2(196, 44.99999)
+position = Vector2(196, 51.62499)
 rotation = -0.2617994
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
@@ -1566,7 +1713,7 @@ color = Color(0.6313726, 0.93333334, 0.9098039, 1)
 
 [node name="Projectile4" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1254902774]
 z_index = 1
-position = Vector2(189, 34.99999)
+position = Vector2(189, 41.62499)
 rotation = -0.5235988
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
@@ -1595,7 +1742,7 @@ color = Color(0.6313726, 0.93333334, 0.9098039, 1)
 
 [node name="Projectile5" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=1091461292]
 z_index = 1
-position = Vector2(195, 65.999985)
+position = Vector2(195, 72.624985)
 rotation = 0.2617994
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
@@ -1624,7 +1771,7 @@ color = Color(0.6313726, 0.93333334, 0.9098039, 1)
 
 [node name="Projectile6" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Range" unique_id=139417721]
 z_index = 1
-position = Vector2(189, 74.999985)
+position = Vector2(189, 81.624985)
 rotation = 0.5235988
 scale = Vector2(0.52343756, 0.40624988)
 sprite_frames = SubResource("SpriteFrames_atnaa")
@@ -1658,26 +1805,50 @@ offset_right = 257.0
 offset_bottom = 93.0
 mouse_filter = 2
 
+[node name="TextureRect3" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Special" unique_id=1752078910]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 69.0
+offset_right = 94.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect4" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Special" unique_id=1110185120]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 69.0
+offset_right = 158.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
+[node name="TextureRect5" type="TextureRect" parent="InfoPanel/Showcase/Quantic_Special" unique_id=216648672]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 69.0
+offset_right = 222.0
+offset_bottom = 85.0
+texture = ExtResource("3_qses7")
+
 [node name="ORIGINAL" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Special" unique_id=488181747]
-position = Vector2(70.75, 38.375)
+position = Vector2(70.75, 44.375)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_xyc1v")
 animation = &"idle"
 autoplay = "idle"
 
 [node name="ORIGINAL2" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Special" unique_id=275758211]
-position = Vector2(69.75, 41.375)
+position = Vector2(69.75, 47.375)
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_8c8gh")
 
 [node name="ORIGINAL3" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Special" unique_id=314059835]
-position = Vector2(176.5, 38.75)
+position = Vector2(176.5, 44.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_xyc1v")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="ORIGINAL4" type="AnimatedSprite2D" parent="InfoPanel/Showcase/Quantic_Special" unique_id=433167650]
-position = Vector2(175.5, 41.75)
+position = Vector2(175.5, 47.75)
 scale = Vector2(0.37, 0.37)
 sprite_frames = SubResource("SpriteFrames_8c8gh")
