@@ -236,7 +236,7 @@ func evaluate_base_animation():
 		if sprite.animation != "run":
 			var dust = load(runningDustRef).instantiate()
 			get_parent().add_child(dust)
-			dust.position =position
+			dust.position = position
 			if isLookingLeft:
 				dust.get_child(0).flip_h = true
 			dust.get_child(0).animation_finished.connect(func() -> void: 
