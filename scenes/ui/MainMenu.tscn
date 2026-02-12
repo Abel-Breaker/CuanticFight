@@ -28,7 +28,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -138.0
 offset_top = -214.0
-offset_right = 145.0
+offset_right = 146.0
 offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -98,40 +98,40 @@ text = "EXIT GAME"
 [node name="Master" parent="." unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
 offset_left = 222.0
-offset_top = 214.0
+offset_top = 202.0
 offset_right = 447.0
-offset_bottom = 230.0
+offset_bottom = 218.0
 display_label = NodePath("../MasterLabel")
 
 [node name="Music" parent="." unique_id=676781648 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
 offset_left = 222.0
-offset_top = 270.0
+offset_top = 257.0
 offset_right = 447.0
-offset_bottom = 286.0
+offset_bottom = 273.0
 bus_name = "Music"
 display_label = NodePath("../MusicLabel")
 
 [node name="MasterLabel" type="Label" parent="." unique_id=3592673]
 layout_mode = 0
 offset_left = 175.0
-offset_top = 176.0
+offset_top = 177.0
 offset_right = 435.0
-offset_bottom = 214.0
+offset_bottom = 215.0
 
 [node name="MusicLabel" type="Label" parent="." unique_id=2077631522]
 layout_mode = 0
-offset_left = 174.0
+offset_left = 175.0
 offset_top = 232.0
-offset_right = 434.0
+offset_right = 435.0
 offset_bottom = 270.0
 
 [node name="SFX" parent="." unique_id=668009631 node_paths=PackedStringArray("display_label") instance=ExtResource("3_iwbf0")]
 layout_mode = 0
-offset_left = 223.0
-offset_top = 325.0
-offset_right = 448.0
-offset_bottom = 341.0
+offset_left = 222.0
+offset_top = 312.0
+offset_right = 447.0
+offset_bottom = 328.0
 bus_name = "SFX"
 display_label = NodePath("../SFXLabel")
 
