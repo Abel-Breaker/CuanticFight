@@ -25,7 +25,7 @@ var MapsTextures : Array[String] = [ \
 "res://assets/sprites/Maps/nonexistentMap.png"]
 var MapsNames : Array[String] = [ \
 "Qrater, Qave and Mountain", \
-"Quiet Meadow", \
+"Quiet Mound", \
 "RedMap", \
 "Procedural Map"]
 
