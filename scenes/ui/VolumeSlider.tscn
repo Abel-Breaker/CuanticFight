@@ -1,8 +1,17 @@
 [gd_scene format=3 uid="uid://d0ppbto5mcdfk"]
 
 [ext_resource type="Script" uid="uid://dstorjvruyknx" path="res://scripts/ui/VolumeSlider.gd" id="1_ud3ts"]
+[ext_resource type="AudioStream" uid="uid://ukrch12e5y7r" path="res://assets/sounds/slider_release_final.mp3" id="2_3uxig"]
+[ext_resource type="AudioStream" uid="uid://b7ymnft66xbl6" path="res://assets/sounds/btn_entered_2.mp3" id="3_78mdq"]
 
 [node name="VolumeSlider" type="HSlider" unique_id=1426433370]
 offset_right = 225.0
 offset_bottom = 16.0
 script = ExtResource("1_ud3ts")
+
+[node name="Release" type="AudioStreamPlayer" parent="." unique_id=806560013]
+stream = ExtResource("2_3uxig")
+volume_db = -20.0
+
+[node name="Focus" type="AudioStreamPlayer" parent="." unique_id=1967483062]
+stream = ExtResource("3_78mdq")

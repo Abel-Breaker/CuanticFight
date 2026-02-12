@@ -11,6 +11,7 @@ extends CanvasLayer
 
 func _ready() -> void:
 
+	replay_btn.ui_accept
 	replay_btn.button_up.connect(on_replay_pressed)
 	main_menu_btn.button_up.connect(on_main_menu_pressed)
 	

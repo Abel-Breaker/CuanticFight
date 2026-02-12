@@ -14,39 +14,57 @@ var parent#: Button
 var default_scale: Vector2
 var tween : Tween
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	parent = get_parent()
 	if from_center:
 		parent.pivot_offset_ratio = Vector2(0.5, 0.5)
-		
-	parent.mouse_entered.connect(func ():
-		sound_entered.play()
-		play_scale_tween(scale_on_hover)
-	)
-	parent.mouse_exited.connect(func ():
-		play_scale_tween(default_scale)
-	)
-	parent.button_down.connect(func ():
-		AudioManager.play_sound_safe(sound_press)
-		play_scale_tween(scale_on_press)
-	)
-	parent.button_up.connect(func ():
-		if self.is_inside_tree():
-			sound_release.play()
-			play_scale_tween(scale_on_hover)
-	)
+	
+	parent.mouse_entered.connect(on_mouse_entered)
+	parent.mouse_exited.connect(on_mouse_exited)
+	parent.button_down.connect(on_button_down)
+	parent.pressed.connect(on_press)
+	parent.focus_entered.connect(on_focus)
 	
 	call_deferred("init")
-	
-	
+
+func on_mouse_entered():
+	sound_entered.play()
+	play_scale_tween(scale_on_hover)
+
+func on_mouse_exited():
+	play_scale_tween(default_scale)
+
+func on_button_down():
+	AudioManager.play_sound_safe(sound_press)
+	play_scale_tween(scale_on_press)
+
+func on_press():
+	if self.is_inside_tree():
+		if InputTypeHelper.user_is_using_keyboard():
+			AudioManager.play_sound_safe(sound_release)
+		else:
+			sound_release.play()
+			play_scale_tween(scale_on_hover)
+
+func on_focus():
+	if InputTypeHelper.user_is_using_keyboard():
+		AudioManager.play_sound_safe(sound_entered)
+
+
 func init() -> void:
 	default_scale = parent.scale
-	
+
 
 func play_scale_tween(target_scale: Vector2) -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
 	tween.tween_property(parent, "scale", target_scale, anim_time).set_trans(transition_type)
+
+func _exit_tree() -> void:
+	parent.mouse_entered.disconnect(on_mouse_entered)
+	parent.mouse_exited.disconnect(on_mouse_exited)
+	parent.button_down.disconnect(on_button_down)
+	parent.pressed.disconnect(on_press)
+	parent.focus_entered.disconnect(on_focus)

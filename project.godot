@@ -25,6 +25,7 @@ SignalContainer="*uid://4qmt6gaimbe7"
 ProyectilesManager="*uid://cvfqg1gneo6tg"
 AudioManager="*uid://bn34qvy51dgdr"
 GameManager="*uid://d1kgwy3vhwq31"
+InputTypeHelper="*uid://4t1sjb5tpspm"
 
 [display]
 

@@ -30,6 +30,7 @@ offset_left = 122.0
 offset_top = 170.0
 offset_right = 226.0
 offset_bottom = 210.0
+focus_neighbor_right = NodePath("../MainMenu")
 text = "REPLAY
 "
 
@@ -39,5 +40,6 @@ offset_left = 404.0
 offset_top = 167.0
 offset_right = 548.0
 offset_bottom = 207.0
+focus_neighbor_left = NodePath("../Replay")
 text = "MAIN MENU
 "
