@@ -567,7 +567,7 @@ shape = SubResource("RectangleShape2D_8bv2p")
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_vcla3")
-animation = &"die"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=863561660]
@@ -599,5 +599,4 @@ duplicationSound = ExtResource("21_lhw6f")
 endDuplicationSound = ExtResource("22_cd684")
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=297625494]
-volume_db = 6.0
 bus = &"SFX"

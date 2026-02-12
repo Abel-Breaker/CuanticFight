@@ -1083,9 +1083,11 @@ single_bullet_damage = 5
 multi_bullet_damage = 5
 proyectile_type = 1
 
-[node name="EspecialAttack" parent="." unique_id=1162244593 instance=ExtResource("10_vo6ib")]
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=705218399]
+bus = &"SFX"
+
+[node name="OLDEspecialAttack" parent="." unique_id=60083147 instance=ExtResource("10_vo6ib")]
 position = Vector2(0.5, -19.125)
 
-[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=705218399]
-volume_db = 2.0
-bus = &"SFX"
+[node name="EspecialAttack" parent="." unique_id=1162244593 instance=ExtResource("10_vo6ib")]
+position = Vector2(0.5, -19.125)

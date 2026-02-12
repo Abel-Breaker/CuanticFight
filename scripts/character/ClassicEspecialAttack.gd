@@ -4,6 +4,7 @@ extends Node2D
 @onready var cooldown: Timer = $Cooldown
 @onready var effect_timer: Timer = $EffectTimer
 @onready var ray_cast: RayCast2D = $RayCast
+@onready var sound: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var spawn_distance_from_enemy = 150.
 @export var attracting_radius: float = 400.
@@ -64,6 +65,7 @@ func try_to_use() -> bool:
 	ray_cast.force_raycast_update()
 	
 	curr_black_hole = black_hole_scene.instantiate()
+	AudioManager.play_sound_safe(sound)
 	if ray_cast.is_colliding():
 		var collision_point = ray_cast.get_collision_point()
 		curr_black_hole.global_position = collision_point

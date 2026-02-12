@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bhtybwog8imew"]
 
 [ext_resource type="Texture2D" uid="uid://dx7jk3cobxs6l" path="res://assets/sprites/blackHole.png" id="1_8g5r0"]
-[ext_resource type="AudioStream" uid="uid://c1imo8dqorvgh" path="res://assets/sounds/black_hole3.mp3" id="2_523ya"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8g5r0"]
 atlas = ExtResource("1_8g5r0")
@@ -61,6 +60,30 @@ animations = [{
 "texture": SubResource("AtlasTexture_6xdr8")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nvip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8i2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xdr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8i2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xdr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvip5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8i2x")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ssvqt")
 }, {
 "duration": 1.0,
@@ -79,10 +102,4 @@ z_index = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_p8i2x")
 autoplay = "default"
-frame_progress = 0.7541033
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1953585782]
-stream = ExtResource("2_523ya")
-volume_db = 8.0
-autoplay = true
-bus = &"SFX"
+frame_progress = 0.7389735
