@@ -26,6 +26,7 @@ var can_move_freely: bool = true
 var canAct : bool = false
 
 var runningDustRef = "res://scenes/characters/RunningDustParticles.tscn"
+var last_velocity : Vector2
 
 var isLookingLeft : bool
 
@@ -233,7 +234,7 @@ func evaluate_base_animation():
 	if not is_on_floor():
 		request_anim("falling")
 	elif abs(velocity.x) > 5:
-		if sprite.animation != "run":
+		if player_type == ProyectilesManager.ProyectileType.CLASSIC and abs(velocity.x - last_velocity.x) > SPEED-10:
 			var dust = load(runningDustRef).instantiate()
 			get_parent().add_child(dust)
 			dust.position = position
@@ -245,7 +246,7 @@ func evaluate_base_animation():
 		request_anim("run")
 	else:
 		request_anim("idle")
-		
+	last_velocity = velocity
 		
 func flip_character(lookLeft:bool) ->void:
 	isLookingLeft = lookLeft
