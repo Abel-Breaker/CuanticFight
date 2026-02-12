@@ -202,6 +202,11 @@ animations = [{
 "name": &"die",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"especial_attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6438y")
@@ -436,6 +441,11 @@ animations = [{
 "name": &"die",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"especial_attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yk882")
@@ -567,7 +577,7 @@ shape = SubResource("RectangleShape2D_8bv2p")
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_vcla3")
-animation = &"idle"
+animation = &"especial_attack"
 autoplay = "idle"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=863561660]
@@ -575,7 +585,7 @@ visible = false
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_px65p")
-animation = &"die"
+animation = &"especial_attack"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=548517638 groups=["Hurtbox"]]
