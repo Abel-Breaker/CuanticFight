@@ -213,20 +213,6 @@ sprite_frames = SubResource("SpriteFrames_4aop3")
 animation = &"idle1"
 autoplay = "idle1"
 
-[node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
-offset_left = 273.0
-offset_top = 305.0
-offset_right = 373.0
-offset_bottom = 345.0
-text = "PLAY"
-
-[node name="BackMenu" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
-offset_left = 22.0
-offset_top = 305.0
-offset_right = 206.0
-offset_bottom = 345.0
-text = "Back to Menu"
-
 [node name="ColorButtons1" type="Control" parent="." unique_id=135440090]
 layout_mode = 3
 anchors_preset = 0
@@ -234,6 +220,7 @@ offset_left = 273.0
 offset_top = 305.0
 offset_right = 313.0
 offset_bottom = 345.0
+mouse_filter = 2
 
 [node name="ButonOriginal" parent="ColorButtons1" unique_id=517608523 instance=ExtResource("5_mynl5")]
 layout_mode = 0
@@ -269,6 +256,7 @@ offset_left = 273.0
 offset_top = 305.0
 offset_right = 313.0
 offset_bottom = 345.0
+mouse_filter = 2
 
 [node name="ButonOriginal" parent="ColorButtons2" unique_id=1172709540 instance=ExtResource("5_mynl5")]
 layout_mode = 0
@@ -319,16 +307,21 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 314.0
 offset_bottom = 361.0
+mouse_filter = 2
 
 [node name="InfoButton" parent="Habilities1" unique_id=1202718053 instance=ExtResource("10_eqxdx")]
 layout_mode = 0
-offset_left = 228.99998
-offset_top = 24.999998
-offset_right = 329.0
-offset_bottom = 125.0
+offset_left = 225.0
+offset_top = -1.0
+offset_right = 325.0
+offset_bottom = 99.0
 
 [node name="HabilitiesPanel" parent="Habilities1" unique_id=505526004 instance=ExtResource("11_eqxdx")]
 layout_mode = 0
+offset_left = 19.999998
+offset_top = 17.999998
+offset_right = 340.0
+offset_bottom = 378.0
 
 [node name="Habilities2" type="Control" parent="." unique_id=168478044]
 layout_mode = 3
@@ -337,13 +330,32 @@ offset_left = 328.0
 offset_top = 2.0
 offset_right = 642.0
 offset_bottom = 363.0
+mouse_filter = 2
 
 [node name="InfoButton" parent="Habilities2" unique_id=1752325818 instance=ExtResource("10_eqxdx")]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 23.999998
-offset_right = 324.0
-offset_bottom = 124.0
+offset_left = 223.0
+offset_top = -1.9999981
+offset_right = 323.0
+offset_bottom = 98.0
 
 [node name="HabilitiesPanel" parent="Habilities2" unique_id=1015656587 instance=ExtResource("11_eqxdx")]
 layout_mode = 0
+offset_left = 25.999998
+offset_top = 16.999998
+offset_right = 346.0
+offset_bottom = 377.0
+
+[node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
+offset_left = 273.0
+offset_top = 305.0
+offset_right = 373.0
+offset_bottom = 345.0
+text = "PLAY"
+
+[node name="BackMenu" parent="." unique_id=777942862 instance=ExtResource("5_mynl5")]
+offset_left = 22.0
+offset_top = 305.0
+offset_right = 206.0
+offset_bottom = 345.0
+text = "Back to Menu"

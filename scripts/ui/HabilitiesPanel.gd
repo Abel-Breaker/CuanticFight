@@ -36,7 +36,7 @@ func close_panel(is_top_panel: bool):
 
 func show_info(title: String, astronaut_text: String, q_text: String):
 	info_title.text = title
-	info_text.text = "Astronaut:\n  "+astronaut_text+"\nQ:\n  "+q_text
+	info_text.text = "Astronaut:\n  "+astronaut_text+"\n\nQ:\n  "+q_text
 	info_panel.visible = true
 
 

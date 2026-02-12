@@ -5,36 +5,51 @@
 
 [node name="HabilitiesPanel" type="Panel" unique_id=505526004]
 visible = false
+z_index = 2
 offset_left = 32.0
 offset_top = 36.0
-offset_right = 352.0
-offset_bottom = 396.0
-scale = Vector2(0.8, 0.8)
+offset_right = 288.0
+offset_bottom = 324.0
 script = ExtResource("1_qbv5h")
+melee_astronaut = "Fast kick"
+melee_q = "Fast stab"
+range_astronaut = "Laser gun"
+range_q = "Q-projectile, 1 or 5 depending on if the shooter is being observed when firing"
+special_astronaut = "Black hole that attracts enemy. Spawns depending on your movement direction and the enemy's position"
+special_q = "Electron behaviour, can be in 2 places and only gets determined when acted upon or acts himself"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1340455719]
+layout_mode = 0
+offset_left = -1.25
+offset_top = 1.25
+offset_right = 254.75
+offset_bottom = 289.25
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.92156863)
 
 [node name="Label" type="Label" parent="." unique_id=1846251736]
 layout_mode = 0
-offset_left = 86.25
-offset_top = 23.749996
-offset_right = 234.25
-offset_bottom = 39.75
+offset_left = 54.0
+offset_top = 14.0
+offset_right = 202.0
+offset_bottom = 30.000004
 text = "HABILITIES"
 
 [node name="X" parent="." unique_id=777942862 instance=ExtResource("2_kky0n")]
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 0
-offset_left = 279.99997
-offset_right = 319.99997
-offset_bottom = 40.0
+offset_left = 215.0
+offset_top = 1.0
+offset_right = 255.0
+offset_bottom = 41.0
 theme_override_font_sizes/font_size = 32
 text = "X"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2132049051]
 layout_mode = 0
-offset_left = 22.499996
-offset_top = 100.0
-offset_right = 298.74997
-offset_bottom = 323.74997
+offset_left = 7.0
+offset_top = 58.0
+offset_right = 251.0
+offset_bottom = 276.0
 theme_override_constants/separation = 40
 
 [node name="Melee" parent="VBoxContainer" unique_id=209181876 instance=ExtResource("2_kky0n")]
@@ -51,47 +66,52 @@ text = "SPECIAL HABILITY"
 
 [node name="InfoPanel" type="Panel" parent="." unique_id=2046863997]
 visible = false
+z_index = 1
 layout_mode = 1
-offset_left = 33.75
 offset_top = 57.5
-offset_right = 353.75
-offset_bottom = 417.5
-scale = Vector2(0.8, 0.8)
+offset_right = 256.0
+offset_bottom = 287.0
 
 [node name="ColorRect" type="ColorRect" parent="InfoPanel" unique_id=1135062842]
 layout_mode = 0
-offset_right = 294.0
-offset_bottom = 183.0
-color = Color(0.14901961, 0.14901961, 0.14901961, 0.92156863)
+offset_right = 256.0
+offset_bottom = 231.5
+color = Color(0.14901961, 0.14901961, 0.14901961, 0.9843137)
+
+[node name="Line" type="ColorRect" parent="InfoPanel" unique_id=1820862720]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 2.0
 
 [node name="X" parent="InfoPanel" unique_id=52427713 instance=ExtResource("2_kky0n")]
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 0
-offset_left = 278.12497
-offset_right = 318.12497
-offset_bottom = 39.999996
-theme_override_font_sizes/font_size = 32
+offset_left = 231.0
+offset_top = 1.5000038
+offset_right = 255.0
+offset_bottom = 25.500004
+theme_override_font_sizes/font_size = 16
 text = "X"
 
 [node name="Info" type="Label" parent="InfoPanel" unique_id=190335561]
 layout_mode = 0
-offset_left = 14.0625
-offset_top = 85.9375
-offset_right = 307.8125
-offset_bottom = 307.8125
+offset_left = 7.0
+offset_top = 48.5
+offset_right = 251.0
+offset_bottom = 222.5
+theme_override_font_sizes/font_size = 8
 text = "Astronaut:mas as as as as 
 
 
 Q:"
-horizontal_alignment = 3
 autowrap_mode = 3
 
 [node name="AttackType" type="Label" parent="InfoPanel" unique_id=1339707987]
 layout_mode = 0
-offset_left = 43.75
-offset_top = 9.375
-offset_right = 264.0625
-offset_bottom = 50.0
+offset_left = 16.0
+offset_top = -0.5
+offset_right = 236.3125
+offset_bottom = 40.125
 text = "MELEE ATTACK"
 horizontal_alignment = 1
 vertical_alignment = 1
