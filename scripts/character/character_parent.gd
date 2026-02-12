@@ -131,6 +131,7 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		if sprite.animation == "falling":
+			#print("DEBUG: LANDING")
 			audio_stream_player.stream = on_landing_sound
 			audio_stream_player.play()
 			request_anim("land")
