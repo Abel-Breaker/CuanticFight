@@ -20,6 +20,11 @@ var recolor2 : bool = false
 @onready var P1Sprite : AnimatedSprite2D = $HBoxContainer/VBoxContainer/Control/P1Sprite
 @onready var P2Sprite : AnimatedSprite2D = $HBoxContainer/VBoxContainer2/Control/P2Sprite
 
+@onready var habilities_open1: TextureButton = $Habilities1/InfoButton
+@onready var habilities_panel1: Panel = $Habilities1/HabilitiesPanel
+@onready var habilities_open2: TextureButton = $Habilities2/InfoButton
+@onready var habilities_panel2: Panel = $Habilities2/HabilitiesPanel
+
 var characters1 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var characters2 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var char1selection : int = 0
@@ -33,6 +38,14 @@ func _exit_tree() -> void:
 	swapLeft2.button_up.disconnect(swap_left2)
 	playButton.button_up.disconnect(play_game)
 	backToMenuButton.button_up.disconnect(return_to_menu)
+	
+	swapOriginal1.button_up.disconnect(setOriginal1)
+	swapRecolor1.button_up.disconnect(setRecolor1)
+	swapOriginal2.button_up.disconnect(setOriginal2)
+	swapRecolor2.button_up.disconnect(setRecolor2)
+	
+	habilities_open1.button_up.disconnect(open_panel)
+	habilities_open2.button_up.disconnect(open_panel)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,8 +60,12 @@ func _ready() -> void:
 	swapRecolor1.button_up.connect(setRecolor1)
 	swapOriginal2.button_up.connect(setOriginal2)
 	swapRecolor2.button_up.connect(setRecolor2)
+	
+	habilities_open1.button_up.connect(open_panel.bind(habilities_panel1))
+	habilities_open2.button_up.connect(open_panel.bind(habilities_panel2))
 
-
+func open_panel(panel: Panel):
+	panel.visible = true
 
 func setOriginal1() -> void:
 	recolor1 = false

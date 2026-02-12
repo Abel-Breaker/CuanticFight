@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="8_8jd0c"]
 [ext_resource type="Material" uid="uid://b7rpqhu0qirfg" path="res://shaders/color_select_btn_radius.tres" id="9_gyghb"]
+[ext_resource type="PackedScene" uid="uid://d1r5nlwvncynu" path="res://scenes/ui/InfoButton.tscn" id="10_eqxdx"]
+[ext_resource type="PackedScene" uid="uid://4vy747kknsw3" path="res://scenes/ui/HabilitiesPanel.tscn" id="11_eqxdx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
 atlas = ExtResource("2_yde1c")
@@ -311,3 +313,37 @@ offset_top = 160.0
 offset_right = 594.0
 offset_bottom = 224.0
 flip_h = true
+
+[node name="Habilities1" type="Control" parent="." unique_id=707629736]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 314.0
+offset_bottom = 361.0
+
+[node name="InfoButton" parent="Habilities1" unique_id=1202718053 instance=ExtResource("10_eqxdx")]
+layout_mode = 0
+offset_left = 228.99998
+offset_top = 24.999998
+offset_right = 329.0
+offset_bottom = 125.0
+
+[node name="HabilitiesPanel" parent="Habilities1" unique_id=505526004 instance=ExtResource("11_eqxdx")]
+layout_mode = 0
+
+[node name="Habilities2" type="Control" parent="." unique_id=168478044]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 328.0
+offset_top = 2.0
+offset_right = 642.0
+offset_bottom = 363.0
+
+[node name="InfoButton" parent="Habilities2" unique_id=1752325818 instance=ExtResource("10_eqxdx")]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 23.999998
+offset_right = 324.0
+offset_bottom = 124.0
+
+[node name="HabilitiesPanel" parent="Habilities2" unique_id=1015656587 instance=ExtResource("11_eqxdx")]
+layout_mode = 0
