@@ -19,7 +19,7 @@ var recolorP2 : bool
 var selected : int = 0
 
 var MapsTextures : Array[String] = ["res://assets/sprites/Maps/map1.png", "res://assets/sprites/Maps/nonexistentMap.png"]
-var MapsNames : Array[String] = ["Map1", "Nonexistent Map"]
+var MapsNames : Array[String] = ["Map1", "Procedural Map"]
 
 
 func _exit_tree() -> void:
@@ -37,11 +37,6 @@ func _ready() -> void:
 	playButton.button_up.connect(play_game)
 	backButton.button_up.connect(return_to_character_selection)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func setup(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesManager.ProyectileType, INsolo: bool, INrecolorP1 : bool, INrecolorP2 : bool) -> void:
 	p1_type = INp1_type
 	p2_type = INp2_type
@@ -49,8 +44,6 @@ func setup(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesM
 	recolorP1 = INrecolorP1
 	recolorP2 = INrecolorP2
 
-func go_back() -> void:
-	SignalContainer.game_go_back_to_character_selection.emit(solo)
 
 func play_game() -> void:
 	SignalContainer.game_start.emit(p1_type, p2_type, solo, recolorP1, recolorP2, selected)
