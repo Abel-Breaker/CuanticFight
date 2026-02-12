@@ -338,8 +338,8 @@ offset_bottom = 99.0
 layout_mode = 0
 offset_left = 19.999998
 offset_top = 17.999998
-offset_right = 340.0
-offset_bottom = 378.0
+offset_right = 19.999998
+offset_bottom = 17.999998
 
 [node name="Habilities2" type="Control" parent="." unique_id=168478044]
 layout_mode = 3
@@ -361,8 +361,8 @@ offset_bottom = 98.0
 layout_mode = 0
 offset_left = 25.999998
 offset_top = 16.999998
-offset_right = 346.0
-offset_bottom = 377.0
+offset_right = 25.999998
+offset_bottom = 16.999998
 
 [node name="ButtonPlay" parent="." unique_id=449272830 instance=ExtResource("5_mynl5")]
 offset_left = 273.0

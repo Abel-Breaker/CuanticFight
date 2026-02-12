@@ -68,6 +68,9 @@ func _ready() -> void:
 	
 	habilities_open1.button_up.connect(open_panel.bind(habilities_panel1))
 	habilities_open2.button_up.connect(open_panel.bind(habilities_panel2))
+	
+	habilities_panel1.set_character(characters1[char1selection])
+	habilities_panel2.set_character(characters2[char2selection])
 
 func open_panel(panel: Panel):
 	panel.visible = true
@@ -110,6 +113,7 @@ func swap_right1() -> void:
 	char1selection = char1selection % characters1.size()
 	P1Sprite.play(str("idle",char1selection, "R" if recolor1 else ""))
 	character_name1.text = character_names[characters1[char1selection]]
+	habilities_panel1.set_character(characters1[char1selection])
 	#print("idle",char1selection)
 
 func swap_left1() -> void:
@@ -119,6 +123,7 @@ func swap_left1() -> void:
 	char1selection = char1selection % characters1.size()
 	P1Sprite.play(str("idle",char1selection,  "R" if recolor1 else ""))
 	character_name1.text = character_names[characters1[char1selection]]
+	habilities_panel1.set_character(characters1[char1selection])
 	#print("idle",char1selection)
 
 func swap_right2() -> void:
@@ -128,6 +133,8 @@ func swap_right2() -> void:
 	char2selection = char2selection % characters2.size()
 	P2Sprite.play(str("idle",char2selection,  "R" if recolor2 else ""))
 	character_name2.text = character_names[characters2[char2selection]]
+	habilities_panel2.set_character(characters2[char2selection])
+	
 	#print("idle",char2selection)
 
 func swap_left2() -> void:
@@ -137,4 +144,5 @@ func swap_left2() -> void:
 	char2selection = char2selection % characters2.size()
 	P2Sprite.play(str("idle",char2selection, "R" if recolor2 else ""))
 	character_name2.text = character_names[characters2[char2selection]]
+	habilities_panel2.set_character(characters2[char2selection])
 	#print("idle",char2selection)
