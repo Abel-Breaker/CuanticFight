@@ -10,6 +10,8 @@ var map_selection_menu_scene_path: String = "res://scenes/ui/MapSelector.tscn"
 #TODO: Change for the final game scene
 var game_scene_path : Array[String] = [\
 	"res://scenes/stages/BlueMap.tscn",\
+	"res://scenes/stages/GreenMap.tscn",\
+	"res://scenes/stages/RedMap.tscn",\
 	"res://scenes/stages/Procedural.tscn"\
 ]
 @onready var game_end_delay: Timer = $GameEndDelay

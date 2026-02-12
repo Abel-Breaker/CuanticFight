@@ -18,8 +18,16 @@ var recolorP2 : bool
 
 var selected : int = 0
 
-var MapsTextures : Array[String] = ["res://assets/sprites/Maps/map1.png", "res://assets/sprites/Maps/nonexistentMap.png"]
-var MapsNames : Array[String] = ["Qrater, Qave and Mountain", "Procedural Map"]
+var MapsTextures : Array[String] = [ \
+"res://assets/sprites/Maps/BlueMap.png", \
+"res://assets/sprites/Maps/GreenMap.png", \
+"res://assets/sprites/Maps/RedMap.png", \
+"res://assets/sprites/Maps/nonexistentMap.png"]
+var MapsNames : Array[String] = [ \
+"Qrater, Qave and Mountain", \
+"GreenMap", \
+"RedMap", \
+"Procedural Map"]
 
 
 func _exit_tree() -> void:
