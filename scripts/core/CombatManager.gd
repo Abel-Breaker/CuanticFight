@@ -21,6 +21,7 @@ var player2_characters: Array[CharacterParent] = []
 var player_look_direction: Array[int] = [1, -1] #Player1 starts looking right and Player2 left
 
 var combat_ended : bool = false
+var combat_started: bool = false
 
 func _ready() -> void:
 	SignalContainer.player_received_damage.connect(player_received_dmg)
@@ -64,12 +65,13 @@ func setup(char_type_player1: ProyectilesManager.ProyectileType, char_type_playe
 	char1.setColor(recolorP1)
 	char2.setColor(recolorP2)
 	
-	await get_tree().create_timer(3).timeout.connect(enableCharacters.bind(char1, char2))
-	
+	get_tree().create_timer(2.5).timeout.connect(enableCharacters.bind(char1, char2))
+
 
 func enableCharacters(char1 : CharacterParent, char2 : CharacterParent) -> void:
 	char1.start_acting()
 	char2.start_acting()
+	combat_started = true
 	
 
 func player_received_dmg(player_num: int, remaining_health: int, total_health: int):
@@ -162,7 +164,7 @@ func player_exists(p: CharacterParent) -> bool:
 	return p != null and is_instance_valid(p)
 
 func _process(_delta: float) -> void:
-	if not combat_ended and Input.is_action_just_pressed("pause"):
+	if combat_started and not combat_ended and Input.is_action_just_pressed("pause"):
 		SignalContainer.game_pause.emit()
 
 
