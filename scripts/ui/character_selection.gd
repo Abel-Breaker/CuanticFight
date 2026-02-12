@@ -20,10 +20,15 @@ var recolor2 : bool = false
 @onready var P1Sprite : AnimatedSprite2D = $HBoxContainer/VBoxContainer/Control/P1Sprite
 @onready var P2Sprite : AnimatedSprite2D = $HBoxContainer/VBoxContainer2/Control/P2Sprite
 
+@onready var character_name1: Label = $CharacterName1
+@onready var character_name2: Label = $CharacterName2
+
 @onready var habilities_open1: TextureButton = $Habilities1/InfoButton
 @onready var habilities_panel1: Panel = $Habilities1/HabilitiesPanel
 @onready var habilities_open2: TextureButton = $Habilities2/InfoButton
 @onready var habilities_panel2: Panel = $Habilities2/HabilitiesPanel
+
+var character_names = {ProyectilesManager.ProyectileType.CLASSIC: "ASTRONAUT", ProyectilesManager.ProyectileType.QUANTIC: "Q"}
 
 var characters1 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
 var characters2 : Array[int] = [ProyectilesManager.ProyectileType.CLASSIC, ProyectilesManager.ProyectileType.QUANTIC]
@@ -104,6 +109,7 @@ func swap_right1() -> void:
 		char1selection = characters1.size() - 1
 	char1selection = char1selection % characters1.size()
 	P1Sprite.play(str("idle",char1selection, "R" if recolor1 else ""))
+	character_name1.text = character_names[characters1[char1selection]]
 	#print("idle",char1selection)
 
 func swap_left1() -> void:
@@ -112,6 +118,7 @@ func swap_left1() -> void:
 		char1selection = characters1.size() - 1
 	char1selection = char1selection % characters1.size()
 	P1Sprite.play(str("idle",char1selection,  "R" if recolor1 else ""))
+	character_name1.text = character_names[characters1[char1selection]]
 	#print("idle",char1selection)
 
 func swap_right2() -> void:
@@ -120,6 +127,7 @@ func swap_right2() -> void:
 		char2selection = characters2.size() - 1
 	char2selection = char2selection % characters2.size()
 	P2Sprite.play(str("idle",char2selection,  "R" if recolor2 else ""))
+	character_name2.text = character_names[characters2[char2selection]]
 	#print("idle",char2selection)
 
 func swap_left2() -> void:
@@ -128,4 +136,5 @@ func swap_left2() -> void:
 		char2selection = characters2.size() - 1
 	char2selection = char2selection % characters2.size()
 	P2Sprite.play(str("idle",char2selection, "R" if recolor2 else ""))
+	character_name2.text = character_names[characters2[char2selection]]
 	#print("idle",char2selection)

@@ -302,6 +302,24 @@ offset_right = 594.0
 offset_bottom = 224.0
 flip_h = true
 
+[node name="CharacterName1" type="Label" parent="." unique_id=1801647976]
+offset_left = 84.0
+offset_top = 105.0
+offset_right = 228.0
+offset_bottom = 130.0
+text = "ASTRONAUT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterName2" type="Label" parent="." unique_id=1495215433]
+offset_left = 403.0
+offset_top = 107.0
+offset_right = 547.0
+offset_bottom = 132.0
+text = "Q"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Habilities1" type="Control" parent="." unique_id=707629736]
 layout_mode = 3
 anchors_preset = 0
