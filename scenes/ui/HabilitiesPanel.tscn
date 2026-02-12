@@ -1132,8 +1132,8 @@ offset_bottom = 324.0
 script = ExtResource("1_qbv5h")
 melee_astronaut = "Fast kick"
 melee_q = "Fast stab"
-range_astronaut = "Laser gun with high fire rate"
-range_q = "Q-projectile, 1 or 5 depending on if the shooter is being observed when firing"
+range_astronaut = "Laser gun with high fire rate but low damage"
+range_q = "Q-projectile, 1 or 5 depending on if the shooter is being observed when firing. Hitting all projectiles deals more damage than single-projectile mode"
 special_astronaut = "Black hole that attracts the enemy. Spawns depending on your movement direction and the enemy's position"
 special_q = "Electron behaviour. It can be in 2 places and only gets determined when acted upon or acts itself"
 

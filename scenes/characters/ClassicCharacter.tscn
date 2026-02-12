@@ -1079,8 +1079,8 @@ soundEffect = ExtResource("20_jqiwc")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
 position = Vector2(0, 13)
-single_bullet_damage = 4
-multi_bullet_damage = 4
+single_bullet_damage = 3
+multi_bullet_damage = 3
 proyectile_type = 1
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=705218399]
