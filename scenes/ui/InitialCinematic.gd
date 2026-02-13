@@ -8,6 +8,11 @@ extends Control
 @onready var second_timer: Timer = $SecondTimer
 @onready var third_timer: Timer = $ThirdTimer
 
+@onready var first_txt: Label = $Dialogs/First
+@onready var second_txt: Label = $Dialogs/Second
+@onready var third_txt: Label = $Dialogs/Third
+
+
 
 var ended_cinematic: bool = false
 
@@ -25,14 +30,18 @@ func _ready() -> void:
 	first_timer.start()
 
 func on_first_scene_end():
+	first_txt.visible = false
 	first_scene.visible = false
 	second_scene.visible = true
+	second_txt.visible = true
 	second_scene.play("default")
 	second_timer.start()
 
 func on_second_scene_end():
+	second_txt.visible = false
 	second_scene.visible = false
 	third_scene.visible = true
+	third_txt.visible = true
 	third_scene.play("default")
 	third_timer.start()
 
