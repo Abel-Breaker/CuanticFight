@@ -15,8 +15,8 @@ scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_v52a5")
 
 [node name="Start" parent="." unique_id=777942862 instance=ExtResource("3_n8r8u")]
-offset_left = 239.0
+offset_left = 113.0
 offset_top = 223.0
-offset_right = 397.0
+offset_right = 539.0
 offset_bottom = 263.0
-text = "Start Game"
+text = "Press SPACE to Start the Game"

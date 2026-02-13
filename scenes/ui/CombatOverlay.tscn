@@ -55,9 +55,8 @@ text = "PLAYER 1"
 layout_mode = 3
 anchors_preset = 0
 offset_left = 340.0
-offset_top = 2.0
 offset_right = 640.0
-offset_bottom = 61.0
+offset_bottom = 59.0
 
 [node name="HealthBar" type="TextureRect" parent="Player2" unique_id=1353315791]
 layout_mode = 0
@@ -94,3 +93,14 @@ theme_override_colors/font_color = Color(0.5020322, 0.7505669, 0.7505669, 1)
 theme_override_constants/outline_size = 6
 text = "PLAYER 2"
 horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="." unique_id=1499710117]
+offset_left = 262.0
+offset_top = 6.0
+offset_right = 377.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.61960787)
+theme_override_font_sizes/font_size = 8
+text = "'ESC' to Pause"
+horizontal_alignment = 1
+vertical_alignment = 1
