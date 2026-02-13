@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="1_vjtqc"]
 [ext_resource type="PackedScene" uid="uid://d0ppbto5mcdfk" path="res://scenes/ui/VolumeSlider.tscn" id="3_iwbf0"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="4_2ysvc"]
+[ext_resource type="PackedScene" uid="uid://bkuifx3cpnwvu" path="res://scenes/ui/TitleOverlay.tscn" id="5_xpiny"]
 
 [node name="MainMenu" type="Panel" unique_id=466316292]
 offset_right = 640.0
@@ -156,3 +157,5 @@ offset_left = 175.0
 offset_top = 287.0
 offset_right = 435.0
 offset_bottom = 325.0
+
+[node name="TitleOverlay" parent="." unique_id=2076845849 instance=ExtResource("5_xpiny")]
