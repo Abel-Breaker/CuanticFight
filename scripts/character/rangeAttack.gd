@@ -69,7 +69,8 @@ func try_to_use() -> bool:
 			collision_mask,
 			0,
 			single_bullet_damage,
-			true
+			true,
+			character.i_am_recolor
 		)
 		
 	else: #Shooting like a wave
@@ -85,7 +86,8 @@ func try_to_use() -> bool:
 			collision_mask,
 			0,
 			multi_bullet_damage,
-			play_sound_bool
+			play_sound_bool,
+			character.i_am_recolor
 			)
 			play_sound_bool = false
 	return true

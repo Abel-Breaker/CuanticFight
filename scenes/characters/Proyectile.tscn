@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dyrqo74rgqkol" path="res://assets/sprites/proyectilSS.png" id="1_gf2iv"]
 [ext_resource type="Script" uid="uid://riakwvgmjmlx" path="res://scripts/character/Proyectile.gd" id="1_w66oa"]
 [ext_resource type="AudioStream" uid="uid://1r62ircjsh47" path="res://assets/sounds/dragon-studio-zap-hit-474055.mp3" id="2_0ioq4"]
+[ext_resource type="Texture2D" uid="uid://cikelxp66wven" path="res://assets/sprites/recolors/RC_QproyectilSS.png" id="3_40ff7"]
 [ext_resource type="Texture2D" uid="uid://dqxmsmltogmpa" path="res://assets/sprites/balaImpactoElectron.png" id="3_w66oa"]
+[ext_resource type="Texture2D" uid="uid://blodap5h4jv83" path="res://assets/sprites/recolors/RC_balaImpactoElectron.png" id="5_q1f04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0ioq4"]
 atlas = ExtResource("1_gf2iv")
@@ -27,6 +29,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kboia"]
+atlas = ExtResource("3_40ff7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t8nv"]
+atlas = ExtResource("3_40ff7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8bv8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kboia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t8nv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_0ioq4"]
 radius = 9.0
 
@@ -44,10 +68,20 @@ sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
 frame_progress = 0.8914848
 
+[node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=139158288]
+visible = false
+sprite_frames = SubResource("SpriteFrames_o8bv8")
+autoplay = "default"
+
 [node name="Impact" type="Sprite2D" parent="." unique_id=553203266]
 visible = false
 scale = Vector2(1.4375, 1.4375)
 texture = ExtResource("3_w66oa")
+
+[node name="ImpactRECOLOR" type="Sprite2D" parent="." unique_id=1898135331]
+visible = false
+scale = Vector2(1.438, 1.438)
+texture = ExtResource("5_q1f04")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1980147975]
 shape = SubResource("CircleShape2D_0ioq4")

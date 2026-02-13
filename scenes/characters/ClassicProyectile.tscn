@@ -39,7 +39,21 @@ sprite_frames = SubResource("SpriteFrames_l4ih6")
 autoplay = "default"
 frame_progress = 0.949864
 
+[node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=1887942279]
+visible = false
+position = Vector2(-4.5, 0)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_l4ih6")
+autoplay = "default"
+frame_progress = 0.949864
+
 [node name="Impact" type="Sprite2D" parent="." unique_id=592308519]
+visible = false
+position = Vector2(0, 0.75)
+scale = Vector2(1.7500001, 1.5)
+texture = ExtResource("3_5c2go")
+
+[node name="ImpactRECOLOR" type="Sprite2D" parent="." unique_id=1584722637]
 visible = false
 position = Vector2(0, 0.75)
 scale = Vector2(1.7500001, 1.5)

@@ -47,14 +47,14 @@ func destroy_proyectile(body, proyectile, timeout_timer):
 #---------------------------------------------------------
 
 
-func spawn_proyectile(owner_id: int, type : ProyectileType, global_position: Vector2, velocity : Vector2, layer: int, mask: int, _gravity_scale: float, dealing_dmg: int, play_sound: bool):
+func spawn_proyectile(owner_id: int, type : ProyectileType, global_position: Vector2, velocity : Vector2, layer: int, mask: int, _gravity_scale: float, dealing_dmg: int, play_sound: bool, is_recolor: bool):
 	var proyectile : Proyectile
 	if type == ProyectileType.QUANTIC:
 		proyectile = quantic_proyectile_scene.instantiate()
 	else:
 		proyectile = classic_proyectile_scene.instantiate()
 		
-	proyectile.setup(owner_id, dealing_dmg, layer, mask, play_sound)
+	proyectile.setup(owner_id, dealing_dmg, layer, mask, play_sound, is_recolor)
 	proyectile.global_position = global_position
 	proyectile.linear_velocity = velocity
 	

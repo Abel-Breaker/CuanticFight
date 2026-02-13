@@ -4,6 +4,8 @@ class_name Proyectile
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var impact_sprite: Sprite2D = $Impact
+@onready var animated_recolor: AnimatedSprite2D = $RECOLOR
+@onready var impact_recolor: Sprite2D = $ImpactRECOLOR
 
 @onready var alive_timer: Timer = $AliveTime
 @onready var destroy_anim_timer: Timer = $DestroyAnimTime
@@ -16,22 +18,29 @@ var dealing_damage: int = 0
 var owner_player_num: int = 0
 
 var should_play_sound: bool = true
+var is_recolor_projectile: bool = false
 
 func _ready() -> void:
 	alive_timer.wait_time = alive_bullet_time
 	alive_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	destroy_anim_timer.timeout.connect(free_proyectile_resources, CONNECT_ONE_SHOT)
 	alive_timer.start()
+	
+	if is_recolor_projectile:
+		animated_sprite.visible = false
+		animated_recolor.visible = true
+		
 	if should_play_sound:
 		AudioManager.play_sound_safe(sfx_player)
 	body_entered.connect(proyectile_impacted)
 
-func setup(owner_id: int, dmg: int, layer: int, mask: int, play_sound: bool):
+func setup(owner_id: int, dmg: int, layer: int, mask: int, play_sound: bool, is_recolor: bool):
 	owner_player_num = owner_id
 	self.collision_layer = layer
 	self.collision_mask = mask
 	dealing_damage = dmg
 	should_play_sound = play_sound
+	is_recolor_projectile = is_recolor
 
 
 func proyectile_impacted(_body: Node):
@@ -41,8 +50,12 @@ func proyectile_impacted(_body: Node):
 	if not alive_timer.is_stopped():
 		alive_timer.stop()
 	
-	animated_sprite.visible = false
-	impact_sprite.visible = true
+	if is_recolor_projectile:
+		animated_recolor.visible = false
+		impact_recolor.visible = true
+	else:
+		animated_sprite.visible = false
+		impact_sprite.visible = true
 	set_deferred("freeze", true)
 	
 	destroy_anim_timer.start()
