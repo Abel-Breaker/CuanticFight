@@ -1,7 +1,7 @@
 extends TileMapLayer
 
 @export var width := 200
-@export var height := 25
+@export var height := 50
 @export var noise_scale := 0.05
 @export var max_slope := 1
 
@@ -22,14 +22,14 @@ func setup():
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.frequency = noise_scale
 
-	var mid_y := height / 2
+	var mid_y := (height / 2) - 15
 	var last_y := mid_y
 
 	for x in range(width):
 		var n := noise.get_noise_1d(x)
 		var raw_y := mid_y + int(n * 8.0)
 
-		raw_y = clamp(raw_y, 1, height - 2)
+		raw_y = clamp(raw_y, -15, height - 20)
 
 		var delta := raw_y - last_y
 		delta = clamp(delta, -1, 1)
