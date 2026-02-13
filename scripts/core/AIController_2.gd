@@ -58,7 +58,7 @@ func think_next_decision_state():
 	else:
 		mood = DecisionState.ATTACK_MIDRANGE
 		
-	print("DEBUG: MOOD: " + str(mood) + " (ESCAPING, HUNTING, COMBO, TESTING) | ENEMYPOS: " + str(enemy.global_position) + ", MYPOS: " + str(myCharacter.global_position))
+	#print("DEBUG: MOOD: " + str(mood) + " (ESCAPING, HUNTING, COMBO, TESTING) | ENEMYPOS: " + str(enemy.global_position) + ", MYPOS: " + str(myCharacter.global_position))
 	
 
 
