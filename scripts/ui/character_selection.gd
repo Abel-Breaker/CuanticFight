@@ -12,6 +12,8 @@ extends CanvasLayer
 @onready var swapOriginal2 : Button = $ColorButtons2/ButonOriginal
 @onready var swapRecolor2: Button = $ColorButtons2/ButonRecolor
 
+@onready var keyboard_change_character_sound: AudioStreamPlayer = $PressDown
+
 var recolor1 : bool = false
 var recolor2 : bool = false
 
@@ -51,9 +53,25 @@ func _exit_tree() -> void:
 	
 	habilities_open1.button_up.disconnect(open_panel)
 	habilities_open2.button_up.disconnect(open_panel)
+	habilities_panel1.visibility_changed.disconnect(on_visibility_changed)
+	habilities_panel2.visibility_changed.disconnect(on_visibility_changed)
 
-# Called when the node enters the scene tree for the first time.
+func _input(event):
+	if swapRight1.has_focus() and event.is_action_pressed("ui_right"):
+		AudioManager.play_sound_safe(keyboard_change_character_sound)
+		swap_right1()
+	if swapRight2.has_focus() and event.is_action_pressed("ui_right"):
+		AudioManager.play_sound_safe(keyboard_change_character_sound)
+		swap_right2()
+	if swapLeft1.has_focus() and event.is_action_pressed("ui_left"):
+		AudioManager.play_sound_safe(keyboard_change_character_sound)
+		swap_left1()
+	if swapLeft2.has_focus() and event.is_action_pressed("ui_left"):
+		AudioManager.play_sound_safe(keyboard_change_character_sound)
+		swap_left2()
+
 func _ready() -> void:
+	playButton.grab_focus()
 	swapRight1.button_up.connect(swap_right1)
 	swapRight2.button_up.connect(swap_right2)
 	swapLeft1.button_up.connect(swap_left1)
@@ -68,12 +86,18 @@ func _ready() -> void:
 	
 	habilities_open1.button_up.connect(open_panel.bind(habilities_panel1))
 	habilities_open2.button_up.connect(open_panel.bind(habilities_panel2))
+	habilities_panel1.visibility_changed.connect(on_visibility_changed.bind(habilities_panel1, habilities_open1))
+	habilities_panel2.visibility_changed.connect(on_visibility_changed.bind(habilities_panel2, habilities_open2))
 	
 	habilities_panel1.set_character(characters1[char1selection])
 	habilities_panel2.set_character(characters2[char2selection])
 
+func on_visibility_changed(panel: Panel, to_focus_btn):
+	if panel.visible: return
+	to_focus_btn.grab_focus()
+
 func open_panel(panel: Panel):
-	panel.visible = true
+	panel.open()
 
 func setOriginal1() -> void:
 	recolor1 = false

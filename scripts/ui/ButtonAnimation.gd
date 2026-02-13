@@ -37,7 +37,8 @@ func on_mouse_exited():
 
 func on_button_down():
 	AudioManager.play_sound_safe(sound_press)
-	play_scale_tween(scale_on_press)
+	if not InputTypeHelper.user_is_using_keyboard():
+		play_scale_tween(scale_on_press)
 
 func on_press():
 	if self.is_inside_tree():

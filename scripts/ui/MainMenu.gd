@@ -5,6 +5,7 @@ extends Panel
 @onready var exit_game_btn : Button = $VBoxContainer/Exit/Button
 
 func _ready() -> void:
+	start_game_solo_btn.grab_focus()
 	start_game_solo_btn.button_up.connect(on_solo_start_pressed)
 	start_game_2p_btn.button_up.connect(on_2p_start_pressed)
 	exit_game_btn.button_up.connect(on_exit_pressed)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1r5nlwvncynu"]
 
 [ext_resource type="Texture2D" uid="uid://deop0354ucoc0" path="res://assets/sprites/informationIcon.png" id="1_q1w62"]
+[ext_resource type="Texture2D" uid="uid://dimtds2ina4n5" path="res://assets/sprites/informationIcon_focused.png" id="2_2fo84"]
 [ext_resource type="Script" uid="uid://dqtuuk52dlmkf" path="res://scripts/ui/ButtonAnimation.gd" id="2_7vsbh"]
 [ext_resource type="AudioStream" uid="uid://b7ymnft66xbl6" path="res://assets/sounds/btn_entered_2.mp3" id="3_2fo84"]
 [ext_resource type="AudioStream" uid="uid://r4j1xgm3ft1f" path="res://assets/sounds/btn_release.mp3" id="4_b5pn3"]
@@ -11,6 +12,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("1_q1w62")
+texture_hover = ExtResource("2_2fo84")
 flip_h = true
 flip_v = true
 

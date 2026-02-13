@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_o1ofn"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="3_1wqpf"]
 [ext_resource type="Texture2D" uid="uid://ctk4pp1a1ve8h" path="res://assets/sprites/Maps/map1.png" id="4_oatdh"]
+[ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="6_1k8hj"]
 
 [node name="MapSelector" type="CanvasLayer" unique_id=499275695]
 script = ExtResource("1_mn10r")
@@ -29,6 +30,9 @@ offset_left = 349.0
 offset_top = 305.0
 offset_right = 449.0
 offset_bottom = 345.0
+focus_neighbor_left = NodePath("../ButtonBack")
+focus_neighbor_top = NodePath("../ButtonR")
+focus_neighbor_right = NodePath("../ButtonR")
 text = "PLAY"
 
 [node name="ButtonBack" parent="." unique_id=1964153242 instance=ExtResource("2_o1ofn")]
@@ -36,6 +40,9 @@ offset_left = 216.0
 offset_top = 305.0
 offset_right = 316.0
 offset_bottom = 345.0
+focus_neighbor_left = NodePath("../ButtonL")
+focus_neighbor_top = NodePath("../ButtonL")
+focus_neighbor_right = NodePath("../ButtonPlay")
 text = "Back
 "
 
@@ -44,12 +51,16 @@ offset_left = 17.0
 offset_top = 112.0
 offset_right = 81.0
 offset_bottom = 176.0
+focus_neighbor_right = NodePath("../ButtonR")
+focus_neighbor_bottom = NodePath("../ButtonBack")
 
 [node name="ButtonR" parent="." unique_id=1699661449 instance=ExtResource("3_1wqpf")]
 offset_left = 549.0
 offset_top = 112.0
 offset_right = 613.0
 offset_bottom = 176.0
+focus_neighbor_left = NodePath("../ButtonL")
+focus_neighbor_bottom = NodePath("../ButtonPlay")
 flip_h = true
 
 [node name="Label" type="Label" parent="." unique_id=1266951080]
@@ -86,3 +97,7 @@ offset_bottom = 99.0
 size_flags_vertical = 6
 text = "MAP 1"
 horizontal_alignment = 1
+
+[node name="PressDown" type="AudioStreamPlayer" parent="." unique_id=1362139349]
+stream = ExtResource("6_1k8hj")
+volume_db = 3.0

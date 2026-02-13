@@ -9,6 +9,7 @@ extends CanvasLayer
 @onready var confirmation_cancel_btn : Button = $Panel/ExitConfirmation/Cancel
 
 func _ready() -> void:
+	resume_btn.grab_focus()
 	resume_btn.button_up.connect(on_resume_press)
 	main_menu_btn.button_up.connect(on_main_menu_press)
 	confirmation_yes_btn.button_up.connect(on_yes_press)
@@ -20,6 +21,7 @@ func on_resume_press():
 
 func on_main_menu_press():
 	confirmation_panel.visible = true
+	confirmation_cancel_btn.grab_focus()
 
 func on_yes_press():
 	confirmation_panel.visible = false
@@ -27,6 +29,7 @@ func on_yes_press():
 
 func on_cancel_press():
 	confirmation_panel.visible = false
+	resume_btn.grab_focus()
 
 func _exit_tree() -> void:
 	#print("DEBUG: Disconnecting pause menu buttons")

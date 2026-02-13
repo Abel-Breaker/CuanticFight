@@ -30,6 +30,8 @@ var descriptions = {}
 var curr_character_descriptions  #NOTE: Table with the values from above
 var curr_representation: Control
 
+var prev_focused_btn: Button = melee_attack_btn
+
 func _ready() -> void:
 	close_global.button_up.connect(close_panel.bind(true))
 	close_info.button_up.connect(close_panel.bind(false))
@@ -38,30 +40,36 @@ func _ready() -> void:
 		"WINDOW_TITLE": "ASTRONAUT",
 		"Melee": {
 			"TEXT": melee_astronaut,
-			"SHOWCASE": melee_astronaut_showcase
+			"SHOWCASE": melee_astronaut_showcase,
+			"BTN": melee_attack_btn
 		},
 		"Range": {
 			"TEXT": range_astronaut,
-			"SHOWCASE": range_astronaut_showcase
+			"SHOWCASE": range_astronaut_showcase,
+			"BTN": range_attack_btn
 		},
 		"Special": {
 			"TEXT": special_astronaut,
-			"SHOWCASE": special_astronaut_showcase
+			"SHOWCASE": special_astronaut_showcase,
+			"BTN": special_attack_btn
 		}
 	}
 	descriptions[ProyectilesManager.ProyectileType.QUANTIC] = {\
 		"WINDOW_TITLE": "QUARK",
 		"Melee": {
 			"TEXT": melee_q,
-			"SHOWCASE": melee_q_showcase
+			"SHOWCASE": melee_q_showcase,
+			"BTN": melee_attack_btn
 		},
 		"Range": {
 			"TEXT": range_q,
-			"SHOWCASE": range_q_showcase
+			"SHOWCASE": range_q_showcase,
+			"BTN": range_attack_btn
 		},
 		"Special": {
 			"TEXT": special_q,
-			"SHOWCASE": special_q_showcase
+			"SHOWCASE": special_q_showcase,
+			"BTN": special_attack_btn
 		}
 	}
 	curr_character_descriptions = descriptions[ProyectilesManager.ProyectileType.CLASSIC]
@@ -76,13 +84,23 @@ func set_character(type: ProyectilesManager.ProyectileType):
 	#print("DEBUG: Updated descriptions: " + str(curr_character_descriptions))
 	window_title_label.text = curr_character_descriptions.WINDOW_TITLE
 
+func open():
+	visible = true
+	melee_attack_btn.grab_focus()
+	prev_focused_btn = melee_attack_btn
+
 func close_panel(is_top_panel: bool):
-	curr_representation.visible = false
+	if curr_representation:
+		curr_representation.visible = false
 	info_panel.visible = false
 	if is_top_panel:
 		visible = false
+	else:
+		prev_focused_btn.grab_focus()
 
 func show_info(type: String):
+	prev_focused_btn = curr_character_descriptions[type].BTN
+	close_info.grab_focus()
 	var main_text = curr_character_descriptions[type].TEXT
 	var showcase = curr_character_descriptions[type].SHOWCASE
 	

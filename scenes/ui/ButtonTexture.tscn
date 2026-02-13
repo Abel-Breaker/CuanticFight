@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://blblhdtpyotkh"]
 
 [ext_resource type="Texture2D" uid="uid://c2ki7okvgwtec" path="res://assets/sprites/arrow.png" id="1_xpp67"]
+[ext_resource type="Texture2D" uid="uid://oifqr1rw5oap" path="res://assets/sprites/arrow_focused.png" id="2_beb00"]
 [ext_resource type="Script" uid="uid://dqtuuk52dlmkf" path="res://scripts/ui/ButtonAnimation.gd" id="2_tq6we"]
 [ext_resource type="AudioStream" uid="uid://b7ymnft66xbl6" path="res://assets/sounds/btn_entered_2.mp3" id="3_beb00"]
 [ext_resource type="AudioStream" uid="uid://r4j1xgm3ft1f" path="res://assets/sounds/btn_release.mp3" id="4_kgmsh"]
@@ -10,6 +11,7 @@
 offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_xpp67")
+texture_focused = ExtResource("2_beb00")
 
 [node name="Node" type="Node" parent="." unique_id=85601085]
 script = ExtResource("2_tq6we")

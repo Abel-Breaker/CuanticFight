@@ -37,6 +37,7 @@ offset_left = 228.0
 offset_top = 66.0
 offset_right = 408.0
 offset_bottom = 106.0
+focus_neighbor_bottom = NodePath("../MainMenu")
 text = "RESUME GAME
 "
 
@@ -47,6 +48,8 @@ offset_left = 246.0
 offset_top = 112.0
 offset_right = 390.0
 offset_bottom = 152.0
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Master")
 text = "MAIN MENU"
 
 [node name="Player1" type="Panel" parent="Panel" unique_id=53400044]
@@ -363,7 +366,8 @@ offset_left = 235.0
 offset_top = 196.0
 offset_right = 405.0
 offset_bottom = 212.0
-focus_mode = 0
+focus_neighbor_top = NodePath("../MainMenu")
+focus_neighbor_bottom = NodePath("../Music")
 mouse_force_pass_scroll_events = false
 display_label = NodePath("../MasterLabel")
 
@@ -373,6 +377,8 @@ offset_left = 235.0
 offset_top = 251.0
 offset_right = 405.0
 offset_bottom = 267.0
+focus_neighbor_top = NodePath("../Master")
+focus_neighbor_bottom = NodePath("../SFX")
 bus_name = "Music"
 display_label = NodePath("../MusicLabel")
 
@@ -396,6 +402,7 @@ offset_left = 237.0
 offset_top = 306.0
 offset_right = 407.0
 offset_bottom = 322.0
+focus_neighbor_top = NodePath("../Music")
 bus_name = "SFX"
 display_label = NodePath("../SFXLabel")
 
@@ -437,6 +444,7 @@ offset_left = 28.0
 offset_top = 110.0
 offset_right = 128.0
 offset_bottom = 150.0
+focus_neighbor_right = NodePath("../Cancel")
 text = "YES"
 
 [node name="Cancel" parent="Panel/ExitConfirmation" unique_id=2051814361 instance=ExtResource("1_vb6pq")]
@@ -446,5 +454,6 @@ offset_left = 167.0
 offset_top = 108.0
 offset_right = 267.0
 offset_bottom = 148.0
+focus_neighbor_left = NodePath("../Yes")
 text = "CANCEL
 "

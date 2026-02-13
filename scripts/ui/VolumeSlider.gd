@@ -33,6 +33,8 @@ func on_value_changed(new_value: float):
 		update_label()
 
 func _input(event):
+	if not has_focus(): return
+	
 	if event.is_action_pressed("ui_right") or event.is_action_pressed("ui_left"):
 		arrow_key_pressed = true
 	if event.is_action_released("ui_right") or event.is_action_released("ui_left"):

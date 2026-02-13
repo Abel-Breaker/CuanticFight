@@ -10,6 +10,8 @@ extends CanvasLayer
 @onready var MapPeek : TextureRect = $Control/MapPeek
 @onready var MapName: Label = $Control/MapName
 
+@onready var keyboard_change_map_sound: AudioStreamPlayer = $PressDown
+
 var p1_type: ProyectilesManager.ProyectileType
 var p2_type: ProyectilesManager.ProyectileType
 var solo: bool
@@ -40,6 +42,7 @@ func _exit_tree() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	playButton.grab_focus()
 	swapRight.button_up.connect(swap_right)
 	swapLeft.button_up.connect(swap_left)
 	playButton.button_up.connect(play_game)
@@ -47,6 +50,14 @@ func _ready() -> void:
 	
 	MapPeek.texture = load(MapsTextures[selected])
 	MapName.text = MapsNames[selected]
+
+func _input(event):
+	if swapRight.has_focus() and event.is_action_pressed("ui_right"):
+		AudioManager.play_sound_safe(keyboard_change_map_sound)
+		swap_right()
+	if swapLeft.has_focus() and event.is_action_pressed("ui_left"):
+		AudioManager.play_sound_safe(keyboard_change_map_sound)
+		swap_left()
 
 func setup(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesManager.ProyectileType, INsolo: bool, INrecolorP1 : bool, INrecolorP2 : bool) -> void:
 	p1_type = INp1_type

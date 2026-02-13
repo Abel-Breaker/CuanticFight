@@ -34,7 +34,7 @@ func setup(owner_id: int, dmg: int, layer: int, mask: int, play_sound: bool):
 	should_play_sound = play_sound
 
 
-func proyectile_impacted(body: Node):
+func proyectile_impacted(_body: Node):
 	if self.is_queued_for_deletion():
 		return
 	

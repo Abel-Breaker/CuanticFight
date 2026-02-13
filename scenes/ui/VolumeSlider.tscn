@@ -11,7 +11,7 @@ script = ExtResource("1_ud3ts")
 
 [node name="Release" type="AudioStreamPlayer" parent="." unique_id=806560013]
 stream = ExtResource("2_3uxig")
-volume_db = -20.0
+volume_db = -10.0
 
 [node name="Focus" type="AudioStreamPlayer" parent="." unique_id=1967483062]
 stream = ExtResource("3_78mdq")

@@ -1173,6 +1173,8 @@ offset_left = 215.0
 offset_top = 1.0
 offset_right = 255.0
 offset_bottom = 41.0
+focus_neighbor_left = NodePath("../VBoxContainer/Melee")
+focus_neighbor_bottom = NodePath("../VBoxContainer/Melee")
 theme_override_font_sizes/font_size = 32
 text = "X"
 
@@ -1186,14 +1188,22 @@ theme_override_constants/separation = 40
 
 [node name="Melee" parent="VBoxContainer" unique_id=209181876 instance=ExtResource("2_kky0n")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../../X")
+focus_neighbor_right = NodePath("../../X")
+focus_neighbor_bottom = NodePath("../Range")
 text = "MELEE ATTACK"
 
 [node name="Range" parent="VBoxContainer" unique_id=1406415506 instance=ExtResource("2_kky0n")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Melee")
+focus_neighbor_right = NodePath("../../X")
+focus_neighbor_bottom = NodePath("../Special")
 text = "RANGE ATTACK"
 
 [node name="Special" parent="VBoxContainer" unique_id=1854137714 instance=ExtResource("2_kky0n")]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Range")
+focus_neighbor_right = NodePath("../../X")
 text = "SPECIAL HABILITY"
 
 [node name="InfoPanel" type="Panel" parent="." unique_id=2046863997]
