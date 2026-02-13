@@ -3,6 +3,8 @@ extends Node
 signal program_close(exit_code : int)
 
 @warning_ignore("unused_signal")
+signal game_show_title_screen
+@warning_ignore("unused_signal")
 signal game_character_selection(solo: bool)
 @warning_ignore("unused_signal")
 signal game_map_selection(p1_type: ProyectilesManager.ProyectileType, p2_type: ProyectilesManager.ProyectileType, solo: bool, recolorP1 : bool, recolorP2 : bool)

@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bq83fgaria5o"]
+
+[ext_resource type="Script" uid="uid://cgorletvs4y6e" path="res://scenes/ui/InitialCinematic.gd" id="1_j5i3h"]
+[ext_resource type="Texture2D" uid="uid://be4s2lq2nrkki" path="res://assets/sprites/Cinematic/scene1_1.png" id="1_om7o3"]
+[ext_resource type="Texture2D" uid="uid://dyx0cxfaogvki" path="res://assets/sprites/Cinematic/scene1_2.png" id="2_l58oh"]
+[ext_resource type="Texture2D" uid="uid://dix7pa64jhggo" path="res://assets/sprites/Cinematic/scene1_3.png" id="3_rm10c"]
+[ext_resource type="Texture2D" uid="uid://drt8h7m5lop1t" path="res://assets/sprites/Cinematic/scene1_4.png" id="4_3ry5w"]
+[ext_resource type="Texture2D" uid="uid://cgarldtyd6rlu" path="res://assets/sprites/Cinematic/scene2_1.png" id="5_3756h"]
+[ext_resource type="Texture2D" uid="uid://sowxopq60lh6" path="res://assets/sprites/Cinematic/scene2_2.png" id="6_j5i3h"]
+[ext_resource type="Texture2D" uid="uid://d1v02qb5myvga" path="res://assets/sprites/Cinematic/scene2_3.png" id="7_0o5rq"]
+[ext_resource type="Texture2D" uid="uid://cmb0drxiul2to" path="res://assets/sprites/Cinematic/scene3_1.png" id="8_1pm73"]
+[ext_resource type="Texture2D" uid="uid://dvpry6j1go0av" path="res://assets/sprites/Cinematic/scene3_2.png" id="9_s8j3u"]
+[ext_resource type="Texture2D" uid="uid://qnii62nqqeec" path="res://assets/sprites/Cinematic/scene3_3.png" id="10_nv0m5"]
+[ext_resource type="Texture2D" uid="uid://dvflvoc341hfg" path="res://assets/sprites/Cinematic/scene3_4.png" id="11_soxy0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nua8d"]
+atlas = ExtResource("1_om7o3")
+region = Rect2(0, 0, 3072, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4aj2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nua8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_l58oh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rm10c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3ry5w")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hii4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3756h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j5i3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0o5rq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04lbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1pm73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s8j3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nv0m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_soxy0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="InitialCinematic" type="Control" unique_id=683573534]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j5i3h")
+
+[node name="First" type="AnimatedSprite2D" parent="." unique_id=1051610378]
+position = Vector2(0, -60)
+scale = Vector2(0.21, 0.21)
+sprite_frames = SubResource("SpriteFrames_4aj2t")
+centered = false
+
+[node name="Second" type="AnimatedSprite2D" parent="." unique_id=145856139]
+visible = false
+position = Vector2(0, -40)
+scale = Vector2(0.21, 0.21)
+sprite_frames = SubResource("SpriteFrames_hii4g")
+centered = false
+
+[node name="Third" type="AnimatedSprite2D" parent="." unique_id=1628173438]
+visible = false
+position = Vector2(0, -70)
+scale = Vector2(0.21, 0.21)
+sprite_frames = SubResource("SpriteFrames_04lbr")
+centered = false
+
+[node name="Label" type="Label" parent="." unique_id=1255261677]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 337.0
+offset_right = 627.0
+offset_bottom = 353.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.5803922)
+theme_override_font_sizes/font_size = 8
+text = "'ESC' to skip ->"

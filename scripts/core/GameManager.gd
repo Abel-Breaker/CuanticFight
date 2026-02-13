@@ -1,12 +1,13 @@
 extends Node
 
-enum GameState {MainMenu, CharacterSelection, MapSelection, Playing, CombatEnded, Paused}
+enum GameState {Cinematic, MainMenu, CharacterSelection, MapSelection, Playing, CombatEnded, Paused}
 
 @onready var pause_scene : Resource = preload("res://scenes/ui/PauseMenu.tscn")
 var game_ended_scene_path : String = "res://scenes/ui/GameEndOverlay.tscn"
 var main_menu_scene_path : String = "res://scenes/ui/MainMenu.tscn"
 var character_selection_menu_scene_path: String = "res://scenes/ui/CharacterSelection.tscn"
 var map_selection_menu_scene_path: String = "res://scenes/ui/MapSelector.tscn"
+#TODO: Add Title screen
 #TODO: Change for the final game scene
 var game_scene_path : Array[String] = [\
 	"res://scenes/stages/BlueMap.tscn",\
@@ -16,7 +17,7 @@ var game_scene_path : Array[String] = [\
 ]
 @onready var game_end_delay: Timer = $GameEndDelay
 
-var curr_game_state : GameState = GameState.MainMenu
+var curr_game_state : GameState = GameState.Cinematic
 
 var pause_overlay : CanvasLayer
 var game_ended_overlay : CanvasLayer
@@ -40,11 +41,19 @@ func _ready() -> void:
 	SignalContainer.game_exit.connect(exit_game)
 	SignalContainer.game_replay.connect(replay_game)
 	
+	SignalContainer.game_show_title_screen.connect(on_show_title_screen)
+	
 	call_deferred("setup")
 
 func setup():
 	game_end_delay.timeout.connect(on_game_end_delay_timer_timeout)
 	AudioManager.setup()
+	#AudioManager.play_menu_music() #TODO: Play music for starting cinematic
+
+func on_show_title_screen():
+	if curr_game_state != GameState.Cinematic: return
+	curr_game_state = GameState.MainMenu
+	change_scene(main_menu_scene_path)
 	AudioManager.play_menu_music()
 
 func on_game_end_delay_timer_timeout():
@@ -63,7 +72,8 @@ func close_program(exit_code : int):
 func go_back_to_main_menu():
 	if curr_game_state != GameState.CharacterSelection: return
 	curr_game_state = GameState.MainMenu
-	change_scene(main_menu_scene_path)
+	var menu_scene = change_scene(main_menu_scene_path)
+	menu_scene.remove_title_overlay()
 
 func go_back_to_character_selection(solo: bool):
 	if curr_game_state != GameState.MapSelection: return
@@ -118,7 +128,8 @@ func exit_game():
 	if pause_overlay:
 		pause_overlay.queue_free()
 		pause_overlay = null
-	change_scene(main_menu_scene_path)
+	var menu_scene = change_scene(main_menu_scene_path)
+	menu_scene.remove_title_overlay()
 	last_combat_init_data = null
 
 
