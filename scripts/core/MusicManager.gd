@@ -21,13 +21,13 @@ func _ready() -> void:
 	heartbeat_timer.timeout.connect(on_heartbeat)
 	
 	set_bus_volume("Master", 50)
-	set_bus_volume("Music", 10)
+	set_bus_volume("Music", 50)#10)
 	set_bus_volume("SFX", 70)
 
 func setup():
 	cinematic_music.stream = load("res://assets/music/cinematic_final_2.mp3")
-	menu_music.stream = load("res://assets/music/menu_theme.ogg")
-	stage_music.stream = load("res://assets/music/main_stage.ogg")
+	menu_music.stream = load("res://assets/music/menu_theme_final.mp3")#menu_theme.ogg")
+	stage_music.stream = load("res://assets/music/main_stage_final.mp3")#main_stage.ogg")
 
 func on_heartbeat():
 	heartbeat_sound.play()
@@ -39,7 +39,7 @@ func play_menu_music():
 	crossfade_to(menu_music, 1.0)
 
 func play_stage_music(stage_name: String):
-	var stream = load("res://assets/music/%s.ogg" % stage_name)
+	var stream = load("res://assets/music/%s_final.mp3" % stage_name)
 	stage_music.stream = stream
 	crossfade_to(stage_music, 1.5)
 
