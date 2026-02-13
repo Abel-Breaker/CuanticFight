@@ -91,9 +91,9 @@ texture = ExtResource("4_oatdh")
 [node name="MapName" type="Label" parent="Control" unique_id=1707159596]
 layout_mode = 0
 offset_left = -488.0
-offset_top = 83.0
+offset_top = 123.0
 offset_right = 152.0
-offset_bottom = 99.0
+offset_bottom = 139.0
 size_flags_vertical = 6
 text = "MAP 1"
 horizontal_alignment = 1
