@@ -76,7 +76,6 @@ func _exit_tree() -> void:
 		hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 
 func _ready() -> void:
-	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 	#print("PLAYER" + str(charID)+" is in group: " + str(self.get_groups()))
 	sprite.animation_finished.connect(_on_anim_finished)
 	lightAttack.setup(self)
