@@ -32,6 +32,8 @@ var curr_representation: Control
 
 var prev_focused_btn: Button = melee_attack_btn
 
+var controls : Dictionary = {"Melee": "(F, M)", "Ranged": "(G, N)", "Special": "(R, J)"}
+
 func _ready() -> void:
 	close_global.button_up.connect(close_panel.bind(true))
 	close_info.button_up.connect(close_panel.bind(false))
@@ -104,7 +106,7 @@ func show_info(type: String):
 	var main_text = curr_character_descriptions[type].TEXT
 	var showcase = curr_character_descriptions[type].SHOWCASE
 	
-	info_title.text = type
+	info_title.text = type + controls[type]
 	info_text.text = main_text
 	curr_representation = showcase
 	curr_representation.visible = true

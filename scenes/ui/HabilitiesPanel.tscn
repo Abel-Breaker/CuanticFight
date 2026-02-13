@@ -1151,7 +1151,7 @@ offset_left = 54.0
 offset_top = 18.0
 offset_right = 202.0
 offset_bottom = 34.000004
-text = "HABILITIES"
+text = "ABILITIES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1162,7 +1162,7 @@ offset_top = 2.0
 offset_right = 117.0
 offset_bottom = 18.000004
 theme_override_font_sizes/font_size = 8
-text = "HABILITIES"
+text = "ABILITIES"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1191,20 +1191,23 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../../X")
 focus_neighbor_right = NodePath("../../X")
 focus_neighbor_bottom = NodePath("../Range")
-text = "MELEE ATTACK"
+theme_override_font_sizes/font_size = 12
+text = "MELEE ATTACK (F, M)"
 
 [node name="Range" parent="VBoxContainer" unique_id=1406415506 instance=ExtResource("2_kky0n")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Melee")
 focus_neighbor_right = NodePath("../../X")
 focus_neighbor_bottom = NodePath("../Special")
-text = "RANGE ATTACK"
+theme_override_font_sizes/font_size = 12
+text = "RANGE ATTACK (G, N)"
 
 [node name="Special" parent="VBoxContainer" unique_id=1854137714 instance=ExtResource("2_kky0n")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Range")
 focus_neighbor_right = NodePath("../../X")
-text = "SPECIAL HABILITY"
+theme_override_font_sizes/font_size = 12
+text = "SPECIAL ABILITY (T, J)"
 
 [node name="InfoPanel" type="Panel" parent="." unique_id=2046863997]
 visible = false
@@ -1254,7 +1257,7 @@ offset_left = 16.0
 offset_top = -0.5
 offset_right = 236.3125
 offset_bottom = 40.125
-text = "MELEE ATTACK"
+text = "MELEE ATTACK (F, M)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
