@@ -48,7 +48,7 @@ Todos los efectos de sonido y música fueron obtenidos de 'pixabay' (https://pix
 __Godot__ versión 4.6
 
 ### Arte:
-__Clip Studio Paint Pro__ versión 
+__Clip Studio Paint Pro__ versión 2.0.6
 
 ### Audio:
 __Audacity__ versión 3.7.5

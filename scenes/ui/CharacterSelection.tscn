@@ -2,15 +2,14 @@
 
 [ext_resource type="Script" uid="uid://l0wvtwovitky" path="res://scripts/ui/character_selection.gd" id="1_mynl5"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
-[ext_resource type="StyleBox" path="res://CUSTOMTHEME.tres" id="2_kt5mm"]
+[ext_resource type="StyleBox" uid="uid://c1hqfw0npm5lx" path="res://CUSTOMTHEME.tres" id="2_kt5mm"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
 [ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="8_8jd0c"]
-[ext_resource type="Texture2D" uid="uid://by1xhi22bpu63" path="res://assets/sprites/recolorBlue.png" id="8_kpj5d"]
-[ext_resource type="Texture2D" uid="uid://dvcb8otuetgu1" path="res://assets/sprites/recolorBlueFocus.png" id="9_uyaey"]
+[ext_resource type="PackedScene" uid="uid://cvt6hsq8nu2rl" path="res://scenes/ui/BtnColorSelector.tscn" id="8_uyaey"]
 [ext_resource type="Texture2D" uid="uid://g3wet6avbsn5" path="res://assets/sprites/recolorPurple.png" id="10_qt2xo"]
 [ext_resource type="Texture2D" uid="uid://bdqb5slwiui43" path="res://assets/sprites/recolorPurpleFocus.png" id="11_ecf3m"]
 [ext_resource type="PackedScene" uid="uid://4vy747kknsw3" path="res://scenes/ui/HabilitiesPanel.tscn" id="11_eqxdx"]
@@ -219,22 +218,26 @@ offset_right = 339.685
 offset_bottom = 351.785
 mouse_filter = 2
 
-[node name="ButtonOriginal1" type="TextureButton" parent="ColorButtons1" unique_id=294168405]
+[node name="ButtonOriginal1" parent="ColorButtons1" unique_id=745475281 instance=ExtResource("8_uyaey")]
 layout_mode = 0
-offset_left = -244.0
-offset_top = -240.0
-offset_right = -204.0
-offset_bottom = -200.0
-texture_normal = ExtResource("8_kpj5d")
-texture_hover = ExtResource("9_uyaey")
-texture_focused = ExtResource("9_uyaey")
+offset_left = -244.685
+offset_top = -239.785
+offset_right = -182.685
+offset_bottom = -219.785
+focus_neighbor_top = NodePath("../../Habilities1/InfoButton")
+focus_neighbor_right = NodePath("../ButtonRecolor1")
+focus_neighbor_bottom = NodePath("../../ButtonL1")
 
-[node name="ButtonRecolor1" type="TextureButton" parent="ColorButtons1" unique_id=1103755226]
+[node name="ButtonRecolor1" parent="ColorButtons1" unique_id=1220924864 instance=ExtResource("8_uyaey")]
 layout_mode = 0
-offset_left = -105.41
-offset_top = -240.0
-offset_right = -43.410004
-offset_bottom = -200.0
+offset_left = -104.685
+offset_top = -239.785
+offset_right = -42.684998
+offset_bottom = -219.785
+focus_neighbor_left = NodePath("../ButtonOriginal1")
+focus_neighbor_top = NodePath("../../Habilities1/InfoButton")
+focus_neighbor_right = NodePath("../../ColorButtons2/ButtonOriginal2")
+focus_neighbor_bottom = NodePath("../../ButtonR1")
 texture_normal = ExtResource("10_qt2xo")
 texture_hover = ExtResource("11_ecf3m")
 texture_focused = ExtResource("11_ecf3m")
@@ -248,22 +251,26 @@ offset_right = 660.06525
 offset_bottom = 351.785
 mouse_filter = 2
 
-[node name="ButtonOriginal2" type="TextureButton" parent="ColorButtons2" unique_id=2123363902]
+[node name="ButtonOriginal2" parent="ColorButtons2" unique_id=1503321488 instance=ExtResource("8_uyaey")]
 layout_mode = 0
-offset_left = -244.0
-offset_top = -240.0
-offset_right = -204.0
-offset_bottom = -200.0
-texture_normal = ExtResource("8_kpj5d")
-texture_hover = ExtResource("9_uyaey")
-texture_focused = ExtResource("9_uyaey")
+offset_left = -245.065
+offset_top = -239.785
+offset_right = -183.065
+offset_bottom = -219.785
+focus_neighbor_left = NodePath("../../ColorButtons1/ButtonRecolor1")
+focus_neighbor_top = NodePath("../../Habilities2/InfoButton")
+focus_neighbor_right = NodePath("../ButtonRecolor2")
+focus_neighbor_bottom = NodePath("../../ButtonL2")
 
-[node name="ButtonRecolor2" type="TextureButton" parent="ColorButtons2" unique_id=1246184615]
+[node name="ButtonRecolor2" parent="ColorButtons2" unique_id=887819863 instance=ExtResource("8_uyaey")]
 layout_mode = 0
-offset_left = -105.41
-offset_top = -240.0
-offset_right = -43.410004
-offset_bottom = -200.0
+offset_left = -105.065
+offset_top = -239.785
+offset_right = -43.065002
+offset_bottom = -219.785
+focus_neighbor_left = NodePath("../ButtonOriginal2")
+focus_neighbor_top = NodePath("../../Habilities2/InfoButton")
+focus_neighbor_bottom = NodePath("../../ButtonR2")
 texture_normal = ExtResource("10_qt2xo")
 texture_hover = ExtResource("11_ecf3m")
 texture_focused = ExtResource("11_ecf3m")
@@ -274,6 +281,7 @@ offset_top = 160.0
 offset_right = 70.655
 offset_bottom = 192.0
 scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../ColorButtons1/ButtonOriginal1")
 focus_neighbor_right = NodePath("../ButtonR1")
 focus_neighbor_bottom = NodePath("../BackMenu")
 texture_hover = ExtResource("13_qt2xo")
@@ -285,6 +293,7 @@ offset_top = 160.0
 offset_right = 381.115
 offset_bottom = 192.0
 scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../ColorButtons2/ButtonOriginal2")
 focus_neighbor_right = NodePath("../ButtonR2")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
 texture_hover = ExtResource("13_qt2xo")
@@ -297,6 +306,7 @@ offset_right = 288.905
 offset_bottom = 192.0
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL1")
+focus_neighbor_top = NodePath("../ColorButtons1/ButtonRecolor1")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
 texture_hover = ExtResource("13_qt2xo")
 
@@ -307,6 +317,7 @@ offset_right = 599.505
 offset_bottom = 192.0
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL2")
+focus_neighbor_top = NodePath("../ColorButtons2/ButtonRecolor2")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
 texture_hover = ExtResource("13_qt2xo")
 
@@ -342,6 +353,9 @@ offset_top = 25.0
 offset_right = 253.00003
 offset_bottom = 41.0
 scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../../ColorButtons1/ButtonOriginal1")
+focus_neighbor_right = NodePath("../../Habilities2/InfoButton")
+focus_neighbor_bottom = NodePath("../../ColorButtons1/ButtonRecolor1")
 texture_normal = ExtResource("15_qt2xo")
 texture_hover = ExtResource("14_uyaey")
 texture_focused = ExtResource("14_uyaey")
@@ -369,6 +383,9 @@ offset_top = 22.0
 offset_right = 251.0
 offset_bottom = 38.0
 scale = Vector2(2, 2)
+focus_neighbor_left = NodePath("../../Habilities1/InfoButton")
+focus_neighbor_right = NodePath("../../ColorButtons2/ButtonRecolor2")
+focus_neighbor_bottom = NodePath("../../ColorButtons2/ButtonRecolor2")
 texture_normal = ExtResource("15_qt2xo")
 texture_hover = ExtResource("14_uyaey")
 texture_focused = ExtResource("14_uyaey")

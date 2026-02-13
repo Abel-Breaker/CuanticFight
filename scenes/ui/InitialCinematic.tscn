@@ -114,15 +114,15 @@ theme_override_font_sizes/font_size = 8
 text = "'ESC' to skip ->"
 
 [node name="FirstTimer" type="Timer" parent="." unique_id=2032962197]
-wait_time = 6.0
+wait_time = 7.0
 one_shot = true
 
 [node name="SecondTimer" type="Timer" parent="." unique_id=1638109562]
-wait_time = 5.0
+wait_time = 6.0
 one_shot = true
 
 [node name="ThirdTimer" type="Timer" parent="." unique_id=418797072]
-wait_time = 6.0
+wait_time = 7.0
 one_shot = true
 
 [node name="Dialogs" type="Control" parent="." unique_id=1664181923]

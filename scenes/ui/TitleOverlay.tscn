@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bkuifx3cpnwvu"]
 
-[ext_resource type="Script" uid="uid://c6fp4kcon7bcj" path="res://TitleOverlay.gd" id="1_nar7r"]
+[ext_resource type="Script" uid="uid://c6fp4kcon7bcj" path="res://scripts/ui/TitleOverlay.gd" id="1_nar7r"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="2_v52a5"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="3_n8r8u"]
 [ext_resource type="Texture2D" uid="uid://bxo8rgcbww5by" path="res://assets/sprites/Cinematic/titulov1.png" id="4_v52a5"]

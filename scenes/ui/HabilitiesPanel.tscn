@@ -1191,23 +1191,24 @@ layout_mode = 2
 focus_neighbor_top = NodePath("../../X")
 focus_neighbor_right = NodePath("../../X")
 focus_neighbor_bottom = NodePath("../Range")
-theme_override_font_sizes/font_size = 12
-text = "MELEE ATTACK (F, M)"
+theme_override_font_sizes/font_size = 16
+text = "MELEE ATTACK
+"
 
 [node name="Range" parent="VBoxContainer" unique_id=1406415506 instance=ExtResource("2_kky0n")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Melee")
 focus_neighbor_right = NodePath("../../X")
 focus_neighbor_bottom = NodePath("../Special")
-theme_override_font_sizes/font_size = 12
-text = "RANGE ATTACK (G, N)"
+theme_override_font_sizes/font_size = 16
+text = "RANGE ATTACK"
 
 [node name="Special" parent="VBoxContainer" unique_id=1854137714 instance=ExtResource("2_kky0n")]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Range")
 focus_neighbor_right = NodePath("../../X")
-theme_override_font_sizes/font_size = 12
-text = "SPECIAL ABILITY (T, J)"
+theme_override_font_sizes/font_size = 16
+text = "SPECIAL ABILITY"
 
 [node name="InfoPanel" type="Panel" parent="." unique_id=2046863997]
 visible = false

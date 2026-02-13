@@ -8,8 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="5_gw5nr"]
 
 [node name="TextureButton" type="TextureButton" unique_id=646361148]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture_normal = ExtResource("1_xpp67")
 texture_focused = ExtResource("2_beb00")
 
