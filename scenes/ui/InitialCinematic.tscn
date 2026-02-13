@@ -132,10 +132,10 @@ offset_bottom = 360.0
 
 [node name="First" type="Label" parent="Dialogs" unique_id=776389810]
 layout_mode = 0
-offset_left = 342.0
-offset_top = 209.0
-offset_right = 599.0
-offset_bottom = 288.0
+offset_left = 353.0
+offset_top = 104.0
+offset_right = 610.0
+offset_bottom = 234.0
 theme_override_colors/font_color = Color(0.84313726, 1, 1, 0.7411765)
 text = "For eons the classical physics reigned undisturbed as the only stablished power on the universe."
 horizontal_alignment = 1
@@ -158,10 +158,10 @@ autowrap_mode = 3
 [node name="Third" type="Label" parent="Dialogs" unique_id=254381088]
 visible = false
 layout_mode = 0
-offset_left = 195.0
-offset_top = 16.0
-offset_right = 452.0
-offset_bottom = 95.0
+offset_left = 353.0
+offset_top = -23.0
+offset_right = 610.0
+offset_bottom = 88.0
 theme_override_colors/font_color = Color(0.84313726, 1, 1, 0.7411765)
 text = "Therefore, the classical physics sought to find the culprit and bring judgment upon them..."
 horizontal_alignment = 1
