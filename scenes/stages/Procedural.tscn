@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://cx13a8tb0i6ra"]
+[gd_scene format=3 uid="uid://c44ghp6luq3bw"]
 
 [ext_resource type="Texture2D" uid="uid://cj3fqus13ggk3" path="res://assets/sprites/tile.png" id="1_1qgd6"]
-[ext_resource type="Script" uid="uid://v8wfu3mgsl6o" path="res://scripts/core/ManagerProcedural.gd" id="1_k3726"]
-[ext_resource type="Script" uid="uid://cwfjr2urnf4ro" path="res://scripts/core/procedural.gd" id="1_pao3g"]
+[ext_resource type="Script" path="res://scripts/core/ManagerProcedural.gd" id="1_k3726"]
+[ext_resource type="Script" path="res://scripts/core/procedural.gd" id="1_pao3g"]
 [ext_resource type="Texture2D" uid="uid://bxf5vkxiekb6b" path="res://assets/sprites/background3.png" id="3_avri2"]
 [ext_resource type="PackedScene" uid="uid://b71wrsa4yxmn0" path="res://scenes/core/CameraSystem.tscn" id="4_k3726"]
 [ext_resource type="PackedScene" uid="uid://dv3rlwcaxx5bc" path="res://scenes/ui/CombatOverlay.tscn" id="5_pditp"]
