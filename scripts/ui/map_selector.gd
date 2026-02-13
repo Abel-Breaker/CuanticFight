@@ -6,6 +6,7 @@ extends CanvasLayer
 
 @onready var playButton : Button = $ButtonPlay
 @onready var backButton: Button = $ButtonBack
+@onready var OF2P : Label = $OnlyFor2P
 
 @onready var MapPeek : TextureRect = $Control/MapPeek
 @onready var MapName: Label = $Control/MapName
@@ -28,7 +29,7 @@ var MapsTextures : Array[String] = [ \
 var MapsNames : Array[String] = [ \
 "Qrater, Qave and Mountain", \
 "Quiet Mound", \
-"RedMap", \
+"Twisting Qaverns", \
 "Procedural Map"]
 
 
@@ -70,6 +71,15 @@ func setup(INp1_type: ProyectilesManager.ProyectileType, INp2_type: ProyectilesM
 func play_game() -> void:
 	SignalContainer.game_start.emit(p1_type, p2_type, solo, recolorP1, recolorP2, selected)
 
+func postSwap() -> void:
+	if solo:
+		if selected == 2:
+			playButton.visible = false
+			OF2P.visible = true
+		else:
+			playButton.visible = true
+			OF2P.visible = false
+
 func swap_right() -> void:
 	selected += 1
 	if selected < 0:
@@ -77,6 +87,7 @@ func swap_right() -> void:
 	selected = selected % MapsNames.size()
 	MapPeek.texture = load(MapsTextures[selected])
 	MapName.text = MapsNames[selected]
+	postSwap()
 
 func swap_left() -> void:
 	selected -= 1
@@ -85,6 +96,7 @@ func swap_left() -> void:
 	selected = selected % MapsNames.size()
 	MapPeek.texture = load(MapsTextures[selected])
 	MapName.text = MapsNames[selected]
+	postSwap()
 
 func return_to_character_selection() -> void:
 	SignalContainer.game_go_back_to_character_selection.emit(solo)
