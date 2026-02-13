@@ -24,7 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://bvxq8numr1qsy" path="res://assets/sounds/astronaut_hit_final.mp3" id="20_jqiwc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5t02b"]
-size = Vector2(15.833332, 26.666668)
+size = Vector2(14.583334, 26.666668)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6f1f7"]
 atlas = ExtResource("2_plctd")
@@ -1034,7 +1034,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plctd"]
-size = Vector2(24, 39)
+size = Vector2(17.5, 34.375)
 
 [node name="ClassicCharacter" type="CharacterBody2D" unique_id=255533587 groups=["Players"]]
 z_index = 2
@@ -1046,7 +1046,7 @@ on_landing_sound = ExtResource("4_6p6pe")
 metadata/_custom_type_script = "uid://dchwu01i2y5cl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=41412197]
-position = Vector2(-0.99999976, -2.125)
+position = Vector2(-0.7500001, -2.125)
 scale = Vector2(1.2, 1.2)
 shape = SubResource("RectangleShape2D_5t02b")
 
@@ -1054,7 +1054,7 @@ shape = SubResource("RectangleShape2D_5t02b")
 position = Vector2(-1.75, -36.75)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_plctd")
-animation = &"especial_attack"
+animation = &"light_attack"
 autoplay = "idle"
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=1490279233]
@@ -1069,25 +1069,23 @@ autoplay = "idle"
 position = Vector2(-1.75, -20.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1328048789]
-position = Vector2(1.25, 16.125)
+position = Vector2(1, 18.4375)
 shape = SubResource("RectangleShape2D_plctd")
 
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
-position = Vector2(6.5, 7.4999995)
-scale = Vector2(1.1419997, -0.7689995)
+position = Vector2(6.5, 6.5)
+scale = Vector2(1.1419997, -0.98899955)
+damage = 15
 soundEffect = ExtResource("20_jqiwc")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
 position = Vector2(0, 13)
-single_bullet_damage = 3
-multi_bullet_damage = 3
+single_bullet_damage = 4
+multi_bullet_damage = 4
 proyectile_type = 1
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=705218399]
 bus = &"SFX"
-
-[node name="OLDEspecialAttack" parent="." unique_id=60083147 instance=ExtResource("10_vo6ib")]
-position = Vector2(0.5, -19.125)
 
 [node name="EspecialAttack" parent="." unique_id=1162244593 instance=ExtResource("10_vo6ib")]
 position = Vector2(0.5, -19.125)
