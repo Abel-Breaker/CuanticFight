@@ -41,6 +41,7 @@ Players=""
 
 [gui]
 
+theme/custom="uid://c1hqfw0npm5lx"
 theme/custom_font="uid://b2mhlxj8piu7b"
 
 [input]

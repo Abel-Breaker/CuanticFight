@@ -1143,7 +1143,7 @@ offset_left = -1.25
 offset_top = 1.25
 offset_right = 254.75
 offset_bottom = 289.25
-color = Color(0.14901961, 0.14901961, 0.14901961, 0.92156863)
+color = Color(0.023529412, 0.13333334, 0.24705882, 1)
 
 [node name="Label" type="Label" parent="." unique_id=1846251736]
 layout_mode = 0
@@ -1218,7 +1218,7 @@ offset_bottom = 287.0
 layout_mode = 0
 offset_right = 256.0
 offset_bottom = 231.5
-color = Color(0.14901961, 0.14901961, 0.14901961, 0.9843137)
+color = Color(0.023529412, 0.13333334, 0.24705882, 1)
 
 [node name="Line" type="ColorRect" parent="InfoPanel" unique_id=1820862720]
 layout_mode = 0

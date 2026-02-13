@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l0wvtwovitky" path="res://scripts/ui/character_selection.gd" id="1_mynl5"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
+[ext_resource type="StyleBox" uid="uid://c1hqfw0npm5lx" path="res://CUSTOMTHEME.tres" id="2_kt5mm"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
@@ -154,6 +155,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_kt5mm")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=828520534]
 z_index = -1

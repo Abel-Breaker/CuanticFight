@@ -4,9 +4,45 @@
 [ext_resource type="AudioStream" uid="uid://ukrch12e5y7r" path="res://assets/sounds/slider_release_final.mp3" id="2_3uxig"]
 [ext_resource type="AudioStream" uid="uid://b7ymnft66xbl6" path="res://assets/sounds/btn_entered_2.mp3" id="3_78mdq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3uxig"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22352941, 0.22352941, 1, 0.15686275)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjvyq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75686276, 0.91764706, 1, 0.15686275)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78mdq"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.75686276, 0.91764706, 1, 0.15686275)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="VolumeSlider" type="HSlider" unique_id=1426433370]
 offset_right = 225.0
 offset_bottom = 16.0
+theme_override_styles/slider = SubResource("StyleBoxFlat_3uxig")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kjvyq")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_78mdq")
 script = ExtResource("1_ud3ts")
 
 [node name="Release" type="AudioStreamPlayer" parent="." unique_id=806560013]
