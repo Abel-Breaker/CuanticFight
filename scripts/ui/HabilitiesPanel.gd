@@ -32,7 +32,7 @@ var curr_representation: Control
 
 var prev_focused_btn: Button = melee_attack_btn
 
-var controls : Dictionary = {"Melee": "(F, M)", "Range": "(G, N)", "Special": "(R, J)"}
+var controls : Dictionary = {"Melee": "(F, M)", "Range": "(G, N)", "Special": "(T, J)"}
 
 func _ready() -> void:
 	close_global.button_up.connect(close_panel.bind(true))

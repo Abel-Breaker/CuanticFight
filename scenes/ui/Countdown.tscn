@@ -23,7 +23,7 @@ offset_right = 20.0
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 69
+theme_override_font_sizes/font_size = 64
 
 [node name="Sound" type="AudioStreamPlayer" parent="." unique_id=440350601]
 stream = ExtResource("2_4trdn")
