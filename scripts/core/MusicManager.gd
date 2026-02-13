@@ -1,6 +1,7 @@
 extends Node
 
 @onready var menu_music: AudioStreamPlayer = $MenuMusic
+@onready var cinematic_music: AudioStreamPlayer = $CinematicMusic
 @onready var stage_music: AudioStreamPlayer = $StageMusic
 @onready var heartbeat_timer: Timer = $HeartbeatTimer
 @onready var heartbeat_sound: AudioStreamPlayer = $HeartbeatSound
@@ -24,11 +25,15 @@ func _ready() -> void:
 	set_bus_volume("SFX", 70)
 
 func setup():
+	cinematic_music.stream = load("res://assets/music/cinematic_base.mp3")
 	menu_music.stream = load("res://assets/music/menu_theme.ogg")
 	stage_music.stream = load("res://assets/music/main_stage.ogg")
 
 func on_heartbeat():
 	heartbeat_sound.play()
+
+func play_cinematic_music():
+	crossfade_to(cinematic_music, 1.5)
 
 func play_menu_music():
 	crossfade_to(menu_music, 1.0)

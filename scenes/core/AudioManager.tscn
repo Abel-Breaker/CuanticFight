@@ -9,6 +9,9 @@ script = ExtResource("1_82yfp")
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=1274240514]
 bus = &"Music"
 
+[node name="CinematicMusic" type="AudioStreamPlayer" parent="." unique_id=1305158921]
+bus = &"Music"
+
 [node name="StageMusic" type="AudioStreamPlayer" parent="." unique_id=1274144166]
 bus = &"Music"
 

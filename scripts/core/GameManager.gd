@@ -48,7 +48,7 @@ func _ready() -> void:
 func setup():
 	game_end_delay.timeout.connect(on_game_end_delay_timer_timeout)
 	AudioManager.setup()
-	#AudioManager.play_menu_music() #TODO: Play music for starting cinematic
+	AudioManager.play_cinematic_music()
 
 func on_show_title_screen():
 	if curr_game_state != GameState.Cinematic: return
