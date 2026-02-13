@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_sv5hm"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_o1ofn"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="3_1wqpf"]
-[ext_resource type="Texture2D" uid="uid://ctk4pp1a1ve8h" path="res://assets/sprites/Maps/map1.png" id="4_oatdh"]
+[ext_resource type="Texture2D" uid="uid://co3cvxl4b0xyh" path="res://assets/sprites/Maps/BlueMap.png" id="5_1k8hj"]
 [ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="6_1k8hj"]
 
 [node name="MapSelector" type="CanvasLayer" unique_id=499275695]
@@ -86,7 +86,7 @@ offset_top = -81.0
 offset_right = 671.0
 offset_bottom = 310.0
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("4_oatdh")
+texture = ExtResource("5_1k8hj")
 
 [node name="MapName" type="Label" parent="Control" unique_id=1707159596]
 layout_mode = 0
