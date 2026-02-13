@@ -19,8 +19,8 @@ enum CameraMode { SINGLE, SPLIT }
 @onready var enemy_arrow_p1: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport/EnemyArrow
 @onready var enemy_arrow_p2: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/EnemyArrow
 
-const ARROW_OFFSET_FROM_CENTER = 160 - (64 / 2) #NOTE: Width of the viewport minus half the arrow's width
-const MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER = 180 - (64 / 2)#NOTE: Height of the viewport minus half the arrow's height
+const ARROW_OFFSET_FROM_CENTER = 160. - (64. / 2.) #NOTE: Width of the viewport minus half the arrow's width
+const MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER = 180. - (64. / 2.)#NOTE: Height of the viewport minus half the arrow's height
 
 var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
@@ -71,7 +71,7 @@ func _physics_process(delta):
 		
 
 func get_pair_center(p1: CharacterParent, p2: CharacterParent) -> Vector2:
-	var has_p1 := GameManager.player_exists(p1)
+	var _has_p1 := GameManager.player_exists(p1)
 	var has_p2 := GameManager.player_exists(p2)
 	if has_p2: # Superposition
 		return (p1.global_position + p2.global_position) * 0.5

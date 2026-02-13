@@ -165,7 +165,8 @@ offset_top = 1.0
 offset_right = 154.0
 offset_bottom = 24.0
 theme_override_font_sizes/font_size = 8
-text = "Q"
+text = "F
+"
 horizontal_alignment = 2
 
 [node name="RangeAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=1663685622]
@@ -187,7 +188,7 @@ offset_left = 70.0
 offset_right = 155.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 8
-text = "E"
+text = "G"
 horizontal_alignment = 2
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player1/VBoxContainer" unique_id=637149401]
@@ -210,7 +211,7 @@ offset_top = 1.0
 offset_right = 155.0
 offset_bottom = 24.0
 theme_override_font_sizes/font_size = 8
-text = "R"
+text = "T"
 horizontal_alignment = 2
 
 [node name="Player2" type="Panel" parent="Panel" unique_id=933984158]
@@ -317,7 +318,7 @@ offset_top = 1.0
 offset_right = 181.0
 offset_bottom = 24.0
 theme_override_font_sizes/font_size = 8
-text = "RIGHT_SHIFT"
+text = "M"
 horizontal_alignment = 2
 
 [node name="RangeAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=2142808651]
@@ -337,7 +338,7 @@ offset_left = 8.0
 offset_right = 179.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 8
-text = "-"
+text = "N"
 horizontal_alignment = 2
 
 [node name="SpecialAttack" type="Control" parent="Panel/Player2/VBoxContainer" unique_id=798356783]
@@ -357,7 +358,7 @@ offset_left = 8.0
 offset_right = 179.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 8
-text = "<"
+text = "J"
 horizontal_alignment = 2
 
 [node name="Master" parent="Panel" unique_id=1426433370 node_paths=PackedStringArray("display_label") instance=ExtResource("3_n5dsq")]
