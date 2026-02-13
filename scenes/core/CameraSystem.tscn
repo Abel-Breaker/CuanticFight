@@ -44,10 +44,10 @@ render_target_update_mode = 4
 
 [node name="EnemyArrow" type="TextureRect" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport" unique_id=1380494379]
 z_index = 10
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource("2_ne1ou")
-expand_mode = 1
+stretch_mode = 2
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="CanvasLayer/SplitUI/HBoxContainer" unique_id=797741513]
 layout_mode = 2
@@ -64,7 +64,6 @@ render_target_update_mode = 4
 
 [node name="EnemyArrow" type="TextureRect" parent="CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport" unique_id=1616910679]
 z_index = 10
-offset_right = 64.0
-offset_bottom = 64.0
+offset_right = 32.0
+offset_bottom = 32.0
 texture = ExtResource("2_ne1ou")
-expand_mode = 1

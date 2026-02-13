@@ -181,10 +181,10 @@ func set_enemy_arrow_position(delta:float, enemy_arrow: TextureRect, cam_pos: Ve
 
 	var x_offset: float
 	if diff.x < 0:
-		enemy_arrow.flip_h = false
+		enemy_arrow.flip_h = true
 		x_offset = -1*ARROW_OFFSET_FROM_CENTER
 	else:
-		enemy_arrow.flip_h = true
+		enemy_arrow.flip_h = false
 		x_offset = ARROW_OFFSET_FROM_CENTER
 	
 	var y_offset: float = clampf(diff.y, -MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -32, MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -32)

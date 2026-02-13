@@ -47,21 +47,22 @@ text = "Back
 "
 
 [node name="ButtonL" parent="." unique_id=646361148 instance=ExtResource("3_1wqpf")]
-offset_left = 17.0
-offset_top = 112.0
-offset_right = 81.0
-offset_bottom = 176.0
+offset_top = 117.0
+offset_right = 32.0
+offset_bottom = 149.0
+scale = Vector2(3, 3)
 focus_neighbor_right = NodePath("../ButtonR")
 focus_neighbor_bottom = NodePath("../ButtonBack")
+flip_h = true
 
 [node name="ButtonR" parent="." unique_id=1699661449 instance=ExtResource("3_1wqpf")]
-offset_left = 549.0
-offset_top = 112.0
-offset_right = 613.0
-offset_bottom = 176.0
+offset_left = 543.0
+offset_top = 117.0
+offset_right = 575.0
+offset_bottom = 149.0
+scale = Vector2(3, 3)
 focus_neighbor_left = NodePath("../ButtonL")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
-flip_h = true
 
 [node name="Label" type="Label" parent="." unique_id=1266951080]
 offset_top = 36.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l0wvtwovitky" path="res://scripts/ui/character_selection.gd" id="1_mynl5"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="1_x2kmj"]
-[ext_resource type="StyleBox" uid="uid://c1hqfw0npm5lx" path="res://CUSTOMTHEME.tres" id="2_kt5mm"]
+[ext_resource type="StyleBox" path="res://CUSTOMTHEME.tres" id="2_kt5mm"]
 [ext_resource type="Texture2D" uid="uid://c8vylgg7f5lra" path="res://assets/sprites/idle.png" id="2_yde1c"]
 [ext_resource type="Texture2D" uid="uid://cn40wn4krlrlm" path="res://assets/sprites/iddleSS.png" id="3_dshq4"]
 [ext_resource type="Texture2D" uid="uid://b15d7lsx1sl0x" path="res://assets/sprites/recolors/RC_idle.png" id="4_4ehwj"]
@@ -210,7 +210,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="P2Sprite" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
-position = Vector2(145.52, 94.319984)
+position = Vector2(156.00002, 89.00001)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
 animation = &"idle1"
@@ -294,42 +294,45 @@ text = "RECOLOR"
 icon = SubResource("PlaceholderTexture2D_mynl5")
 
 [node name="ButtonL1" parent="." unique_id=1863651219 instance=ExtResource("8_8jd0c")]
-offset_left = 32.0
 offset_top = 160.0
-offset_right = 96.0
-offset_bottom = 224.0
+offset_right = 32.0
+offset_bottom = 192.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("../ColorButtons1/ButonOriginal")
 focus_neighbor_right = NodePath("../ButtonR1")
 focus_neighbor_bottom = NodePath("../BackMenu")
+flip_h = true
 
 [node name="ButtonL2" parent="." unique_id=1089131369 instance=ExtResource("8_8jd0c")]
-offset_left = 360.0
+offset_left = 322.0
 offset_top = 160.0
-offset_right = 424.0
-offset_bottom = 224.0
+offset_right = 354.0
+offset_bottom = 192.0
+scale = Vector2(2, 2)
 focus_neighbor_top = NodePath("../ColorButtons2/ButonOriginal")
 focus_neighbor_right = NodePath("../ButtonR2")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
+flip_h = true
 
 [node name="ButtonR1" parent="." unique_id=974874284 instance=ExtResource("8_8jd0c")]
-offset_left = 202.0
+offset_left = 256.905
 offset_top = 160.0
-offset_right = 266.0
-offset_bottom = 224.0
+offset_right = 288.905
+offset_bottom = 192.0
+scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL1")
 focus_neighbor_top = NodePath("../ColorButtons1/ButonRecolor")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
-flip_h = true
 
 [node name="ButtonR2" parent="." unique_id=543785781 instance=ExtResource("8_8jd0c")]
-offset_left = 530.0
+offset_left = 576.095
 offset_top = 160.0
-offset_right = 594.0
-offset_bottom = 224.0
+offset_right = 608.095
+offset_bottom = 192.0
+scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL2")
 focus_neighbor_top = NodePath("../ColorButtons2/ButonRecolor")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
-flip_h = true
 
 [node name="CharacterName1" type="Label" parent="." unique_id=1801647976]
 offset_left = 84.0
