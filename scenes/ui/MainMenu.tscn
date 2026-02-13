@@ -14,9 +14,9 @@ script = ExtResource("1_6jbdy")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1732511455]
 z_index = -1
 layout_mode = 0
-offset_top = -34.0
+offset_top = -40.0
 offset_right = 3072.0
-offset_bottom = 2014.0
+offset_bottom = 2008.0
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("4_2ysvc")
 

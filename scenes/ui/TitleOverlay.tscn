@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c6fp4kcon7bcj" path="res://TitleOverlay.gd" id="1_nar7r"]
 [ext_resource type="Texture2D" uid="uid://pjb5k2tghwae" path="res://assets/sprites/background.png" id="2_v52a5"]
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="3_n8r8u"]
+[ext_resource type="Texture2D" uid="uid://bxo8rgcbww5by" path="res://assets/sprites/Cinematic/titulov1.png" id="4_v52a5"]
 
 [node name="TitleOverlay" type="CanvasLayer" unique_id=2076845849]
 script = ExtResource("1_nar7r")
@@ -14,9 +15,22 @@ offset_bottom = 2008.0
 scale = Vector2(0.21, 0.21)
 texture = ExtResource("2_v52a5")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1461042178]
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 0.41568628)
+
 [node name="Start" parent="." unique_id=777942862 instance=ExtResource("3_n8r8u")]
-offset_left = 113.0
-offset_top = 223.0
-offset_right = 539.0
-offset_bottom = 263.0
+offset_left = 112.0
+offset_top = 258.0
+offset_right = 538.0
+offset_bottom = 298.0
 text = "Press SPACE to Start the Game"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1798156452]
+offset_left = 171.00002
+offset_top = 63.0
+offset_right = 231.00002
+offset_bottom = 93.0
+scale = Vector2(5, 5)
+texture = ExtResource("4_v52a5")
