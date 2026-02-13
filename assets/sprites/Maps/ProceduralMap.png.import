@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctk4pp1a1ve8h"
-path="res://.godot/imported/map1.png-1d74efa059e514bc3bd5edf1cc2c0371.ctex"
+uid="uid://bnwb263tn7n3b"
+path="res://.godot/imported/ProceduralMap.png-276add5fd39135004e1be8a356fdc3c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Maps/map1.png"
-dest_files=["res://.godot/imported/map1.png-1d74efa059e514bc3bd5edf1cc2c0371.ctex"]
+source_file="res://assets/sprites/Maps/ProceduralMap.png"
+dest_files=["res://.godot/imported/ProceduralMap.png-276add5fd39135004e1be8a356fdc3c3.ctex"]
 
 [params]
 
