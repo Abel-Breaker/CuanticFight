@@ -9,10 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="5_mynl5"]
 [ext_resource type="Texture2D" uid="uid://c58t3bpy5ahix" path="res://assets/sprites/recolors/iddleSS-fotor-20260210171550.png" id="6_8jd0c"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="8_8jd0c"]
-[ext_resource type="Material" uid="uid://b7rpqhu0qirfg" path="res://shaders/color_select_btn_radius.tres" id="9_gyghb"]
-[ext_resource type="PackedScene" uid="uid://d1r5nlwvncynu" path="res://scenes/ui/InfoButton.tscn" id="10_eqxdx"]
+[ext_resource type="Texture2D" uid="uid://by1xhi22bpu63" path="res://assets/sprites/recolorBlue.png" id="8_kpj5d"]
+[ext_resource type="Texture2D" uid="uid://dvcb8otuetgu1" path="res://assets/sprites/recolorBlueFocus.png" id="9_uyaey"]
+[ext_resource type="Texture2D" uid="uid://g3wet6avbsn5" path="res://assets/sprites/recolorPurple.png" id="10_qt2xo"]
+[ext_resource type="Texture2D" uid="uid://bdqb5slwiui43" path="res://assets/sprites/recolorPurpleFocus.png" id="11_ecf3m"]
 [ext_resource type="PackedScene" uid="uid://4vy747kknsw3" path="res://scenes/ui/HabilitiesPanel.tscn" id="11_eqxdx"]
 [ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="12_4aop3"]
+[ext_resource type="Texture2D" uid="uid://oifqr1rw5oap" path="res://assets/sprites/arrow_focused.png" id="13_qt2xo"]
+[ext_resource type="Texture2D" uid="uid://dimtds2ina4n5" path="res://assets/sprites/informationIcon_focused.png" id="14_uyaey"]
+[ext_resource type="Texture2D" uid="uid://deop0354ucoc0" path="res://assets/sprites/informationIcon.png" id="15_qt2xo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dshq4"]
 atlas = ExtResource("2_yde1c")
@@ -135,17 +140,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mynl5"]
-
-[sub_resource type="Gradient" id="Gradient_8jd0c"]
-offsets = PackedFloat32Array(0, 0.19140625, 0.41015625, 0.6640625, 1)
-colors = PackedColorArray(0.6313726, 0, 0.6431373, 1, 0.55929184, 3.6236675e-06, 0.5691757, 1, 0.48825672, 7.1947698e-06, 0.49628705, 1, 0.35306084, 1.3991384e-05, 0.3575635, 1, 0.18043712, 2.2669583e-05, 0.18043548, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_gyghb"]
-gradient = SubResource("Gradient_8jd0c")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
 [node name="CharacterSelection" type="CanvasLayer" unique_id=28851735]
 script = ExtResource("1_mynl5")
 
@@ -188,7 +182,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="P1Sprite" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer/Control" unique_id=606425235]
-position = Vector2(145.52, 94.319984)
+position = Vector2(158.535, 104.635)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
 animation = &"idle0"
@@ -210,7 +204,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="P2Sprite" type="AnimatedSprite2D" parent="HBoxContainer/VBoxContainer2/Control" unique_id=1432837176]
-position = Vector2(156.00002, 89.00001)
+position = Vector2(156.00002, 104.635)
 scale = Vector2(1.965, 1.965)
 sprite_frames = SubResource("SpriteFrames_4aop3")
 animation = &"idle1"
@@ -219,99 +213,81 @@ autoplay = "idle1"
 [node name="ColorButtons1" type="Control" parent="." unique_id=135440090]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 273.0
-offset_top = 305.0
-offset_right = 313.0
-offset_bottom = 345.0
+offset_left = 299.685
+offset_top = 311.785
+offset_right = 339.685
+offset_bottom = 351.785
 mouse_filter = 2
 
-[node name="ButonOriginal" parent="ColorButtons1" unique_id=517608523 instance=ExtResource("5_mynl5")]
+[node name="ButtonOriginal1" type="TextureButton" parent="ColorButtons1" unique_id=294168405]
 layout_mode = 0
 offset_left = -244.0
 offset_top = -240.0
-offset_right = -123.0
+offset_right = -204.0
 offset_bottom = -200.0
-focus_neighbor_top = NodePath("../../Habilities1/InfoButton")
-focus_neighbor_right = NodePath("../ButonRecolor")
-focus_neighbor_bottom = NodePath("../../ButtonL1")
-text = "CLASSIC"
-icon = SubResource("PlaceholderTexture2D_mynl5")
+texture_normal = ExtResource("8_kpj5d")
+texture_hover = ExtResource("9_uyaey")
+texture_focused = ExtResource("9_uyaey")
 
-[node name="ButonRecolor" parent="ColorButtons1" unique_id=115925891 instance=ExtResource("5_mynl5")]
+[node name="ButtonRecolor1" type="TextureButton" parent="ColorButtons1" unique_id=1103755226]
 layout_mode = 0
-offset_left = -108.0
+offset_left = -105.41
 offset_top = -240.0
-offset_right = 13.0
+offset_right = -43.410004
 offset_bottom = -200.0
-focus_neighbor_left = NodePath("../ButonOriginal")
-focus_neighbor_top = NodePath("../../Habilities1/InfoButton")
-focus_neighbor_right = NodePath("../../ColorButtons2/ButonOriginal")
-focus_neighbor_bottom = NodePath("../../ButtonR1")
-text = "RECOLOR"
-icon = SubResource("PlaceholderTexture2D_mynl5")
-
-[node name="TestButtonOriginal" parent="ColorButtons1" unique_id=646361148 instance=ExtResource("8_8jd0c")]
-material = ExtResource("9_gyghb")
-layout_mode = 0
-offset_left = -215.0
-offset_top = -248.0
-offset_right = -151.0
-offset_bottom = -184.0
-texture_normal = SubResource("GradientTexture2D_gyghb")
+texture_normal = ExtResource("10_qt2xo")
+texture_hover = ExtResource("11_ecf3m")
+texture_focused = ExtResource("11_ecf3m")
 
 [node name="ColorButtons2" type="Control" parent="." unique_id=713796034]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 273.0
-offset_top = 305.0
-offset_right = 313.0
-offset_bottom = 345.0
+offset_left = 620.065
+offset_top = 311.785
+offset_right = 660.06525
+offset_bottom = 351.785
 mouse_filter = 2
 
-[node name="ButonOriginal" parent="ColorButtons2" unique_id=1172709540 instance=ExtResource("5_mynl5")]
+[node name="ButtonOriginal2" type="TextureButton" parent="ColorButtons2" unique_id=2123363902]
 layout_mode = 0
-offset_left = 76.0
+offset_left = -244.0
 offset_top = -240.0
-offset_right = 197.0
+offset_right = -204.0
 offset_bottom = -200.0
-focus_neighbor_left = NodePath("../../ColorButtons1/ButonRecolor")
-focus_neighbor_top = NodePath("../../Habilities2/InfoButton")
-focus_neighbor_right = NodePath("../ButonRecolor")
-focus_neighbor_bottom = NodePath("../../ButtonL2")
-text = "CLASSIC"
-icon = SubResource("PlaceholderTexture2D_mynl5")
+texture_normal = ExtResource("8_kpj5d")
+texture_hover = ExtResource("9_uyaey")
+texture_focused = ExtResource("9_uyaey")
 
-[node name="ButonRecolor" parent="ColorButtons2" unique_id=1973549573 instance=ExtResource("5_mynl5")]
+[node name="ButtonRecolor2" type="TextureButton" parent="ColorButtons2" unique_id=1246184615]
 layout_mode = 0
-offset_left = 212.0
+offset_left = -105.41
 offset_top = -240.0
-offset_right = 337.0
+offset_right = -43.410004
 offset_bottom = -200.0
-focus_neighbor_left = NodePath("../ButonOriginal")
-focus_neighbor_top = NodePath("../../Habilities2/InfoButton")
-focus_neighbor_bottom = NodePath("../../ButtonR2")
-text = "RECOLOR"
-icon = SubResource("PlaceholderTexture2D_mynl5")
+texture_normal = ExtResource("10_qt2xo")
+texture_hover = ExtResource("11_ecf3m")
+texture_focused = ExtResource("11_ecf3m")
 
 [node name="ButtonL1" parent="." unique_id=1863651219 instance=ExtResource("8_8jd0c")]
+offset_left = 38.655
 offset_top = 160.0
-offset_right = 32.0
+offset_right = 70.655
 offset_bottom = 192.0
 scale = Vector2(2, 2)
-focus_neighbor_top = NodePath("../ColorButtons1/ButonOriginal")
 focus_neighbor_right = NodePath("../ButtonR1")
 focus_neighbor_bottom = NodePath("../BackMenu")
+texture_hover = ExtResource("13_qt2xo")
 flip_h = true
 
 [node name="ButtonL2" parent="." unique_id=1089131369 instance=ExtResource("8_8jd0c")]
-offset_left = 322.0
+offset_left = 349.115
 offset_top = 160.0
-offset_right = 354.0
+offset_right = 381.115
 offset_bottom = 192.0
 scale = Vector2(2, 2)
-focus_neighbor_top = NodePath("../ColorButtons2/ButonOriginal")
 focus_neighbor_right = NodePath("../ButtonR2")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
+texture_hover = ExtResource("13_qt2xo")
 flip_h = true
 
 [node name="ButtonR1" parent="." unique_id=974874284 instance=ExtResource("8_8jd0c")]
@@ -321,18 +297,18 @@ offset_right = 288.905
 offset_bottom = 192.0
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL1")
-focus_neighbor_top = NodePath("../ColorButtons1/ButonRecolor")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
+texture_hover = ExtResource("13_qt2xo")
 
 [node name="ButtonR2" parent="." unique_id=543785781 instance=ExtResource("8_8jd0c")]
-offset_left = 576.095
+offset_left = 567.505
 offset_top = 160.0
-offset_right = 608.095
+offset_right = 599.505
 offset_bottom = 192.0
 scale = Vector2(2, 2)
 focus_neighbor_left = NodePath("../ButtonL2")
-focus_neighbor_top = NodePath("../ColorButtons2/ButonRecolor")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
+texture_hover = ExtResource("13_qt2xo")
 
 [node name="CharacterName1" type="Label" parent="." unique_id=1801647976]
 offset_left = 84.0
@@ -359,15 +335,16 @@ offset_right = 314.0
 offset_bottom = 361.0
 mouse_filter = 2
 
-[node name="InfoButton" parent="Habilities1" unique_id=1648082862 instance=ExtResource("10_eqxdx")]
+[node name="InfoButton" type="TextureButton" parent="Habilities1" unique_id=1634214494]
 layout_mode = 0
-offset_left = 225.0
-offset_top = -1.0
-offset_right = 325.0
-offset_bottom = 99.0
-focus_neighbor_left = NodePath("../../ColorButtons1/ButonOriginal")
-focus_neighbor_right = NodePath("../../Habilities2/InfoButton")
-focus_neighbor_bottom = NodePath("../../ColorButtons1/ButonRecolor")
+offset_left = 236.0
+offset_top = 25.0
+offset_right = 253.00003
+offset_bottom = 41.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("15_qt2xo")
+texture_hover = ExtResource("14_uyaey")
+texture_focused = ExtResource("14_uyaey")
 
 [node name="HabilitiesPanel" parent="Habilities1" unique_id=505526004 instance=ExtResource("11_eqxdx")]
 layout_mode = 0
@@ -385,15 +362,16 @@ offset_right = 642.0
 offset_bottom = 363.0
 mouse_filter = 2
 
-[node name="InfoButton" parent="Habilities2" unique_id=1752325818 instance=ExtResource("10_eqxdx")]
+[node name="InfoButton" type="TextureButton" parent="Habilities2" unique_id=1673389597]
 layout_mode = 0
-offset_left = 46.000015
-offset_top = -1.9999981
-offset_right = 146.00002
-offset_bottom = 98.0
-focus_neighbor_left = NodePath("../../Habilities1/InfoButton")
-focus_neighbor_right = NodePath("../../ColorButtons2/ButonRecolor")
-focus_neighbor_bottom = NodePath("../../ColorButtons2/ButonOriginal")
+offset_left = 233.99998
+offset_top = 22.0
+offset_right = 251.0
+offset_bottom = 38.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("15_qt2xo")
+texture_hover = ExtResource("14_uyaey")
+texture_focused = ExtResource("14_uyaey")
 
 [node name="HabilitiesPanel" parent="Habilities2" unique_id=1015656587 instance=ExtResource("11_eqxdx")]
 layout_mode = 0

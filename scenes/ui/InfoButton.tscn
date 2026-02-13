@@ -8,13 +8,17 @@
 [ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="5_rvo2o"]
 
 [node name="InfoButton" type="TextureButton" unique_id=1202718053]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(0.35, 0.35)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
 texture_normal = ExtResource("1_q1w62")
 texture_hover = ExtResource("2_2fo84")
-flip_h = true
-flip_v = true
+texture_focused = ExtResource("2_2fo84")
 
 [node name="Node" type="Node" parent="." unique_id=2140670466]
 script = ExtResource("2_7vsbh")

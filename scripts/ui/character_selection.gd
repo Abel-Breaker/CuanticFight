@@ -7,10 +7,10 @@ extends CanvasLayer
 @onready var playButton : Button = $ButtonPlay
 @onready var backToMenuButton: Button = $BackMenu
 
-@onready var swapOriginal1 : Button = $ColorButtons1/ButonOriginal
-@onready var swapRecolor1: Button = $ColorButtons1/ButonRecolor
-@onready var swapOriginal2 : Button = $ColorButtons2/ButonOriginal
-@onready var swapRecolor2: Button = $ColorButtons2/ButonRecolor
+@onready var swapOriginal1 : TextureButton = $ColorButtons1/ButtonOriginal1
+@onready var swapRecolor1: TextureButton = $ColorButtons1/ButtonRecolor1
+@onready var swapOriginal2 : TextureButton = $ColorButtons2/ButtonOriginal2
+@onready var swapRecolor2: TextureButton = $ColorButtons2/ButtonRecolor2
 
 @onready var keyboard_change_character_sound: AudioStreamPlayer = $PressDown
 

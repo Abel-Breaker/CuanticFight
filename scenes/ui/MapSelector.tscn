@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cjooovg6fc0m3" path="res://scenes/ui/Button.tscn" id="2_o1ofn"]
 [ext_resource type="PackedScene" uid="uid://blblhdtpyotkh" path="res://scenes/ui/ButtonTexture.tscn" id="3_1wqpf"]
 [ext_resource type="Texture2D" uid="uid://co3cvxl4b0xyh" path="res://assets/sprites/Maps/BlueMap.png" id="5_1k8hj"]
+[ext_resource type="Texture2D" uid="uid://oifqr1rw5oap" path="res://assets/sprites/arrow_focused.png" id="5_sv5hm"]
 [ext_resource type="AudioStream" uid="uid://cs8knsps2l326" path="res://assets/sounds/button_click3.mp3" id="6_1k8hj"]
 
 [node name="MapSelector" type="CanvasLayer" unique_id=499275695]
@@ -53,6 +54,7 @@ offset_bottom = 149.0
 scale = Vector2(3, 3)
 focus_neighbor_right = NodePath("../ButtonR")
 focus_neighbor_bottom = NodePath("../ButtonBack")
+texture_hover = ExtResource("5_sv5hm")
 flip_h = true
 
 [node name="ButtonR" parent="." unique_id=1699661449 instance=ExtResource("3_1wqpf")]
@@ -63,6 +65,7 @@ offset_bottom = 149.0
 scale = Vector2(3, 3)
 focus_neighbor_left = NodePath("../ButtonL")
 focus_neighbor_bottom = NodePath("../ButtonPlay")
+texture_hover = ExtResource("5_sv5hm")
 
 [node name="Label" type="Label" parent="." unique_id=1266951080]
 offset_top = 36.0
