@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq83fgaria5o"]
 
-[ext_resource type="Script" uid="uid://cgorletvs4y6e" path="res://scenes/ui/InitialCinematic.gd" id="1_j5i3h"]
+[ext_resource type="Script" uid="uid://cgorletvs4y6e" path="res://scripts/ui/InitialCinematic.gd" id="1_j5i3h"]
 [ext_resource type="Texture2D" uid="uid://be4s2lq2nrkki" path="res://assets/sprites/Cinematic/scene1_1.png" id="1_om7o3"]
 [ext_resource type="Texture2D" uid="uid://dyx0cxfaogvki" path="res://assets/sprites/Cinematic/scene1_2.png" id="2_l58oh"]
 [ext_resource type="Texture2D" uid="uid://dix7pa64jhggo" path="res://assets/sprites/Cinematic/scene1_3.png" id="3_rm10c"]
@@ -137,7 +137,7 @@ offset_top = 209.0
 offset_right = 599.0
 offset_bottom = 288.0
 theme_override_colors/font_color = Color(0.84313726, 1, 1, 0.7411765)
-text = "BLALLALKBAKJBLKJANLBKJANSB ..."
+text = "As the only stablished power on the universe, the classical physics reigned undisturbed."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -150,7 +150,7 @@ offset_top = 104.0
 offset_right = 279.0
 offset_bottom = 183.0
 theme_override_colors/font_color = Color(0.84313726, 1, 1, 0.7411765)
-text = "BLALLALKBAKJBLKJANLBKJANSB ..."
+text = "That is, until anomalies began to reshape the world he owned."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -163,7 +163,7 @@ offset_top = 16.0
 offset_right = 452.0
 offset_bottom = 95.0
 theme_override_colors/font_color = Color(0.84313726, 1, 1, 0.7411765)
-text = "BLALLALKBAKJBLKJANLBKJANSB ..."
+text = "Therefore, the classical physics sought to find the culprit and bring judgment upon them..."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
