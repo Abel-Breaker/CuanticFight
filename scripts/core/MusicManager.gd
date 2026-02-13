@@ -25,7 +25,7 @@ func _ready() -> void:
 	set_bus_volume("SFX", 70)
 
 func setup():
-	cinematic_music.stream = load("res://assets/music/cinematic_final.mp3")
+	cinematic_music.stream = load("res://assets/music/cinematic_final_2.mp3")
 	menu_music.stream = load("res://assets/music/menu_theme.ogg")
 	stage_music.stream = load("res://assets/music/main_stage.ogg")
 
@@ -33,7 +33,7 @@ func on_heartbeat():
 	heartbeat_sound.play()
 
 func play_cinematic_music():
-	crossfade_to(cinematic_music, 0.1)#1.5)
+	crossfade_to(cinematic_music, 0.1)
 
 func play_menu_music():
 	crossfade_to(menu_music, 1.0)
