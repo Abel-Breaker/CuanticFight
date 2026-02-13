@@ -1075,7 +1075,7 @@ shape = SubResource("RectangleShape2D_plctd")
 [node name="LightAttack" parent="." unique_id=77710774 instance=ExtResource("7_vqasi")]
 position = Vector2(6.5, 6.5)
 scale = Vector2(1.1419997, -0.98899955)
-damage = 15
+damage = 18
 soundEffect = ExtResource("20_jqiwc")
 
 [node name="RangeAttack" parent="." unique_id=1145426432 instance=ExtResource("10_plctd")]
