@@ -123,7 +123,6 @@ func received_damage(damage_amount : int) -> bool:
 	return false
 
 func _physics_process(delta: float) -> void:
-	print(self, sprite.animation)
 	if current_health <= 0 or not canAct: return
 	
 	evaluate_base_animation()
