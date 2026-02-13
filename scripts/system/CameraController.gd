@@ -4,7 +4,7 @@ enum CameraMode { SINGLE, SPLIT }
 
 @export var split_distance: float = 400.0
 @export var transition_speed: float = 5.0
-@export var arrow_snap_speed: float = 15.0
+@export var arrow_snap_speed: float = 20.0
 
 @onready var cam_single: Camera2D = $CameraSingle
 
@@ -19,8 +19,8 @@ enum CameraMode { SINGLE, SPLIT }
 @onready var enemy_arrow_p1: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer/SubViewport/EnemyArrow
 @onready var enemy_arrow_p2: TextureRect = $CanvasLayer/SplitUI/HBoxContainer/SubViewportContainer2/SubViewport/EnemyArrow
 
-const ARROW_OFFSET_FROM_CENTER = 160. - (64. / 2.) #NOTE: Width of the viewport minus half the arrow's width
-const MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER = 180. - (64. / 2.)#NOTE: Height of the viewport minus half the arrow's height
+const ARROW_OFFSET_FROM_CENTER = 160. - (32. / 2.) #NOTE: Width of the viewport minus half the arrow's width
+const MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER = 180. - (32. / 2.)#NOTE: Height of the viewport minus half the arrow's height
 
 var players: Array[CharacterParent] = []
 var mode: CameraMode = CameraMode.SINGLE
@@ -187,8 +187,8 @@ func set_enemy_arrow_position(delta:float, enemy_arrow: TextureRect, cam_pos: Ve
 		enemy_arrow.flip_h = false
 		x_offset = ARROW_OFFSET_FROM_CENTER
 	
-	var y_offset: float = clampf(diff.y, -MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -32, MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -32)
-	enemy_arrow.global_position = Vector2(cam_pos.x + x_offset -32, lerpf(enemy_arrow.global_position.y, cam_pos.y + y_offset, arrow_snap_speed * delta))
+	var y_offset: float = clampf(diff.y, -MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -16, MAX_ARROW_VERTICAL_OFFSET_FROM_CENTER -16)
+	enemy_arrow.global_position = Vector2(cam_pos.x + x_offset -16, lerpf(enemy_arrow.global_position.y, cam_pos.y + y_offset, arrow_snap_speed * delta))
 
 
 # Calcula el zoom basado en la distancia entre los jugadores de un par
