@@ -25,9 +25,10 @@ offset_left = 112.0
 offset_top = 258.0
 offset_right = 538.0
 offset_bottom = 298.0
+disabled = true
 text = "Press SPACE to Start the Game"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1798156452]
+[node name="Title" type="TextureRect" parent="." unique_id=1798156452]
 offset_left = 171.00002
 offset_top = 63.0
 offset_right = 231.00002
