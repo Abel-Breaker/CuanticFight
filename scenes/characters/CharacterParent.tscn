@@ -577,16 +577,15 @@ shape = SubResource("RectangleShape2D_8bv2p")
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_vcla3")
-animation = &"light_attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 2
 
 [node name="RECOLOR" type="AnimatedSprite2D" parent="." unique_id=863561660]
 visible = false
 position = Vector2(-2.25, -17.625)
 scale = Vector2(0.39648438, 0.39648438)
 sprite_frames = SubResource("SpriteFrames_px65p")
-animation = &"especial_attack"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=548517638 groups=["Hurtbox"]]

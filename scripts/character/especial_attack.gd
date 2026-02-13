@@ -134,8 +134,9 @@ func duplicate_character() -> void:
 	characterClone.especialAttack.isActive = true
 	characterClone.especialAttack.canBeUsed = false
 	characterClone.flip_character(character.isLookingLeft)
+	characterClone.setColor(character.i_am_recolor)
 	
-	characterClone.request_anim("especial_attack")
+	characterClone.request_anim("idle")
 	SignalContainer.player_duplicated_himself.emit(character.charID)
 
 func set_duplication_effect_anim_sprite(i_am_recolor: bool):

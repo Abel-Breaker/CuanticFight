@@ -76,6 +76,7 @@ func _exit_tree() -> void:
 		hurtbox.body_entered.disconnect(on_hurtbox_body_entered)
 
 func _ready() -> void:
+	print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
 	#print("PLAYER" + str(charID)+" is in group: " + str(self.get_groups()))
 	sprite.animation_finished.connect(_on_anim_finished)
 	lightAttack.setup(self)
@@ -122,6 +123,7 @@ func received_damage(damage_amount : int) -> bool:
 	return false
 
 func _physics_process(delta: float) -> void:
+	print(self, sprite.animation)
 	if current_health <= 0 or not canAct: return
 	
 	evaluate_base_animation()
@@ -192,7 +194,8 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("especial_attack_"+str(charID)):
 		if especialAttack.try_to_use():
-			request_anim("especial_attack")
+			if player_type != ProyectilesManager.ProyectileType.QUANTIC:
+				request_anim("especial_attack")
 		
 	move_and_slide()
 	
