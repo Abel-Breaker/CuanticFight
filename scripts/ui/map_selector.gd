@@ -30,7 +30,7 @@ var MapsNames : Array[String] = [ \
 "Qrater, Qave and Mountain", \
 "Quiet Mound", \
 "Twisting Qaverns", \
-"Procedural Map"]
+"Procedurally Generated Map"]
 
 
 func _exit_tree() -> void:
